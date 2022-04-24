@@ -11,6 +11,7 @@ deploymaven:
   stage: build
   only:
     - dev
+    - feature
     - /^feat/.*/
     - /^release-.*/
     - /^experimental.*/
@@ -27,6 +28,7 @@ sonar:
   allow_failure: true
   only:
     - dev
+    - feature
     - /^feat/.*/
     - /^release-.*/
     - /^experimental.*/
