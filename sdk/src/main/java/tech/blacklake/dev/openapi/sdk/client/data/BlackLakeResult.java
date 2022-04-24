@@ -1,4 +1,4 @@
-package tech.blacklake.dev.openapi.sdk.common.data;
+package tech.blacklake.dev.openapi.sdk.client.data;
 
 /**
  * @author cuiyichen

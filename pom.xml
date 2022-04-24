@@ -16,7 +16,6 @@
 
         <jackson-databind.version>2.11.1</jackson-databind.version>
         <okhttp.version>3.14.9</okhttp.version>
-        <guava.version>19.0</guava.version>
     </properties>
 
     <modules>
@@ -35,12 +34,6 @@
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
                 <version>${okhttp.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

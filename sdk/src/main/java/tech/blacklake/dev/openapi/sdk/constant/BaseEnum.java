@@ -1,4 +1,4 @@
-package tech.blacklake.dev.openapi.sdk.common.constant;
+package tech.blacklake.dev.openapi.sdk.constant;
 
 /**
  * @author cyc

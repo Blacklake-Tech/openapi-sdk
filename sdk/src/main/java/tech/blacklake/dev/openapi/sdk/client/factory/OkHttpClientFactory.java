@@ -1,4 +1,4 @@
-package tech.blacklake.dev.openapi.sdk.client;
+package tech.blacklake.dev.openapi.sdk.client.factory;
 
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
