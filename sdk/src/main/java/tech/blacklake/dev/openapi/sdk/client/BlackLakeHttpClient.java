@@ -29,6 +29,7 @@ public class BlackLakeHttpClient {
     private final String appKey;
     private final String appSecret;
     private final String factoryNumber;
+    private String token;
 
     private static final String ACCESS_TOKEN = "access_token";
 
@@ -43,6 +44,8 @@ public class BlackLakeHttpClient {
 
     private final static int BLACK_LAKE_CODE_OK = 200;
 
+    private final static String TOKEN_EXPIRED_SUBCODE = "SSO_TOKEN_FAIL";
+
     public BlackLakeHttpClient(String appKey, String appSecret, String factoryNumber) {
         this(appKey, appSecret, factoryNumber, null);
     }
@@ -55,70 +58,76 @@ public class BlackLakeHttpClient {
         this.appSecret = appSecret;
         this.factoryNumber = factoryNumber;
         okHttpClient = OkHttpClientFactory.getHttpClient(blackLakeHttpClientConfig);
+        this.token = manualRefreshToken();
     }
 
     /**
      * 同步调用
      *
-     * @param request     request
-     * @param accessToken access token
-     * @param <T>         request body类型
-     * @param <U>         response body类型
+     * @param request request
+     * @param <T>     request body类型
+     * @param <U>     response body类型
      */
-    public <T, U> BlackLakeResult<U> syncInvoke(BlackLakeRequest<T, U> request, String accessToken) {
-        String url = handleUrl(request.getUrl());
-        byte[] responseBodyBytes = doPost(request.getRequestBody(), url, accessToken);
-
-        try {
-            return OBJECT_MAPPER.readValue(responseBodyBytes, new TypeReference<BlackLakeResult<U>>() {
-            });
-        } catch (Exception e) {
-            throw new BlackLakeHttpClientException(ErrorCodeEnum.RESPONSE_BODY_SERIALIZATION_FAILED);
-        }
+    public <T, U> BlackLakeResult<U> syncInvoke(BlackLakeRequest<T, U> request) {
+        return doSyncInvoke(request, true);
     }
 
     /**
      * 异步调用
      *
-     * @param request     request
-     * @param accessToken access token
-     * @param <T>         request body类型
-     * @param <U>         response body类型
+     * @param request request
+     * @param <T>     request body类型
+     * @param <U>     response body类型
      */
-    public <T, U> Future<U> asyncInvoke(BlackLakeRequest<T, U> request, String accessToken) {
+    public <T, U> Future<U> asyncInvoke(BlackLakeRequest<T, U> request) {
         // TODO
         throw new UnsupportedOperationException();
     }
 
     /**
-     * 获取access_token
+     * 刷新token
      */
-    public String getAccessToken() {
-        byte[] responseBody = doPost(
-                new RefreshTokenRequestDTO(appKey, appSecret, factoryNumber),
-                UrlEnum.REFRESH_ACCESS_TOKEN.getMessage(),
-                null
-        );
-
-        String accessToken;
-        try {
-            BlackLakeResult<RefreshTokenResponseDTO> result = OBJECT_MAPPER.readValue(responseBody,
-                    new TypeReference<BlackLakeResult<RefreshTokenResponseDTO>>() {
-                    });
-            handleBlackLakeResult(result);
-            accessToken = result.getData().token;
-        } catch (IOException e) {
-            throw new BlackLakeHttpClientException(ErrorCodeEnum.JSON_PARSE_FAILED, e.getMessage());
-        }
-        return accessToken;
+    public String manualRefreshToken() {
+        BlackLakeRequest<RefreshTokenRequestDTO, RefreshTokenResponseDTO> request = new BlackLakeRequest<>(UrlEnum.REFRESH_ACCESS_TOKEN.getMessage(), new RefreshTokenRequestDTO(appKey, appSecret, factoryNumber));
+        BlackLakeResult<RefreshTokenResponseDTO> result = syncInvoke(request);
+        this.token = result.getData().token;
+        return token;
     }
 
-    private <T> byte[] doPost(T requestBody, String url, String accessToken) {
+    private <T, U> BlackLakeResult<U> doSyncInvoke(BlackLakeRequest<T, U> request, boolean autoRefreshToken) {
+        String url = handleUrl(request.getUrl());
+        byte[] responseBodyBytes = doPost(request.getRequestBody(), url);
+
+        BlackLakeResult<U> result;
+        try {
+            // TODO 反序列化有点问题，会反序列化成LinkedHashMap，泛型U没接到
+            result = OBJECT_MAPPER.readValue(responseBodyBytes, new TypeReference<BlackLakeResult<U>>() {
+            });
+        } catch (IOException e) {
+            throw new BlackLakeHttpClientException(ErrorCodeEnum.RESPONSE_BODY_DESERIALIZE_FAILED, e.getMessage());
+        }
+
+        // 黑湖自定义错误信息处理
+        if (result.getCode() != BLACK_LAKE_CODE_OK) {
+            if (TOKEN_EXPIRED_SUBCODE.equals(result.getSubCode()) && autoRefreshToken) {
+                // 刷新token并重新调用open api
+                token = manualRefreshToken();
+                // 只尝试刷新一次token，避免死循环
+                return doSyncInvoke(request, false);
+            } else {
+                throw new BlackLakeHttpClientException(ErrorCodeEnum.BLACK_LAKE_ERROR_MESSAGE, result.getMessage());
+            }
+        }
+
+        return result;
+    }
+
+    private <T> byte[] doPost(T requestBody, String url) {
         HttpUrl oriHttpUrl = HttpUrl.parse(url);
         Preconditions.checkNotNull(oriHttpUrl, ErrorCodeEnum.URL_PARSE_FAILED, url);
         HttpUrl.Builder httpUrlBuilder = oriHttpUrl.newBuilder();
-        if (accessToken != null) {
-            httpUrlBuilder.addQueryParameter(ACCESS_TOKEN, accessToken);
+        if (token != null) {
+            httpUrlBuilder.addQueryParameter(ACCESS_TOKEN, token);
         }
         HttpUrl httpUrl = httpUrlBuilder.build();
 
@@ -145,11 +154,6 @@ public class BlackLakeHttpClient {
         return responseBodyBytes;
     }
 
-    private static byte[] handleAccessTokenExpired() {
-        //TODO
-        return null;
-    }
-
     @SuppressWarnings("AlibabaPojoMustOverrideToString")
     private static class RefreshTokenRequestDTO {
         @JsonProperty("appKey")
@@ -173,13 +177,31 @@ public class BlackLakeHttpClient {
     }
 
     private static String handleUrl(String url) {
-        // TODO
+        // TODO hrl的预处理、判断等
         return url;
     }
 
-    private static <T> void handleBlackLakeResult(BlackLakeResult<T> result) {
-        if (result.getCode() != BLACK_LAKE_CODE_OK) {
-            throw new BlackLakeHttpClientException(ErrorCodeEnum.BLACK_LAKE_ERROR_MESSAGE, result.getMessage());
-        }
+    public OkHttpClient getOkHttpClient() {
+        return okHttpClient;
+    }
+
+    public String getAppKey() {
+        return appKey;
+    }
+
+    public String getAppSecret() {
+        return appSecret;
+    }
+
+    public String getFactoryNumber() {
+        return factoryNumber;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

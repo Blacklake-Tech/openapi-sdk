@@ -25,23 +25,19 @@ public class CallOpenapiDemo {
         // 获得http客户端
         BlackLakeHttpClient blackLakeHttpClient = new BlackLakeHttpClient(appKey, appSecret, factoryNumber, blackLakeHttpClientConfig);
 
+        /*调用openapi-1*/
         // openapi-1地址
         String url1 = "xxx";
+        A requestBody1 = new A();
+        BlackLakeRequest<A, B> request1 = new BlackLakeRequest<>(url1, requestBody1);
+        BlackLakeResult<B> result1 = blackLakeHttpClient.syncInvoke(request1);
+
+        /*调用openapi-2*/
         // openapi-2地址
         String url2 = "xxx";
-        // 获取token
-        String accessToken = blackLakeHttpClient.getAccessToken();
-        System.out.println(accessToken);
-
-//        /*调用openapi-1*/
-//        A requestBody1 = new A();
-//        BlackLakeRequest<A, B> request1 = new BlackLakeRequest<>(url1, requestBody1);
-//        BlackLakeResult<B> result1 = blackLakeHttpClient.syncInvoke(request1, accessToken);
-//
-//        /*调用openapi-2*/
-//        C requestBody2 = new C();
-//        BlackLakeRequest<C, D> request2 = new BlackLakeRequest<>(url2, requestBody2);
-//        BlackLakeResult<D> result2 = blackLakeHttpClient.syncInvoke(request2, accessToken);
+        C requestBody2 = new C();
+        BlackLakeRequest<C, D> request2 = new BlackLakeRequest<>(url2, requestBody2);
+        BlackLakeResult<D> result2 = blackLakeHttpClient.syncInvoke(request2);
     }
 
     public static class A {

@@ -13,7 +13,7 @@ public enum ErrorCodeEnum implements BaseEnum<ErrorCodeEnum> {
     REQUEST_BODY_SERIALIZATION_FAILED("request body序列化失败: {0}"),
     CALL_OPENAPI_FAILED("调用黑湖Open API失败: {0}"),
     JSON_PARSE_FAILED("json解析失败: {0}"),
-    RESPONSE_BODY_SERIALIZATION_FAILED("response body序列化失败"),
+    RESPONSE_BODY_DESERIALIZE_FAILED("response body反序列化失败: {0}"),
     BLACK_LAKE_ERROR_MESSAGE("{0}")
     ;
 

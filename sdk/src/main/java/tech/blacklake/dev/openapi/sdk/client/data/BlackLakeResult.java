@@ -3,6 +3,8 @@ package tech.blacklake.dev.openapi.sdk.client.data;
 /**
  * @author cuiyichen
  * @date 2022/04/23 20:07:28
+ *
+ * copy Of blacklake.Result
  */
 public class BlackLakeResult<T> {
     /**
