@@ -29,6 +29,11 @@ public class BlackLakeResult<T> {
      */
     private Integer needCheck;
 
+    /**
+     * 字段权限标识
+     */
+    private FieldPermission fieldPermission;
+
     public BlackLakeResult() {
     }
 
@@ -77,12 +82,13 @@ public class BlackLakeResult<T> {
 
     @Override
     public String toString() {
-        return "Result{" +
+        return "BlackLakeResult{" +
                 "code=" + code +
                 ", data=" + data +
                 ", subCode='" + subCode + '\'' +
                 ", message='" + message + '\'' +
                 ", needCheck=" + needCheck +
+                ", fieldPermission=" + fieldPermission +
                 '}';
     }
 }

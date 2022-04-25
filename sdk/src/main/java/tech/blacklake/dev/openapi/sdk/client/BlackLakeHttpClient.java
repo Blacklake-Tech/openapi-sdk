@@ -1,6 +1,7 @@
 package tech.blacklake.dev.openapi.sdk.client;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -40,6 +41,8 @@ public class BlackLakeHttpClient {
             .setSerializationInclusion(JsonInclude.Include.NON_EMPTY)
             .setSerializationInclusion(JsonInclude.Include.NON_NULL);
 
+    private final static int BLACK_LAKE_CODE_OK = 200;
+
     public BlackLakeHttpClient(String appKey, String appSecret, String factoryNumber) {
         this(appKey, appSecret, factoryNumber, null);
     }
@@ -66,14 +69,12 @@ public class BlackLakeHttpClient {
         String url = handleUrl(request.getUrl());
         byte[] responseBodyBytes = doPost(request.getRequestBody(), url, accessToken);
 
-        U responseBody;
         try {
-            responseBody = OBJECT_MAPPER.readValue(responseBodyBytes, new TypeReference<U>() {
+            return OBJECT_MAPPER.readValue(responseBodyBytes, new TypeReference<BlackLakeResult<U>>() {
             });
         } catch (Exception e) {
             throw new BlackLakeHttpClientException(ErrorCodeEnum.RESPONSE_BODY_SERIALIZATION_FAILED);
         }
-        return new BlackLakeResult<>(responseBody);
     }
 
     /**
@@ -94,16 +95,20 @@ public class BlackLakeHttpClient {
      */
     public String getAccessToken() {
         byte[] responseBody = doPost(
-                new RefreshTokenDTO(appKey, appSecret, factoryNumber),
+                new RefreshTokenRequestDTO(appKey, appSecret, factoryNumber),
                 UrlEnum.REFRESH_ACCESS_TOKEN.getMessage(),
                 null
         );
 
         String accessToken;
         try {
-            accessToken = OBJECT_MAPPER.readValue(responseBody, String.class);
-        } catch (Exception e) {
-            throw new BlackLakeHttpClientException(ErrorCodeEnum.JSON_PARSE_FAILED);
+            BlackLakeResult<RefreshTokenResponseDTO> result = OBJECT_MAPPER.readValue(responseBody,
+                    new TypeReference<BlackLakeResult<RefreshTokenResponseDTO>>() {
+                    });
+            handleBlackLakeResult(result);
+            accessToken = result.getData().token;
+        } catch (IOException e) {
+            throw new BlackLakeHttpClientException(ErrorCodeEnum.JSON_PARSE_FAILED, e.getMessage());
         }
         return accessToken;
     }
@@ -111,24 +116,29 @@ public class BlackLakeHttpClient {
     private <T> byte[] doPost(T requestBody, String url, String accessToken) {
         HttpUrl oriHttpUrl = HttpUrl.parse(url);
         Preconditions.checkNotNull(oriHttpUrl, ErrorCodeEnum.URL_PARSE_FAILED, url);
-        HttpUrl httpUrl = oriHttpUrl.newBuilder()
-                .addQueryParameter(ACCESS_TOKEN, accessToken)
-                .build();
+        HttpUrl.Builder httpUrlBuilder = oriHttpUrl.newBuilder();
+        if (accessToken != null) {
+            httpUrlBuilder.addQueryParameter(ACCESS_TOKEN, accessToken);
+        }
+        HttpUrl httpUrl = httpUrlBuilder.build();
 
         byte[] responseBodyBytes;
         try {
+            String str = OBJECT_MAPPER.writeValueAsString(requestBody);
+            System.out.println(str);
             Request request = new Request.Builder()
                     .url(httpUrl)
-                    .post(RequestBody.create(MEDIA_TYPE_JSON, OBJECT_MAPPER.writeValueAsBytes(requestBody)))
+                    .post(RequestBody.create(MEDIA_TYPE_JSON, OBJECT_MAPPER.writeValueAsString(requestBody)))
                     .build();
+
             Response response = okHttpClient.newCall(request).execute();
             if (!response.isSuccessful() || null == response.body()) {
-                throw new BlackLakeHttpClientException(ErrorCodeEnum.CALL_OPENAPI_FAILED, response.code() + " " + response.message());
+                throw new BlackLakeHttpClientException(ErrorCodeEnum.CALL_OPENAPI_FAILED, response.code());
             }
             responseBodyBytes = response.body().bytes();
 
         } catch (JsonProcessingException e) {
-            throw new BlackLakeHttpClientException(ErrorCodeEnum.REQUEST_BODY_SERIALIZATION_FAILED);
+            throw new BlackLakeHttpClientException(ErrorCodeEnum.REQUEST_BODY_SERIALIZATION_FAILED, e.getMessage());
         } catch (IOException e) {
             throw new BlackLakeHttpClientException(ErrorCodeEnum.CALL_OPENAPI_FAILED, e.getMessage());
         }
@@ -141,20 +151,35 @@ public class BlackLakeHttpClient {
     }
 
     @SuppressWarnings("AlibabaPojoMustOverrideToString")
-    private static class RefreshTokenDTO {
+    private static class RefreshTokenRequestDTO {
+        @JsonProperty("appKey")
         String appKey;
+        @JsonProperty("appSecret")
         String appSecret;
+        @JsonProperty("factoryNumber")
         String factoryNumber;
 
-        public RefreshTokenDTO(String appKey, String appSecret, String factoryNumber) {
+        public RefreshTokenRequestDTO(String appKey, String appSecret, String factoryNumber) {
             this.appKey = appKey;
             this.appSecret = appSecret;
             this.factoryNumber = factoryNumber;
         }
     }
 
+    @SuppressWarnings("AlibabaPojoMustOverrideToString")
+    private static class RefreshTokenResponseDTO {
+        @JsonProperty("token")
+        String token;
+    }
+
     private static String handleUrl(String url) {
         // TODO
         return url;
+    }
+
+    private static <T> void handleBlackLakeResult(BlackLakeResult<T> result) {
+        if (result.getCode() != BLACK_LAKE_CODE_OK) {
+            throw new BlackLakeHttpClientException(ErrorCodeEnum.BLACK_LAKE_ERROR_MESSAGE, result.getMessage());
+        }
     }
 }
