@@ -58,7 +58,7 @@ public class BlackLakeHttpClient {
         this.appSecret = appSecret;
         this.factoryNumber = factoryNumber;
         okHttpClient = OkHttpClientFactory.getHttpClient(blackLakeHttpClientConfig);
-        this.token = manualRefreshToken();
+        manualRefreshToken();
     }
 
     /**
