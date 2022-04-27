@@ -63,13 +63,6 @@ public class BlackLakeHttpClient {
     /**
      * 同步调用
      */
-    public BlackLakeResult syncInvoke(String url) {
-        return syncInvoke(url, null);
-    }
-
-    /**
-     * 同步调用
-     */
     public BlackLakeResult syncInvoke(String url, Object requestBody) {
         // 1. 检查url
         url = handleUrl(url);

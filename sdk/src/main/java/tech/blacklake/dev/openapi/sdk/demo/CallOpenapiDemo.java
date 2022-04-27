@@ -27,7 +27,7 @@ public class CallOpenapiDemo {
 
         /* 调用[出入库管理.入库单列表]接口 */
         String path = "/inventory/open/v1/inboundOrder/_list";
-        BlackLakeResult result = blackLakeHttpClient.syncInvoke(host + path);
+        BlackLakeResult result = blackLakeHttpClient.syncInvoke(host + path, null);
         System.out.println(result);
     }
 }
