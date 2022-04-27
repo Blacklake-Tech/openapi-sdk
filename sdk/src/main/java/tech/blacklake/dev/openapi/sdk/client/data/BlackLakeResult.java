@@ -1,12 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.client.data;
 
+import java.util.LinkedHashMap;
+
 /**
  * @author cuiyichen
  * @date 2022/04/23 20:07:28
  *
- * copy Of blacklake.Result
+ * copy of blacklake.Result
  */
-public class BlackLakeResult<T> {
+public class BlackLakeResult {
     /**
      * 200 success
      * 非200 failure 不同区间标识来自不同服务
@@ -14,16 +16,18 @@ public class BlackLakeResult<T> {
     private Integer code = 200;
 
     /**
-     * 返回前端需要内容
-     * 如果是带分页的list 返回
+     * 返回数据
      */
-    protected T data;
+    protected LinkedHashMap<String, Object> data;
 
     /**
-     * 错误码信息
+     * 错误码
      */
     private String subCode = null;
 
+    /**
+     * 错误信息
+     */
     private String message = "成功";
 
     /**
@@ -36,37 +40,11 @@ public class BlackLakeResult<T> {
      */
     private FieldPermission fieldPermission;
 
-    public BlackLakeResult() {
-    }
-
-    public BlackLakeResult(T data) {
-        this.data = data;
-    }
-
-    public BlackLakeResult(T data, Integer code) {
-        this.data = data;
-        this.code = code;
-    }
-
-    public BlackLakeResult(String subCode, String message, Integer code) {
-        this.subCode = subCode;
-        this.message = message;
-        this.code = code;
-    }
-
-    public BlackLakeResult(String subCode, String message, Integer code, T data, Integer needCheck) {
-        this.subCode = subCode;
-        this.message = message;
-        this.code = code;
-        this.data = data;
-        this.needCheck = needCheck;
-    }
-
     public Integer getCode() {
         return code;
     }
 
-    public T getData() {
+    public LinkedHashMap<String, Object> getData() {
         return data;
     }
 
@@ -80,6 +58,10 @@ public class BlackLakeResult<T> {
 
     public Integer getNeedCheck() {
         return needCheck;
+    }
+
+    public FieldPermission getFieldPermission() {
+        return fieldPermission;
     }
 
     @Override
