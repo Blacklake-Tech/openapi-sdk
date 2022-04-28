@@ -7,17 +7,20 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import okhttp3.*;
-import tech.blacklake.dev.openapi.sdk.client.factory.OkHttpClientFactory;
+import java.io.IOException;
+import okhttp3.HttpUrl;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import tech.blacklake.dev.openapi.sdk.client.config.BlackLakeHttpClientConfig;
 import tech.blacklake.dev.openapi.sdk.client.data.BlackLakeResult;
+import tech.blacklake.dev.openapi.sdk.client.factory.OkHttpClientFactory;
 import tech.blacklake.dev.openapi.sdk.constant.ErrorCodeEnum;
 import tech.blacklake.dev.openapi.sdk.constant.UrlEnum;
 import tech.blacklake.dev.openapi.sdk.exception.BlackLakeHttpClientException;
 import tech.blacklake.dev.openapi.sdk.util.Preconditions;
-
-import java.io.IOException;
-import java.util.concurrent.Future;
 
 /**
  * @author cuiyichen
@@ -27,6 +30,11 @@ public class BlackLakeHttpClient {
     private final OkHttpClient okHttpClient;
     private final RefreshTokenRequestDTO refreshTokenRequestDTO;
     private String token;
+
+    /**
+     * 网关地追
+     */
+    private final String endpoint;
 
     private static final String ACCESS_TOKEN = "access_token";
 
@@ -47,58 +55,44 @@ public class BlackLakeHttpClient {
 
     private final static String EMPTY_JSON = "{}";
 
-    public BlackLakeHttpClient(String appKey, String appSecret, String factoryNumber) {
-        this(appKey, appSecret, factoryNumber, null);
+    public BlackLakeHttpClient(String appKey, String appSecret, String factoryNumber,String endpoint) {
+        this(appKey, appSecret, factoryNumber,endpoint, null);
     }
 
-    public BlackLakeHttpClient(String appKey, String appSecret, String factoryNumber, BlackLakeHttpClientConfig blackLakeHttpClientConfig) {
+    public BlackLakeHttpClient(String appKey, String appSecret, String factoryNumber,String endpoint, BlackLakeHttpClientConfig blackLakeHttpClientConfig) {
         Preconditions.checkNotNull(appKey, ErrorCodeEnum.APP_KEY_IS_NOT_NULLABLE);
         Preconditions.checkNotNull(appSecret, ErrorCodeEnum.APP_SECRET_IS_NOT_NULLABLE);
         Preconditions.checkNotNull(factoryNumber, ErrorCodeEnum.FACTORY_NUMBER_IS_NOT_NULLABLE);
+        Preconditions.checkNotNull(factoryNumber, ErrorCodeEnum.CLIENT_ENDPOINT_NULL);
 
         refreshTokenRequestDTO = new RefreshTokenRequestDTO(appKey, appSecret, factoryNumber);
         okHttpClient = OkHttpClientFactory.getHttpClient(blackLakeHttpClientConfig);
+        this.endpoint = endpoint;
     }
 
     /**
      * 同步调用
      */
-    public BlackLakeResult syncInvoke(String url) {
-        return syncInvoke(url, null);
-    }
-
-    /**
-     * 同步调用
-     */
-    public BlackLakeResult syncInvoke(String url, Object requestBody) {
+    public BlackLakeResult syncInvoke(String url, Object requestBody) throws BlackLakeHttpClientException{
         // 1. 检查url
-        url = handleUrl(url);
+        String formatUrl = handleUrl(url);
 
         // 2. 检查token
         if (token == null) {
-            refreshToken();
+            this.refreshToken();
         }
 
         // 3. 请求
-        BlackLakeResult result = doSyncInvoke(url, requestBody);
+        BlackLakeResult result = doSyncInvoke(formatUrl, requestBody);
 
         // 3. 判断是否需要刷新token
-        boolean needRefreshToken = handleResult(result);
-        if (needRefreshToken) {
+        if (this.handleResult(result)) {
             refreshToken();
-            result = doSyncInvoke(url, requestBody);
+            result = doSyncInvoke(formatUrl, requestBody);
             handleResult(result);
         }
 
         return result;
-    }
-
-    /**
-     * 异步调用
-     */
-    public Future<BlackLakeResult> asyncInvoke(String url, Object requestBody) {
-        // TODO
-        throw new UnsupportedOperationException();
     }
 
     private BlackLakeResult doSyncInvoke(String url, Object requestBody) {
@@ -106,10 +100,12 @@ public class BlackLakeHttpClient {
 
         BlackLakeResult result;
         try {
-            result = OBJECT_MAPPER.readValue(responseBodyBytes, new TypeReference<BlackLakeResult>() {
-            });
+            result = OBJECT_MAPPER.readValue(responseBodyBytes,
+                new TypeReference<BlackLakeResult>() {
+                });
         } catch (IOException e) {
-            throw new BlackLakeHttpClientException(ErrorCodeEnum.RESPONSE_BODY_DESERIALIZE_FAILED, e.getMessage());
+            throw new BlackLakeHttpClientException(ErrorCodeEnum.RESPONSE_BODY_DESERIALIZE_FAILED,
+                e.getMessage());
         }
         return result;
     }
@@ -147,10 +143,10 @@ public class BlackLakeHttpClient {
         return responseBodyBytes;
     }
 
-    private static String handleUrl(String url) {
+    private String handleUrl(String url) {
         Preconditions.checkNotNull(url, ErrorCodeEnum.URL_IS_NOT_NULLABLE);
-        // TODO hrl的预处理、判断等
-        return url;
+        // TODO url的预处理、判断等
+        return this.endpoint+url;
     }
 
     /**
@@ -174,7 +170,7 @@ public class BlackLakeHttpClient {
      * 刷新token
      */
     private void refreshToken() {
-        BlackLakeResult result = doSyncInvoke(UrlEnum.REFRESH_ACCESS_TOKEN.getMessage(), refreshTokenRequestDTO);
+        BlackLakeResult result = doSyncInvoke(this.endpoint+UrlEnum.REFRESH_ACCESS_TOKEN.getMessage(), refreshTokenRequestDTO);
         handleResult(result);
         this.token = (String) (result.getData().get(TOKEN_KEY));
     }
