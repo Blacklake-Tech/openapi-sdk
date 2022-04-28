@@ -33,6 +33,8 @@ public class CallOpenapiDemo {
         /* 调用[出入库管理.入库单列表]接口 */
         String url = "/inventory/open/v1/inboundOrder/_list";
 
-        BlackLakeResult result = blackLakeHttpClient.syncInvoke(url, null);
+        DemoCO demoCO = new DemoCO();
+        demoCO.setId(9999999L);
+        BlackLakeResult result = blackLakeHttpClient.syncInvoke(url, demoCO);
     }
 }
