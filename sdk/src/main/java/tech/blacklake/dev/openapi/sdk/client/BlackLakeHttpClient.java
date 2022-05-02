@@ -7,7 +7,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+
 import java.io.IOException;
+
 import okhttp3.HttpUrl;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -55,11 +57,11 @@ public class BlackLakeHttpClient {
 
     private final static String EMPTY_JSON = "{}";
 
-    public BlackLakeHttpClient(String appKey, String appSecret, String factoryNumber,String endpoint) {
-        this(appKey, appSecret, factoryNumber,endpoint, null);
+    public BlackLakeHttpClient(String appKey, String appSecret, String factoryNumber, String endpoint) {
+        this(appKey, appSecret, factoryNumber, endpoint, null);
     }
 
-    public BlackLakeHttpClient(String appKey, String appSecret, String factoryNumber,String endpoint, BlackLakeHttpClientConfig blackLakeHttpClientConfig) {
+    public BlackLakeHttpClient(String appKey, String appSecret, String factoryNumber, String endpoint, BlackLakeHttpClientConfig blackLakeHttpClientConfig) {
         Preconditions.checkNotNull(appKey, ErrorCodeEnum.APP_KEY_IS_NOT_NULLABLE);
         Preconditions.checkNotNull(appSecret, ErrorCodeEnum.APP_SECRET_IS_NOT_NULLABLE);
         Preconditions.checkNotNull(factoryNumber, ErrorCodeEnum.FACTORY_NUMBER_IS_NOT_NULLABLE);
@@ -73,7 +75,7 @@ public class BlackLakeHttpClient {
     /**
      * 同步调用
      */
-    public BlackLakeResult syncInvoke(String url, Object requestBody) throws BlackLakeHttpClientException{
+    public BlackLakeResult syncInvoke(String url, Object requestBody) throws BlackLakeHttpClientException {
         // 1. 检查url
         String formatUrl = handleUrl(url);
 
@@ -96,16 +98,16 @@ public class BlackLakeHttpClient {
     }
 
     private BlackLakeResult doSyncInvoke(String url, Object requestBody) {
-        byte[] responseBodyBytes = post(url, requestBody);
+        byte[] responseBodyBytes = this.post(url, requestBody);
 
         BlackLakeResult result;
         try {
             result = OBJECT_MAPPER.readValue(responseBodyBytes,
-                new TypeReference<BlackLakeResult>() {
-                });
+                    new TypeReference<BlackLakeResult>() {
+                    });
         } catch (IOException e) {
             throw new BlackLakeHttpClientException(ErrorCodeEnum.RESPONSE_BODY_DESERIALIZE_FAILED,
-                e.getMessage());
+                    e.getMessage());
         }
         return result;
     }
@@ -146,7 +148,7 @@ public class BlackLakeHttpClient {
     private String handleUrl(String url) {
         Preconditions.checkNotNull(url, ErrorCodeEnum.URL_IS_NOT_NULLABLE);
         // TODO url的预处理、判断等
-        return this.endpoint+url;
+        return this.endpoint + url;
     }
 
     /**
@@ -170,12 +172,11 @@ public class BlackLakeHttpClient {
      * 刷新token
      */
     private void refreshToken() {
-        BlackLakeResult result = doSyncInvoke(this.endpoint+UrlEnum.REFRESH_ACCESS_TOKEN.getMessage(), refreshTokenRequestDTO);
-        handleResult(result);
+        BlackLakeResult result = this.doSyncInvoke(this.endpoint + UrlEnum.REFRESH_ACCESS_TOKEN.getMessage(), refreshTokenRequestDTO);
+        this.handleResult(result);
         this.token = (String) (result.getData().get(TOKEN_KEY));
     }
 
-    @SuppressWarnings("AlibabaPojoMustOverrideToString")
     private static class RefreshTokenRequestDTO {
         @JsonProperty("appKey")
         String appKey;
