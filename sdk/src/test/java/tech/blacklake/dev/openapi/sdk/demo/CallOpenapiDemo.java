@@ -36,5 +36,6 @@ public class CallOpenapiDemo {
         DemoCO demoCO = new DemoCO();
         demoCO.setId(9999999L);
         BlackLakeResult result = blackLakeHttpClient.syncInvoke(url, demoCO);
+        System.out.println(result);
     }
 }

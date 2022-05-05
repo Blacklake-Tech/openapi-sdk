@@ -146,9 +146,9 @@ public class BlackLakeHttpClient {
     }
 
     private String handleUrl(String url) {
-        Preconditions.checkNotNull(url, ErrorCodeEnum.URL_IS_NOT_NULLABLE);
         // TODO url的预处理、判断等
-        return this.endpoint + url;
+        Preconditions.checkNotNull(url, ErrorCodeEnum.URL_IS_NOT_NULLABLE);
+        return this.endpoint + UrlEnum.OPENAPI_PATH.getMessage() + url;
     }
 
     /**
