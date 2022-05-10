@@ -1,0 +1,13 @@
+package tech.blacklake.dev.openapi.sdk.api.dto.${type}
+
+import java.util.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.${type}.*;
+
+public class ${entity_name} ${superclass}{
+  #loop(field)
+    /**
+     * ${description}
+     */
+    private ${field_type} ${field_name};
+  #end
+}
