@@ -19,6 +19,7 @@
         <swagger-annotation.version>1.5.13</swagger-annotation.version>
         <logback-classic.version>1.2.3</logback-classic.version>
         <lombok.version>1.18.12</lombok.version>
+        <services.version>6.4.1-RELEASE</services.version>
     </properties>
 
     <modules>
@@ -56,6 +57,12 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.med</groupId>
+                <artifactId>med-domain-produce-define-service</artifactId>
+                <version>${services.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

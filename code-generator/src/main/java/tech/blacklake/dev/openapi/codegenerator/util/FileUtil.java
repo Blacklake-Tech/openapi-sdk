@@ -17,14 +17,19 @@ public class FileUtil {
      * 创建文件
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    public static File createFile(String dir, String fileName) throws IOException {
-        File file = getFile(dir, fileName);
+    public static File createFile(String filePath) {
+        File file = new File(filePath);
 
         File parentDir;
         if (!(parentDir = file.getParentFile()).exists()) {
             parentDir.mkdirs();
         }
-        file.createNewFile();
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            log.error("文件创建失败: {}", filePath);
+            throw new RuntimeException(e);
+        }
 
         return file;
     }
@@ -36,19 +41,29 @@ public class FileUtil {
         try (PrintWriter printWriter = new PrintWriter(new FileWriter(file, false))) {
             printWriter.println(sb);
         } catch (Exception e) {
-            log.error("写入文件{}失败: {}", file.getName(), e.getMessage());
+            log.error("写入文件失败: {}", file.getName());
+            throw new RuntimeException(e);
         }
     }
 
     /**
      * 读文件
      */
-    public static Scanner readFile(String dir, String fileName) throws FileNotFoundException {
-        File file = getFile(dir, fileName);
-        return new Scanner(file, CHARSET_NAME);
+    public static Scanner readFile(String filePath) {
+        File file = new File(filePath);
+        try {
+            return new Scanner(file, CHARSET_NAME);
+        } catch (FileNotFoundException e) {
+            log.error("文件读取失败: {}", filePath);
+            throw new RuntimeException(e);
+        }
     }
 
-    private static File getFile(String dir, String fileName) {
-        return new File(dir + File.separator + fileName);
+    public static String concatPath(String... paths) {
+        StringBuilder sb = new StringBuilder();
+        for (String path : paths) {
+            sb.append(path).append(File.separator);
+        }
+        return sb.toString();
     }
 }
