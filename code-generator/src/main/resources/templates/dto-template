@@ -3,7 +3,7 @@ package tech.blacklake.dev.openapi.sdk.api.dto.${type}
 import java.util.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.${type}.*;
 
-public class ${class_name} ${superclass}{
+public class ${class_name} ${superclass} {
     #loop(field)
     /**
      * ${description}

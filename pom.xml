@@ -20,6 +20,7 @@
         <logback-classic.version>1.2.3</logback-classic.version>
         <lombok.version>1.18.12</lombok.version>
         <services.version>6.4.1-RELEASE</services.version>
+        <cglib.version>3.1</cglib.version>
     </properties>
 
     <modules>
@@ -63,6 +64,18 @@
                 <groupId>tech.blacklake.dev.med</groupId>
                 <artifactId>med-domain-produce-define-service</artifactId>
                 <version>${services.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.openapi</groupId>
+                <artifactId>openapi-sdk</artifactId>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -9,19 +9,27 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
+import net.sf.cglib.proxy.Enhancer;
+import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
 import okhttp3.HttpUrl;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import tech.blacklake.dev.openapi.sdk.annotation.ApiPath;
 import tech.blacklake.dev.openapi.sdk.client.config.BlackLakeHttpClientConfig;
 import tech.blacklake.dev.openapi.sdk.client.data.BlackLakeResult;
 import tech.blacklake.dev.openapi.sdk.client.factory.OkHttpClientFactory;
 import tech.blacklake.dev.openapi.sdk.constant.ErrorCodeEnum;
 import tech.blacklake.dev.openapi.sdk.constant.UrlEnum;
 import tech.blacklake.dev.openapi.sdk.exception.BlackLakeHttpClientException;
+import tech.blacklake.dev.openapi.sdk.proxydemo.TemplateMethod;
 import tech.blacklake.dev.openapi.sdk.util.Preconditions;
 
 /**
@@ -198,5 +206,37 @@ public class BlackLakeHttpClient {
 
     public String getToken() {
         return token;
+    }
+
+    private <T, U> U syncInvoke(Class<T> requestClass, Class<U> responseClass, String url) throws JsonProcessingException {
+        // 模拟openapi返回数据
+        String str = "{\n" +
+                "    \"name\":\"崔奕宸\",\n" +
+                "    \"age\":24\n" +
+                "}";
+        byte[] bytes = str.getBytes(StandardCharsets.UTF_8);
+
+        return OBJECT_MAPPER.readValue(str, responseClass);
+    }
+
+    public TemplateMethod getTemplateMethod() {
+        Enhancer enhancer = new Enhancer();
+        enhancer.setSuperclass(TemplateMethod.class);
+        enhancer.setCallback(new MethodInterceptor() {
+            @Override
+            public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+                Class<?> requestClass = method.getParameterTypes()[0];
+                Class<?> responseClass = method.getReturnType();
+                String url = method.getAnnotation(ApiPath.class).value();
+
+                System.out.println("入参类型: " + requestClass.getName());
+                System.out.println("返回值类型: " + responseClass.getName());
+                System.out.println("请求路径: " + url);
+
+                return syncInvoke(requestClass, responseClass, url);
+            }
+        });
+
+        return (TemplateMethod) enhancer.create();
     }
 }

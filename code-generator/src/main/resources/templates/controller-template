@@ -1,0 +1,13 @@
+package tech.blacklake.dev.openapi.sdk.api;
+
+import java.util.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.req.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.res.*;
+import tech.blacklake.dev.openapi.sdk.annotation.ApiPath;
+
+public interface TemplateController {
+    #loop(handler)
+    @ApiPath("${path}")
+    ${return_type} ${method_name}(${parameter_type} ${parameter_name});
+    #end
+}

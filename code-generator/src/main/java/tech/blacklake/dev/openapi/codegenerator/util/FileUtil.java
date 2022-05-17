@@ -62,7 +62,10 @@ public class FileUtil {
     public static String concatPath(String... paths) {
         StringBuilder sb = new StringBuilder();
         for (String path : paths) {
-            sb.append(path).append(File.separator);
+            sb.append(path);
+            if (!File.separator.equals(String.valueOf(path.charAt(path.length() - 1)))) {
+                sb.append(File.separator);
+            }
         }
         return sb.toString();
     }

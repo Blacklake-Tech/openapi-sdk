@@ -47,12 +47,14 @@ public class CodeGenerator {
      */
     public static void writer(String templateFileName, String outputDir, String className, Map<String, String> normalParameters, Map<String, Map<String, List<String>>> multiLoopParameters) {
         String templateFilePath = FileUtil.concatPath(RESOURCE_PATH, TEMPLATE_DIR, templateFileName);
-        String outputFilePath = FileUtil.concatPath(outputDir, className + JAVA_FILE_SUFFIX);
-        normalParameters.put(EL_CLASS_NAME, className);
+        String outputFilePath = FileUtil.concatPath(RESOURCE_PATH, outputDir, className + JAVA_FILE_SUFFIX);
+        if (normalParameters != null) {
+            normalParameters.put(EL_CLASS_NAME, className);
+        }
 
         log.info("#####代码生成开始...");
         log.info("模板文件: {}", templateFileName);
-        log.info("目标类: {}", normalParameters.get(EL_CLASS_NAME));
+        log.info("目标类: {}", className);
         log.info("生成文件路径: {}", outputFilePath);
 
         Scanner scanner = FileUtil.readFile(templateFilePath);
