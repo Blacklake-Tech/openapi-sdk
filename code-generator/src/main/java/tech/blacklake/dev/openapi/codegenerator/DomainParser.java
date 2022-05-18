@@ -45,16 +45,15 @@ public class DomainParser {
             log.error("读取jar失败");
             throw new RuntimeException(e);
         }
+        Enumeration<JarEntry> entrys = jarFile.entries();
 
         /* 1. 获取jar文件中所有类的全限定名 */
-        Enumeration<JarEntry> entrys = jarFile.entries();
         List<String> classNames = new ArrayList<>();
         while (entrys.hasMoreElements()) {
             JarEntry jarEntry = entrys.nextElement();
             String entryName = jarEntry.getName();
             if (entryName.endsWith(".class")) {
-                String className = entryName.replace(File.separator, ".").substring(
-                        0, entryName.lastIndexOf("."));
+                String className = StringUtil.replaceFileSepToDot(entryName).substring(0, entryName.lastIndexOf("."));
                 classNames.add(className);
             }
         }
@@ -79,7 +78,7 @@ public class DomainParser {
      * 获取本地maven仓库的jar路径
      */
     public static String getJarPath(String groupId, String artifactId, String version) {
-        groupId = StringUtil.switchDotSepToFileSep(groupId);
+        groupId = StringUtil.replaceDotToFileSep(groupId);
         String jarFileName = artifactId + "-" + version + ".jar";
         return StringUtil.concatPath(MAVEN_LOCAL_REPOSITORY, groupId, artifactId, version, jarFileName);
     }

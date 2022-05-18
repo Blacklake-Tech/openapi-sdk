@@ -29,9 +29,16 @@ public class StringUtil {
     }
 
     /**
-     * 将.分隔符替换问系统文件路径分隔符
+     * 将.分隔符替换为系统文件路径分隔符
      */
-    public static String switchDotSepToFileSep(String str){
-        return str.replaceAll("\\.", File.separator);
+    public static String replaceDotToFileSep(String str){
+        return str.replace(".", File.separator);
+    }
+
+    /**
+     * 将系统文件路径分隔符替换为.分隔符
+     */
+    public static String replaceFileSepToDot(String str){
+        return str.replace(".", File.separator);
     }
 }
