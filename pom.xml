@@ -19,8 +19,10 @@
         <swagger-annotation.version>1.5.13</swagger-annotation.version>
         <logback-classic.version>1.2.3</logback-classic.version>
         <lombok.version>1.18.12</lombok.version>
-        <services.version>6.4.1-RELEASE</services.version>
         <cglib.version>3.1</cglib.version>
+        <med.version>6.4.1-RELEASE</med.version>
+        <resource.version>6.4.1-RELEASE</resource.version>
+        <mfg.version>6.4.1.1-RELEASE</mfg.version>
     </properties>
 
     <modules>
@@ -61,12 +63,6 @@
             </dependency>
 
             <dependency>
-                <groupId>tech.blacklake.dev.med</groupId>
-                <artifactId>med-domain-produce-define-service</artifactId>
-                <version>${services.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>cglib</groupId>
                 <artifactId>cglib</artifactId>
                 <version>${cglib.version}</version>
@@ -77,6 +73,25 @@
                 <artifactId>openapi-sdk</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.med</groupId>
+                <artifactId>med-domain-produce-define-service</artifactId>
+                <version>${med.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.mfg</groupId>
+                <artifactId>mfg-domain-service</artifactId>
+                <version>${mfg.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.resource</groupId>
+                <artifactId>resource-service</artifactId>
+                <version>${resource.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

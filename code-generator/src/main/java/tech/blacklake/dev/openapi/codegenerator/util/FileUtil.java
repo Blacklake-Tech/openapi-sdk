@@ -58,15 +58,4 @@ public class FileUtil {
             throw new RuntimeException(e);
         }
     }
-
-    public static String concatPath(String... paths) {
-        StringBuilder sb = new StringBuilder();
-        for (String path : paths) {
-            sb.append(path);
-            if (!File.separator.equals(String.valueOf(path.charAt(path.length() - 1)))) {
-                sb.append(File.separator);
-            }
-        }
-        return sb.toString();
-    }
 }

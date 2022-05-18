@@ -208,7 +208,7 @@ public class BlackLakeHttpClient {
         return token;
     }
 
-    private <T, U> U syncInvoke(Class<T> requestClass, Class<U> responseClass, String url) throws JsonProcessingException {
+    private <T, U> U syncInvoke(Class<T> requestClass, Class<U> responseClass, String url) throws IOException {
         // 模拟openapi返回数据
         String str = "{\n" +
                 "    \"name\":\"崔奕宸\",\n" +
@@ -216,7 +216,7 @@ public class BlackLakeHttpClient {
                 "}";
         byte[] bytes = str.getBytes(StandardCharsets.UTF_8);
 
-        return OBJECT_MAPPER.readValue(str, responseClass);
+        return OBJECT_MAPPER.readValue(bytes, responseClass);
     }
 
     public TemplateMethod getTemplateMethod() {

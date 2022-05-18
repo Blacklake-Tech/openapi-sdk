@@ -2,6 +2,7 @@ package tech.blacklake.dev.openapi.codegenerator;
 
 import lombok.extern.slf4j.Slf4j;
 import tech.blacklake.dev.openapi.codegenerator.util.FileUtil;
+import tech.blacklake.dev.openapi.codegenerator.util.StringUtil;
 
 import java.io.File;
 import java.util.*;
@@ -41,18 +42,20 @@ public class CodeGenerator {
     /**
      * 载入数据到模板文件并生成新文件
      *
-     * @param templateFileName    模板文件名
-     * @param normalParameters    普通参数
-     * @param multiLoopParameters 多种循环参数
+     * @param templateFileName 模板文件名
+     * @param outputDir 输出文件夹
+     * @param className 类名/输出文件名
+     * @param normalParameters 普通参数map
+     * @param multiLoopParameters 循环参数map
      */
     public static void writer(String templateFileName, String outputDir, String className, Map<String, String> normalParameters, Map<String, Map<String, List<String>>> multiLoopParameters) {
-        String templateFilePath = FileUtil.concatPath(RESOURCE_PATH, TEMPLATE_DIR, templateFileName);
-        String outputFilePath = FileUtil.concatPath(RESOURCE_PATH, outputDir, className + JAVA_FILE_SUFFIX);
+        String templateFilePath = StringUtil.concatPath(RESOURCE_PATH, TEMPLATE_DIR, templateFileName);
+        String outputFilePath = StringUtil.concatPath(RESOURCE_PATH, outputDir, className + JAVA_FILE_SUFFIX);
         if (normalParameters != null) {
             normalParameters.put(EL_CLASS_NAME, className);
         }
 
-        log.info("#####代码生成开始...");
+        log.info("#####代码生成开始...#####");
         log.info("模板文件: {}", templateFileName);
         log.info("目标类: {}", className);
         log.info("生成文件路径: {}", outputFilePath);
@@ -97,7 +100,7 @@ public class CodeGenerator {
 
         FileUtil.writeFile(file, totalSb);
 
-        log.info("#####代码生成成功!");
+        log.info("#####代码生成成功!!!#####");
     }
 
     private static int checkLoopParameters(Map<String, List<String>> loopParameters) {
