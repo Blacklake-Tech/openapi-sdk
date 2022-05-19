@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class CodeGeneratorDemo {
     private static final String EL_TYPE = "type";
-    private static final String EL_SUPERCLASS = "superclass";
+    private static final String EL_SUPERCLASS_AND_INTERFACES = "superclass_and_interfaces";
     private static final String EL_DESCRIPTION = "description";
     private static final String EL_FIELD_TYPE = "field_type";
     private static final String EL_FIELD_NAME = "field_name";
@@ -67,7 +67,7 @@ public class CodeGeneratorDemo {
     private static ReflectionResult dtoReflection() {
         Map<String, String> normalParameters = new HashMap<>();
         normalParameters.put(EL_TYPE, "req");
-        normalParameters.put(EL_SUPERCLASS, "");
+        normalParameters.put(EL_SUPERCLASS_AND_INTERFACES, "");
 
         Map<String, List<String>> loopParameters = new HashMap<>();
         List<String> descriptions = List.of("姓名", "id", "性别");

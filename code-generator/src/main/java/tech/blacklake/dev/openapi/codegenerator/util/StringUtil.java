@@ -5,13 +5,22 @@ import java.io.File;
 /**
  * @author cuiyichen
  * @date 2022/05/12 10:14:07
+ * <p>
+ * 字符串工具类
  */
 public class StringUtil {
     /**
      * 首字母大写
      */
-    public static String initialsInCapitals(String str) {
+    public static String upperCaseFirstChar(String str) {
         return Character.toUpperCase(str.charAt(0)) + str.substring(1);
+    }
+
+    /**
+     * 首字母小写
+     */
+    public static String lowerCaseFirstChar(String str) {
+        return Character.toLowerCase(str.charAt(0)) + str.substring(1);
     }
 
     /**

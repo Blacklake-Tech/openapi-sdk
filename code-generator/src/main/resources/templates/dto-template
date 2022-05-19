@@ -1,9 +1,11 @@
 package tech.blacklake.dev.openapi.sdk.api.dto.${type}
 
 import java.util.*;
-import tech.blacklake.dev.openapi.sdk.api.dto.${type}.*;
+import java.math.*;
+import java.io.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.common.*;
 
-public class ${class_name} ${superclass} {
+public class ${class_name} ${superclass_and_interfaces}{
     #loop(field)
     /**
      * ${description}

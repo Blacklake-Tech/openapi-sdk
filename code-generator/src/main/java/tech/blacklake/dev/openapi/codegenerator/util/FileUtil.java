@@ -8,6 +8,8 @@ import java.util.Scanner;
 /**
  * @author cuiyichen
  * @date 2022/05/09 22:19:17
+ *
+ * 文件工具类
  */
 @Slf4j
 public class FileUtil {

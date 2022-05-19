@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 /**
  * @author cuiyichen
  * @date 2022/05/17 17:14:45
+ *
+ * shell工具类
  */
 @Slf4j
 public class ShellUtil {

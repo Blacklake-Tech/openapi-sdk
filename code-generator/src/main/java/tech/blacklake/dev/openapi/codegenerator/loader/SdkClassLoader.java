@@ -11,9 +11,20 @@ import java.util.jar.JarFile;
 /**
  * @author cuiyichen
  * @date 2022/05/18 11:37:01
+ *
+ * 用于加载外部springboot格式的jar，parent为AppClassLoader
  */
 @Slf4j
 public class SdkClassLoader extends ClassLoader {
+    private static SdkClassLoader sdkClassLoader;
+
+    public static SdkClassLoader getSdkClassLoader() {
+        if (sdkClassLoader == null) {
+            sdkClassLoader = new SdkClassLoader();
+        }
+        return sdkClassLoader;
+    }
+
     /**
      * 先尝试通过appClassLoader加载classpath下的类
      * 如加载失败，说明jar打包方式为springboot格式，那么直接从外部jar文件中加载类

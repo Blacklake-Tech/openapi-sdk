@@ -13,6 +13,8 @@ import java.util.stream.Collectors;
 /**
  * @author cuiyichen
  * @date 2022/05/09 22:12:40
+ *
+ * 代码生成器
  */
 @Slf4j
 public class CodeGenerator {
@@ -26,9 +28,11 @@ public class CodeGenerator {
 
     private static final String TEMPLATE_DIR = "templates";
 
+    private static final String JAVA_FILE_SUFFIX = ".java";
+
     private static final String EL_CLASS_NAME = "class_name";
 
-    private static final String JAVA_FILE_SUFFIX = ".java";
+
 
     /**
      * el表达式pattern
