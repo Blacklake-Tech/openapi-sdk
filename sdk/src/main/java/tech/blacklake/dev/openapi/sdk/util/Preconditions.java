@@ -1,7 +1,7 @@
 package tech.blacklake.dev.openapi.sdk.util;
 
 import tech.blacklake.dev.openapi.sdk.constant.ErrorCodeEnum;
-import tech.blacklake.dev.openapi.sdk.exception.BlackLakeHttpClientException;
+import tech.blacklake.dev.openapi.sdk.exception.BlackLakeException;
 
 /**
  * @author cuiyichen
@@ -10,13 +10,13 @@ import tech.blacklake.dev.openapi.sdk.exception.BlackLakeHttpClientException;
 public class Preconditions {
     public static void checkNotNull(Object reference, ErrorCodeEnum errorCodeEnum) {
         if (reference == null) {
-            throw new BlackLakeHttpClientException(errorCodeEnum);
+            throw new BlackLakeException(errorCodeEnum);
         }
     }
 
     public static void checkNotNull(Object reference, ErrorCodeEnum errorCodeEnum, Object... args) {
         if (reference == null) {
-            throw new BlackLakeHttpClientException(errorCodeEnum, args);
+            throw new BlackLakeException(errorCodeEnum, args);
         }
     }
 }

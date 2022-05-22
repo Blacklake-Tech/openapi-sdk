@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import tech.blacklake.dev.openapi.codegenerator.constant.ClassTypeEnum;
 import tech.blacklake.dev.openapi.codegenerator.data.Pair;
 import tech.blacklake.dev.openapi.codegenerator.data.ReflectionResult;
 import tech.blacklake.dev.openapi.codegenerator.loader.SdkClassLoader;
@@ -13,10 +14,7 @@ import tech.blacklake.dev.openapi.codegenerator.util.StringUtil;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
+import java.lang.reflect.*;
 import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -45,6 +43,7 @@ public class JarParser {
     private static final String EL_DESCRIPTION = "description";
     private static final String EL_FIELD_TYPE = "field_type";
     private static final String EL_FIELD_NAME = "field_name";
+    private static final String EL_DEFAULT_VALUE = "default_value";
     private static final String EL_FIELD_NAME_INIT_CAP = "field_name_init_cap";
 
     private static final String EL_PATH = "path";
@@ -60,6 +59,8 @@ public class JarParser {
     private static final String DTO_RESPONSE = "ResponseDTO";
     private static final String DTO_VO = "VO";
     private static final String DTO_CO = "CO";
+    private static final String DTO_RES = "ResDTO";
+    private static final String DTO_REQ = "ReqDTO";
     private static final String TYPE_REQ = "req";
     private static final String TYPE_RES = "res";
     private static final String TYPE_COMMON = "common";
@@ -70,10 +71,7 @@ public class JarParser {
     private static final String EMPTY_STR = "";
     private static final String JAVA_BASE_MODULE = "java.base";
 
-    private static final Integer CLASS_TYPE_CONTROLLER = 0;
-    private static final Integer CLASS_TYPE_REQUEST_DTO = 1;
-    private static final Integer CLASS_TYPE_RESPONSE_DTO = 2;
-    private static final Integer CLASS_TYPE_COMMON_DATA = 3;
+    private static final Set<String> INVALID_SUPERCLASSES = Set.of("BaseDO", "BasePO", "BaseVO", "BaseDTO", "BaseCO", "BaseCheckCO", "Serializable", "Comparable");
 
     /**
      * 解析jar文件
@@ -83,8 +81,13 @@ public class JarParser {
     public static Pair<List<ReflectionResult>, List<ReflectionResult>> parseJar(String groupId, String artifactId, String version, Set<String> parsedDtoSet) {
         // 获取classloader
         SdkClassLoader sdkClassLoader = SdkClassLoader.getSdkClassLoader();
+        // 获取application name
+        String applicationName = getApplicationName(groupId);
         // 获取jar包路径
-        String jarPath = getJarPath(groupId, artifactId, version);
+        groupId = StringUtil.replaceDotToFileSep(groupId);
+        String jarFileName = artifactId + "-" + version + ".jar";
+        log.info("开始解析{}...", jarFileName);
+        String jarPath = StringUtil.concatPath(MAVEN_LOCAL_REPOSITORY, groupId, artifactId, version, jarFileName);
         // 获取jar中所有OpenapiController
         List<Class<?>> openapiControllers = loadJarClasses(jarPath).stream().filter(JarParser::isOpenapiController).collect(Collectors.toList());
 
@@ -94,7 +97,7 @@ public class JarParser {
         List<String> waitParseDtoNames = new ArrayList<>();
         // 解析controller
         for (Class<?> openapiController : openapiControllers) {
-            Pair<ReflectionResult, List<String>> pair = parseController(openapiController);
+            Pair<ReflectionResult, List<String>> pair = parseController(openapiController, applicationName);
             controllerReflectionResultList.add(Objects.requireNonNull(pair).getLeft());
             waitParseDtoNames.addAll(pair.getRight());
         }
@@ -103,7 +106,7 @@ public class JarParser {
         List<ReflectionResult> dtoReflectionResultList = new ArrayList<>();
         while ((waitParseDtoNames = waitParseDtoNames.stream()
                 .distinct()
-                .filter(it -> !parsedDtoSet.contains(it))
+                .filter(it -> !parsedDtoSet.contains(it.substring(it.lastIndexOf(".") + 1)))
                 .collect(Collectors.toList())).size() > 0) {
 
             List<String> newWaitParseDtoNames = new ArrayList<>();
@@ -121,49 +124,11 @@ public class JarParser {
             }
 
             // 解析过的dto放入set，避免重复解析dto
-            parsedDtoSet.addAll(waitParseDtoNames);
+            parsedDtoSet.addAll(waitParseDtoNames.stream().map(it -> it.substring(it.lastIndexOf(".") + 1)).collect(Collectors.toList()));
             waitParseDtoNames = newWaitParseDtoNames;
         }
 
         return new Pair<>(controllerReflectionResultList, dtoReflectionResultList);
-    }
-
-    public static void addAllReflectionResults(ReflectionResult targetResult, List<ReflectionResult> newResults) {
-        newResults.forEach(it -> addReflectionResult(targetResult, it));
-    }
-
-    /**
-     * 累加newResult的结果到allResult
-     * 该方法用于多个controller类的平铺
-     */
-    public static void addReflectionResult(ReflectionResult targetResult, ReflectionResult newResult) {
-        Map<String, Map<String, List<String>>> allMultiLoopParameters = targetResult.getMultiLoopParameters();
-        if (allMultiLoopParameters == null) {
-            allMultiLoopParameters = new HashMap<>();
-            targetResult.setMultiLoopParameters(allMultiLoopParameters);
-        }
-
-        Map<String, Map<String, List<String>>> multiLoopParameters = newResult.getMultiLoopParameters();
-        if (multiLoopParameters != null) {
-            Map<String, Map<String, List<String>>> finalAllMultiLoopParameters = allMultiLoopParameters;
-
-            multiLoopParameters.keySet().forEach(mk -> {
-                Map<String, List<String>> loopParameters = multiLoopParameters.get(mk);
-                if (finalAllMultiLoopParameters.containsKey(mk)) {
-                    Map<String, List<String>> allLoopParameters = finalAllMultiLoopParameters.get(mk);
-                    loopParameters.keySet().forEach(lk -> {
-                        List<String> paras = loopParameters.get(lk);
-                        if (allLoopParameters.containsKey(lk)) {
-                            allLoopParameters.put(lk, paras);
-                        } else {
-                            allLoopParameters.get(lk).addAll(paras);
-                        }
-                    });
-                } else {
-                    finalAllMultiLoopParameters.put(mk, loopParameters);
-                }
-            });
-        }
     }
 
     /**
@@ -224,26 +189,25 @@ public class JarParser {
     private static Pair<ReflectionResult, List<String>> parseDto(Class<?> dtoClass) {
         ReflectionResult dtoResult = new ReflectionResult();
 
-        /* 1. 类名/type解析 */
+        /* 1. 类名解析 */
         Map<String, String> normalParameters = new HashMap<>();
-        String simpleClassName = dtoClass.getSimpleName();
-
-        String type;
-        Integer state;
-        if (simpleClassName.endsWith(DTO_REQUEST) || simpleClassName.endsWith(DTO_CO)) {
-            type = TYPE_REQ;
-            state = CLASS_TYPE_REQUEST_DTO;
-            simpleClassName = simpleClassName.replace(DTO_CO, DTO_REQUEST);
-        } else if (simpleClassName.endsWith(DTO_RESPONSE) || simpleClassName.endsWith(DTO_VO)) {
-            type = TYPE_RES;
-            state = CLASS_TYPE_RESPONSE_DTO;
-            simpleClassName = simpleClassName.replace(DTO_VO, DTO_RESPONSE);
-        } else {
-            type = TYPE_COMMON;
-            state = CLASS_TYPE_COMMON_DATA;
-        }
+        String simpleClassName = switchDtoName(dtoClass.getSimpleName());
         simpleClassName = simpleClassName.replace("Open", EMPTY_STR);
         dtoResult.setClassName(simpleClassName);
+
+        /* 2. type/state解析 */
+        String type;
+        ClassTypeEnum state;
+        if (simpleClassName.endsWith(DTO_REQUEST)) {
+            type = TYPE_REQ;
+            state = ClassTypeEnum.REQUEST_DTO;
+        } else if (simpleClassName.endsWith(DTO_RESPONSE)) {
+            type = TYPE_RES;
+            state = ClassTypeEnum.RESPONSE_DTO;
+        } else {
+            type = TYPE_COMMON;
+            state = ClassTypeEnum.COMMON_DATA;
+        }
         dtoResult.setState(state);
         normalParameters.put(EL_TYPE, type);
 
@@ -251,16 +215,24 @@ public class JarParser {
         StringBuilder superclassAndInterfaces = new StringBuilder();
         Class<?> superclass = dtoClass.getSuperclass();
         Class<?>[] interfaces = dtoClass.getInterfaces();
-        if (superclass != Object.class) {
+        if (superclass != null && superclass != Object.class && !INVALID_SUPERCLASSES.contains(superclass.getSimpleName())) {
             superclassAndInterfaces.append(EXTENDS).append(SPACE).append(superclass.getSimpleName()).append(SPACE);
         }
         if (interfaces.length > 0) {
-            superclassAndInterfaces.append(IMPLEMENTS).append(SPACE);
+            boolean hasValidInterface = false;
             for (int i = 0; i < interfaces.length; i++) {
+                String interfaceSimpleName = interfaces[i].getSimpleName();
+                if (INVALID_SUPERCLASSES.contains(interfaceSimpleName)) {
+                    continue;
+                }
+                if (!hasValidInterface) {
+                    superclassAndInterfaces.append(IMPLEMENTS).append(SPACE);
+                    hasValidInterface = true;
+                }
                 if (i != 0) {
                     superclassAndInterfaces.append(COMMA).append(SPACE);
                 }
-                superclassAndInterfaces.append(interfaces[i].getSimpleName());
+                superclassAndInterfaces.append(interfaceSimpleName);
             }
             superclassAndInterfaces.append(SPACE);
         }
@@ -271,21 +243,53 @@ public class JarParser {
         Map<String, List<String>> loopParameters = new HashMap<>();
         List<String> descriptions = new ArrayList<>();
         List<String> fieldTypeNames = new ArrayList<>();
+        List<String> defaultValues = new ArrayList<>();
         List<String> fieldNames = new ArrayList<>();
         List<String> fieldNamesInitCap = new ArrayList<>();
 
         Field[] fields = dtoClass.getDeclaredFields();
         List<String> needParseDtoNames = new ArrayList<>();
         Arrays.stream(fields).forEach(it -> {
+            // 字段名
             String fieldName = it.getName();
             fieldName = switchDtoName(fieldName);
+
+            // 首字母大写字段名，用于getter、setter
             String fieldNameIntiCap = StringUtil.upperCaseFirstChar(fieldName);
+
+            // 字段描述
             String description = fieldName;
             ApiModelProperty annotation = it.getAnnotation(ApiModelProperty.class);
             if (annotation != null) {
                 description = annotation.value();
             }
 
+            // 字段默认值
+            int modifiers = it.getModifiers();
+            boolean isStatic = Modifier.isStatic(modifiers);
+            String defaultValStr = "";
+            it.setAccessible(true);
+            try {
+                Object defaultValObj = isStatic ? it.get(null) : it.get(dtoClass.getConstructor().newInstance());
+                if (defaultValObj != null) {
+                    String defaultValName = null;
+                    if (defaultValObj instanceof Enum) {
+                        defaultValName = defaultValObj.getClass().getSimpleName() + "." + defaultValObj;
+                    } else if (defaultValObj instanceof String) {
+                        defaultValName = "\"" + defaultValObj + "\"";
+                    } else if (defaultValObj instanceof Short || defaultValObj instanceof Integer || defaultValObj instanceof Long || defaultValObj instanceof Float || defaultValObj instanceof Double || defaultValObj instanceof Byte || defaultValObj instanceof Boolean) {
+                        defaultValName = String.valueOf(defaultValObj);
+                    }
+
+                    if (defaultValName != null) {
+                        defaultValStr = SPACE + "=" + SPACE + defaultValName;
+                    }
+                }
+            } catch (Exception ignored) {
+                // 构造实例时，可能由于没有无参构造导致异常，无视即可
+            }
+
+            // 字段类型名
             String fieldTypeName;
             Type genericFieldType = it.getGenericType();
             if (genericFieldType instanceof ParameterizedType) {
@@ -299,12 +303,14 @@ public class JarParser {
 
             descriptions.add(description);
             fieldNames.add(fieldName);
+            defaultValues.add(defaultValStr);
             fieldTypeNames.add(fieldTypeName);
             fieldNamesInitCap.add(fieldNameIntiCap);
         });
 
         loopParameters.put(EL_DESCRIPTION, descriptions);
         loopParameters.put(EL_FIELD_TYPE, fieldTypeNames);
+        loopParameters.put(EL_DEFAULT_VALUE, defaultValues);
         loopParameters.put(EL_FIELD_NAME, fieldNames);
         loopParameters.put(EL_FIELD_NAME_INIT_CAP, fieldNamesInitCap);
         Map<String, Map<String, List<String>>> multiLoopParameter = new HashMap<>();
@@ -317,9 +323,9 @@ public class JarParser {
     /**
      * 解析controller.class
      */
-    private static Pair<ReflectionResult, List<String>> parseController(Class<?> controllerClass) {
+    private static Pair<ReflectionResult, List<String>> parseController(Class<?> controllerClass, String applicationName) {
         ReflectionResult controllerResult = new ReflectionResult();
-        controllerResult.setState(CLASS_TYPE_CONTROLLER);
+        controllerResult.setState(ClassTypeEnum.CONTROLLER);
 
         RequestMapping requestMapping = controllerClass.getAnnotation(RequestMapping.class);
         String parentPath = requestMapping.value()[0];
@@ -340,6 +346,7 @@ public class JarParser {
             PostMapping postMapping = it.getAnnotation(PostMapping.class);
             String path = parentPath + postMapping.value()[0];
             String methodName = getMethodNameByPath(path);
+            path = "/" + applicationName + path;
 
             String returnTypeName;
             Type genericReturnType = it.getGenericReturnType();
@@ -385,15 +392,6 @@ public class JarParser {
         return new Pair<>(controllerResult, needParseDtoNames);
     }
 
-    /**
-     * 获取本地maven仓库的jar路径
-     */
-    private static String getJarPath(String groupId, String artifactId, String version) {
-        groupId = StringUtil.replaceDotToFileSep(groupId);
-        String jarFileName = artifactId + "-" + version + ".jar";
-        return StringUtil.concatPath(MAVEN_LOCAL_REPOSITORY, groupId, artifactId, version, jarFileName);
-    }
-
     private static boolean isOpenapiController(Class<?> clazz) {
         return clazz.getPackageName().contains("controller.open") && clazz.getName().endsWith("Controller");
     }
@@ -413,10 +411,14 @@ public class JarParser {
     }
 
     private static String switchDtoName(String dtoName) {
-        if (dtoName.endsWith(DTO_REQUEST) || dtoName.endsWith(DTO_CO)) {
+        if (dtoName.endsWith(DTO_CO)) {
             dtoName = dtoName.replace(DTO_CO, DTO_REQUEST);
-        } else if (dtoName.endsWith(DTO_RESPONSE) || dtoName.endsWith(DTO_VO)) {
+        } else if (dtoName.endsWith(DTO_VO)) {
             dtoName = dtoName.replace(DTO_VO, DTO_RESPONSE);
+        } else if (dtoName.endsWith(DTO_REQ)) {
+            dtoName = dtoName.replace(DTO_REQ, DTO_REQUEST);
+        } else if (dtoName.endsWith(DTO_RES)) {
+            dtoName = dtoName.replace(DTO_RES, DTO_RESPONSE);
         }
         dtoName = dtoName.replace("Open", EMPTY_STR);
         return dtoName;
@@ -455,6 +457,11 @@ public class JarParser {
                 typeArgName = handleParameterizedType((ParameterizedType) actualTypeArgument, needParseDtoNames);
             } else {
                 typeArgName = actualTypeArgument.getTypeName();
+                // 如果是? extends ...格式
+                if (typeArgName.startsWith("? extends")) {
+                    // FIXME 直接字符串截取, 不太优雅
+                    typeArgName = typeArgName.substring(10);
+                }
                 needToParse(typeArgName, needParseDtoNames);
             }
             actualSimpleName.append(switchDtoName(getSimpleClassName(typeArgName)));
@@ -466,5 +473,10 @@ public class JarParser {
 
     private static String getSimpleClassName(String className) {
         return className.contains(".") ? className.substring(className.lastIndexOf(".") + 1) : className;
+    }
+
+
+    private static String getApplicationName(String str) {
+        return str.substring(str.lastIndexOf(".") + 1);
     }
 }
