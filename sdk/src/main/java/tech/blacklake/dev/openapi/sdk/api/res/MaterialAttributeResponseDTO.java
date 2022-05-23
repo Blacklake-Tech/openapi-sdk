@@ -1,5 +1,6 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
+import java.time.*;
 import java.util.*;
 import java.math.*;
 import java.io.*;
@@ -7,30 +8,21 @@ import tech.blacklake.dev.openapi.sdk.api.common.*;
 
 public class MaterialAttributeResponseDTO {
     /**
-     * 物料ID
+     * 属性id
      */
-    private Long materialId;
+    private long id;
 
     /**
-     * 物料属性项ID
-     */
-    private Long id;
-
-    /**
-     * 物料属性项名称
+     * 属性名字
      */
     private String name;
 
     /**
-     * Web物料属性值返回值
+     * 属性内容
      */
-    private MaterialAttributeItemResponseDTO attributeItem;
+    private String content;
 
-    public Long getMaterialId() {
-        return materialId;
-    }
-
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
@@ -38,15 +30,11 @@ public class MaterialAttributeResponseDTO {
         return name;
     }
 
-    public MaterialAttributeItemResponseDTO getAttributeItem() {
-        return attributeItem;
+    public String getContent() {
+        return content;
     }
 
-    public void setMaterialId(Long materialId) {
-        this.materialId = materialId;
-    }
-
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -54,8 +42,8 @@ public class MaterialAttributeResponseDTO {
         this.name = name;
     }
 
-    public void setAttributeItem(MaterialAttributeItemResponseDTO attributeItem) {
-        this.attributeItem = attributeItem;
+    public void setContent(String content) {
+        this.content = content;
     }
 }
 

@@ -1,5 +1,6 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
+import java.time.*;
 import java.util.*;
 import java.math.*;
 import java.io.*;
@@ -7,24 +8,9 @@ import tech.blacklake.dev.openapi.sdk.api.common.*;
 
 public class UnitDetailResponseDTO {
     /**
-     * 单位类型，0主单位，1转换单位，2辅助单位
+     * 单位id
      */
-    private Integer unitType;
-
-    /**
-     * 物料ID
-     */
-    private Long materialId;
-
-    /**
-     * 工厂ID
-     */
-    private Long orgId;
-
-    /**
-     * 业务ID
-     */
-    private Long id;
+    private long id = 0;
 
     /**
      * 单位编号
@@ -35,6 +21,11 @@ public class UnitDetailResponseDTO {
      * 单位名称
      */
     private String name;
+
+    /**
+     * 单位类型，0主单位，1转换单位，2辅助单位
+     */
+    private Integer unitType;
 
     /**
      * 单位描述
@@ -57,23 +48,11 @@ public class UnitDetailResponseDTO {
     private Integer precisionFigure;
 
     /**
-     * 单位本身启停用状态，1启用0停用，若停用，物料转换单位启停用失效
+     * 使用状态，1启用0停用
      */
     private BizConstantDisplay enableFlag;
 
-    public Integer getUnitType() {
-        return unitType;
-    }
-
-    public Long getMaterialId() {
-        return materialId;
-    }
-
-    public Long getOrgId() {
-        return orgId;
-    }
-
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
@@ -83,6 +62,10 @@ public class UnitDetailResponseDTO {
 
     public String getName() {
         return name;
+    }
+
+    public Integer getUnitType() {
+        return unitType;
     }
 
     public String getRemark() {
@@ -105,19 +88,7 @@ public class UnitDetailResponseDTO {
         return enableFlag;
     }
 
-    public void setUnitType(Integer unitType) {
-        this.unitType = unitType;
-    }
-
-    public void setMaterialId(Long materialId) {
-        this.materialId = materialId;
-    }
-
-    public void setOrgId(Long orgId) {
-        this.orgId = orgId;
-    }
-
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -127,6 +98,10 @@ public class UnitDetailResponseDTO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setUnitType(Integer unitType) {
+        this.unitType = unitType;
     }
 
     public void setRemark(String remark) {

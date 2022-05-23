@@ -37,7 +37,7 @@ public class Run {
     public static void main(String[] args) {
         // 获取预置类
         File[] presetClassFiles = FileUtil.getDirFiles(StringUtil.concatPath(Constant.RESOURCE_PATH, PRESET_DIR));
-
+        // 预置类名
         List<String> presetClassNames;
         if (presetClassFiles != null) {
             // 复制预置类到common包
@@ -55,21 +55,20 @@ public class Run {
         // 获取需要生成open代码的依赖坐标
         List<DependencyCoordinate> dependencyCoordinates = getDependencyCoordinates();
 
-        // 已解析的/不需要再解析的dto名
-        Set<String> parsedDtoSet = new HashSet<>(presetClassNames);
-
+        // 开始解析所有jar
         // 所有jar中controller的TemplateController解析结果
         ReflectionResult templateControllerResult = ReflectionResult.getControllerReflectionResult();
         // 所有jar中dto的解析结果
         List<ReflectionResult> allDtoResults = new ArrayList<>();
-
-        // 开始解析所有jar
+        // 已解析的/不需要再解析的dto名
+        Set<String> parsedDtoSet = new HashSet<>(presetClassNames);
         dependencyCoordinates.forEach(it -> {
             Pair<List<ReflectionResult>, List<ReflectionResult>> jarPair = JarParser.parseJar(
                     it.getGroupId(),
                     it.getArtifactId(),
                     it.getVersion(),
-                    parsedDtoSet);
+                    parsedDtoSet,
+                    true);
             List<ReflectionResult> controllerResults = jarPair.getLeft();
             List<ReflectionResult> dtoResults = jarPair.getRight();
 
@@ -100,16 +99,55 @@ public class Run {
      * 获取需要生成open层代码的jar的依赖坐标
      */
     private static List<DependencyCoordinate> getDependencyCoordinates() {
-        DependencyCoordinate dependencyCoordinate1 = new DependencyCoordinate();
-        dependencyCoordinate1.setGroupId("tech.blacklake.dev.mfg");
-        dependencyCoordinate1.setArtifactId("mfg-domain-service");
-        dependencyCoordinate1.setVersion("6.4.1.1-RELEASE");
+        DependencyCoordinate dependencyCoordinate0 = new DependencyCoordinate();
+        dependencyCoordinate0.setGroupId("tech.blacklake.dev.med");
+        dependencyCoordinate0.setArtifactId("med-domain-produce-define-service");
+        dependencyCoordinate0.setVersion("6.4.1-RELEASE");
+
+//        DependencyCoordinate dependencyCoordinate0_1 = new DependencyCoordinate();
+//        dependencyCoordinate0.setGroupId("tech.blacklake.dev.med");
+//        dependencyCoordinate0.setArtifactId("med-domain-produce-define-api");
+//        dependencyCoordinate0.setVersion("6.4.1-RELEASE");
+
+//        DependencyCoordinate dependencyCoordinate1 = new DependencyCoordinate();
+//        dependencyCoordinate1.setGroupId("tech.blacklake.dev.med");
+//        dependencyCoordinate1.setArtifactId("med-domain-work-order-service");
+//        dependencyCoordinate1.setVersion("6.4.1-RELEASE");
 
         DependencyCoordinate dependencyCoordinate2 = new DependencyCoordinate();
-        dependencyCoordinate2.setGroupId("tech.blacklake.dev.med");
-        dependencyCoordinate2.setArtifactId("med-domain-produce-define-service");
-        dependencyCoordinate2.setVersion("6.4.1-RELEASE");
-        return List.of(dependencyCoordinate1, dependencyCoordinate2);
+        dependencyCoordinate2.setGroupId("tech.blacklake.dev.mfg");
+        dependencyCoordinate2.setArtifactId("mfg-domain-service");
+        dependencyCoordinate2.setVersion("6.4.1.1-RELEASE");
+
+        DependencyCoordinate dependencyCoordinate3 = new DependencyCoordinate();
+        dependencyCoordinate3.setGroupId("tech.blacklake.dev.resource");
+        dependencyCoordinate3.setArtifactId("resource-service");
+        dependencyCoordinate3.setVersion("6.4.1-RELEASE");
+
+        DependencyCoordinate dependencyCoordinate4 = new DependencyCoordinate();
+        dependencyCoordinate4.setGroupId("tech.blacklake.dev.order");
+        dependencyCoordinate4.setArtifactId("order-domain-service");
+        dependencyCoordinate4.setVersion("6.4.1-RELEASE");
+
+        DependencyCoordinate dependencyCoordinate5 = new DependencyCoordinate();
+        dependencyCoordinate5.setGroupId("tech.blacklake.dev.quality");
+        dependencyCoordinate5.setArtifactId("quality-domain-service");
+        dependencyCoordinate5.setVersion("6.4.1-RELEASE");
+
+        DependencyCoordinate dependencyCoordinate6 = new DependencyCoordinate();
+        dependencyCoordinate6.setGroupId("tech.blacklake.dev.workcenter");
+        dependencyCoordinate6.setArtifactId("work-center-service");
+        dependencyCoordinate6.setVersion("6.4.1-RELEASE");
+
+        return List.of(
+                dependencyCoordinate0,
+//                dependencyCoordinate0_1,
+//                dependencyCoordinate1,
+                dependencyCoordinate2);
+//                dependencyCoordinate3,
+//                dependencyCoordinate4,
+//                dependencyCoordinate5,
+//                dependencyCoordinate6);
     }
 
     /**

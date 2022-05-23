@@ -23,6 +23,9 @@
         <med.version>6.4.1-RELEASE</med.version>
         <resource.version>6.4.1-RELEASE</resource.version>
         <mfg.version>6.4.1.1-RELEASE</mfg.version>
+        <order.version>6.4.1-RELEASE</order.version>
+        <quality.version>6.4.1-RELEASE</quality.version>
+        <workcenter.version>6.4.1-RELEASE</workcenter.version>
     </properties>
 
     <modules>
@@ -81,6 +84,18 @@
             </dependency>
 
             <dependency>
+                <groupId>tech.blacklake.dev.med</groupId>
+                <artifactId>med-domain-produce-define-api</artifactId>
+                <version>${med.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.med</groupId>
+                <artifactId>med-domain-work-order-service</artifactId>
+                <version>${med.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>tech.blacklake.dev.mfg</groupId>
                 <artifactId>mfg-domain-service</artifactId>
                 <version>${mfg.version}</version>
@@ -90,6 +105,24 @@
                 <groupId>tech.blacklake.dev.resource</groupId>
                 <artifactId>resource-service</artifactId>
                 <version>${resource.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.order</groupId>
+                <artifactId>order-domain-service</artifactId>
+                <version>${order.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.quality</groupId>
+                <artifactId>quality-domain-service</artifactId>
+                <version>${quality.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.workcenter</groupId>
+                <artifactId>work-center-service</artifactId>
+                <version>${workcenter.version}</version>
             </dependency>
 
         </dependencies>

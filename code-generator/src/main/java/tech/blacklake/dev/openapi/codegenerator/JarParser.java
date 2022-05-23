@@ -78,7 +78,7 @@ public class JarParser {
      *
      * @return pair.left为所有controller的解析结果, pair.right为所有dto的解析结果
      */
-    public static Pair<List<ReflectionResult>, List<ReflectionResult>> parseJar(String groupId, String artifactId, String version, Set<String> parsedDtoSet) {
+    public static Pair<List<ReflectionResult>, List<ReflectionResult>> parseJar(String groupId, String artifactId, String version, Set<String> parsedDtoSet, boolean needParse) {
         // 获取classloader
         SdkClassLoader sdkClassLoader = SdkClassLoader.getSdkClassLoader();
         // 获取application name
@@ -88,8 +88,15 @@ public class JarParser {
         String jarFileName = artifactId + "-" + version + ".jar";
         log.info("开始解析{}...", jarFileName);
         String jarPath = StringUtil.concatPath(MAVEN_LOCAL_REPOSITORY, groupId, artifactId, version, jarFileName);
+        // 加载jar中的class
+        List<Class<?>> loadedClasses = loadJarClasses(jarPath);
+        // 如果只需要加载class而不需要解析, 则直接返回
+        if (!needParse) {
+            return null;
+        }
+
         // 获取jar中所有OpenapiController
-        List<Class<?>> openapiControllers = loadJarClasses(jarPath).stream().filter(JarParser::isOpenapiController).collect(Collectors.toList());
+        List<Class<?>> openapiControllers = loadedClasses.stream().filter(JarParser::isOpenapiController).collect(Collectors.toList());
 
         // controller解析结果
         List<ReflectionResult> controllerReflectionResultList = new ArrayList<>();
@@ -340,44 +347,46 @@ public class JarParser {
 
         Method[] methods = controllerClass.getDeclaredMethods();
         List<String> needParseDtoNames = new ArrayList<>();
-        Arrays.stream(methods).forEach(it -> {
-            ApiOperation apiOperation = it.getAnnotation(ApiOperation.class);
-            String description = apiOperation.value();
-            PostMapping postMapping = it.getAnnotation(PostMapping.class);
-            String path = parentPath + postMapping.value()[0];
-            String methodName = getMethodNameByPath(path);
-            path = "/" + applicationName + path;
+        Arrays.stream(methods)
+                .filter(it -> it.getAnnotation(ApiOperation.class) != null)
+                .forEach(it -> {
+                    ApiOperation apiOperation = it.getAnnotation(ApiOperation.class);
+                    String description = apiOperation.value();
+                    PostMapping postMapping = it.getAnnotation(PostMapping.class);
+                    String path = parentPath + postMapping.value()[0];
+                    String methodName = getMethodNameByPath(path);
+                    path = "/" + applicationName + path;
 
-            String returnTypeName;
-            Type genericReturnType = it.getGenericReturnType();
-            if (genericReturnType instanceof ParameterizedType) {
-                returnTypeName = handleParameterizedType((ParameterizedType) genericReturnType, needParseDtoNames);
-            } else {
-                Class<?> returnType = it.getReturnType();
-                needToParse(returnType, needParseDtoNames);
-                returnTypeName = returnType.getSimpleName();
-            }
-            returnTypeName = switchDtoName(returnTypeName);
+                    String returnTypeName;
+                    Type genericReturnType = it.getGenericReturnType();
+                    if (genericReturnType instanceof ParameterizedType) {
+                        returnTypeName = handleParameterizedType((ParameterizedType) genericReturnType, needParseDtoNames);
+                    } else {
+                        Class<?> returnType = it.getReturnType();
+                        needToParse(returnType, needParseDtoNames);
+                        returnTypeName = returnType.getSimpleName();
+                    }
+                    returnTypeName = switchDtoName(returnTypeName);
 
-            String parameterTypeName;
-            Type genericParameterType = it.getGenericParameterTypes()[0];
-            if (genericParameterType instanceof ParameterizedType) {
-                parameterTypeName = handleParameterizedType((ParameterizedType) genericParameterType, needParseDtoNames);
-            } else {
-                Class<?> parameterType = it.getParameterTypes()[0];
-                needToParse(parameterType, needParseDtoNames);
-                parameterTypeName = parameterType.getSimpleName();
-            }
-            parameterTypeName = switchDtoName(parameterTypeName);
-            String parameterName = StringUtil.lowerCaseFirstChar(parameterTypeName);
+                    String parameterTypeName;
+                    Type genericParameterType = it.getGenericParameterTypes()[0];
+                    if (genericParameterType instanceof ParameterizedType) {
+                        parameterTypeName = handleParameterizedType((ParameterizedType) genericParameterType, needParseDtoNames);
+                    } else {
+                        Class<?> parameterType = it.getParameterTypes()[0];
+                        needToParse(parameterType, needParseDtoNames);
+                        parameterTypeName = parameterType.getSimpleName();
+                    }
+                    parameterTypeName = switchDtoName(parameterTypeName);
+                    String parameterName = StringUtil.lowerCaseFirstChar(parameterTypeName);
 
-            descriptions.add(description);
-            paths.add(path);
-            methodNames.add(methodName);
-            returnTypeNames.add(returnTypeName);
-            parameterTypeNames.add(parameterTypeName);
-            parameterNames.add(parameterName);
-        });
+                    descriptions.add(description);
+                    paths.add(path);
+                    methodNames.add(methodName);
+                    returnTypeNames.add(returnTypeName);
+                    parameterTypeNames.add(parameterTypeName);
+                    parameterNames.add(parameterName);
+                });
 
         loopParameters.put(EL_DESCRIPTION, descriptions);
         loopParameters.put(EL_PATH, paths);

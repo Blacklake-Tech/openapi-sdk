@@ -1,5 +1,6 @@
 package tech.blacklake.dev.openapi.sdk.api.common;
 
+import java.time.*;
 import java.util.*;
 import java.math.*;
 import java.io.*;

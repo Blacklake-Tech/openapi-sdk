@@ -1,5 +1,6 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
+import java.time.*;
 import java.util.*;
 import java.math.*;
 import java.io.*;
@@ -17,11 +18,6 @@ public class MaterialResponseDTO {
     private List<MaterialAttributeResponseDTO> attribute;
 
     /**
-     * 物料文件信息
-     */
-    private List<MaterialDocumentRelResponseDTO> documents;
-
-    /**
      * 物料分类信息
      */
     private MaterialCategoryResponseDTO category;
@@ -29,62 +25,37 @@ public class MaterialResponseDTO {
     /**
      * 物料主单位信息
      */
-    private UnitDetailResponseDTO unit;
+    private UnitDetailResponseDTO masterUnit;
 
     /**
-     * 物料所有单位信息
+     * 物料生产单位信息
+     */
+    private UnitDetailResponseDTO productionUnit;
+
+    /**
+     * 物料所有可用单位信息
      */
     private List<UnitDetailResponseDTO> unitList;
 
     /**
-     * 物料单位转换关系(fromUnitId固定为主单位)
+     * 物料单位转化信息
      */
-    private List<UnitConversionResponseDTO> conversions;
+    private List<UnitConversionResponseDTO> unitConversionInfo;
 
     /**
-     * 物料所有辅助单位
-     */
-    private List<UnitConversionResponseDTO> auxUnitList;
-
-    /**
-     * 物料生产信息
-     */
-    private MaterialProductionInfoResponseDTO productionInfo;
-
-    /**
-     * 物料采购信息
-     */
-    private MaterialPurchaseResResponseDTO purchaseInfo;
-
-    /**
-     * 是否启用批次管理，0不启用，1启用
+     * 是否启用批次管理
      */
     private BizConstantDisplay batchManagementEnable;
 
     /**
-     * 批次号规则ID
+     * 批次号规则
      */
     private Long batchNoRuleId;
 
     /**
-     * 批次属性
+     * 批次号
      */
-    private List<MaterialBatchAttrResponseDTO> batchAttrs;
-
-    /**
-     * 库存属性
-     */
-    private List<MaterialInventoryAttrResponseDTO> inventoryAttrs;
-
-    /**
-     * 库存属性
-     */
-    private MaterialInventoryManageAttrDTO inventoryManageAttrDTO;
-
-    /**
-     * 仓储转换单位
-     */
-    private Long inventoryConvertUnitId;
+    private String batchNo;
 
     public MaterialBaseInfoResponseDTO getBaseInfo() {
         return baseInfo;
@@ -94,36 +65,24 @@ public class MaterialResponseDTO {
         return attribute;
     }
 
-    public List<MaterialDocumentRelResponseDTO> getDocuments() {
-        return documents;
-    }
-
     public MaterialCategoryResponseDTO getCategory() {
         return category;
     }
 
-    public UnitDetailResponseDTO getUnit() {
-        return unit;
+    public UnitDetailResponseDTO getMasterUnit() {
+        return masterUnit;
+    }
+
+    public UnitDetailResponseDTO getProductionUnit() {
+        return productionUnit;
     }
 
     public List<UnitDetailResponseDTO> getUnitList() {
         return unitList;
     }
 
-    public List<UnitConversionResponseDTO> getConversions() {
-        return conversions;
-    }
-
-    public List<UnitConversionResponseDTO> getAuxUnitList() {
-        return auxUnitList;
-    }
-
-    public MaterialProductionInfoResponseDTO getProductionInfo() {
-        return productionInfo;
-    }
-
-    public MaterialPurchaseResResponseDTO getPurchaseInfo() {
-        return purchaseInfo;
+    public List<UnitConversionResponseDTO> getUnitConversionInfo() {
+        return unitConversionInfo;
     }
 
     public BizConstantDisplay getBatchManagementEnable() {
@@ -134,20 +93,8 @@ public class MaterialResponseDTO {
         return batchNoRuleId;
     }
 
-    public List<MaterialBatchAttrResponseDTO> getBatchAttrs() {
-        return batchAttrs;
-    }
-
-    public List<MaterialInventoryAttrResponseDTO> getInventoryAttrs() {
-        return inventoryAttrs;
-    }
-
-    public MaterialInventoryManageAttrDTO getInventoryManageAttrDTO() {
-        return inventoryManageAttrDTO;
-    }
-
-    public Long getInventoryConvertUnitId() {
-        return inventoryConvertUnitId;
+    public String getBatchNo() {
+        return batchNo;
     }
 
     public void setBaseInfo(MaterialBaseInfoResponseDTO baseInfo) {
@@ -158,36 +105,24 @@ public class MaterialResponseDTO {
         this.attribute = attribute;
     }
 
-    public void setDocuments(List<MaterialDocumentRelResponseDTO> documents) {
-        this.documents = documents;
-    }
-
     public void setCategory(MaterialCategoryResponseDTO category) {
         this.category = category;
     }
 
-    public void setUnit(UnitDetailResponseDTO unit) {
-        this.unit = unit;
+    public void setMasterUnit(UnitDetailResponseDTO masterUnit) {
+        this.masterUnit = masterUnit;
+    }
+
+    public void setProductionUnit(UnitDetailResponseDTO productionUnit) {
+        this.productionUnit = productionUnit;
     }
 
     public void setUnitList(List<UnitDetailResponseDTO> unitList) {
         this.unitList = unitList;
     }
 
-    public void setConversions(List<UnitConversionResponseDTO> conversions) {
-        this.conversions = conversions;
-    }
-
-    public void setAuxUnitList(List<UnitConversionResponseDTO> auxUnitList) {
-        this.auxUnitList = auxUnitList;
-    }
-
-    public void setProductionInfo(MaterialProductionInfoResponseDTO productionInfo) {
-        this.productionInfo = productionInfo;
-    }
-
-    public void setPurchaseInfo(MaterialPurchaseResResponseDTO purchaseInfo) {
-        this.purchaseInfo = purchaseInfo;
+    public void setUnitConversionInfo(List<UnitConversionResponseDTO> unitConversionInfo) {
+        this.unitConversionInfo = unitConversionInfo;
     }
 
     public void setBatchManagementEnable(BizConstantDisplay batchManagementEnable) {
@@ -198,20 +133,8 @@ public class MaterialResponseDTO {
         this.batchNoRuleId = batchNoRuleId;
     }
 
-    public void setBatchAttrs(List<MaterialBatchAttrResponseDTO> batchAttrs) {
-        this.batchAttrs = batchAttrs;
-    }
-
-    public void setInventoryAttrs(List<MaterialInventoryAttrResponseDTO> inventoryAttrs) {
-        this.inventoryAttrs = inventoryAttrs;
-    }
-
-    public void setInventoryManageAttrDTO(MaterialInventoryManageAttrDTO inventoryManageAttrDTO) {
-        this.inventoryManageAttrDTO = inventoryManageAttrDTO;
-    }
-
-    public void setInventoryConvertUnitId(Long inventoryConvertUnitId) {
-        this.inventoryConvertUnitId = inventoryConvertUnitId;
+    public void setBatchNo(String batchNo) {
+        this.batchNo = batchNo;
     }
 }
 
