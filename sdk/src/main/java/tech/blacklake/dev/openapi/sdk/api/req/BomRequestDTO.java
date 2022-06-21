@@ -5,214 +5,267 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
 public class BomRequestDTO  {
     /**
-     * 父项物料编号,不可超过255个字符
+     * 物料清单Id
      */
-    private String materialCode = "";
+    private Long id;
 
     /**
-     * 父项物料名称,不可超过255个字符
+     * 父项物料ID
      */
-    private String materialName;
+    private long materialId = 0;
 
     /**
-     * 单位名称,不可超过255个字符
+     * 是否是虚拟件
      */
-    private String unit;
+    private int virtual = 0;
 
     /**
-     * 工艺路线编号,不可超过255个字符
+     * 单位ID
      */
-    private String processRoute;
+    private long unitId = 0;
 
     /**
-     * 版本号,同一工厂下,父项物料编号+版本号不能重复,支持数字、数字和字母,不可超过255个字符
-     */
-    private String version = "";
-
-    /**
-     * 版本说明,不可超过1000个字符,支持换行
-     */
-    private String versionDescription;
-
-    /**
-     * 默认版本,是1否0,默认为1
-     */
-    private Integer defaultVersionInt;
-
-    /**
-     * 默认版本,默认为是
-     */
-    private String defaultVersion;
-
-    /**
-     * 成品率(%)，默认值为100,必须大于0,小数点后不得超过4位,必须小于等于1000
+     * 成品率
      */
     private String productRate;
 
     /**
-     * 报工控件编号,不可超过255个字符
+     * 版本号
+     */
+    private String version;
+
+    /**
+     * 是否是默认版本
+     */
+    private int defaultVersion = 0;
+
+    /**
+     * 版本说明
+     */
+    private String versionDescription;
+
+    /**
+     * 工艺路线ID
+     */
+    private Long processRouteId;
+
+    /**
+     * 报工工序ID
+     */
+    private Long workReportProcessId;
+
+    /**
+     * 报工控件Code
      */
     private String workReportSopControlCode;
 
     /**
-     * 单次报工数量,默认null,必须大于0
+     * 所属部门
      */
-    private String singleWorkReportAmount;
+    private Long ownedDepartmentId;
 
     /**
-     * 所属部门编号,不可超过255个字符
+     * 生产部门
      */
-    private String ownedDepartmentCode;
+    private Long manufactureDepartmentId;
 
     /**
-     * 生产部门编号,不可超过255个字符
-     */
-    private String manufactureDepartmentCode;
-
-    /**
-     * 备注,不可超过1000个字符,支持换行
+     * 行备注
      */
     private String remark;
 
     /**
-     * 多产出物料行
+     * 单次报工数量
      */
-    private List<BomOutputMaterialDTO> bomOutputMaterials;
+    private String singleWorkReportAmount;
 
     /**
-     * 子项物料行
+     * 报工方式
      */
-    private List<BomInputMaterialDTO> bomInputMaterials;
+    private List<Integer> reportingMethods;
 
-    public String getMaterialCode() {
-        return materialCode;
+    /**
+     * 是否入库
+     */
+    private int warehousing = 0;
+
+    /**
+     * 自动入库
+     */
+    private Integer autoWarehousingFlag;
+
+    /**
+     * 子项物料第一层
+     */
+    private List<BomInputMaterialRequestDTO> bomInputMaterials;
+
+    /**
+     * 多产出
+     */
+    private List<BomOutputMaterialRequestDTO> bomOutputMaterials;
+
+    public Long getId() {
+        return id;
     }
 
-    public String getMaterialName() {
-        return materialName;
+    public long getMaterialId() {
+        return materialId;
     }
 
-    public String getUnit() {
-        return unit;
+    public int getVirtual() {
+        return virtual;
     }
 
-    public String getProcessRoute() {
-        return processRoute;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public String getVersionDescription() {
-        return versionDescription;
-    }
-
-    public Integer getDefaultVersionInt() {
-        return defaultVersionInt;
-    }
-
-    public String getDefaultVersion() {
-        return defaultVersion;
+    public long getUnitId() {
+        return unitId;
     }
 
     public String getProductRate() {
         return productRate;
     }
 
+    public String getVersion() {
+        return version;
+    }
+
+    public int getDefaultVersion() {
+        return defaultVersion;
+    }
+
+    public String getVersionDescription() {
+        return versionDescription;
+    }
+
+    public Long getProcessRouteId() {
+        return processRouteId;
+    }
+
+    public Long getWorkReportProcessId() {
+        return workReportProcessId;
+    }
+
     public String getWorkReportSopControlCode() {
         return workReportSopControlCode;
     }
 
-    public String getSingleWorkReportAmount() {
-        return singleWorkReportAmount;
+    public Long getOwnedDepartmentId() {
+        return ownedDepartmentId;
     }
 
-    public String getOwnedDepartmentCode() {
-        return ownedDepartmentCode;
-    }
-
-    public String getManufactureDepartmentCode() {
-        return manufactureDepartmentCode;
+    public Long getManufactureDepartmentId() {
+        return manufactureDepartmentId;
     }
 
     public String getRemark() {
         return remark;
     }
 
-    public List<BomOutputMaterialDTO> getBomOutputMaterials() {
-        return bomOutputMaterials;
+    public String getSingleWorkReportAmount() {
+        return singleWorkReportAmount;
     }
 
-    public List<BomInputMaterialDTO> getBomInputMaterials() {
+    public List<Integer> getReportingMethods() {
+        return reportingMethods;
+    }
+
+    public int getWarehousing() {
+        return warehousing;
+    }
+
+    public Integer getAutoWarehousingFlag() {
+        return autoWarehousingFlag;
+    }
+
+    public List<BomInputMaterialRequestDTO> getBomInputMaterials() {
         return bomInputMaterials;
     }
 
-    public void setMaterialCode(String materialCode) {
-        this.materialCode = materialCode;
+    public List<BomOutputMaterialRequestDTO> getBomOutputMaterials() {
+        return bomOutputMaterials;
     }
 
-    public void setMaterialName(String materialName) {
-        this.materialName = materialName;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setMaterialId(long materialId) {
+        this.materialId = materialId;
     }
 
-    public void setProcessRoute(String processRoute) {
-        this.processRoute = processRoute;
+    public void setVirtual(int virtual) {
+        this.virtual = virtual;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public void setVersionDescription(String versionDescription) {
-        this.versionDescription = versionDescription;
-    }
-
-    public void setDefaultVersionInt(Integer defaultVersionInt) {
-        this.defaultVersionInt = defaultVersionInt;
-    }
-
-    public void setDefaultVersion(String defaultVersion) {
-        this.defaultVersion = defaultVersion;
+    public void setUnitId(long unitId) {
+        this.unitId = unitId;
     }
 
     public void setProductRate(String productRate) {
         this.productRate = productRate;
     }
 
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public void setDefaultVersion(int defaultVersion) {
+        this.defaultVersion = defaultVersion;
+    }
+
+    public void setVersionDescription(String versionDescription) {
+        this.versionDescription = versionDescription;
+    }
+
+    public void setProcessRouteId(Long processRouteId) {
+        this.processRouteId = processRouteId;
+    }
+
+    public void setWorkReportProcessId(Long workReportProcessId) {
+        this.workReportProcessId = workReportProcessId;
+    }
+
     public void setWorkReportSopControlCode(String workReportSopControlCode) {
         this.workReportSopControlCode = workReportSopControlCode;
     }
 
-    public void setSingleWorkReportAmount(String singleWorkReportAmount) {
-        this.singleWorkReportAmount = singleWorkReportAmount;
+    public void setOwnedDepartmentId(Long ownedDepartmentId) {
+        this.ownedDepartmentId = ownedDepartmentId;
     }
 
-    public void setOwnedDepartmentCode(String ownedDepartmentCode) {
-        this.ownedDepartmentCode = ownedDepartmentCode;
-    }
-
-    public void setManufactureDepartmentCode(String manufactureDepartmentCode) {
-        this.manufactureDepartmentCode = manufactureDepartmentCode;
+    public void setManufactureDepartmentId(Long manufactureDepartmentId) {
+        this.manufactureDepartmentId = manufactureDepartmentId;
     }
 
     public void setRemark(String remark) {
         this.remark = remark;
     }
 
-    public void setBomOutputMaterials(List<BomOutputMaterialDTO> bomOutputMaterials) {
-        this.bomOutputMaterials = bomOutputMaterials;
+    public void setSingleWorkReportAmount(String singleWorkReportAmount) {
+        this.singleWorkReportAmount = singleWorkReportAmount;
     }
 
-    public void setBomInputMaterials(List<BomInputMaterialDTO> bomInputMaterials) {
+    public void setReportingMethods(List<Integer> reportingMethods) {
+        this.reportingMethods = reportingMethods;
+    }
+
+    public void setWarehousing(int warehousing) {
+        this.warehousing = warehousing;
+    }
+
+    public void setAutoWarehousingFlag(Integer autoWarehousingFlag) {
+        this.autoWarehousingFlag = autoWarehousingFlag;
+    }
+
+    public void setBomInputMaterials(List<BomInputMaterialRequestDTO> bomInputMaterials) {
         this.bomInputMaterials = bomInputMaterials;
+    }
+
+    public void setBomOutputMaterials(List<BomOutputMaterialRequestDTO> bomOutputMaterials) {
+        this.bomOutputMaterials = bomOutputMaterials;
     }
 }
 

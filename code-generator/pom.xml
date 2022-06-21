@@ -5,7 +5,7 @@
     <parent>
         <artifactId>openapi-sdk-parent</artifactId>
         <groupId>tech.blacklake.dev.openapi</groupId>
-        <version>2.0.1-SNAPSHOT</version>
+        <version>2.0.2-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -54,29 +54,29 @@
             <artifactId>med-domain-work-order-service</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>tech.blacklake.dev.mfg</groupId>
-            <artifactId>mfg-domain-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.mfg</groupId>-->
+<!--            <artifactId>mfg-domain-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.resource</groupId>
-            <artifactId>resource-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.resource</groupId>-->
+<!--            <artifactId>resource-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.order</groupId>
-            <artifactId>order-domain-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.order</groupId>-->
+<!--            <artifactId>order-domain-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.quality</groupId>
-            <artifactId>quality-domain-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.quality</groupId>-->
+<!--            <artifactId>quality-domain-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.workcenter</groupId>
-            <artifactId>work-center-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.workcenter</groupId>-->
+<!--            <artifactId>work-center-service</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 </project>

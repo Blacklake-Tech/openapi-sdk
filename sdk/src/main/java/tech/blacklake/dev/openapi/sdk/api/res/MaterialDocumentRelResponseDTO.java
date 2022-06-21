@@ -5,26 +5,18 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class MaterialDocumentRelResponseDTO {
+public class MaterialDocumentRelResponseDTO  {
     /**
-     * 物料ID
-     */
-    private Long materialId;
-
-    /**
-     * 文件ID
+     * 文档id
      */
     private Long documentId;
 
     /**
-     * 文件路径
+     * 文档路径
      */
     private String documentPath;
-
-    public Long getMaterialId() {
-        return materialId;
-    }
 
     public Long getDocumentId() {
         return documentId;
@@ -32,10 +24,6 @@ public class MaterialDocumentRelResponseDTO {
 
     public String getDocumentPath() {
         return documentPath;
-    }
-
-    public void setMaterialId(Long materialId) {
-        this.materialId = materialId;
     }
 
     public void setDocumentId(Long documentId) {

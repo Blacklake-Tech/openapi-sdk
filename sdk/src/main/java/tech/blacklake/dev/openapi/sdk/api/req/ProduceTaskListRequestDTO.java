@@ -5,6 +5,7 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
 public class ProduceTaskListRequestDTO extends BasePage {
     /**
@@ -16,6 +17,11 @@ public class ProduceTaskListRequestDTO extends BasePage {
      * 任务状态
      */
     private List<Integer> taskStatusList;
+
+    /**
+     * sop任务ID列表
+     */
+    private List<Long> sopTaskIdList;
 
     /**
      * 工序ID列表
@@ -90,6 +96,10 @@ public class ProduceTaskListRequestDTO extends BasePage {
         return taskStatusList;
     }
 
+    public List<Long> getSopTaskIdList() {
+        return sopTaskIdList;
+    }
+
     public List<Long> getProcessIdList() {
         return processIdList;
     }
@@ -148,6 +158,10 @@ public class ProduceTaskListRequestDTO extends BasePage {
 
     public void setTaskStatusList(List<Integer> taskStatusList) {
         this.taskStatusList = taskStatusList;
+    }
+
+    public void setSopTaskIdList(List<Long> sopTaskIdList) {
+        this.sopTaskIdList = sopTaskIdList;
     }
 
     public void setProcessIdList(List<Long> processIdList) {

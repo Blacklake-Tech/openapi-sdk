@@ -12,6 +12,7 @@ public enum ClassTypeEnum {
     CONTROLLER(StringUtil.concatPath("tech", "blacklake", "dev", "openapi", "sdk", "api")),
     REQUEST_DTO(StringUtil.concatPath("tech", "blacklake", "dev", "openapi", "sdk", "api", "req")),
     RESPONSE_DTO(StringUtil.concatPath("tech", "blacklake", "dev", "openapi", "sdk", "api", "res")),
+    UNKNOW_DTO(StringUtil.concatPath("tech", "blacklake", "dev", "openapi", "sdk", "api", "dto")),
     COMMON_DATA(StringUtil.concatPath("tech", "blacklake", "dev", "openapi", "sdk", "api", "common"));
 
     ClassTypeEnum(String dir) {

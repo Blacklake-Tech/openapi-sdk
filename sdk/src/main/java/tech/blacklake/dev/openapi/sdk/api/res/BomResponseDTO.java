@@ -5,19 +5,20 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
 public class BomResponseDTO  {
     /**
-     * 失败原因
+     * id
      */
-    private String errorReason;
+    private long id = 0;
 
-    public String getErrorReason() {
-        return errorReason;
+    public long getId() {
+        return id;
     }
 
-    public void setErrorReason(String errorReason) {
-        this.errorReason = errorReason;
+    public void setId(long id) {
+        this.id = id;
     }
 }
 

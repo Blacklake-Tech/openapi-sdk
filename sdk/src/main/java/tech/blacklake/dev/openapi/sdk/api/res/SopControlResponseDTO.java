@@ -5,58 +5,59 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class SopControlResponseDTO {
+public class SopControlResponseDTO  {
     /**
-     * id
+     * 工厂id
      */
     private long id = 0;
 
     /**
-     * controlType
+     * SOP控件编号
      */
-    private BizConstantDisplay controlType;
+    private String code;
 
     /**
-     * name
+     * SOP控件名称
      */
     private String name;
 
     /**
-     * code
+     * 控件类型
      */
-    private String code;
+    private BizConstantDisplay controlType;
 
     public long getId() {
         return id;
-    }
-
-    public BizConstantDisplay getControlType() {
-        return controlType;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String getCode() {
         return code;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public BizConstantDisplay getControlType() {
+        return controlType;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
 
-    public void setControlType(BizConstantDisplay controlType) {
-        this.controlType = controlType;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setControlType(BizConstantDisplay controlType) {
+        this.controlType = controlType;
     }
 }
 

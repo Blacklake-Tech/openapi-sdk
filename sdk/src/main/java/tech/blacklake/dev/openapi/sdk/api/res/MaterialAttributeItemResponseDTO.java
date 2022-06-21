@@ -5,19 +5,20 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class MaterialAttributeItemResponseDTO {
+public class MaterialAttributeItemResponseDTO  {
     /**
-     * 物料属性值ID
+     * 业务id
      */
-    private Long id;
+    private long id = 0;
 
     /**
-     * 物料属性值内容
+     * 内容
      */
     private String content;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
@@ -25,7 +26,7 @@ public class MaterialAttributeItemResponseDTO {
         return content;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

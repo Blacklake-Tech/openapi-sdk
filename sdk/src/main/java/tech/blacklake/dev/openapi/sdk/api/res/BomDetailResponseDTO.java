@@ -5,6 +5,7 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
 public class BomDetailResponseDTO  {
     /**
@@ -143,6 +144,21 @@ public class BomDetailResponseDTO  {
     private long updatedAt = 0;
 
     /**
+     * 报工方式
+     */
+    private List<BizConstantDisplay> reportingMethods;
+
+    /**
+     * 是否入库
+     */
+    private BizConstantDisplay warehousing;
+
+    /**
+     * 自动入库
+     */
+    private BizConstantDisplay autoWarehousingFlag;
+
+    /**
      * 子项物料第一层
      */
     private List<BomInputMaterialDetailResponseDTO> bomInputMaterials;
@@ -260,6 +276,18 @@ public class BomDetailResponseDTO  {
         return updatedAt;
     }
 
+    public List<BizConstantDisplay> getReportingMethods() {
+        return reportingMethods;
+    }
+
+    public BizConstantDisplay getWarehousing() {
+        return warehousing;
+    }
+
+    public BizConstantDisplay getAutoWarehousingFlag() {
+        return autoWarehousingFlag;
+    }
+
     public List<BomInputMaterialDetailResponseDTO> getBomInputMaterials() {
         return bomInputMaterials;
     }
@@ -374,6 +402,18 @@ public class BomDetailResponseDTO  {
 
     public void setUpdatedAt(long updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public void setReportingMethods(List<BizConstantDisplay> reportingMethods) {
+        this.reportingMethods = reportingMethods;
+    }
+
+    public void setWarehousing(BizConstantDisplay warehousing) {
+        this.warehousing = warehousing;
+    }
+
+    public void setAutoWarehousingFlag(BizConstantDisplay autoWarehousingFlag) {
+        this.autoWarehousingFlag = autoWarehousingFlag;
     }
 
     public void setBomInputMaterials(List<BomInputMaterialDetailResponseDTO> bomInputMaterials) {

@@ -5,6 +5,7 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
 public class ProduceTaskListResponseDTO {
     /**
@@ -75,7 +76,7 @@ public class ProduceTaskListResponseDTO {
     /**
      * 执行人
      */
-    private List<UserInfoResponseDTO> executorList;
+    private List<UserBaseResponseDTO> executorList;
 
     /**
      * 任务状态 1 待执行、2 执行中、3 暂停中、4 已结束 5 已取消
@@ -85,7 +86,7 @@ public class ProduceTaskListResponseDTO {
     /**
      * 任务进度（主物料）
      */
-    private ProduceTaskProgressAppResponseDTO progressReportAppResponseDTO;
+    private ProduceTaskProgressResponseDTO progressReportResponseDTO;
 
     /**
      * 报告模版ids
@@ -144,7 +145,7 @@ public class ProduceTaskListResponseDTO {
         return planEndTime;
     }
 
-    public List<UserInfoResponseDTO> getExecutorList() {
+    public List<UserBaseResponseDTO> getExecutorList() {
         return executorList;
     }
 
@@ -152,8 +153,8 @@ public class ProduceTaskListResponseDTO {
         return taskStatus;
     }
 
-    public ProduceTaskProgressAppResponseDTO getProgressReportAppResponseDTO() {
-        return progressReportAppResponseDTO;
+    public ProduceTaskProgressResponseDTO getProgressReportResponseDTO() {
+        return progressReportResponseDTO;
     }
 
     public List<Long> getReportTemplateIds() {
@@ -212,7 +213,7 @@ public class ProduceTaskListResponseDTO {
         this.planEndTime = planEndTime;
     }
 
-    public void setExecutorList(List<UserInfoResponseDTO> executorList) {
+    public void setExecutorList(List<UserBaseResponseDTO> executorList) {
         this.executorList = executorList;
     }
 
@@ -220,8 +221,8 @@ public class ProduceTaskListResponseDTO {
         this.taskStatus = taskStatus;
     }
 
-    public void setProgressReportAppResponseDTO(ProduceTaskProgressAppResponseDTO progressReportAppResponseDTO) {
-        this.progressReportAppResponseDTO = progressReportAppResponseDTO;
+    public void setProgressReportResponseDTO(ProduceTaskProgressResponseDTO progressReportResponseDTO) {
+        this.progressReportResponseDTO = progressReportResponseDTO;
     }
 
     public void setReportTemplateIds(List<Long> reportTemplateIds) {

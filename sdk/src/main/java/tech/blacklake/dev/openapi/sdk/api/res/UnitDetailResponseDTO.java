@@ -5,10 +5,21 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class UnitDetailResponseDTO {
+public class UnitDetailResponseDTO  {
     /**
-     * 单位id
+     * 单位类型
+     */
+    private Integer unitType;
+
+    /**
+     * 工厂id
+     */
+    private long orgId = 0;
+
+    /**
+     * id
      */
     private long id = 0;
 
@@ -23,34 +34,37 @@ public class UnitDetailResponseDTO {
     private String name;
 
     /**
-     * 单位类型，0主单位，1转换单位，2辅助单位
-     */
-    private Integer unitType;
-
-    /**
-     * 单位描述
+     * 备注
      */
     private String remark;
 
     /**
-     * 精度管理，1启用0停用
+     * 是否开启精度
      */
     private BizConstantDisplay enablePrecision;
 
     /**
-     * 舍入规则，0四舍五入1奇进偶舍2进位3舍位
+     * 舍入规则
      */
     private BizConstantDisplay roundingRole;
 
     /**
      * 精度
      */
-    private Integer precisionFigure;
+    private int precisionFigure = 0;
 
     /**
-     * 使用状态，1启用0停用
+     * 是否启用
      */
     private BizConstantDisplay enableFlag;
+
+    public Integer getUnitType() {
+        return unitType;
+    }
+
+    public long getOrgId() {
+        return orgId;
+    }
 
     public long getId() {
         return id;
@@ -62,10 +76,6 @@ public class UnitDetailResponseDTO {
 
     public String getName() {
         return name;
-    }
-
-    public Integer getUnitType() {
-        return unitType;
     }
 
     public String getRemark() {
@@ -80,12 +90,20 @@ public class UnitDetailResponseDTO {
         return roundingRole;
     }
 
-    public Integer getPrecisionFigure() {
+    public int getPrecisionFigure() {
         return precisionFigure;
     }
 
     public BizConstantDisplay getEnableFlag() {
         return enableFlag;
+    }
+
+    public void setUnitType(Integer unitType) {
+        this.unitType = unitType;
+    }
+
+    public void setOrgId(long orgId) {
+        this.orgId = orgId;
     }
 
     public void setId(long id) {
@@ -100,10 +118,6 @@ public class UnitDetailResponseDTO {
         this.name = name;
     }
 
-    public void setUnitType(Integer unitType) {
-        this.unitType = unitType;
-    }
-
     public void setRemark(String remark) {
         this.remark = remark;
     }
@@ -116,7 +130,7 @@ public class UnitDetailResponseDTO {
         this.roundingRole = roundingRole;
     }
 
-    public void setPrecisionFigure(Integer precisionFigure) {
+    public void setPrecisionFigure(int precisionFigure) {
         this.precisionFigure = precisionFigure;
     }
 

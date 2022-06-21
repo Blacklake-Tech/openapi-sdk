@@ -5,12 +5,18 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class UnitConversionResponseDTO {
+public class UnitConversionResponseDTO  {
     /**
-     * 基本单位转换系数
+     * orgid
      */
-    private BigDecimal fromUnitCount;
+    private long orgId = 0;
+
+    /**
+     * id
+     */
+    private long id = 0;
 
     /**
      * 基本单位id
@@ -18,45 +24,92 @@ public class UnitConversionResponseDTO {
     private long fromUnitId = 0;
 
     /**
-     * 转换单位转换系数
+     * 基本单位名称
      */
-    private BigDecimal toUnitCount;
+    private String fromUnitName;
+
+    /**
+     * 基本单位转换系数
+     */
+    private int fromUnitCount = 0;
 
     /**
      * 转换单位id
      */
     private long toUnitId = 0;
 
-    public BigDecimal getFromUnitCount() {
-        return fromUnitCount;
+    /**
+     * 转换单位名称
+     */
+    private String toUnitName;
+
+    /**
+     * 转换单位转换系数
+     */
+    private int toUnitCount = 0;
+
+    public long getOrgId() {
+        return orgId;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public long getFromUnitId() {
         return fromUnitId;
     }
 
-    public BigDecimal getToUnitCount() {
-        return toUnitCount;
+    public String getFromUnitName() {
+        return fromUnitName;
+    }
+
+    public int getFromUnitCount() {
+        return fromUnitCount;
     }
 
     public long getToUnitId() {
         return toUnitId;
     }
 
-    public void setFromUnitCount(BigDecimal fromUnitCount) {
-        this.fromUnitCount = fromUnitCount;
+    public String getToUnitName() {
+        return toUnitName;
+    }
+
+    public int getToUnitCount() {
+        return toUnitCount;
+    }
+
+    public void setOrgId(long orgId) {
+        this.orgId = orgId;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setFromUnitId(long fromUnitId) {
         this.fromUnitId = fromUnitId;
     }
 
-    public void setToUnitCount(BigDecimal toUnitCount) {
-        this.toUnitCount = toUnitCount;
+    public void setFromUnitName(String fromUnitName) {
+        this.fromUnitName = fromUnitName;
+    }
+
+    public void setFromUnitCount(int fromUnitCount) {
+        this.fromUnitCount = fromUnitCount;
     }
 
     public void setToUnitId(long toUnitId) {
         this.toUnitId = toUnitId;
+    }
+
+    public void setToUnitName(String toUnitName) {
+        this.toUnitName = toUnitName;
+    }
+
+    public void setToUnitCount(int toUnitCount) {
+        this.toUnitCount = toUnitCount;
     }
 }
 

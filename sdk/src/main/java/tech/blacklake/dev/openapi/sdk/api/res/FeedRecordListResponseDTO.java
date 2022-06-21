@@ -5,8 +5,14 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
 public class FeedRecordListResponseDTO {
+    /**
+     * 生产任务id
+     */
+    private long taskId;
+
     /**
      * 投料记录ID
      */
@@ -90,7 +96,7 @@ public class FeedRecordListResponseDTO {
     /**
      * 投料人员
      */
-    private UserInfoResponseDTO feedUser;
+    private UserBaseResponseDTO feedUser;
 
     /**
      * 投料时间
@@ -101,6 +107,10 @@ public class FeedRecordListResponseDTO {
      * 投料仓位
      */
     private StorageLocationResponseDTO opeLocation;
+
+    public long getTaskId() {
+        return taskId;
+    }
 
     public long getFeedRecordId() {
         return feedRecordId;
@@ -166,7 +176,7 @@ public class FeedRecordListResponseDTO {
         return auxAmount2;
     }
 
-    public UserInfoResponseDTO getFeedUser() {
+    public UserBaseResponseDTO getFeedUser() {
         return feedUser;
     }
 
@@ -176,6 +186,10 @@ public class FeedRecordListResponseDTO {
 
     public StorageLocationResponseDTO getOpeLocation() {
         return opeLocation;
+    }
+
+    public void setTaskId(long taskId) {
+        this.taskId = taskId;
     }
 
     public void setFeedRecordId(long feedRecordId) {
@@ -242,7 +256,7 @@ public class FeedRecordListResponseDTO {
         this.auxAmount2 = auxAmount2;
     }
 
-    public void setFeedUser(UserInfoResponseDTO feedUser) {
+    public void setFeedUser(UserBaseResponseDTO feedUser) {
         this.feedUser = feedUser;
     }
 

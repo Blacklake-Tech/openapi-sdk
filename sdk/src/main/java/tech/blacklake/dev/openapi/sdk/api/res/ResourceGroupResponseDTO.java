@@ -5,12 +5,18 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
 public class ResourceGroupResponseDTO {
     /**
-     * 资源组id
+     * 记录id
      */
     private long id;
+
+    /**
+     * 资源组id
+     */
+    private long groupId;
 
     /**
      * 资源组名称
@@ -31,6 +37,10 @@ public class ResourceGroupResponseDTO {
         return id;
     }
 
+    public long getGroupId() {
+        return groupId;
+    }
+
     public String getGroupName() {
         return groupName;
     }
@@ -45,6 +55,10 @@ public class ResourceGroupResponseDTO {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public void setGroupId(long groupId) {
+        this.groupId = groupId;
     }
 
     public void setGroupName(String groupName) {

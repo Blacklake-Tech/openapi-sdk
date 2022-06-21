@@ -5,6 +5,7 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
 public class BomFeedingControlDetailResponseDTO  {
     /**
@@ -77,6 +78,11 @@ public class BomFeedingControlDetailResponseDTO  {
      */
     private List<BizConstantDisplay> inputQcState;
 
+    /**
+     * 投料类型 key = FeedTypeEnum
+     */
+    private BizConstantDisplay feedType;
+
     public long getId() {
         return id;
     }
@@ -133,6 +139,10 @@ public class BomFeedingControlDetailResponseDTO  {
         return inputQcState;
     }
 
+    public BizConstantDisplay getFeedType() {
+        return feedType;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -187,6 +197,10 @@ public class BomFeedingControlDetailResponseDTO  {
 
     public void setInputQcState(List<BizConstantDisplay> inputQcState) {
         this.inputQcState = inputQcState;
+    }
+
+    public void setFeedType(BizConstantDisplay feedType) {
+        this.feedType = feedType;
     }
 }
 

@@ -5,6 +5,7 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
 public class MaterialProductionInfoResponseDTO {
     /**
@@ -13,7 +14,7 @@ public class MaterialProductionInfoResponseDTO {
     private Long materialId;
 
     /**
-     * 生产单位
+     * 自制单位
      */
     private Long productionUnitId;
 

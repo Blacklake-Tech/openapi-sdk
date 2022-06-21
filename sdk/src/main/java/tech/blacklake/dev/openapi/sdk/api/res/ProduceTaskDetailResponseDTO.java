@@ -5,6 +5,7 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
 public class ProduceTaskDetailResponseDTO {
     /**
@@ -75,7 +76,7 @@ public class ProduceTaskDetailResponseDTO {
     /**
      * 可执行人
      */
-    private List<UserInfoResponseDTO> executors;
+    private List<UserBaseResponseDTO> executors;
 
     /**
      * 设备
@@ -179,7 +180,7 @@ public class ProduceTaskDetailResponseDTO {
         return materialBatchNo;
     }
 
-    public List<UserInfoResponseDTO> getExecutors() {
+    public List<UserBaseResponseDTO> getExecutors() {
         return executors;
     }
 
@@ -275,7 +276,7 @@ public class ProduceTaskDetailResponseDTO {
         this.materialBatchNo = materialBatchNo;
     }
 
-    public void setExecutors(List<UserInfoResponseDTO> executors) {
+    public void setExecutors(List<UserBaseResponseDTO> executors) {
         this.executors = executors;
     }
 

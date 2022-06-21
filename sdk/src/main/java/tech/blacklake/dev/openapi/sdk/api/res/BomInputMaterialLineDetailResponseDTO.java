@@ -5,8 +5,9 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class BomInputMaterialLineDetailResponseDTO  {
+public class BomInputMaterialLineDetailResponseDTO extends CustomFieldBaseVO  {
     /**
      * 子行Id
      */
@@ -107,6 +108,11 @@ public class BomInputMaterialLineDetailResponseDTO  {
      */
     private List<BomFeedingControlDetailResponseDTO> bomFeedingControls;
 
+    /**
+     * 替代方案详情
+     */
+    private AlternativePlanDetailResponseDTO alternativePlanDetailResponseDTO;
+
     public long getId() {
         return id;
     }
@@ -187,6 +193,10 @@ public class BomInputMaterialLineDetailResponseDTO  {
         return bomFeedingControls;
     }
 
+    public AlternativePlanDetailResponseDTO getAlternativePlanDetailResponseDTO() {
+        return alternativePlanDetailResponseDTO;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -265,6 +275,10 @@ public class BomInputMaterialLineDetailResponseDTO  {
 
     public void setBomFeedingControls(List<BomFeedingControlDetailResponseDTO> bomFeedingControls) {
         this.bomFeedingControls = bomFeedingControls;
+    }
+
+    public void setAlternativePlanDetailResponseDTO(AlternativePlanDetailResponseDTO alternativePlanDetailResponseDTO) {
+        this.alternativePlanDetailResponseDTO = alternativePlanDetailResponseDTO;
     }
 }
 

@@ -5,136 +5,85 @@ import java.util.*;
 import java.math.*;
 import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class MaterialResponseDTO {
+public class MaterialResponseDTO  {
     /**
-     * 物料基本信息
+     * 业务id
      */
-    private MaterialBaseInfoResponseDTO baseInfo;
+    private long id = 0;
 
     /**
-     * 物料属性信息
+     * 物料编码
      */
-    private List<MaterialAttributeResponseDTO> attribute;
+    private String code;
 
     /**
-     * 物料分类信息
+     * 物料名称
+     */
+    private String name;
+
+    /**
+     * 物料标识码
+     */
+    private String identifier;
+
+    /**
+     * 物料分类
      */
     private MaterialCategoryResponseDTO category;
 
     /**
-     * 物料主单位信息
+     * 物料属性
      */
-    private UnitDetailResponseDTO masterUnit;
+    private List<MaterialAttributeResponseDTO> attribute;
 
-    /**
-     * 物料生产单位信息
-     */
-    private UnitDetailResponseDTO productionUnit;
-
-    /**
-     * 物料所有可用单位信息
-     */
-    private List<UnitDetailResponseDTO> unitList;
-
-    /**
-     * 物料单位转化信息
-     */
-    private List<UnitConversionResponseDTO> unitConversionInfo;
-
-    /**
-     * 是否启用批次管理
-     */
-    private BizConstantDisplay batchManagementEnable;
-
-    /**
-     * 批次号规则
-     */
-    private Long batchNoRuleId;
-
-    /**
-     * 批次号
-     */
-    private String batchNo;
-
-    public MaterialBaseInfoResponseDTO getBaseInfo() {
-        return baseInfo;
+    public long getId() {
+        return id;
     }
 
-    public List<MaterialAttributeResponseDTO> getAttribute() {
-        return attribute;
+    public String getCode() {
+        return code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getIdentifier() {
+        return identifier;
     }
 
     public MaterialCategoryResponseDTO getCategory() {
         return category;
     }
 
-    public UnitDetailResponseDTO getMasterUnit() {
-        return masterUnit;
+    public List<MaterialAttributeResponseDTO> getAttribute() {
+        return attribute;
     }
 
-    public UnitDetailResponseDTO getProductionUnit() {
-        return productionUnit;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public List<UnitDetailResponseDTO> getUnitList() {
-        return unitList;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public List<UnitConversionResponseDTO> getUnitConversionInfo() {
-        return unitConversionInfo;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public BizConstantDisplay getBatchManagementEnable() {
-        return batchManagementEnable;
-    }
-
-    public Long getBatchNoRuleId() {
-        return batchNoRuleId;
-    }
-
-    public String getBatchNo() {
-        return batchNo;
-    }
-
-    public void setBaseInfo(MaterialBaseInfoResponseDTO baseInfo) {
-        this.baseInfo = baseInfo;
-    }
-
-    public void setAttribute(List<MaterialAttributeResponseDTO> attribute) {
-        this.attribute = attribute;
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
     }
 
     public void setCategory(MaterialCategoryResponseDTO category) {
         this.category = category;
     }
 
-    public void setMasterUnit(UnitDetailResponseDTO masterUnit) {
-        this.masterUnit = masterUnit;
-    }
-
-    public void setProductionUnit(UnitDetailResponseDTO productionUnit) {
-        this.productionUnit = productionUnit;
-    }
-
-    public void setUnitList(List<UnitDetailResponseDTO> unitList) {
-        this.unitList = unitList;
-    }
-
-    public void setUnitConversionInfo(List<UnitConversionResponseDTO> unitConversionInfo) {
-        this.unitConversionInfo = unitConversionInfo;
-    }
-
-    public void setBatchManagementEnable(BizConstantDisplay batchManagementEnable) {
-        this.batchManagementEnable = batchManagementEnable;
-    }
-
-    public void setBatchNoRuleId(Long batchNoRuleId) {
-        this.batchNoRuleId = batchNoRuleId;
-    }
-
-    public void setBatchNo(String batchNo) {
-        this.batchNo = batchNo;
+    public void setAttribute(List<MaterialAttributeResponseDTO> attribute) {
+        this.attribute = attribute;
     }
 }
 

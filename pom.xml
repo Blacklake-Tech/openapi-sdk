@@ -6,7 +6,7 @@
 
     <groupId>tech.blacklake.dev.openapi</groupId>
     <artifactId>openapi-sdk-parent</artifactId>
-    <version>2.0.1-SNAPSHOT</version>
+    <version>2.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>${project.groupId}:${project.artifactId} (${project.version})</name>
 
@@ -20,16 +20,17 @@
         <logback-classic.version>1.2.3</logback-classic.version>
         <lombok.version>1.18.12</lombok.version>
         <cglib.version>3.1</cglib.version>
-        <med.version>6.4.1-RELEASE</med.version>
+        <med.version>2.2.1-SNAPSHOT</med.version>
         <resource.version>6.4.1-RELEASE</resource.version>
-        <mfg.version>6.4.1.1-RELEASE</mfg.version>
-        <order.version>6.4.1-RELEASE</order.version>
-        <quality.version>6.4.1-RELEASE</quality.version>
+        <mfg.version>2.2.0-SNAPSHOT</mfg.version>
+        <order.version>6.6.0.1-RELEASE</order.version>
+        <quality.version>6.5.0-RELEASE</quality.version>
         <workcenter.version>6.4.1-RELEASE</workcenter.version>
     </properties>
 
     <modules>
         <module>sdk</module>
+        <module>code-generator</module>
     </modules>
 
     <dependencyManagement>
@@ -124,6 +125,11 @@
                 <version>${workcenter.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>tech.blacklake.dev.mfg</groupId>
+                <artifactId>mfg-domain-api</artifactId>
+                <version>${mfg.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

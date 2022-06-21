@@ -1,8 +1,6 @@
 package tech.blacklake.dev.openapi.sdk.demo;
 
 import tech.blacklake.dev.openapi.sdk.api.common.Result;
-import tech.blacklake.dev.openapi.sdk.api.req.ProcessRouteStatusRequestRequestDTO;
-import tech.blacklake.dev.openapi.sdk.api.res.BulkOperationResponseDTO;
 import tech.blacklake.dev.openapi.sdk.client.BlackLakeHttpClient;
 import tech.blacklake.dev.openapi.sdk.client.config.BlackLakeHttpClientConfig;
 
@@ -33,8 +31,8 @@ public class CallOpenapiDemo {
         BlackLakeHttpClient blackLakeHttpClient = createclient(appKey, appSecret, factoryNumber,
             endpoint);
 
-        ProcessRouteStatusRequestRequestDTO processRouteStatusRequestRequestDTO = new ProcessRouteStatusRequestRequestDTO();
-        processRouteStatusRequestRequestDTO.setIdList(new ArrayList<>());
-        Result<BulkOperationResponseDTO> bulkOperationResponseDTOResult = blackLakeHttpClient.processRouteUpdateStatus(processRouteStatusRequestRequestDTO);
+//        ProcessRouteStatusRequestRequestDTO processRouteStatusRequestRequestDTO = new ProcessRouteStatusRequestRequestDTO();
+//        processRouteStatusRequestRequestDTO.setIdList(new ArrayList<>());
+//        Result<BulkOperationResponseDTO> bulkOperationResponseDTOResult = blackLakeHttpClient.processRouteUpdateStatus(processRouteStatusRequestRequestDTO);
     }
 }

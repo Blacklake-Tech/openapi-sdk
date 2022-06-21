@@ -61,9 +61,14 @@ public class JarParser {
     private static final String DTO_CO = "CO";
     private static final String DTO_RES = "ResDTO";
     private static final String DTO_REQ = "ReqDTO";
+
+    private static final String[] reqEndings = {"CO","ReqDTO","ReqDO"};
+    private static final String[] resEndings = {"VO","ResDTO","ResDO"};
+
     private static final String TYPE_REQ = "req";
     private static final String TYPE_RES = "res";
     private static final String TYPE_COMMON = "common";
+    private static final String TYPE_UNKNOW = "unknow";
     private static final String IMPLEMENTS = "implements";
     private static final String EXTENDS = "extends";
     private static final String SPACE = " ";
@@ -213,7 +218,7 @@ public class JarParser {
             state = ClassTypeEnum.RESPONSE_DTO;
         } else {
             type = TYPE_COMMON;
-            state = ClassTypeEnum.COMMON_DATA;
+            state = ClassTypeEnum.UNKNOW_DTO;
         }
         dtoResult.setState(state);
         normalParameters.put(EL_TYPE, type);
