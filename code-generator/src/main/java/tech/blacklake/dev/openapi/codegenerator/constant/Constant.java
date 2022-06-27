@@ -9,8 +9,14 @@ import java.util.Objects;
 public class Constant {
     public static final String RESOURCE_PATH;
 
+    public static final String CODE_GENERATOR_PROJECT_NAME = "code-generator";
+
+    public static final String PROJECT_ROOT_PATH;
+
     static {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         RESOURCE_PATH = Objects.requireNonNull(classLoader.getResource("")).getPath();
+
+        PROJECT_ROOT_PATH = RESOURCE_PATH.substring(0,RESOURCE_PATH.lastIndexOf(CODE_GENERATOR_PROJECT_NAME));
     }
 }

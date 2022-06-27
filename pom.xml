@@ -21,11 +21,19 @@
         <lombok.version>1.18.12</lombok.version>
         <cglib.version>3.1</cglib.version>
         <med.version>2.2.1-SNAPSHOT</med.version>
-        <resource.version>6.4.1-RELEASE</resource.version>
+        <resource.version>2.1.1-SNAPSHOT</resource.version>
         <mfg.version>2.2.0-SNAPSHOT</mfg.version>
-        <order.version>6.6.0.1-RELEASE</order.version>
-        <quality.version>6.5.0-RELEASE</quality.version>
-        <workcenter.version>6.4.1-RELEASE</workcenter.version>
+        <order.version>6.6.0.1-SNAPSHOT</order.version>
+        <quality.version>2.0.0-SNAPSHOT</quality.version>
+        <workcenter.version>2.2.0-SNAPSHOT</workcenter.version>
+        <inventory.version>2.1.1-SNAPSHOT</inventory.version><!-- 版本不确定 -->
+        <material.version>2.0.0-SNAPSHOT</material.version><!-- 版本不确定 -->
+        <storage.version>2.0.0-SNAPSHOT</storage.version><!-- 版本不确定 -->
+        <customObject.version>1.1.0-SNAPSHOT</customObject.version>
+        <user.version>2.3.3-SNAPSHOT</user.version><!-- 版本不确定 -->
+        <sop.version>6.6.1-SNAPSHOT</sop.version>
+        <workercalendar.version>2.1.1-SNAPSHOT</workercalendar.version>
+        <trace.version>1.2.0-SNAPSHOT</trace.version>
     </properties>
 
     <modules>
@@ -72,6 +80,20 @@
             </dependency>
 
             <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-model</artifactId>
+                <version>3.6.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>2.1.3</version>
+            </dependency>
+
+
+
+            <dependency>
                 <groupId>tech.blacklake.dev.openapi</groupId>
                 <artifactId>openapi-sdk</artifactId>
                 <version>${project.version}</version>
@@ -112,6 +134,11 @@
                 <artifactId>order-domain-service</artifactId>
                 <version>${order.version}</version>
             </dependency>
+            <dependency>
+                <groupId>tech.blacklake.dev.order</groupId>
+                <artifactId>order-domain-api</artifactId>
+                <version>${order.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>tech.blacklake.dev.quality</groupId>
@@ -130,6 +157,121 @@
                 <artifactId>mfg-domain-api</artifactId>
                 <version>${mfg.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.inventory</groupId>
+                <artifactId>inventory-domain-service</artifactId>
+                <version>${inventory.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.inventory</groupId>
+                <artifactId>adjust-order-service</artifactId>
+                <version>${inventory.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.inventory</groupId>
+                <artifactId>base-inventory-service</artifactId>
+                <version>${inventory.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.inventory</groupId>
+                <artifactId>inbound-order-service</artifactId>
+                <version>${inventory.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.inventory</groupId>
+                <artifactId>material-inventory-service</artifactId>
+                <version>${inventory.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.inventory</groupId>
+                <artifactId>outbound-order-serivce</artifactId>
+                <version>${inventory.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.inventory</groupId>
+                <artifactId>transfer-order-serivce</artifactId>
+                <version>${inventory.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.material</groupId>
+                <artifactId>material-service</artifactId>
+                <version>${material.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.material</groupId>
+                <artifactId>material-api</artifactId>
+                <version>${material.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.material</groupId>
+                <artifactId>sku-service</artifactId>
+                <version>${material.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.material</groupId>
+                <artifactId>sku-api</artifactId>
+                <version>${material.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.material</groupId>
+                <artifactId>unit-service</artifactId>
+                <version>${material.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.material</groupId>
+                <artifactId>unit-api</artifactId>
+                <version>${material.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.storage</groupId>
+                <artifactId>storage-domain-service</artifactId>
+                <version>${storage.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev</groupId>
+                <artifactId>custom-object-domain-service</artifactId>
+                <version>${customObject.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.user</groupId>
+                <artifactId>user-domain-service</artifactId>
+                <version>${user.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.sop</groupId>
+                <artifactId>sop-domain-service</artifactId>
+                <version>${sop.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.workercalendar</groupId>
+                <artifactId>workercalendar-domain-service</artifactId>
+                <version>${workercalendar.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.trace</groupId>
+                <artifactId>trace-domain-service</artifactId>
+                <version>${trace.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

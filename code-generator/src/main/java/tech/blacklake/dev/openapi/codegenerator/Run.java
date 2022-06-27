@@ -99,55 +99,136 @@ public class Run {
      * 获取需要生成open层代码的jar的依赖坐标
      */
     private static List<DependencyCoordinate> getDependencyCoordinates() {
-        String version = "2.2.1-SNAPSHOT";
+        //String version = "2.2.1-SNAPSHOT";
 
         List<DependencyCoordinate> dependencyCoordinates = new ArrayList<>();
 
-        dependencyCoordinates.add(new DependencyCoordinate(
-            "tech.blacklake.dev.med",
-            "med-domain-produce-define-service", version
-            )
-        );
 
-        dependencyCoordinates.add(new DependencyCoordinate(
-                "tech.blacklake.dev.med",
-                "med-domain-produce-define-api", version
-            )
-        );
-
-        dependencyCoordinates.add(new DependencyCoordinate(
-                "tech.blacklake.dev.med",
-                "med-domain-work-order-service", version
-            )
-        );
-
-        dependencyCoordinates.add(new DependencyCoordinate(
-                "tech.blacklake.dev.mfg",
-                "mfg-domain-service", "2.2.0-SNAPSHOT"
-            )
-        );
-
-//        DependencyCoordinate dependencyCoordinate3 = new DependencyCoordinate();
-//        dependencyCoordinate3.setGroupId("tech.blacklake.dev.resource");
-//        dependencyCoordinate3.setArtifactId("resource-service");
-//        dependencyCoordinate3.setVersion("6.4.1-RELEASE");
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.med",
+//            "med-domain-produce-define-service", "2.2.1-SNAPSHOT"
+//            )
+//        );
 //
-//        DependencyCoordinate dependencyCoordinate4 = new DependencyCoordinate();
-//        dependencyCoordinate4.setGroupId("tech.blacklake.dev.order");
-//        dependencyCoordinate4.setArtifactId("order-domain-service");
-//        dependencyCoordinate4.setVersion("6.4.1-RELEASE");
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//                "tech.blacklake.dev.med",
+//                "med-domain-produce-define-api", "2.2.1-SNAPSHOT"
+//            )
+//        );
 //
-//        DependencyCoordinate dependencyCoordinate5 = new DependencyCoordinate();
-//        dependencyCoordinate5.setGroupId("tech.blacklake.dev.quality");
-//        dependencyCoordinate5.setArtifactId("quality-domain-service");
-//        dependencyCoordinate5.setVersion("6.4.1-RELEASE");
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//                "tech.blacklake.dev.med",
+//                "med-domain-work-order-service", "2.2.1-SNAPSHOT"
+//            )
+//        );
 //
-//        DependencyCoordinate dependencyCoordinate6 = new DependencyCoordinate();
-//        dependencyCoordinate6.setGroupId("tech.blacklake.dev.workcenter");
-//        dependencyCoordinate6.setArtifactId("work-center-service");
-//        dependencyCoordinate6.setVersion("6.4.1-RELEASE");
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//                "tech.blacklake.dev.mfg",
+//                "mfg-domain-service", "2.2.0-SNAPSHOT"
+//            )
+//        );
 
-        return dependencyCoordinates;
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//                "tech.blacklake.dev.resource",
+//                "resource-service", "2.1.1-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.order",
+//            "order-domain-service", "6.6.0.1-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.quality",
+//            "quality-domain-service", "2.0.0-SNAPSHOT"
+//        ));
+
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.workcenter",
+//            "work-center-service", "2.2.0-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.inventory",
+//            "inventory-domain-service", "2.1.1-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.inventory",
+//            "adjust-order-service", "2.1.1-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.inventory",
+//            "base-inventory-service", "2.1.1-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.inventory",
+//            "inbound-order-service", "2.1.1-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.inventory",
+//            "material-inventory-service", "2.1.1-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.inventory",
+//            "outbound-order-serivce", "2.1.1-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.inventory",
+//            "transfer-order-serivce", "2.1.1-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.material",
+//            "material-service", "2.0.0-SNAPSHOT"
+//        ));
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.material",
+//            "sku-service", "2.0.0-SNAPSHOT"
+//        ));
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.material",
+//            "unit-service", "2.0.0-SNAPSHOT"
+//        ));
+
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.storage",
+//            "storage-domain-service", "2.0.0-SNAPSHOT"
+//        ));
+
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev",
+//            "custom-object-domain-service", "1.1.0-SNAPSHOT"
+//        ));
+
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.user",
+//            "user-domain-service", "2.3.3-SNAPSHOT"
+//        ));
+
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.sop",
+//            "sop-domain-service", "6.6.1-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.workercalendar",
+//            "workercalendar-domain-service", "2.1.1-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.trace",
+//            "trace-domain-service", "1.2.0-SNAPSHOT"
+//        ));
+        //return dependencyCoordinates;
+
+        //todo 如果用pom文件中的数据自动注入
+        return DependencyParser.getDependencyCoordinate();
     }
 
     /**
