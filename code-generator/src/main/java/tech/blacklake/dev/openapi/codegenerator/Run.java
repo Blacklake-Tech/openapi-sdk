@@ -130,7 +130,7 @@ public class Run {
 
 //        dependencyCoordinates.add(new DependencyCoordinate(
 //                "tech.blacklake.dev.resource",
-//                "resource-service", "2.1.1-SNAPSHOT"
+//                "resource-service", "6.6.1.2-RELEASE"
 //        ));
 //
 //        dependencyCoordinates.add(new DependencyCoordinate(
@@ -150,39 +150,65 @@ public class Run {
 //
 //        dependencyCoordinates.add(new DependencyCoordinate(
 //            "tech.blacklake.dev.inventory",
-//            "inventory-domain-service", "2.1.1-SNAPSHOT"
+//            "inventory-domain-service", "2.0.0-SNAPSHOT"
 //        ));
 //
 //        dependencyCoordinates.add(new DependencyCoordinate(
 //            "tech.blacklake.dev.inventory",
-//            "adjust-order-service", "2.1.1-SNAPSHOT"
+//            "inventory-domain-api", "2.0.0-SNAPSHOT"
 //        ));
 //
 //        dependencyCoordinates.add(new DependencyCoordinate(
 //            "tech.blacklake.dev.inventory",
-//            "base-inventory-service", "2.1.1-SNAPSHOT"
+//            "adjust-order-service", "2.0.0-SNAPSHOT"
 //        ));
 //
 //        dependencyCoordinates.add(new DependencyCoordinate(
 //            "tech.blacklake.dev.inventory",
-//            "inbound-order-service", "2.1.1-SNAPSHOT"
+//            "base-inventory-service", "2.0.0-SNAPSHOT"
 //        ));
 //
 //        dependencyCoordinates.add(new DependencyCoordinate(
 //            "tech.blacklake.dev.inventory",
-//            "material-inventory-service", "2.1.1-SNAPSHOT"
+//            "inbound-order-service", "2.0.0-SNAPSHOT"
 //        ));
 //
 //        dependencyCoordinates.add(new DependencyCoordinate(
 //            "tech.blacklake.dev.inventory",
-//            "outbound-order-serivce", "2.1.1-SNAPSHOT"
+//            "inbound-order-api", "2.0.0-SNAPSHOT"
 //        ));
 //
 //        dependencyCoordinates.add(new DependencyCoordinate(
 //            "tech.blacklake.dev.inventory",
-//            "transfer-order-serivce", "2.1.1-SNAPSHOT"
+//            "material-inventory-service", "2.0.0-SNAPSHOT"
 //        ));
 //
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.inventory",
+//            "material-inventory-api", "2.0.0-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.inventory",
+//            "outbound-order-service", "2.0.0-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.inventory",
+//            "outbound-order-api", "2.0.0-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.inventory",
+//            "transfer-order-service", "2.0.0-SNAPSHOT"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.inventory",
+//            "transfer-order-api", "2.0.0-SNAPSHOT"
+//        ));
+
 //        dependencyCoordinates.add(new DependencyCoordinate(
 //            "tech.blacklake.dev.material",
 //            "material-service", "2.0.0-SNAPSHOT"
@@ -225,7 +251,19 @@ public class Run {
 //            "tech.blacklake.dev.trace",
 //            "trace-domain-service", "1.2.0-SNAPSHOT"
 //        ));
-        //return dependencyCoordinates;
+
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.plo",
+//            "plo-domain-service", "6.7.0-RELEASE"
+//        ));
+//
+//        dependencyCoordinates.add(new DependencyCoordinate(
+//            "tech.blacklake.dev.plo",
+//            "plo-domain-api", "6.7.0-RELEASE"
+//        ));
+
+
+//        return dependencyCoordinates;
 
         //todo 如果用pom文件中的数据自动注入
         return DependencyParser.getDependencyCoordinate();
