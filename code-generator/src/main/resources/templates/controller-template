@@ -1,0 +1,19 @@
+package tech.blacklake.dev.openapi.sdk.api;
+
+import java.util.*;
+import tech.blacklake.dev.openapi.sdk.api.req.*;
+import tech.blacklake.dev.openapi.sdk.api.res.*;
+import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.annotation.ApiPath;
+
+public class ${class_name} {
+    #loop(handler)
+    /**
+     * ${description}
+     */
+    @ApiPath("${path}")
+    public ${return_type} ${method_name}(${parameter_type} ${parameter_name}){
+        throw new UnsupportedOperationException();
+    }
+    #end
+}

@@ -5,22 +5,41 @@ variables:
 
 stages:
   - build
+  - deploy
   - lint
 
-deploymaven:
+build-service:
   stage: build
   only:
     - dev
     - feature
     - /^feat/.*/
+    - feature
     - /^release-.*/
-    - /^experimental.*/
+  script:
+    - /ci/scripts/build_backend_service.sh
+
+build-api:
+  stage: build
+  only:
+    - dev
+    - /^feat/.*/
+    - feature
+    - /^release-.*/
   when: manual
   allow_failure: true
   script:
-    - mvn -version
     - /ci/scripts/build_backend_api.sh
-    - mvn -version
+
+deploy:
+  stage: deploy
+  only:
+    - dev
+    - /^feat/.*/
+    - feature
+    - /^release-.*/
+  script:
+    - /ci/scripts/deploy2.sh
 
 sonar:
   image: harbor.blacklake.tech/az/sonar-cli-runtime:latest
@@ -30,7 +49,7 @@ sonar:
     - dev
     - feature
     - /^feat/.*/
+    - feature
     - /^release-.*/
-    - /^experimental.*/
   script:
     - /ci/scripts/check_sonar.sh

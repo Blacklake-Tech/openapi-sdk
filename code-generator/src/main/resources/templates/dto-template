@@ -1,0 +1,29 @@
+package tech.blacklake.dev.openapi.sdk.api.${type};
+
+import java.time.*;
+import java.util.*;
+import java.math.*;
+import java.io.*;
+import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
+
+public class ${class_name} ${superclass_and_interfaces}{
+    #loop(field)
+    /**
+     * ${description}
+     */
+    private ${field_type} ${field_name}${default_value};
+    #end
+
+    #loop(field)
+    public ${field_type} get${field_name_init_cap}() {
+        return ${field_name};
+    }
+    #end
+
+    #loop(field)
+    public void set${field_name_init_cap}(${field_type} ${field_name}) {
+        this.${field_name} = ${field_name};
+    }
+    #end
+}
