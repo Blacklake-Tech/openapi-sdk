@@ -7,44 +7,109 @@ import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class SupplierResponseDTO  {
+public class SupplierResponseDTO {
     /**
-     * 供应商ID
+     * 业务ID
      */
-    private long id = 0;
+    private Long id;
 
     /**
-     * 供应商名称
+     * 编号
+     */
+    private String code;
+
+    /**
+     * 名称
      */
     private String name;
 
     /**
-     * 供应商编号
+     * 启用状态
      */
-    private String code;
+    private BizConstantDisplay status;
 
-    public long getId() {
+    /**
+     * 注册状态
+     */
+    private BizConstantDisplay regStatus;
+
+    /**
+     * 备注
+     */
+    private String remark;
+
+    /**
+     * 创建时间
+     */
+    private Long createdAt;
+
+    /**
+     * 更新时间
+     */
+    private Long updatedAt;
+
+    public Long getId() {
         return id;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String getCode() {
         return code;
     }
 
-    public void setId(long id) {
+    public String getName() {
+        return name;
+    }
+
+    public BizConstantDisplay getStatus() {
+        return status;
+    }
+
+    public BizConstantDisplay getRegStatus() {
+        return regStatus;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public Long getCreatedAt() {
+        return createdAt;
+    }
+
+    public Long getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setStatus(BizConstantDisplay status) {
+        this.status = status;
+    }
+
+    public void setRegStatus(BizConstantDisplay regStatus) {
+        this.regStatus = regStatus;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public void setCreatedAt(Long createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setUpdatedAt(Long updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
 

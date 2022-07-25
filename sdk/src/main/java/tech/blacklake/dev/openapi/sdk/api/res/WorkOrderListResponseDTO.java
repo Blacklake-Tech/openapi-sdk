@@ -139,6 +139,11 @@ public class WorkOrderListResponseDTO extends CustomFieldBaseVO  {
     private ShiftResponseDTO shift;
 
     /**
+     * 设备
+     */
+    private ResourceResponseDTO resource;
+
+    /**
      * 创建人
      */
     private UserResponseDTO creator;
@@ -262,6 +267,10 @@ public class WorkOrderListResponseDTO extends CustomFieldBaseVO  {
         return shift;
     }
 
+    public ResourceResponseDTO getResource() {
+        return resource;
+    }
+
     public UserResponseDTO getCreator() {
         return creator;
     }
@@ -380,6 +389,10 @@ public class WorkOrderListResponseDTO extends CustomFieldBaseVO  {
 
     public void setShift(ShiftResponseDTO shift) {
         this.shift = shift;
+    }
+
+    public void setResource(ResourceResponseDTO resource) {
+        this.resource = resource;
     }
 
     public void setCreator(UserResponseDTO creator) {

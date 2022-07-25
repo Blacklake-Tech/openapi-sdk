@@ -51,12 +51,12 @@ public class AlternativePlanRequestRequestDTO  {
     /**
      * 被替代物料
      */
-    private List<OriginalAlternativeMaterialRequestDTO> originalAlternativeMaterials;
+    private List<OriginalAlternativeMaterialRequestRequestDTO> originalAlternativeMaterials;
 
     /**
      * 替代物料
      */
-    private List<AlternativeMaterialRequestDTO> alternativeMaterials;
+    private List<AlternativeMaterialRequestRequestDTO> alternativeMaterials;
 
     public String getCode() {
         return code;
@@ -90,11 +90,11 @@ public class AlternativePlanRequestRequestDTO  {
         return remark;
     }
 
-    public List<OriginalAlternativeMaterialRequestDTO> getOriginalAlternativeMaterials() {
+    public List<OriginalAlternativeMaterialRequestRequestDTO> getOriginalAlternativeMaterials() {
         return originalAlternativeMaterials;
     }
 
-    public List<AlternativeMaterialRequestDTO> getAlternativeMaterials() {
+    public List<AlternativeMaterialRequestRequestDTO> getAlternativeMaterials() {
         return alternativeMaterials;
     }
 
@@ -130,11 +130,11 @@ public class AlternativePlanRequestRequestDTO  {
         this.remark = remark;
     }
 
-    public void setOriginalAlternativeMaterials(List<OriginalAlternativeMaterialRequestDTO> originalAlternativeMaterials) {
+    public void setOriginalAlternativeMaterials(List<OriginalAlternativeMaterialRequestRequestDTO> originalAlternativeMaterials) {
         this.originalAlternativeMaterials = originalAlternativeMaterials;
     }
 
-    public void setAlternativeMaterials(List<AlternativeMaterialRequestDTO> alternativeMaterials) {
+    public void setAlternativeMaterials(List<AlternativeMaterialRequestRequestDTO> alternativeMaterials) {
         this.alternativeMaterials = alternativeMaterials;
     }
 }

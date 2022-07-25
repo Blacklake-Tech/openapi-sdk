@@ -9,27 +9,27 @@ import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
 public class ProcessRouteBasicInfoResponseDTO {
     /**
-     * 
+     * id
      */
     private long id = 0;
 
     /**
-     * 
+     * code
      */
     private String code;
 
     /**
-     * 
+     * name
      */
     private String name;
 
     /**
-     * 
+     * remark
      */
     private String remark;
 
     /**
-     * 
+     * status key = ActiveEnum
      */
     private BizConstantDisplay status;
 

@@ -113,6 +113,11 @@ public class WorkOrderBaseResponseDTO extends CustomFieldBaseVO  {
      */
     private Long updatedAt;
 
+    /**
+     * 设备
+     */
+    private ResourceResponseDTO resource;
+
     public long getId() {
         return id;
     }
@@ -197,6 +202,10 @@ public class WorkOrderBaseResponseDTO extends CustomFieldBaseVO  {
         return updatedAt;
     }
 
+    public ResourceResponseDTO getResource() {
+        return resource;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -279,6 +288,10 @@ public class WorkOrderBaseResponseDTO extends CustomFieldBaseVO  {
 
     public void setUpdatedAt(Long updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public void setResource(ResourceResponseDTO resource) {
+        this.resource = resource;
     }
 }
 

@@ -79,15 +79,15 @@
             <artifactId>mfg-domain-api</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>tech.blacklake.dev.resource</groupId>-->
-<!--            <artifactId>resource-service</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>tech.blacklake.dev.resource</groupId>
+            <artifactId>resource-service</artifactId>
+        </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>tech.blacklake.dev.resource</groupId>-->
-<!--            <artifactId>resource-api</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>tech.blacklake.dev.resource</groupId>
+            <artifactId>resource-api</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>tech.blacklake.dev.order</groupId>
@@ -229,15 +229,15 @@
             <artifactId>custom-object-domain-api</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>tech.blacklake.dev.user</groupId>-->
-<!--            <artifactId>user-domain-service</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>tech.blacklake.dev.user</groupId>
+            <artifactId>user-domain-service</artifactId>
+        </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>tech.blacklake.dev.user</groupId>-->
-<!--            <artifactId>user-domain-api</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>tech.blacklake.dev.user</groupId>
+            <artifactId>user-domain-api</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>tech.blacklake.dev.sop</groupId>

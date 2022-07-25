@@ -24,6 +24,11 @@ public class PickOrderDetailMaterialLineResponseDTO  {
     private BizConstantDisplay pickOrderStatus;
 
     /**
+     * 领料类型 key = PickOrderTypeEnum
+     */
+    private BizConstantDisplay pickOrderType;
+
+    /**
      * 创建人
      */
     private UserResponseDTO creator;
@@ -44,7 +49,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
     private long updatedAt = 0;
 
     /**
-     * id
+     * 领料单详情id
      */
     private long pickOrderDetailId = 0;
 
@@ -56,7 +61,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
     /**
      * 物料
      */
-    private WorkOrderPickOrderMaterialResponseDTO material;
+    private MaterialResponseDTO material;
 
     /**
      * 申请数
@@ -99,6 +104,16 @@ public class PickOrderDetailMaterialLineResponseDTO  {
     private String targetWarehouseName;
 
     /**
+     * 发料仓库
+     */
+    private StorageWarehouseResponseDTO sourceWarehouse;
+
+    /**
+     * 收料仓库
+     */
+    private StorageWarehouseResponseDTO targetWarehouse;
+
+    /**
      * 需求时间
      */
     private Long requirementTime;
@@ -136,7 +151,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
     /**
      * 生产工单id
      */
-    private long workOrderId = 0;
+    private Long workOrderId;
 
     /**
      * 生产工单编号
@@ -161,7 +176,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
     /**
      * 标准件或替代件Id
      */
-    private long inputOrAlternativeMaterialId = 0;
+    private Long inputOrAlternativeMaterialId;
 
     /**
      * 项次
@@ -171,7 +186,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
     /**
      * 是否是替代物料
      */
-    private int alternativeMaterialFlag = 0;
+    private Integer alternativeMaterialFlag;
 
     /**
      * 主产出批次号/批次号规则
@@ -188,6 +203,10 @@ public class PickOrderDetailMaterialLineResponseDTO  {
 
     public BizConstantDisplay getPickOrderStatus() {
         return pickOrderStatus;
+    }
+
+    public BizConstantDisplay getPickOrderType() {
+        return pickOrderType;
     }
 
     public UserResponseDTO getCreator() {
@@ -214,7 +233,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
         return line;
     }
 
-    public WorkOrderPickOrderMaterialResponseDTO getMaterial() {
+    public MaterialResponseDTO getMaterial() {
         return material;
     }
 
@@ -250,6 +269,14 @@ public class PickOrderDetailMaterialLineResponseDTO  {
         return targetWarehouseName;
     }
 
+    public StorageWarehouseResponseDTO getSourceWarehouse() {
+        return sourceWarehouse;
+    }
+
+    public StorageWarehouseResponseDTO getTargetWarehouse() {
+        return targetWarehouse;
+    }
+
     public Long getRequirementTime() {
         return requirementTime;
     }
@@ -278,7 +305,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
         return batchCode;
     }
 
-    public long getWorkOrderId() {
+    public Long getWorkOrderId() {
         return workOrderId;
     }
 
@@ -298,7 +325,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
         return transferOrderResponseDTO;
     }
 
-    public long getInputOrAlternativeMaterialId() {
+    public Long getInputOrAlternativeMaterialId() {
         return inputOrAlternativeMaterialId;
     }
 
@@ -306,7 +333,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
         return seq;
     }
 
-    public int getAlternativeMaterialFlag() {
+    public Integer getAlternativeMaterialFlag() {
         return alternativeMaterialFlag;
     }
 
@@ -324,6 +351,10 @@ public class PickOrderDetailMaterialLineResponseDTO  {
 
     public void setPickOrderStatus(BizConstantDisplay pickOrderStatus) {
         this.pickOrderStatus = pickOrderStatus;
+    }
+
+    public void setPickOrderType(BizConstantDisplay pickOrderType) {
+        this.pickOrderType = pickOrderType;
     }
 
     public void setCreator(UserResponseDTO creator) {
@@ -350,7 +381,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
         this.line = line;
     }
 
-    public void setMaterial(WorkOrderPickOrderMaterialResponseDTO material) {
+    public void setMaterial(MaterialResponseDTO material) {
         this.material = material;
     }
 
@@ -386,6 +417,14 @@ public class PickOrderDetailMaterialLineResponseDTO  {
         this.targetWarehouseName = targetWarehouseName;
     }
 
+    public void setSourceWarehouse(StorageWarehouseResponseDTO sourceWarehouse) {
+        this.sourceWarehouse = sourceWarehouse;
+    }
+
+    public void setTargetWarehouse(StorageWarehouseResponseDTO targetWarehouse) {
+        this.targetWarehouse = targetWarehouse;
+    }
+
     public void setRequirementTime(Long requirementTime) {
         this.requirementTime = requirementTime;
     }
@@ -414,7 +453,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
         this.batchCode = batchCode;
     }
 
-    public void setWorkOrderId(long workOrderId) {
+    public void setWorkOrderId(Long workOrderId) {
         this.workOrderId = workOrderId;
     }
 
@@ -434,7 +473,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
         this.transferOrderResponseDTO = transferOrderResponseDTO;
     }
 
-    public void setInputOrAlternativeMaterialId(long inputOrAlternativeMaterialId) {
+    public void setInputOrAlternativeMaterialId(Long inputOrAlternativeMaterialId) {
         this.inputOrAlternativeMaterialId = inputOrAlternativeMaterialId;
     }
 
@@ -442,7 +481,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
         this.seq = seq;
     }
 
-    public void setAlternativeMaterialFlag(int alternativeMaterialFlag) {
+    public void setAlternativeMaterialFlag(Integer alternativeMaterialFlag) {
         this.alternativeMaterialFlag = alternativeMaterialFlag;
     }
 

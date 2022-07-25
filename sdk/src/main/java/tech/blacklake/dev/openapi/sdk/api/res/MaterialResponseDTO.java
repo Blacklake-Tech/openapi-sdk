@@ -7,83 +7,213 @@ import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class MaterialResponseDTO  {
+public class MaterialResponseDTO {
     /**
-     * 业务id
+     * 物料基本信息
      */
-    private long id = 0;
+    private MaterialBaseInfoResponseDTO baseInfo;
 
     /**
-     * 物料编码
+     * 物料属性信息
      */
-    private String code;
+    private List<MaterialAttributeResponseDTO> attribute;
 
     /**
-     * 物料名称
+     * 物料文件信息
      */
-    private String name;
+    private List<MaterialDocumentRelResponseDTO> documents;
 
     /**
-     * 物料标识码
-     */
-    private String identifier;
-
-    /**
-     * 物料分类
+     * 物料分类信息
      */
     private MaterialCategoryResponseDTO category;
 
     /**
-     * 物料属性
+     * 物料主单位信息
      */
-    private List<MaterialAttributeResponseDTO> attribute;
+    private UnitDetailResponseDTO unit;
 
-    public long getId() {
-        return id;
-    }
+    /**
+     * 物料所有单位信息
+     */
+    private List<UnitDetailResponseDTO> unitList;
 
-    public String getCode() {
-        return code;
-    }
+    /**
+     * 物料单位转换关系(fromUnitId固定为主单位)
+     */
+    private List<UnitConversionResponseDTO> conversions;
 
-    public String getName() {
-        return name;
-    }
+    /**
+     * 物料所有辅助单位
+     */
+    private List<UnitConversionResponseDTO> auxUnitList;
 
-    public String getIdentifier() {
-        return identifier;
-    }
+    /**
+     * 物料生产信息
+     */
+    private MaterialProductionInfoResponseDTO productionInfo;
 
-    public MaterialCategoryResponseDTO getCategory() {
-        return category;
+    /**
+     * 物料采购信息
+     */
+    private MaterialPurchaseResResponseDTO purchaseInfo;
+
+    /**
+     * 是否启用批次管理，0不启用，1启用
+     */
+    private BizConstantDisplay batchManagementEnable;
+
+    /**
+     * 批次号规则ID
+     */
+    private Long batchNoRuleId;
+
+    /**
+     * 批次属性
+     */
+    private List<MaterialBatchAttrResponseDTO> batchAttrs;
+
+    /**
+     * 库存属性
+     */
+    private List<MaterialInventoryAttrResponseDTO> inventoryAttrs;
+
+    /**
+     * 物料库存管理属性
+     */
+    private MaterialInventoryManageAttrResponseDTO inventoryManageAttrDTO;
+
+    /**
+     * 仓储转换单位
+     */
+    private Long inventoryConvertUnitId;
+
+    public MaterialBaseInfoResponseDTO getBaseInfo() {
+        return baseInfo;
     }
 
     public List<MaterialAttributeResponseDTO> getAttribute() {
         return attribute;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public List<MaterialDocumentRelResponseDTO> getDocuments() {
+        return documents;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public MaterialCategoryResponseDTO getCategory() {
+        return category;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public UnitDetailResponseDTO getUnit() {
+        return unit;
     }
 
-    public void setIdentifier(String identifier) {
-        this.identifier = identifier;
+    public List<UnitDetailResponseDTO> getUnitList() {
+        return unitList;
+    }
+
+    public List<UnitConversionResponseDTO> getConversions() {
+        return conversions;
+    }
+
+    public List<UnitConversionResponseDTO> getAuxUnitList() {
+        return auxUnitList;
+    }
+
+    public MaterialProductionInfoResponseDTO getProductionInfo() {
+        return productionInfo;
+    }
+
+    public MaterialPurchaseResResponseDTO getPurchaseInfo() {
+        return purchaseInfo;
+    }
+
+    public BizConstantDisplay getBatchManagementEnable() {
+        return batchManagementEnable;
+    }
+
+    public Long getBatchNoRuleId() {
+        return batchNoRuleId;
+    }
+
+    public List<MaterialBatchAttrResponseDTO> getBatchAttrs() {
+        return batchAttrs;
+    }
+
+    public List<MaterialInventoryAttrResponseDTO> getInventoryAttrs() {
+        return inventoryAttrs;
+    }
+
+    public MaterialInventoryManageAttrResponseDTO getInventoryManageAttrDTO() {
+        return inventoryManageAttrDTO;
+    }
+
+    public Long getInventoryConvertUnitId() {
+        return inventoryConvertUnitId;
+    }
+
+    public void setBaseInfo(MaterialBaseInfoResponseDTO baseInfo) {
+        this.baseInfo = baseInfo;
+    }
+
+    public void setAttribute(List<MaterialAttributeResponseDTO> attribute) {
+        this.attribute = attribute;
+    }
+
+    public void setDocuments(List<MaterialDocumentRelResponseDTO> documents) {
+        this.documents = documents;
     }
 
     public void setCategory(MaterialCategoryResponseDTO category) {
         this.category = category;
     }
 
-    public void setAttribute(List<MaterialAttributeResponseDTO> attribute) {
-        this.attribute = attribute;
+    public void setUnit(UnitDetailResponseDTO unit) {
+        this.unit = unit;
+    }
+
+    public void setUnitList(List<UnitDetailResponseDTO> unitList) {
+        this.unitList = unitList;
+    }
+
+    public void setConversions(List<UnitConversionResponseDTO> conversions) {
+        this.conversions = conversions;
+    }
+
+    public void setAuxUnitList(List<UnitConversionResponseDTO> auxUnitList) {
+        this.auxUnitList = auxUnitList;
+    }
+
+    public void setProductionInfo(MaterialProductionInfoResponseDTO productionInfo) {
+        this.productionInfo = productionInfo;
+    }
+
+    public void setPurchaseInfo(MaterialPurchaseResResponseDTO purchaseInfo) {
+        this.purchaseInfo = purchaseInfo;
+    }
+
+    public void setBatchManagementEnable(BizConstantDisplay batchManagementEnable) {
+        this.batchManagementEnable = batchManagementEnable;
+    }
+
+    public void setBatchNoRuleId(Long batchNoRuleId) {
+        this.batchNoRuleId = batchNoRuleId;
+    }
+
+    public void setBatchAttrs(List<MaterialBatchAttrResponseDTO> batchAttrs) {
+        this.batchAttrs = batchAttrs;
+    }
+
+    public void setInventoryAttrs(List<MaterialInventoryAttrResponseDTO> inventoryAttrs) {
+        this.inventoryAttrs = inventoryAttrs;
+    }
+
+    public void setInventoryManageAttrDTO(MaterialInventoryManageAttrResponseDTO inventoryManageAttrDTO) {
+        this.inventoryManageAttrDTO = inventoryManageAttrDTO;
+    }
+
+    public void setInventoryConvertUnitId(Long inventoryConvertUnitId) {
+        this.inventoryConvertUnitId = inventoryConvertUnitId;
     }
 }
 

@@ -7,102 +7,104 @@ import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class OutputMaterialRequestDTO {
+public class OutputMaterialRequestDTO  {
     /**
-     * 工单编号
+     * 是否是主产出（0-副产出；1-主产出）
      */
-    private String workOrderCode;
+    private int main = 0;
 
     /**
-     * 是否是主产出,是1否0
-     */
-    private int mainFlagInt = 0;
-
-    /**
-     * 是否是主产出
-     */
-    private String mainFlag;
-
-    /**
-     * 计划生产数,若为主产出:计划生产数必填,计划生产数必须大于0,若不为主产出:计划生产数由系统自动计算
+     * 计划生产数
      */
     private String plannedAmount;
 
     /**
-     * 基准数,若为主产出:基准数默认为1,且不支持用户修改,若不为主产出:默认值为物料清单中配置基准数
+     * 基准数
      */
     private String standardAmount;
 
     /**
-     * 批次号(编号规则)，用于生成批次号
+     * 批号生成类型（1-编号规则；2-批号；3-不生成）
      */
-    private String batchRule;
+    private int batchGenerationType = 0;
 
     /**
-     * 批次号(指定批次号),不可超过255字符
+     * 批号规则ID
      */
-    private String batchCode;
+    private Long batchRuleId;
 
     /**
-     * 行号,整数,大于等于0行号不可重复
+     * 批号
      */
-    private String lineSeq;
+    private String batchNumber;
 
     /**
-     * 版本号
+     * 批号对象ID
      */
-    private String version;
+    private Long batchNumberId;
 
     /**
-     * 工艺路线编号,若为主产出:默认带出物料清单上所选的工艺路线或用户搭建工艺路线
+     * 行号
      */
-    private String processRouteCode;
+    private int lineSeq = 0;
 
     /**
-     * 子项物料编号,支持字母、数字和符号,不可超过255个字符,必须为启用中且业务类型勾选了生产且不为虚拟件的物料
+     * 物料清单ID
      */
-    private String materialCode;
+    private Long bomId;
 
     /**
-     * 子项物料名称
+     * 工艺路线编号
      */
-    private String materialName;
+    private Long processRouteId;
 
     /**
-     * 单位名称
+     * 物料id
      */
-    private String unitName;
+    private long materialId = 0;
 
     /**
-     * 产出工序号,主产出所选工艺路线/所选工序计划中已有的工序号
+     * 单位id
      */
-    private String outputProcessCode;
+    private long unitId = 0;
 
     /**
-     * 产出控件编号,必须为主产出所选工艺路线工序号中已有的控件编号
+     * 产出工序号
      */
-    private String workReportControlCode;
+    private String outputProcessNum;
 
     /**
-     * 成品率,默认值为100,必须大于0,小数点后位数不可超过4位,小于等于1000
+     * 产出控件ID
+     */
+    private Long outputSopControlId;
+
+    /**
+     * 成品率
      */
     private String productRate;
 
     /**
-     * 单次报工数量,若填写必须大于0
+     * 单次报工数量
      */
     private String singleWorkReportAmount;
 
-    public String getWorkOrderCode() {
-        return workOrderCode;
-    }
+    /**
+     * 报工方式
+     */
+    private List<Integer> reportingMethods;
 
-    public int getMainFlagInt() {
-        return mainFlagInt;
-    }
+    /**
+     * 是否入库
+     */
+    private int warehousing = 0;
 
-    public String getMainFlag() {
-        return mainFlag;
+    /**
+     * 自动入库
+     */
+    private Integer autoWarehousingFlag;
+
+    public int getMain() {
+        return main;
     }
 
     public String getPlannedAmount() {
@@ -113,44 +115,48 @@ public class OutputMaterialRequestDTO {
         return standardAmount;
     }
 
-    public String getBatchRule() {
-        return batchRule;
+    public int getBatchGenerationType() {
+        return batchGenerationType;
     }
 
-    public String getBatchCode() {
-        return batchCode;
+    public Long getBatchRuleId() {
+        return batchRuleId;
     }
 
-    public String getLineSeq() {
+    public String getBatchNumber() {
+        return batchNumber;
+    }
+
+    public Long getBatchNumberId() {
+        return batchNumberId;
+    }
+
+    public int getLineSeq() {
         return lineSeq;
     }
 
-    public String getVersion() {
-        return version;
+    public Long getBomId() {
+        return bomId;
     }
 
-    public String getProcessRouteCode() {
-        return processRouteCode;
+    public Long getProcessRouteId() {
+        return processRouteId;
     }
 
-    public String getMaterialCode() {
-        return materialCode;
+    public long getMaterialId() {
+        return materialId;
     }
 
-    public String getMaterialName() {
-        return materialName;
+    public long getUnitId() {
+        return unitId;
     }
 
-    public String getUnitName() {
-        return unitName;
+    public String getOutputProcessNum() {
+        return outputProcessNum;
     }
 
-    public String getOutputProcessCode() {
-        return outputProcessCode;
-    }
-
-    public String getWorkReportControlCode() {
-        return workReportControlCode;
+    public Long getOutputSopControlId() {
+        return outputSopControlId;
     }
 
     public String getProductRate() {
@@ -161,16 +167,20 @@ public class OutputMaterialRequestDTO {
         return singleWorkReportAmount;
     }
 
-    public void setWorkOrderCode(String workOrderCode) {
-        this.workOrderCode = workOrderCode;
+    public List<Integer> getReportingMethods() {
+        return reportingMethods;
     }
 
-    public void setMainFlagInt(int mainFlagInt) {
-        this.mainFlagInt = mainFlagInt;
+    public int getWarehousing() {
+        return warehousing;
     }
 
-    public void setMainFlag(String mainFlag) {
-        this.mainFlag = mainFlag;
+    public Integer getAutoWarehousingFlag() {
+        return autoWarehousingFlag;
+    }
+
+    public void setMain(int main) {
+        this.main = main;
     }
 
     public void setPlannedAmount(String plannedAmount) {
@@ -181,44 +191,48 @@ public class OutputMaterialRequestDTO {
         this.standardAmount = standardAmount;
     }
 
-    public void setBatchRule(String batchRule) {
-        this.batchRule = batchRule;
+    public void setBatchGenerationType(int batchGenerationType) {
+        this.batchGenerationType = batchGenerationType;
     }
 
-    public void setBatchCode(String batchCode) {
-        this.batchCode = batchCode;
+    public void setBatchRuleId(Long batchRuleId) {
+        this.batchRuleId = batchRuleId;
     }
 
-    public void setLineSeq(String lineSeq) {
+    public void setBatchNumber(String batchNumber) {
+        this.batchNumber = batchNumber;
+    }
+
+    public void setBatchNumberId(Long batchNumberId) {
+        this.batchNumberId = batchNumberId;
+    }
+
+    public void setLineSeq(int lineSeq) {
         this.lineSeq = lineSeq;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    public void setBomId(Long bomId) {
+        this.bomId = bomId;
     }
 
-    public void setProcessRouteCode(String processRouteCode) {
-        this.processRouteCode = processRouteCode;
+    public void setProcessRouteId(Long processRouteId) {
+        this.processRouteId = processRouteId;
     }
 
-    public void setMaterialCode(String materialCode) {
-        this.materialCode = materialCode;
+    public void setMaterialId(long materialId) {
+        this.materialId = materialId;
     }
 
-    public void setMaterialName(String materialName) {
-        this.materialName = materialName;
+    public void setUnitId(long unitId) {
+        this.unitId = unitId;
     }
 
-    public void setUnitName(String unitName) {
-        this.unitName = unitName;
+    public void setOutputProcessNum(String outputProcessNum) {
+        this.outputProcessNum = outputProcessNum;
     }
 
-    public void setOutputProcessCode(String outputProcessCode) {
-        this.outputProcessCode = outputProcessCode;
-    }
-
-    public void setWorkReportControlCode(String workReportControlCode) {
-        this.workReportControlCode = workReportControlCode;
+    public void setOutputSopControlId(Long outputSopControlId) {
+        this.outputSopControlId = outputSopControlId;
     }
 
     public void setProductRate(String productRate) {
@@ -227,6 +241,18 @@ public class OutputMaterialRequestDTO {
 
     public void setSingleWorkReportAmount(String singleWorkReportAmount) {
         this.singleWorkReportAmount = singleWorkReportAmount;
+    }
+
+    public void setReportingMethods(List<Integer> reportingMethods) {
+        this.reportingMethods = reportingMethods;
+    }
+
+    public void setWarehousing(int warehousing) {
+        this.warehousing = warehousing;
+    }
+
+    public void setAutoWarehousingFlag(Integer autoWarehousingFlag) {
+        this.autoWarehousingFlag = autoWarehousingFlag;
     }
 }
 

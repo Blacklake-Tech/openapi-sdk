@@ -78,6 +78,11 @@ public class WorkOrderBaseUpdateRequestDTO extends CustomFieldBaseCO  {
      */
     private Long shiftId;
 
+    /**
+     * 设备ID
+     */
+    private Long resourceId;
+
     public long getId() {
         return id;
     }
@@ -134,6 +139,10 @@ public class WorkOrderBaseUpdateRequestDTO extends CustomFieldBaseCO  {
         return shiftId;
     }
 
+    public Long getResourceId() {
+        return resourceId;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -188,6 +197,10 @@ public class WorkOrderBaseUpdateRequestDTO extends CustomFieldBaseCO  {
 
     public void setShiftId(Long shiftId) {
         this.shiftId = shiftId;
+    }
+
+    public void setResourceId(Long resourceId) {
+        this.resourceId = resourceId;
     }
 }
 

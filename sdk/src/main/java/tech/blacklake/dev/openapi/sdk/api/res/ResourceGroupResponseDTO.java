@@ -11,12 +11,12 @@ public class ResourceGroupResponseDTO {
     /**
      * 记录id
      */
-    private long id;
+    private long id = 0;
 
     /**
      * 资源组id
      */
-    private long groupId;
+    private long groupId = 0;
 
     /**
      * 资源组名称

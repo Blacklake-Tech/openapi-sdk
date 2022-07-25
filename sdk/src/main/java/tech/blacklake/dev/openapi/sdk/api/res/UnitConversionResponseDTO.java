@@ -7,36 +7,36 @@ import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class UnitConversionResponseDTO  {
+public class UnitConversionResponseDTO {
     /**
-     * orgid
+     * 工厂id
      */
-    private long orgId = 0;
+    private Long orgId;
 
     /**
-     * id
+     * 业务id
      */
-    private long id = 0;
+    private Long id;
 
     /**
-     * 基本单位id
+     * 主单位id
      */
-    private long fromUnitId = 0;
+    private Long fromUnitId;
 
     /**
-     * 基本单位名称
+     * 主单位名称
      */
     private String fromUnitName;
 
     /**
-     * 基本单位转换系数
+     * 主单位转换系数
      */
-    private int fromUnitCount = 0;
+    private Integer fromUnitCount;
 
     /**
      * 转换单位id
      */
-    private long toUnitId = 0;
+    private Long toUnitId;
 
     /**
      * 转换单位名称
@@ -46,17 +46,32 @@ public class UnitConversionResponseDTO  {
     /**
      * 转换单位转换系数
      */
-    private int toUnitCount = 0;
+    private Integer toUnitCount;
 
-    public long getOrgId() {
+    /**
+     * 转换单位VO
+     */
+    private UnitDetailResponseDTO toUnit;
+
+    /**
+     * 转换关系类型-辅助单位
+     */
+    private BizConstantDisplay convertType;
+
+    /**
+     * 启用状态，1启用0停用
+     */
+    private BizConstantDisplay enableFlag;
+
+    public Long getOrgId() {
         return orgId;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public long getFromUnitId() {
+    public Long getFromUnitId() {
         return fromUnitId;
     }
 
@@ -64,11 +79,11 @@ public class UnitConversionResponseDTO  {
         return fromUnitName;
     }
 
-    public int getFromUnitCount() {
+    public Integer getFromUnitCount() {
         return fromUnitCount;
     }
 
-    public long getToUnitId() {
+    public Long getToUnitId() {
         return toUnitId;
     }
 
@@ -76,19 +91,31 @@ public class UnitConversionResponseDTO  {
         return toUnitName;
     }
 
-    public int getToUnitCount() {
+    public Integer getToUnitCount() {
         return toUnitCount;
     }
 
-    public void setOrgId(long orgId) {
+    public UnitDetailResponseDTO getToUnit() {
+        return toUnit;
+    }
+
+    public BizConstantDisplay getConvertType() {
+        return convertType;
+    }
+
+    public BizConstantDisplay getEnableFlag() {
+        return enableFlag;
+    }
+
+    public void setOrgId(Long orgId) {
         this.orgId = orgId;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public void setFromUnitId(long fromUnitId) {
+    public void setFromUnitId(Long fromUnitId) {
         this.fromUnitId = fromUnitId;
     }
 
@@ -96,11 +123,11 @@ public class UnitConversionResponseDTO  {
         this.fromUnitName = fromUnitName;
     }
 
-    public void setFromUnitCount(int fromUnitCount) {
+    public void setFromUnitCount(Integer fromUnitCount) {
         this.fromUnitCount = fromUnitCount;
     }
 
-    public void setToUnitId(long toUnitId) {
+    public void setToUnitId(Long toUnitId) {
         this.toUnitId = toUnitId;
     }
 
@@ -108,8 +135,20 @@ public class UnitConversionResponseDTO  {
         this.toUnitName = toUnitName;
     }
 
-    public void setToUnitCount(int toUnitCount) {
+    public void setToUnitCount(Integer toUnitCount) {
         this.toUnitCount = toUnitCount;
+    }
+
+    public void setToUnit(UnitDetailResponseDTO toUnit) {
+        this.toUnit = toUnit;
+    }
+
+    public void setConvertType(BizConstantDisplay convertType) {
+        this.convertType = convertType;
+    }
+
+    public void setEnableFlag(BizConstantDisplay enableFlag) {
+        this.enableFlag = enableFlag;
     }
 }
 
