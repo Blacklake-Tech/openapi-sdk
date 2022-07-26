@@ -14,7 +14,7 @@ public class MaterialProductionInfoResponseDTO {
     private Long materialId;
 
     /**
-     * 自制单位
+     * 生产单位
      */
     private Long productionUnitId;
 

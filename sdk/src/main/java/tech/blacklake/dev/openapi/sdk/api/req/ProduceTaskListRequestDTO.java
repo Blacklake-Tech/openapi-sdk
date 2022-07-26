@@ -69,22 +69,22 @@ public class ProduceTaskListRequestDTO extends BasePage {
     private List<Long> executorIdList;
 
     /**
-     * 计划开始时间From
+     * 计划开始时间-起
      */
     private Long planStartTimeFrom;
 
     /**
-     * 计划开始时间To
+     * 计划开始时间-止
      */
     private Long planStartTimeTo;
 
     /**
-     * 计划结束时间From
+     * 计划结束时间-起
      */
     private Long planEndTimeFrom;
 
     /**
-     * 计划结束时间To
+     * 计划结束时间-止
      */
     private Long planEndTimeTo;
 

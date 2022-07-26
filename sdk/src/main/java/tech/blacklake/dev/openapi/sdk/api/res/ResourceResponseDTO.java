@@ -7,44 +7,44 @@ import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class ResourceResponseDTO {
+public class ResourceResponseDTO  {
     /**
-     * 资源id
+     * 设备ID
      */
-    private long id;
+    private long id = 0;
 
     /**
-     * 资源code
-     */
-    private String code;
-
-    /**
-     * 资源名字
+     * 设备名称
      */
     private String name;
 
+    /**
+     * 设备编号
+     */
+    private String code;
+
     public long getId() {
         return id;
-    }
-
-    public String getCode() {
-        return code;
     }
 
     public String getName() {
         return name;
     }
 
+    public String getCode() {
+        return code;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }
 

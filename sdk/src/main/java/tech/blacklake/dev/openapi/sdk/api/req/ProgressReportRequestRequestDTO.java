@@ -24,7 +24,7 @@ public class ProgressReportRequestRequestDTO {
     private long processId = 0;
 
     /**
-     * 报工方式
+     * 报工方式 参考ReportingMethodEnum
      */
     private int reportType = 0;
 
@@ -79,7 +79,7 @@ public class ProgressReportRequestRequestDTO {
     private int qcStatus = 0;
 
     /**
-     * 入库位置（仓位id）
+     * 入库位置（仓位id）- 如果入库必须填入库位置
      */
     private Long storageLocationId;
 

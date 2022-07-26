@@ -9,96 +9,75 @@ import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
 public class BomFeedingControlRequestDTO  {
     /**
-     * 父项物料编号,不可超过255个字符
+     * 投料管控Id
      */
-    private String bomMaterialCode = "";
+    private Long id;
 
     /**
-     * 版本号,不可超过255个字符
+     * 子行行号
      */
-    private String bomVersion = "";
+    private int lineSeq = 0;
 
     /**
-     * 项次,必须是所属物料清单中存在的项次,若没有拆分工序投料则填写子项物料表中的项次,若拆分工序投料则填写子项物料拆分工序投料中的项次
-     */
-    private String belongSeq = "";
-
-    /**
-     * 子项物料编号,不可超过255个字符
-     */
-    private String materialCode = "";
-
-    /**
-     * 物料名称,不可超过255个字符
-     */
-    private String materialName;
-
-    /**
-     * 子行号,整数,必须大于等于0,默认为1
-     */
-    private String lineSeq = "";
-
-    /**
-     * 用量:分子,默认值为所属子项物料行的用量分子,必须大于0
+     * 分子
      */
     private String inputAmountNumerator;
 
     /**
-     * 投料控件编号,不超过64字符
+     * 分母
+     */
+    private String inputAmountDenominator;
+
+    /**
+     * 投料控件Code
      */
     private String inputSopControlCode;
 
     /**
-     * 是否必投,默认值为必投,是1否0,当指定工序投料=否,非必投
+     * 是否必投
      */
-    private Integer inputMaterialControlInt;
+    private int inputMaterialControl = 0;
 
     /**
-     * 是否必投,默认值为必投,当指定工序投料=否,非必投
+     * 投料上下限类型
      */
-    private String inputMaterialControl;
+    private int inputBoundType = 0;
 
     /**
-     * 投料上下限类型 key = FeedingLimitEnum
+     * 投料上限
      */
-    private String inputBoundType;
+    private String inputUpperLimit;
 
     /**
-     * 投料上限(比例%),默认值为0,当投料上下限类型=固定值时,必须大于等于0,当投料上下限类型=按比例时,必须大于等于0,小于等于100
+     * 投料下限
      */
-    private String upperLimit;
+    private String inputLowerLimit;
 
     /**
-     * 投料下限(比例%),默认值为0,当投料上下限类型=固定值时,必须大于等于0,当投料上下限类型=按比例时,必须大于等于0,小于等于100
+     * 投料上限比例
      */
-    private String lowerLimit;
+    private String inputUpperLimitRatio;
 
     /**
-     * 投料质量状态,key = QualityStatusEnum
+     * 投料下限比例
      */
-    private String inputQcState;
+    private String inputLowerLimitRatio;
 
-    public String getBomMaterialCode() {
-        return bomMaterialCode;
+    /**
+     * 投料质量状态
+     */
+    private List<Integer> inputQcState;
+
+    /**
+     * 投料类型 key = FeedTypeEnum
+     */
+    private int feedType = 0;
+
+    public Long getId() {
+        return id;
     }
 
-    public String getBomVersion() {
-        return bomVersion;
-    }
-
-    public String getBelongSeq() {
-        return belongSeq;
-    }
-
-    public String getMaterialCode() {
-        return materialCode;
-    }
-
-    public String getMaterialName() {
-        return materialName;
-    }
-
-    public String getLineSeq() {
+    public int getLineSeq() {
         return lineSeq;
     }
 
@@ -106,55 +85,51 @@ public class BomFeedingControlRequestDTO  {
         return inputAmountNumerator;
     }
 
+    public String getInputAmountDenominator() {
+        return inputAmountDenominator;
+    }
+
     public String getInputSopControlCode() {
         return inputSopControlCode;
     }
 
-    public Integer getInputMaterialControlInt() {
-        return inputMaterialControlInt;
-    }
-
-    public String getInputMaterialControl() {
+    public int getInputMaterialControl() {
         return inputMaterialControl;
     }
 
-    public String getInputBoundType() {
+    public int getInputBoundType() {
         return inputBoundType;
     }
 
-    public String getUpperLimit() {
-        return upperLimit;
+    public String getInputUpperLimit() {
+        return inputUpperLimit;
     }
 
-    public String getLowerLimit() {
-        return lowerLimit;
+    public String getInputLowerLimit() {
+        return inputLowerLimit;
     }
 
-    public String getInputQcState() {
+    public String getInputUpperLimitRatio() {
+        return inputUpperLimitRatio;
+    }
+
+    public String getInputLowerLimitRatio() {
+        return inputLowerLimitRatio;
+    }
+
+    public List<Integer> getInputQcState() {
         return inputQcState;
     }
 
-    public void setBomMaterialCode(String bomMaterialCode) {
-        this.bomMaterialCode = bomMaterialCode;
+    public int getFeedType() {
+        return feedType;
     }
 
-    public void setBomVersion(String bomVersion) {
-        this.bomVersion = bomVersion;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setBelongSeq(String belongSeq) {
-        this.belongSeq = belongSeq;
-    }
-
-    public void setMaterialCode(String materialCode) {
-        this.materialCode = materialCode;
-    }
-
-    public void setMaterialName(String materialName) {
-        this.materialName = materialName;
-    }
-
-    public void setLineSeq(String lineSeq) {
+    public void setLineSeq(int lineSeq) {
         this.lineSeq = lineSeq;
     }
 
@@ -162,32 +137,44 @@ public class BomFeedingControlRequestDTO  {
         this.inputAmountNumerator = inputAmountNumerator;
     }
 
+    public void setInputAmountDenominator(String inputAmountDenominator) {
+        this.inputAmountDenominator = inputAmountDenominator;
+    }
+
     public void setInputSopControlCode(String inputSopControlCode) {
         this.inputSopControlCode = inputSopControlCode;
     }
 
-    public void setInputMaterialControlInt(Integer inputMaterialControlInt) {
-        this.inputMaterialControlInt = inputMaterialControlInt;
-    }
-
-    public void setInputMaterialControl(String inputMaterialControl) {
+    public void setInputMaterialControl(int inputMaterialControl) {
         this.inputMaterialControl = inputMaterialControl;
     }
 
-    public void setInputBoundType(String inputBoundType) {
+    public void setInputBoundType(int inputBoundType) {
         this.inputBoundType = inputBoundType;
     }
 
-    public void setUpperLimit(String upperLimit) {
-        this.upperLimit = upperLimit;
+    public void setInputUpperLimit(String inputUpperLimit) {
+        this.inputUpperLimit = inputUpperLimit;
     }
 
-    public void setLowerLimit(String lowerLimit) {
-        this.lowerLimit = lowerLimit;
+    public void setInputLowerLimit(String inputLowerLimit) {
+        this.inputLowerLimit = inputLowerLimit;
     }
 
-    public void setInputQcState(String inputQcState) {
+    public void setInputUpperLimitRatio(String inputUpperLimitRatio) {
+        this.inputUpperLimitRatio = inputUpperLimitRatio;
+    }
+
+    public void setInputLowerLimitRatio(String inputLowerLimitRatio) {
+        this.inputLowerLimitRatio = inputLowerLimitRatio;
+    }
+
+    public void setInputQcState(List<Integer> inputQcState) {
         this.inputQcState = inputQcState;
+    }
+
+    public void setFeedType(int feedType) {
+        this.feedType = feedType;
     }
 }
 

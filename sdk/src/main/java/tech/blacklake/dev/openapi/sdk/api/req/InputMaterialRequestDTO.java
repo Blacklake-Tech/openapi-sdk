@@ -7,131 +7,131 @@ import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class InputMaterialRequestDTO {
+public class InputMaterialRequestDTO  {
     /**
-     * 工单编号
+     * 项次
      */
-    private String workOrderCode;
+    private int seq = 0;
 
     /**
-     * 项次,默认以10开始,以10递增
+     * 物料ID
      */
-    private String seq;
+    private long materialId = 0;
 
     /**
-     * 子项物料编号
+     * 子项类型
      */
-    private String materialCode;
+    private int inputType = 0;
 
     /**
-     * 子项物料名称
+     * 使用比例
      */
-    private String materialName;
+    private String useRatio;
 
     /**
-     * 版本号
+     * 分子
      */
-    private String version;
+    private String inputAmountNumerator;
 
     /**
-     * 分子,默认值为1,必须大于等于0
+     * 分母
      */
-    private String subInputAmountNumerator;
+    private String inputAmountDenominator;
 
     /**
-     * 分母,默认值为1,必须大于等于0
+     * 单位
      */
-    private String subInputAmountDenominator;
+    private long unitId = 0;
 
     /**
-     * 单位名称
-     */
-    private String unitName;
-
-    /**
-     * 损耗率,不填默认值为0,必须大于等于0,小数点后位数不可超过4位,必须小于100
+     * 损耗率
      */
     private String lossRate;
 
     /**
-     * 需求时间,默认为生产工单开始时间,格式为YYYY/mm/DD HH:MM:SS的毫秒数
+     * 展开物料清单ID
+     */
+    private Long bomId;
+
+    /**
+     * 需求时间
      */
     private Long requirementTime;
 
     /**
-     * 领料方式,单选,默认为按需领料,key = PickModeEnum
+     * 领料方式
      */
     private Integer pickMode;
 
     /**
-     * 是否指定工序投料,是1否0,默认值为1
+     * 是否指定工序投料
      */
-    private int specificProcessInputInt = 0;
+    private int specificProcessInput = 0;
 
     /**
-     * 是否指定工序投料,单选,默认值为是
+     * 供应商ID list
      */
-    private String specificProcessInput;
-
-    /**
-     * 供应商IDs,多选
-     */
-    private String suppliers;
-
-    /**
-     * 是否拆分控件投料,是1否0
-     */
-    private int splitSopControlInputInt = 0;
+    private List<Long> supplierIds;
 
     /**
      * 是否拆分控件投料
      */
-    private String splitSopControlInput;
+    private int splitSopControlInput = 0;
 
     /**
-     * 当指定投料工序=是时,必须为主产出所选工艺路线中已有的工序号
+     * 投料工序号
      */
     private String inputProcessNum;
 
     /**
-     * 行备注,不可超过1000个字符,支持换行
+     * 投料管控
+     */
+    private List<InputMaterialControlRequestDTO> bomFeedingControls;
+
+    /**
+     * 行备注
      */
     private String remark;
 
-    public String getWorkOrderCode() {
-        return workOrderCode;
-    }
+    /**
+     * 替代方案
+     */
+    private WorkOrderAlternativePlanRequestDTO workOrderAlternativePlan;
 
-    public String getSeq() {
+    public int getSeq() {
         return seq;
     }
 
-    public String getMaterialCode() {
-        return materialCode;
+    public long getMaterialId() {
+        return materialId;
     }
 
-    public String getMaterialName() {
-        return materialName;
+    public int getInputType() {
+        return inputType;
     }
 
-    public String getVersion() {
-        return version;
+    public String getUseRatio() {
+        return useRatio;
     }
 
-    public String getSubInputAmountNumerator() {
-        return subInputAmountNumerator;
+    public String getInputAmountNumerator() {
+        return inputAmountNumerator;
     }
 
-    public String getSubInputAmountDenominator() {
-        return subInputAmountDenominator;
+    public String getInputAmountDenominator() {
+        return inputAmountDenominator;
     }
 
-    public String getUnitName() {
-        return unitName;
+    public long getUnitId() {
+        return unitId;
     }
 
     public String getLossRate() {
         return lossRate;
+    }
+
+    public Long getBomId() {
+        return bomId;
     }
 
     public Long getRequirementTime() {
@@ -142,23 +142,15 @@ public class InputMaterialRequestDTO {
         return pickMode;
     }
 
-    public int getSpecificProcessInputInt() {
-        return specificProcessInputInt;
-    }
-
-    public String getSpecificProcessInput() {
+    public int getSpecificProcessInput() {
         return specificProcessInput;
     }
 
-    public String getSuppliers() {
-        return suppliers;
+    public List<Long> getSupplierIds() {
+        return supplierIds;
     }
 
-    public int getSplitSopControlInputInt() {
-        return splitSopControlInputInt;
-    }
-
-    public String getSplitSopControlInput() {
+    public int getSplitSopControlInput() {
         return splitSopControlInput;
     }
 
@@ -166,44 +158,52 @@ public class InputMaterialRequestDTO {
         return inputProcessNum;
     }
 
+    public List<InputMaterialControlRequestDTO> getBomFeedingControls() {
+        return bomFeedingControls;
+    }
+
     public String getRemark() {
         return remark;
     }
 
-    public void setWorkOrderCode(String workOrderCode) {
-        this.workOrderCode = workOrderCode;
+    public WorkOrderAlternativePlanRequestDTO getWorkOrderAlternativePlan() {
+        return workOrderAlternativePlan;
     }
 
-    public void setSeq(String seq) {
+    public void setSeq(int seq) {
         this.seq = seq;
     }
 
-    public void setMaterialCode(String materialCode) {
-        this.materialCode = materialCode;
+    public void setMaterialId(long materialId) {
+        this.materialId = materialId;
     }
 
-    public void setMaterialName(String materialName) {
-        this.materialName = materialName;
+    public void setInputType(int inputType) {
+        this.inputType = inputType;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    public void setUseRatio(String useRatio) {
+        this.useRatio = useRatio;
     }
 
-    public void setSubInputAmountNumerator(String subInputAmountNumerator) {
-        this.subInputAmountNumerator = subInputAmountNumerator;
+    public void setInputAmountNumerator(String inputAmountNumerator) {
+        this.inputAmountNumerator = inputAmountNumerator;
     }
 
-    public void setSubInputAmountDenominator(String subInputAmountDenominator) {
-        this.subInputAmountDenominator = subInputAmountDenominator;
+    public void setInputAmountDenominator(String inputAmountDenominator) {
+        this.inputAmountDenominator = inputAmountDenominator;
     }
 
-    public void setUnitName(String unitName) {
-        this.unitName = unitName;
+    public void setUnitId(long unitId) {
+        this.unitId = unitId;
     }
 
     public void setLossRate(String lossRate) {
         this.lossRate = lossRate;
+    }
+
+    public void setBomId(Long bomId) {
+        this.bomId = bomId;
     }
 
     public void setRequirementTime(Long requirementTime) {
@@ -214,23 +214,15 @@ public class InputMaterialRequestDTO {
         this.pickMode = pickMode;
     }
 
-    public void setSpecificProcessInputInt(int specificProcessInputInt) {
-        this.specificProcessInputInt = specificProcessInputInt;
-    }
-
-    public void setSpecificProcessInput(String specificProcessInput) {
+    public void setSpecificProcessInput(int specificProcessInput) {
         this.specificProcessInput = specificProcessInput;
     }
 
-    public void setSuppliers(String suppliers) {
-        this.suppliers = suppliers;
+    public void setSupplierIds(List<Long> supplierIds) {
+        this.supplierIds = supplierIds;
     }
 
-    public void setSplitSopControlInputInt(int splitSopControlInputInt) {
-        this.splitSopControlInputInt = splitSopControlInputInt;
-    }
-
-    public void setSplitSopControlInput(String splitSopControlInput) {
+    public void setSplitSopControlInput(int splitSopControlInput) {
         this.splitSopControlInput = splitSopControlInput;
     }
 
@@ -238,8 +230,16 @@ public class InputMaterialRequestDTO {
         this.inputProcessNum = inputProcessNum;
     }
 
+    public void setBomFeedingControls(List<InputMaterialControlRequestDTO> bomFeedingControls) {
+        this.bomFeedingControls = bomFeedingControls;
+    }
+
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public void setWorkOrderAlternativePlan(WorkOrderAlternativePlanRequestDTO workOrderAlternativePlan) {
+        this.workOrderAlternativePlan = workOrderAlternativePlan;
     }
 }
 

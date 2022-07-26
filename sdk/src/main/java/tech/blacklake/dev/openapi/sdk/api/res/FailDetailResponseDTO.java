@@ -7,53 +7,40 @@ import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class FailDetailResponseDTO  {
+public class FailDetailResponseDTO {
     /**
-     * 工艺路线ID
-     */
-    private long id = 0;
-
-    /**
-     * 工艺路线code
+     * 编号
      */
     private String code;
 
     /**
-     * 工艺路线名称
+     * 类型
      */
-    private String name;
+    private String bizType;
 
     /**
-     * 工艺路线信息
+     * 原因
      */
     private String reason;
-
-    public long getId() {
-        return id;
-    }
 
     public String getCode() {
         return code;
     }
 
-    public String getName() {
-        return name;
+    public String getBizType() {
+        return bizType;
     }
 
     public String getReason() {
         return reason;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public void setCode(String code) {
         this.code = code;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBizType(String bizType) {
+        this.bizType = bizType;
     }
 
     public void setReason(String reason) {

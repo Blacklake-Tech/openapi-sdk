@@ -29,7 +29,7 @@ public class WorkCenterGroupRequestDTO  {
     private String name;
 
     /**
-     * 可选资源，0-用户，1-部门, 2-资源分类
+     * 可选资源，0-用户，1-部门, 2-设备, key = tech.blacklake.dev.workcenter.api.constants.BizTypeEnum
      */
     private Integer bizType;
 

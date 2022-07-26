@@ -20,20 +20,20 @@
         <logback-classic.version>1.2.3</logback-classic.version>
         <lombok.version>1.18.12</lombok.version>
         <cglib.version>3.1</cglib.version>
-        <med.version>2.2.1-SNAPSHOT</med.version>
-        <resource.version>6.6.1.2-RELEASE</resource.version>
-        <mfg.version>2.2.0-SNAPSHOT</mfg.version>
-        <order.version>6.6.0.1-SNAPSHOT</order.version>
-        <quality.version>2.0.0-SNAPSHOT</quality.version>
-        <workcenter.version>2.2.0-SNAPSHOT</workcenter.version>
-        <inventory.version>2.0.0-SNAPSHOT</inventory.version><!-- 版本不确定 -->
-        <material.version>2.0.0-SNAPSHOT</material.version><!-- 版本不确定 -->
-        <storage.version>2.0.0-SNAPSHOT</storage.version><!-- 版本不确定 -->
-        <customObject.version>1.2.0-SNAPSHOT</customObject.version>
-        <user.version>2.3.3-SNAPSHOT</user.version><!-- 版本不确定 -->
-        <sop.version>6.6.1-SNAPSHOT</sop.version>
-        <workercalendar.version>2.1.1-SNAPSHOT</workercalendar.version>
-        <trace.version>1.2.0-SNAPSHOT</trace.version>
+        <med.version>6.7.1-RELEASE</med.version>
+        <resource.version>6.7.0-RELEASE</resource.version>
+        <mfg.version>6.7.1.1-RELEASE</mfg.version>
+        <order.version>6.7.1.1-RELEASE</order.version>
+        <quality.version>6.7.0-RELEASE</quality.version>
+        <workcenter.version>6.6.0-RELEASE</workcenter.version>
+        <inventory.version>6.7.0.2-RELEASE</inventory.version>
+        <material.version>6.7.0-RELEASE</material.version>
+        <storage.version>6.7.0.2-RELEASE</storage.version>
+        <customObject.version>6.7.0-RELEASE</customObject.version>
+        <user.version>6.7.0-RELEASE</user.version>
+        <sop.version>6.7.0-RELEASE</sop.version>
+        <workercalendar.version>6.7.1-RELEASE</workercalendar.version>
+        <trace.version>6.7.0-RELEASE</trace.version>
         <plo.version>6.7.0-RELEASE</plo.version>
     </properties>
 
@@ -136,17 +136,17 @@
                 <version>${mfg.version}</version>
             </dependency>
 
-<!--            <dependency>-->
-<!--                <groupId>tech.blacklake.dev.resource</groupId>-->
-<!--                <artifactId>resource-service</artifactId>-->
-<!--                <version>${resource.version}</version>-->
-<!--            </dependency>-->
+            <dependency>
+                <groupId>tech.blacklake.dev.resource</groupId>
+                <artifactId>resource-service</artifactId>
+                <version>${resource.version}</version>
+            </dependency>
 
-<!--            <dependency>-->
-<!--                <groupId>tech.blacklake.dev.resource</groupId>-->
-<!--                <artifactId>resource-api</artifactId>-->
-<!--                <version>${resource.version}</version>-->
-<!--            </dependency>-->
+            <dependency>
+                <groupId>tech.blacklake.dev.resource</groupId>
+                <artifactId>resource-api</artifactId>
+                <version>${resource.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>tech.blacklake.dev.order</groupId>
@@ -316,17 +316,17 @@
                 <version>${customObject.version}</version>
             </dependency>
 
-<!--            <dependency>-->
-<!--                <groupId>tech.blacklake.dev.user</groupId>-->
-<!--                <artifactId>user-domain-service</artifactId>-->
-<!--                <version>${user.version}</version>-->
-<!--            </dependency>-->
+            <dependency>
+                <groupId>tech.blacklake.dev.user</groupId>
+                <artifactId>user-domain-service</artifactId>
+                <version>${user.version}</version>
+            </dependency>
 
-<!--            <dependency>-->
-<!--                <groupId>tech.blacklake.dev.user</groupId>-->
-<!--                <artifactId>user-domain-api</artifactId>-->
-<!--                <version>${user.version}</version>-->
-<!--            </dependency>-->
+            <dependency>
+                <groupId>tech.blacklake.dev.user</groupId>
+                <artifactId>user-domain-api</artifactId>
+                <version>${user.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>tech.blacklake.dev.sop</groupId>

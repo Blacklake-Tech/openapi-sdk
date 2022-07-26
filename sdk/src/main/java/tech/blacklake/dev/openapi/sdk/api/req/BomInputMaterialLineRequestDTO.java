@@ -9,129 +9,207 @@ import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
 public class BomInputMaterialLineRequestDTO extends CustomFieldBaseCO  {
     /**
-     * 父项物料编号,不可超过255个字符
+     * 子行Id
      */
-    private String bomMaterialCode = "";
+    private Long id;
 
     /**
-     * 版本号,不可超过255个字符
+     * 物料清单子项Id
      */
-    private String bomVersion = "";
+    private Long bomInputMaterialId;
 
     /**
-     * 所属项次,子项物料项次号
+     * 项次
      */
-    private String belongSeq = "";
+    private int seq = 0;
 
     /**
-     * 项次,默认以1000开始,以10递增,同一物料清单内的多行子项物料(第一层+第二层,非替代件),项次+物料编号不支持重复
+     * 物料ID
      */
-    private String seq = "";
+    private long materialId = 0;
 
     /**
-     * 物料编号,不可超过255个字符
-     */
-    private String materialCode = "";
-
-    /**
-     * 物料名称,不可超过255个字符
-     */
-    private String materialName;
-
-    /**
-     * 用量:分子,默认值为所属子项物料行的用量分子,必须大于0
+     * 分子
      */
     private String inputAmountNumerator;
 
     /**
-     * 行备注,不可超过1000个字符,支持换行
+     * 分母
+     */
+    private String inputAmountDenominator;
+
+    /**
+     * 单位id
+     */
+    private long unitId = 0;
+
+    /**
+     * 损耗率
+     */
+    private String lossRate;
+
+    /**
+     * 关联物料清单Id
+     */
+    private Long relatedBomId;
+
+    /**
+     * 领料方式
+     */
+    private int pickMode = 0;
+
+    /**
+     * 是否指定工序投料
+     */
+    private int specificProcessInput = 0;
+
+    /**
+     * 是否拆分工序投料
+     */
+    private Integer splitProcessInput;
+
+    /**
+     * 投料工序ID
+     */
+    private Long inputProcessId;
+
+    /**
+     * 是否拆分控件投料
+     */
+    private int splitSopControlInput = 0;
+
+    /**
+     * 行备注
      */
     private String remark;
 
     /**
-     * 投料工序号,指定投料工序=是时,不可超过255个字符
-     */
-    private String inputProcessNum;
-
-    /**
-     * 投料管控行
+     * 投料管控
      */
     private List<BomFeedingControlRequestDTO> bomFeedingControls;
 
-    public String getBomMaterialCode() {
-        return bomMaterialCode;
+    public Long getId() {
+        return id;
     }
 
-    public String getBomVersion() {
-        return bomVersion;
+    public Long getBomInputMaterialId() {
+        return bomInputMaterialId;
     }
 
-    public String getBelongSeq() {
-        return belongSeq;
-    }
-
-    public String getSeq() {
+    public int getSeq() {
         return seq;
     }
 
-    public String getMaterialCode() {
-        return materialCode;
-    }
-
-    public String getMaterialName() {
-        return materialName;
+    public long getMaterialId() {
+        return materialId;
     }
 
     public String getInputAmountNumerator() {
         return inputAmountNumerator;
     }
 
-    public String getRemark() {
-        return remark;
+    public String getInputAmountDenominator() {
+        return inputAmountDenominator;
     }
 
-    public String getInputProcessNum() {
-        return inputProcessNum;
+    public long getUnitId() {
+        return unitId;
+    }
+
+    public String getLossRate() {
+        return lossRate;
+    }
+
+    public Long getRelatedBomId() {
+        return relatedBomId;
+    }
+
+    public int getPickMode() {
+        return pickMode;
+    }
+
+    public int getSpecificProcessInput() {
+        return specificProcessInput;
+    }
+
+    public Integer getSplitProcessInput() {
+        return splitProcessInput;
+    }
+
+    public Long getInputProcessId() {
+        return inputProcessId;
+    }
+
+    public int getSplitSopControlInput() {
+        return splitSopControlInput;
+    }
+
+    public String getRemark() {
+        return remark;
     }
 
     public List<BomFeedingControlRequestDTO> getBomFeedingControls() {
         return bomFeedingControls;
     }
 
-    public void setBomMaterialCode(String bomMaterialCode) {
-        this.bomMaterialCode = bomMaterialCode;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setBomVersion(String bomVersion) {
-        this.bomVersion = bomVersion;
+    public void setBomInputMaterialId(Long bomInputMaterialId) {
+        this.bomInputMaterialId = bomInputMaterialId;
     }
 
-    public void setBelongSeq(String belongSeq) {
-        this.belongSeq = belongSeq;
-    }
-
-    public void setSeq(String seq) {
+    public void setSeq(int seq) {
         this.seq = seq;
     }
 
-    public void setMaterialCode(String materialCode) {
-        this.materialCode = materialCode;
-    }
-
-    public void setMaterialName(String materialName) {
-        this.materialName = materialName;
+    public void setMaterialId(long materialId) {
+        this.materialId = materialId;
     }
 
     public void setInputAmountNumerator(String inputAmountNumerator) {
         this.inputAmountNumerator = inputAmountNumerator;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setInputAmountDenominator(String inputAmountDenominator) {
+        this.inputAmountDenominator = inputAmountDenominator;
     }
 
-    public void setInputProcessNum(String inputProcessNum) {
-        this.inputProcessNum = inputProcessNum;
+    public void setUnitId(long unitId) {
+        this.unitId = unitId;
+    }
+
+    public void setLossRate(String lossRate) {
+        this.lossRate = lossRate;
+    }
+
+    public void setRelatedBomId(Long relatedBomId) {
+        this.relatedBomId = relatedBomId;
+    }
+
+    public void setPickMode(int pickMode) {
+        this.pickMode = pickMode;
+    }
+
+    public void setSpecificProcessInput(int specificProcessInput) {
+        this.specificProcessInput = specificProcessInput;
+    }
+
+    public void setSplitProcessInput(Integer splitProcessInput) {
+        this.splitProcessInput = splitProcessInput;
+    }
+
+    public void setInputProcessId(Long inputProcessId) {
+        this.inputProcessId = inputProcessId;
+    }
+
+    public void setSplitSopControlInput(int splitSopControlInput) {
+        this.splitSopControlInput = splitSopControlInput;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public void setBomFeedingControls(List<BomFeedingControlRequestDTO> bomFeedingControls) {

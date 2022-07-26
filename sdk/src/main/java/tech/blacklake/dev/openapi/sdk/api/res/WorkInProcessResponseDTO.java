@@ -66,7 +66,7 @@ public class WorkInProcessResponseDTO  {
     /**
      * 投料单位
      */
-    private UnitDetailResponseDTO feedUnit;
+    private UnitDetailResDO feedUnit;
 
     /**
      * sop投料控件ID
@@ -227,7 +227,7 @@ public class WorkInProcessResponseDTO  {
         return feedUnitId;
     }
 
-    public UnitDetailResponseDTO getFeedUnit() {
+    public UnitDetailResDO getFeedUnit() {
         return feedUnit;
     }
 
@@ -367,7 +367,7 @@ public class WorkInProcessResponseDTO  {
         this.feedUnitId = feedUnitId;
     }
 
-    public void setFeedUnit(UnitDetailResponseDTO feedUnit) {
+    public void setFeedUnit(UnitDetailResDO feedUnit) {
         this.feedUnit = feedUnit;
     }
 

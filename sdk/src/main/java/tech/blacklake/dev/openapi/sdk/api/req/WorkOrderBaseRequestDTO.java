@@ -73,6 +73,11 @@ public class WorkOrderBaseRequestDTO  {
      */
     private Long shiftId;
 
+    /**
+     * 设备ID
+     */
+    private Long resourceId;
+
     public String getCode() {
         return code;
     }
@@ -125,6 +130,10 @@ public class WorkOrderBaseRequestDTO  {
         return shiftId;
     }
 
+    public Long getResourceId() {
+        return resourceId;
+    }
+
     public void setCode(String code) {
         this.code = code;
     }
@@ -175,6 +184,10 @@ public class WorkOrderBaseRequestDTO  {
 
     public void setShiftId(Long shiftId) {
         this.shiftId = shiftId;
+    }
+
+    public void setResourceId(Long resourceId) {
+        this.resourceId = resourceId;
     }
 }
 

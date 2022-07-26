@@ -23,6 +23,11 @@ public class WorkOrderListRequestRequestDTO {
      */
     private Long updatedAtTo;
 
+    /**
+     * 主产出批次号编码
+     */
+    private String mainOutputBatchNumber;
+
     public String getWorkOrderCode() {
         return workOrderCode;
     }
@@ -35,6 +40,10 @@ public class WorkOrderListRequestRequestDTO {
         return updatedAtTo;
     }
 
+    public String getMainOutputBatchNumber() {
+        return mainOutputBatchNumber;
+    }
+
     public void setWorkOrderCode(String workOrderCode) {
         this.workOrderCode = workOrderCode;
     }
@@ -45,6 +54,10 @@ public class WorkOrderListRequestRequestDTO {
 
     public void setUpdatedAtTo(Long updatedAtTo) {
         this.updatedAtTo = updatedAtTo;
+    }
+
+    public void setMainOutputBatchNumber(String mainOutputBatchNumber) {
+        this.mainOutputBatchNumber = mainOutputBatchNumber;
     }
 }
 

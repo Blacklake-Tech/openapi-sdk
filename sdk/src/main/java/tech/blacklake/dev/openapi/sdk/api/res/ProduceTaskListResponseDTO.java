@@ -11,7 +11,7 @@ public class ProduceTaskListResponseDTO {
     /**
      * 任务Id
      */
-    private long taskId;
+    private long taskId = 0;
 
     /**
      * 任务编号
@@ -26,12 +26,12 @@ public class ProduceTaskListResponseDTO {
     /**
      * 工序ID
      */
-    private long processId;
+    private long processId = 0;
 
     /**
      * 工单ID
      */
-    private long workOrderId;
+    private long workOrderId = 0;
 
     /**
      * 工单编号
@@ -61,17 +61,17 @@ public class ProduceTaskListResponseDTO {
     /**
      * 工单指定物料
      */
-    private boolean specifiedMaterial;
+    private boolean specifiedMaterial = false;
 
     /**
      * 计划开始时间
      */
-    private long planStartTime;
+    private long planStartTime = 0;
 
     /**
      * 计划结束时间
      */
-    private long planEndTime;
+    private long planEndTime = 0;
 
     /**
      * 执行人
