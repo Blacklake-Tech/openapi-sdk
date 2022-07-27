@@ -78,15 +78,15 @@ public class JarParser {
 
     private static final Set<String> INVALID_SUPERCLASSES = Set.of("BaseDO", "BasePO", "BaseVO", "BaseDTO", "BaseCO", "BaseCheckCO", "Serializable", "Comparable");
 
-    private static  Set<String> commonDtoSet = new HashSet();
+    private static  Set<String> commonDtoSet;
 
     /**
      * 解析jar文件
      *
      * @return pair.left为所有controller的解析结果, pair.right为所有dto的解析结果
      */
-    public static Pair<List<ReflectionResult>, List<ReflectionResult>> parseJar(String groupId, String artifactId, String version, Set<String> parsedDtoSet, boolean needParse) {
-        commonDtoSet.addAll(parsedDtoSet);
+    public static Pair<List<ReflectionResult>, List<ReflectionResult>> parseJar(String groupId, String artifactId, String version, Set<String> parsedDtoSet,Set<String> presetClassNamesSet, boolean needParse) {
+        commonDtoSet = presetClassNamesSet;
         // 获取classloader
         SdkClassLoader sdkClassLoader = SdkClassLoader.getSdkClassLoader();
         // 获取application name
@@ -434,7 +434,10 @@ public class JarParser {
     }
 
     private static String switchDtoName(String dtoName) {
-        if (commonDtoSet.contains(dtoName)) return dtoName;//如果为common包下的类型，无需改名
+        if (commonDtoSet.contains(dtoName)) {
+            return dtoName;//如果为common包下的类型，无需改名
+        }
+
         if (dtoName.endsWith(DTO_CO)) {
             dtoName = dtoName.replace(DTO_CO, DTO_REQUEST);
         } else if (dtoName.endsWith(DTO_VO)) {
