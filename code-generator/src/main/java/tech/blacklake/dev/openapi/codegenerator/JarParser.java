@@ -78,12 +78,15 @@ public class JarParser {
 
     private static final Set<String> INVALID_SUPERCLASSES = Set.of("BaseDO", "BasePO", "BaseVO", "BaseDTO", "BaseCO", "BaseCheckCO", "Serializable", "Comparable");
 
+    private static  Set<String> commonDtoSet = new HashSet();
+
     /**
      * 解析jar文件
      *
      * @return pair.left为所有controller的解析结果, pair.right为所有dto的解析结果
      */
     public static Pair<List<ReflectionResult>, List<ReflectionResult>> parseJar(String groupId, String artifactId, String version, Set<String> parsedDtoSet, boolean needParse) {
+        commonDtoSet.addAll(parsedDtoSet);
         // 获取classloader
         SdkClassLoader sdkClassLoader = SdkClassLoader.getSdkClassLoader();
         // 获取application name
@@ -289,8 +292,14 @@ public class JarParser {
                         defaultValName = defaultValObj.getClass().getSimpleName() + "." + defaultValObj;
                     } else if (defaultValObj instanceof String) {
                         defaultValName = "\"" + defaultValObj + "\"";
-                    } else if (defaultValObj instanceof Short || defaultValObj instanceof Integer || defaultValObj instanceof Long || defaultValObj instanceof Float || defaultValObj instanceof Double || defaultValObj instanceof Byte || defaultValObj instanceof Boolean) {
+                    } else if (defaultValObj instanceof Short || defaultValObj instanceof Integer || defaultValObj instanceof Byte || defaultValObj instanceof Boolean) {
                         defaultValName = String.valueOf(defaultValObj);
+                    }else if (defaultValObj instanceof Long){
+                        defaultValName = defaultValObj+"L";
+                    }else if (defaultValObj instanceof Float){
+                        defaultValName = defaultValObj+"F";
+                    }else if (defaultValObj instanceof Double){
+                        defaultValName = defaultValObj+"D";
                     }
 
                     if (defaultValName != null) {
@@ -425,6 +434,7 @@ public class JarParser {
     }
 
     private static String switchDtoName(String dtoName) {
+        if (commonDtoSet.contains(dtoName)) return dtoName;//如果为common包下的类型，无需改名
         if (dtoName.endsWith(DTO_CO)) {
             dtoName = dtoName.replace(DTO_CO, DTO_REQUEST);
         } else if (dtoName.endsWith(DTO_VO)) {
