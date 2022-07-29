@@ -78,12 +78,15 @@ public class JarParser {
 
     private static final Set<String> INVALID_SUPERCLASSES = Set.of("BaseDO", "BasePO", "BaseVO", "BaseDTO", "BaseCO", "BaseCheckCO", "Serializable", "Comparable");
 
+    private static  Set<String> commonDtoSet;
+
     /**
      * 解析jar文件
      *
      * @return pair.left为所有controller的解析结果, pair.right为所有dto的解析结果
      */
-    public static Pair<List<ReflectionResult>, List<ReflectionResult>> parseJar(String groupId, String artifactId, String version, Set<String> parsedDtoSet, boolean needParse) {
+    public static Pair<List<ReflectionResult>, List<ReflectionResult>> parseJar(String groupId, String artifactId, String version, Set<String> parsedDtoSet,Set<String> presetClassNamesSet, boolean needParse) {
+        commonDtoSet = presetClassNamesSet;
         // 获取classloader
         SdkClassLoader sdkClassLoader = SdkClassLoader.getSdkClassLoader();
         // 获取application name
@@ -228,13 +231,16 @@ public class JarParser {
         Class<?> superclass = dtoClass.getSuperclass();
         Class<?>[] interfaces = dtoClass.getInterfaces();
         if (superclass != null && superclass != Object.class && !INVALID_SUPERCLASSES.contains(superclass.getSimpleName())) {
-            superclassAndInterfaces.append(EXTENDS).append(SPACE).append(superclass.getSimpleName()).append(SPACE);
+            //父类在common包内：extends superclassSimpleName，不在：直接丢弃继承关系
+            if (commonDtoSet.contains(superclass.getSimpleName())){
+                superclassAndInterfaces.append(EXTENDS).append(SPACE).append(superclass.getSimpleName()).append(SPACE);
+            }
         }
         if (interfaces.length > 0) {
             boolean hasValidInterface = false;
             for (int i = 0; i < interfaces.length; i++) {
                 String interfaceSimpleName = interfaces[i].getSimpleName();
-                if (INVALID_SUPERCLASSES.contains(interfaceSimpleName)) {
+                if (INVALID_SUPERCLASSES.contains(interfaceSimpleName)||!commonDtoSet.contains(interfaceSimpleName)) {
                     continue;
                 }
                 if (!hasValidInterface) {
@@ -289,8 +295,14 @@ public class JarParser {
                         defaultValName = defaultValObj.getClass().getSimpleName() + "." + defaultValObj;
                     } else if (defaultValObj instanceof String) {
                         defaultValName = "\"" + defaultValObj + "\"";
-                    } else if (defaultValObj instanceof Short || defaultValObj instanceof Integer || defaultValObj instanceof Long || defaultValObj instanceof Float || defaultValObj instanceof Double || defaultValObj instanceof Byte || defaultValObj instanceof Boolean) {
+                    } else if (defaultValObj instanceof Short || defaultValObj instanceof Integer || defaultValObj instanceof Byte || defaultValObj instanceof Boolean) {
                         defaultValName = String.valueOf(defaultValObj);
+                    }else if (defaultValObj instanceof Long){
+                        defaultValName = defaultValObj+"L";
+                    }else if (defaultValObj instanceof Float){
+                        defaultValName = defaultValObj+"F";
+                    }else if (defaultValObj instanceof Double){
+                        defaultValName = defaultValObj+"D";
                     }
 
                     if (defaultValName != null) {
@@ -425,6 +437,10 @@ public class JarParser {
     }
 
     private static String switchDtoName(String dtoName) {
+        if (commonDtoSet.contains(dtoName)) {
+            return dtoName;//如果为common包下的类型，无需改名
+        }
+
         if (dtoName.endsWith(DTO_CO)) {
             dtoName = dtoName.replace(DTO_CO, DTO_REQUEST);
         } else if (dtoName.endsWith(DTO_VO)) {
