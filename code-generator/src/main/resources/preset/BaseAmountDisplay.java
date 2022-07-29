@@ -1,4 +1,4 @@
-package tech.blacklake.dev.openapi.sdk.newApi.api.dto;
+package tech.blacklake.dev.openapi.sdk.api.common;
 
 import java.math.BigDecimal;
 

@@ -11,7 +11,7 @@ public class AlternativePlanBulkDeleteResponseDTO  {
     /**
      * 替代方案Id
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 替代方案code

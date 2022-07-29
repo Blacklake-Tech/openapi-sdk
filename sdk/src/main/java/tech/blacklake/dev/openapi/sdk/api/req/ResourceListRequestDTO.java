@@ -7,7 +7,7 @@ import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class ResourceListRequestDTO extends ResourceBaseCO {
+public class ResourceListRequestDTO {
     /**
      * 资源名称
      */

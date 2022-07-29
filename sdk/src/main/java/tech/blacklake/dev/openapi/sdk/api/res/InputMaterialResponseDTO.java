@@ -11,7 +11,7 @@ public class InputMaterialResponseDTO  {
     /**
      * 业务ID
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 项次
@@ -36,7 +36,7 @@ public class InputMaterialResponseDTO  {
     /**
      * 物料ID
      */
-    private long materialId = 0;
+    private long materialId = 0L;
 
     /**
      * 物料信息
@@ -51,7 +51,7 @@ public class InputMaterialResponseDTO  {
     /**
      * 单位ID
      */
-    private long unitId = 0;
+    private long unitId = 0L;
 
     /**
      * 单位名称

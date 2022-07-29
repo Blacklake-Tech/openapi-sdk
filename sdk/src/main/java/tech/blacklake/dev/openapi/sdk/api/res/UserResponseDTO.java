@@ -11,7 +11,7 @@ public class UserResponseDTO  {
     /**
      * 业务id
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 用户名字

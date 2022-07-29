@@ -41,7 +41,7 @@ public class MaterialBatchAttrUpdateRequestDTO {
     /**
      * 排序字段，必填，默认0 起始0
      */
-    private long serialNo = 0;
+    private long serialNo = 0L;
 
     public Long getId() {
         return id;

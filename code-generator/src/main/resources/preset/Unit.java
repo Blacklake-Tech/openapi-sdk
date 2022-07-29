@@ -1,13 +1,8 @@
-package tech.blacklake.dev.openapi.sdk.api.dto;
+package tech.blacklake.dev.openapi.sdk.api.common;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
-import tech.blacklake.dev.openapi.sdk.api.common.*;
-import tech.blacklake.dev.openapi.sdk.api.dto.*;
+import java.math.RoundingMode;
 
-public class Unit  {
+public class Unit {
     /**
      * DEFAULT_SCALE
      */
@@ -21,7 +16,7 @@ public class Unit  {
     /**
      * serialVersionUID
      */
-    private long serialVersionUID = 1;
+    private long serialVersionUID = 1L;
 
     /**
      * orgId

@@ -11,7 +11,7 @@ public class MaterialAttributeUpdateRequestDTO {
     /**
      * 物料属性项ID
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 物料属性项
@@ -21,7 +21,7 @@ public class MaterialAttributeUpdateRequestDTO {
     /**
      * 物料属性值ID
      */
-    private long itemId = 0;
+    private long itemId = 0L;
 
     /**
      * 物料属性值
@@ -36,7 +36,7 @@ public class MaterialAttributeUpdateRequestDTO {
     /**
      * 顺序
      */
-    private long index = 0;
+    private long index = 0L;
 
     public long getId() {
         return id;

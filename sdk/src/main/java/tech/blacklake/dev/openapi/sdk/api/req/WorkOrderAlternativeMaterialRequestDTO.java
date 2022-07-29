@@ -26,7 +26,7 @@ public class WorkOrderAlternativeMaterialRequestDTO  {
     /**
      * 物料ID
      */
-    private long materialId = 0;
+    private long materialId = 0L;
 
     /**
      * 主料 0 否 1是
@@ -46,7 +46,7 @@ public class WorkOrderAlternativeMaterialRequestDTO  {
     /**
      * 单位ID
      */
-    private long unitId = 0;
+    private long unitId = 0L;
 
     /**
      * 领料方式

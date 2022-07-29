@@ -16,12 +16,12 @@ public class UnitDetailResDO  {
     /**
      * orgId
      */
-    private long orgId = 0;
+    private long orgId = 0L;
 
     /**
      * id
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * code

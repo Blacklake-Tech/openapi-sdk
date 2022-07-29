@@ -11,7 +11,7 @@ public class WorkCenterGroupResponseDTO  {
     /**
      * 资源组id
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 行号

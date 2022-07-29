@@ -11,7 +11,7 @@ public class AlternativeMaterialDetailResponseDTO  {
     /**
      * 替代料Id
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 优先级
@@ -21,7 +21,7 @@ public class AlternativeMaterialDetailResponseDTO  {
     /**
      * 物料Id
      */
-    private long materialId = 0;
+    private long materialId = 0L;
 
     /**
      * 被替代料物料数据
@@ -51,7 +51,7 @@ public class AlternativeMaterialDetailResponseDTO  {
     /**
      * 单位Id
      */
-    private long unitId = 0;
+    private long unitId = 0L;
 
     /**
      * 单位name

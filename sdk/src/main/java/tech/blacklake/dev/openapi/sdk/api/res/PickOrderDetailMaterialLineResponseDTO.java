@@ -16,7 +16,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
     /**
      * 领料单id
      */
-    private long pickOrderId = 0;
+    private long pickOrderId = 0L;
 
     /**
      * 状态
@@ -36,7 +36,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
     /**
      * 创建时间
      */
-    private long createdAt = 0;
+    private long createdAt = 0L;
 
     /**
      * 更新人
@@ -46,17 +46,17 @@ public class PickOrderDetailMaterialLineResponseDTO  {
     /**
      * 更新时间
      */
-    private long updatedAt = 0;
+    private long updatedAt = 0L;
 
     /**
      * 领料单详情id
      */
-    private long pickOrderDetailId = 0;
+    private long pickOrderDetailId = 0L;
 
     /**
      * 序号
      */
-    private long line = 0;
+    private long line = 0L;
 
     /**
      * 物料
@@ -91,7 +91,7 @@ public class PickOrderDetailMaterialLineResponseDTO  {
     /**
      * 收料仓库id
      */
-    private long targetWarehouseId = 0;
+    private long targetWarehouseId = 0L;
 
     /**
      * 发料仓库名称

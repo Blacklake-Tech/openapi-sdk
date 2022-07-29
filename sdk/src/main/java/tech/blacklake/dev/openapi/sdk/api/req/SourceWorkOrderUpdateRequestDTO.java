@@ -16,7 +16,7 @@ public class SourceWorkOrderUpdateRequestDTO  {
     /**
      * 来源单据ID
      */
-    private long sourceWorkOrderId = 0;
+    private long sourceWorkOrderId = 0L;
 
     /**
      * 来源单据行号

@@ -11,7 +11,7 @@ public class WorkOrderAlternativePlanResponseDTO  {
     /**
      * id
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 替代策略 key = SubstitutionStrategyEnum

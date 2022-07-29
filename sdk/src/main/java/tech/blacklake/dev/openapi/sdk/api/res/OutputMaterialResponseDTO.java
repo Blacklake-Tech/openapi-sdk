@@ -11,7 +11,7 @@ public class OutputMaterialResponseDTO  {
     /**
      * 业务ID
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 是否是主产出
@@ -81,7 +81,7 @@ public class OutputMaterialResponseDTO  {
     /**
      * 物料ID
      */
-    private long materialId = 0;
+    private long materialId = 0L;
 
     /**
      * 物料信息
@@ -91,7 +91,7 @@ public class OutputMaterialResponseDTO  {
     /**
      * 单位ID
      */
-    private long unitId = 0;
+    private long unitId = 0L;
 
     /**
      * 单位名称

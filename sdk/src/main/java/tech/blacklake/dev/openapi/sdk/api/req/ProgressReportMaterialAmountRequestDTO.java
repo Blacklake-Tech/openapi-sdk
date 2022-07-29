@@ -16,7 +16,7 @@ public class ProgressReportMaterialAmountRequestDTO {
     /**
      * 报工操作单位
      */
-    private long reportUnitId = 0;
+    private long reportUnitId = 0L;
 
     /**
      * 辅助单位数量1

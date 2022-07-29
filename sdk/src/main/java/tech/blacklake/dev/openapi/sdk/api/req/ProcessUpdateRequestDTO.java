@@ -21,7 +21,7 @@ public class ProcessUpdateRequestDTO  {
     /**
      * 顺序号
      */
-    private long processSeq = 0;
+    private long processSeq = 0L;
 
     /**
      * 工序名称
@@ -51,7 +51,7 @@ public class ProcessUpdateRequestDTO  {
     /**
      * 工作中心 ID
      */
-    private long workCenterId = 0;
+    private long workCenterId = 0L;
 
     /**
      * 工序说明

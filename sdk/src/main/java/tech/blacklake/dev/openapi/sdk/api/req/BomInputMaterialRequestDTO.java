@@ -21,7 +21,7 @@ public class BomInputMaterialRequestDTO extends CustomFieldBaseCO  {
     /**
      * 物料ID
      */
-    private long materialId = 0;
+    private long materialId = 0L;
 
     /**
      * 分子
@@ -36,7 +36,7 @@ public class BomInputMaterialRequestDTO extends CustomFieldBaseCO  {
     /**
      * 单位id
      */
-    private long unitId = 0;
+    private long unitId = 0L;
 
     /**
      * 损耗率

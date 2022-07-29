@@ -11,7 +11,7 @@ public class FeedApplyListRequestDTO extends BasePage {
     /**
      * 工单ID
      */
-    private long workOrderId = 0;
+    private long workOrderId = 0L;
 
     /**
      * 投料申请状态 0-处理中，1-失败，2-成功

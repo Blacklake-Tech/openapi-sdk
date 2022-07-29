@@ -11,17 +11,17 @@ public class ProgressReportRequestRequestDTO {
     /**
      * 生产任务ID
      */
-    private long taskId = 0;
+    private long taskId = 0L;
 
     /**
      * 工单id
      */
-    private long workOrderId = 0;
+    private long workOrderId = 0L;
 
     /**
      * 工序ID
      */
-    private long processId = 0;
+    private long processId = 0L;
 
     /**
      * 报工方式 参考ReportingMethodEnum
@@ -131,12 +131,12 @@ public class ProgressReportRequestRequestDTO {
     /**
      * 物料id
      */
-    private long materialId = 0;
+    private long materialId = 0L;
 
     /**
      * 物料行id
      */
-    private long lineId = 0;
+    private long lineId = 0L;
 
     /**
      * 报工物料信息列表

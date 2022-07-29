@@ -11,12 +11,12 @@ public class MaterialCreateUnitRequestDTO {
     /**
      * 物料ID，必填
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 基本单位ID，必填
      */
-    private long unitId = 0;
+    private long unitId = 0L;
 
     /**
      * 转换单位List，必填

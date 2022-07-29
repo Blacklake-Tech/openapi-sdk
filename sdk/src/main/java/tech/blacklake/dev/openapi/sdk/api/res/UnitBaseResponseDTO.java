@@ -11,7 +11,7 @@ public class UnitBaseResponseDTO {
     /**
      * 单位id
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 单位名称

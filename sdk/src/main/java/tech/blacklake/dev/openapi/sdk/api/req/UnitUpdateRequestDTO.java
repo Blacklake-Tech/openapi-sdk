@@ -11,7 +11,7 @@ public class UnitUpdateRequestDTO {
     /**
      * 单位ID
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 单位编号，支持字母、数字和符号，不可超过255个字符，前后不支持空格

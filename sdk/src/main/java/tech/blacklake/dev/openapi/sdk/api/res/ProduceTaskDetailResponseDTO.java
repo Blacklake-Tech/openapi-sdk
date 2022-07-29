@@ -11,7 +11,7 @@ public class ProduceTaskDetailResponseDTO {
     /**
      * 任务ID
      */
-    private long taskId = 0;
+    private long taskId = 0L;
 
     /**
      * SOP任务ID
@@ -31,7 +31,7 @@ public class ProduceTaskDetailResponseDTO {
     /**
      * 工单ID
      */
-    private long relatedWorkOrderId = 0;
+    private long relatedWorkOrderId = 0L;
 
     /**
      * 工单编号
@@ -51,7 +51,7 @@ public class ProduceTaskDetailResponseDTO {
     /**
      * 工序ID
      */
-    private long relatedProcessId = 0;
+    private long relatedProcessId = 0L;
 
     /**
      * 工序序号

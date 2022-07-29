@@ -11,27 +11,27 @@ public class FeedRetractRecordListResponseDTO {
     /**
      * 投料回撤记录ID
      */
-    private long retractRecordId = 0;
+    private long retractRecordId = 0L;
 
     /**
      * 投料记录ID
      */
-    private long feedRecordId = 0;
+    private long feedRecordId = 0L;
 
     /**
      * 投料详情记录ID
      */
-    private long feedRecordDetailId = 0;
+    private long feedRecordDetailId = 0L;
 
     /**
      * 生产任务id
      */
-    private long taskId = 0;
+    private long taskId = 0L;
 
     /**
      * 工单id
      */
-    private long workOrderId = 0;
+    private long workOrderId = 0L;
 
     /**
      * 回撤仓位
@@ -91,7 +91,7 @@ public class FeedRetractRecordListResponseDTO {
     /**
      * 回撤时间
      */
-    private long retractTime = 0;
+    private long retractTime = 0L;
 
     /**
      * 原因

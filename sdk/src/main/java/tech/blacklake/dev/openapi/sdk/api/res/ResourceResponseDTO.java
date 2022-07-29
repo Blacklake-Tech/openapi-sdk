@@ -11,7 +11,7 @@ public class ResourceResponseDTO  {
     /**
      * 设备ID
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 设备名称

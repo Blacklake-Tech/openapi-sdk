@@ -11,7 +11,7 @@ public class WorkOrderListResponseDTO extends CustomFieldBaseVO  {
     /**
      * 工单id
      */
-    private long workOrderId = 0;
+    private long workOrderId = 0L;
 
     /**
      * 工单code

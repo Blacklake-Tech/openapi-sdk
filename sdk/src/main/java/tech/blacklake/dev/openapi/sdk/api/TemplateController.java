@@ -24,14 +24,6 @@ public class TemplateController {
     }
 
     /**
-     * 物料清单详情
-     */
-    @ApiPath("/med/open/v1/bom/_detail")
-    public Result<BomDetailResponseDTO> bomDetail(BomDetailRequestRequestDTO bomDetailRequestRequestDTO){
-        throw new UnsupportedOperationException();
-    }
-
-    /**
      * 物料清单新增或更新
      */
     @ApiPath("/med/open/v1/bom/_doimport")
@@ -52,6 +44,14 @@ public class TemplateController {
      */
     @ApiPath("/med/open/v1/bom/_update_for_erp")
     public Result<Object> bomUpdateForErp(BomForErpUpsertRequestDTO bomForErpUpsertRequestDTO){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * 物料清单详情
+     */
+    @ApiPath("/med/open/v1/bom/_detail")
+    public Result<BomDetailResponseDTO> bomDetail(BomDetailRequestRequestDTO bomDetailRequestRequestDTO){
         throw new UnsupportedOperationException();
     }
 
@@ -80,14 +80,6 @@ public class TemplateController {
     }
 
     /**
-     * 查询工序列表接口
-     */
-    @ApiPath("/med/open/v1/process/_list")
-    public Result<List<ProcessFlatResponseDTO>> processList(ProcessRequestRequestDTO processRequestRequestDTO){
-        throw new UnsupportedOperationException();
-    }
-
-    /**
      * 工序定义新增或更新
      */
     @ApiPath("/med/open/v1/process/_doimport")
@@ -108,6 +100,14 @@ public class TemplateController {
      */
     @ApiPath("/med/open/v1/process/_update")
     public Result<Object> processUpdate(ProcessRequestDTO processRequestDTO){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * 查询工序列表接口
+     */
+    @ApiPath("/med/open/v1/process/_list")
+    public Result<List<ProcessFlatResponseDTO>> processList(ProcessRequestRequestDTO processRequestRequestDTO){
         throw new UnsupportedOperationException();
     }
 
@@ -144,6 +144,14 @@ public class TemplateController {
     }
 
     /**
+     * 工单用料清单详情
+     */
+    @ApiPath("/med/open/v1/work_order/input_material/_detail")
+    public Result<List<InputMaterialResponseDTO>> workOrderInputMaterialDetail(WorkOrderInfoRequestRequestDTO workOrderInfoRequestRequestDTO){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
      * 工单工序计划详情
      */
     @ApiPath("/med/open/v1/work_order/process_plan/_detail")
@@ -156,6 +164,14 @@ public class TemplateController {
      */
     @ApiPath("/med/open/v1/work_order/_doImport")
     public Result<Object> workOrderDoImport(WorkOrderUpsertRequestDTO workOrderUpsertRequestDTO){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * 工单产出信息详情
+     */
+    @ApiPath("/med/open/v1/work_order/output/_detail")
+    public Result<List<OutputMaterialResponseDTO>> workOrderOutputDetail(WorkOrderInfoRequestRequestDTO workOrderInfoRequestRequestDTO){
         throw new UnsupportedOperationException();
     }
 
@@ -184,14 +200,6 @@ public class TemplateController {
     }
 
     /**
-     * 工单产出信息详情
-     */
-    @ApiPath("/med/open/v1/work_order/output/_detail")
-    public Result<List<OutputMaterialResponseDTO>> workOrderOutputDetail(WorkOrderInfoRequestRequestDTO workOrderInfoRequestRequestDTO){
-        throw new UnsupportedOperationException();
-    }
-
-    /**
      * 工单创建
      */
     @ApiPath("/med/open/v1/work_order/_create")
@@ -204,14 +212,6 @@ public class TemplateController {
      */
     @ApiPath("/med/open/v1/work_order/_update")
     public Result<WorkOrderUpdateResponseDTO> workOrderUpdate(WorkOrderUpdateRequestDTO workOrderUpdateRequestDTO){
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     * 工单用料清单详情
-     */
-    @ApiPath("/med/open/v1/work_order/input_material/_detail")
-    public Result<List<InputMaterialResponseDTO>> workOrderInputMaterialDetail(WorkOrderInfoRequestRequestDTO workOrderInfoRequestRequestDTO){
         throw new UnsupportedOperationException();
     }
 
@@ -232,18 +232,18 @@ public class TemplateController {
     }
 
     /**
-     * 查看投料申请状态
-     */
-    @ApiPath("/mfg/open/v1/feed_apply/_list_feed_applies")
-    public ResultList<FeedApplyListResponseDTO> feedApplyListFeedApplies(FeedApplyListRequestDTO feedApplyListRequestDTO){
-        throw new UnsupportedOperationException();
-    }
-
-    /**
      * 批量创建投料申请
      */
     @ApiPath("/mfg/open/v1/feed_apply/_bulk_apply")
     public Result<BulkFeedApplyResponseDTO> feedApplyBulkApply(BulkFeedApplyRequestDTO bulkFeedApplyRequestDTO){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * 查看投料申请状态
+     */
+    @ApiPath("/mfg/open/v1/feed_apply/_list_feed_applies")
+    public ResultList<FeedApplyListResponseDTO> feedApplyListFeedApplies(FeedApplyListRequestDTO feedApplyListRequestDTO){
         throw new UnsupportedOperationException();
     }
 
@@ -304,18 +304,18 @@ public class TemplateController {
     }
 
     /**
-     * 设备导入接口
-     */
-    @ApiPath("/resource/open/v1/resources/_doimport")
-    public Result<ResourceResponseDTO> resourcesDoimport(ResourceImportRequestDTO resourceImportRequestDTO){
-        throw new UnsupportedOperationException();
-    }
-
-    /**
      * 设备列表接口
      */
     @ApiPath("/resource/open/v1/resources/list")
     public Result resourcesList(ResourceListRequestDTO resourceListRequestDTO){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * 设备导入接口
+     */
+    @ApiPath("/resource/open/v1/resources/_doimport")
+    public Result<ResourceResponseDTO> resourcesDoimport(ResourceImportRequestDTO resourceImportRequestDTO){
         throw new UnsupportedOperationException();
     }
 
@@ -376,18 +376,18 @@ public class TemplateController {
     }
 
     /**
-     * 收货单详情
-     */
-    @ApiPath("/order/open/v1/receive_note/_detail")
-    public Result<ReceiveNoteDetailResponseDTO> receiveNoteDetail(GetReceiveNoteDetailRequestDTO getReceiveNoteDetailRequestDTO){
-        throw new UnsupportedOperationException();
-    }
-
-    /**
      * 收货单列表查询-单据视图
      */
     @ApiPath("/order/open/v1/receive_note/_list")
     public ResultList<ReceiveNoteResponseDTO> receiveNoteList(GetReceiveNoteListRequestDTO getReceiveNoteListRequestDTO){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * 收货单详情
+     */
+    @ApiPath("/order/open/v1/receive_note/_detail")
+    public Result<ReceiveNoteDetailResponseDTO> receiveNoteDetail(GetReceiveNoteDetailRequestDTO getReceiveNoteDetailRequestDTO){
         throw new UnsupportedOperationException();
     }
 
@@ -400,18 +400,18 @@ public class TemplateController {
     }
 
     /**
-     * 销售订单详情
-     */
-    @ApiPath("/order/open/v1/sales_order/_detail")
-    public Result<SalesOrderResponseDTO> salesOrderDetail(GetSalesOrderDetailRequestDTO getSalesOrderDetailRequestDTO){
-        throw new UnsupportedOperationException();
-    }
-
-    /**
      * 获得销售订单列表
      */
     @ApiPath("/order/open/v1/sales_order/_list_by_codes")
     public Result<List<SalesOrderResponseDTO>> salesOrderListByCodes(ListSalesOrderBaseInfoByCodesRequestDTO listSalesOrderBaseInfoByCodesRequestDTO){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * 销售订单详情
+     */
+    @ApiPath("/order/open/v1/sales_order/_detail")
+    public Result<SalesOrderResponseDTO> salesOrderDetail(GetSalesOrderDetailRequestDTO getSalesOrderDetailRequestDTO){
         throw new UnsupportedOperationException();
     }
 
@@ -456,6 +456,14 @@ public class TemplateController {
     }
 
     /**
+     * 供应商导入
+     */
+    @ApiPath("/order/open/v1/supplier/_doimport")
+    public Result<Object> supplierDoimport(UpsertSupplierBaseInfoRequestDTO upsertSupplierBaseInfoRequestDTO){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
      * 启用供应商
      */
     @ApiPath("/order/open/v1/supplier/_enable")
@@ -468,14 +476,6 @@ public class TemplateController {
      */
     @ApiPath("/order/open/v1/supplier/_disable")
     public Result<Object> supplierDisable(EnDisableSupplierBaseInfoRequestDTO enDisableSupplierBaseInfoRequestDTO){
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     * 供应商导入
-     */
-    @ApiPath("/order/open/v1/supplier/_doimport")
-    public Result<Object> supplierDoimport(UpsertSupplierBaseInfoRequestDTO upsertSupplierBaseInfoRequestDTO){
         throw new UnsupportedOperationException();
     }
 
@@ -520,18 +520,18 @@ public class TemplateController {
     }
 
     /**
-     * 新增或更新检验项纪录
-     */
-    @ApiPath("/quality/open/v1/task/_update_task_check_item")
-    public Result<Boolean> taskUpdateTaskCheckItem(QcTaskUpdateCheckItemRequestDTO qcTaskUpdateCheckItemRequestDTO){
-        throw new UnsupportedOperationException();
-    }
-
-    /**
      * 检验任务列表
      */
     @ApiPath("/quality/open/v1/task/_list")
     public ResultList<QcTaskWebPageListResponseDTO> taskList(QcTaskListRequestDTO qcTaskListRequestDTO){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * 新增或更新检验项纪录
+     */
+    @ApiPath("/quality/open/v1/task/_update_task_check_item")
+    public Result<Boolean> taskUpdateTaskCheckItem(QcTaskUpdateCheckItemRequestDTO qcTaskUpdateCheckItemRequestDTO){
         throw new UnsupportedOperationException();
     }
 
@@ -568,18 +568,18 @@ public class TemplateController {
     }
 
     /**
-     * 检验方案列表
-     */
-    @ApiPath("/quality/open/v1/qc_config/_list")
-    public ResultList<QcConfigWebPageListResponseDTO> qcConfigList(QcConfigListRequestDTO qcConfigListRequestDTO){
-        throw new UnsupportedOperationException();
-    }
-
-    /**
      * 新增或更新检验方案信息
      */
     @ApiPath("/quality/open/v1/qc_config/_doimport")
     public Result<String> qcConfigDoimport(QcConfigRequestDTO qcConfigRequestDTO){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * 检验方案列表
+     */
+    @ApiPath("/quality/open/v1/qc_config/_list")
+    public ResultList<QcConfigWebPageListResponseDTO> qcConfigList(QcConfigListRequestDTO qcConfigListRequestDTO){
         throw new UnsupportedOperationException();
     }
 
@@ -728,14 +728,6 @@ public class TemplateController {
     }
 
     /**
-     * 出库单记录
-     */
-    @ApiPath("/inventory/open/v1/outbound_order/_list_outbound_record")
-    public ResultList<OutboundOrderOperateRecordResponseDTO> outboundOrderListOutboundRecord(OutboundRecordRequestDTO outboundRecordRequestDTO){
-        throw new UnsupportedOperationException();
-    }
-
-    /**
      * 出库单列表
      */
     @ApiPath("/inventory/open/v1/outbound_order/_list")
@@ -764,6 +756,14 @@ public class TemplateController {
      */
     @ApiPath("/inventory/open/v1/outbound_order/_update")
     public Result<OutboundOrderUpdateResponseDTO> outboundOrderUpdate(OutboundOrderUpdateRequestDTO outboundOrderUpdateRequestDTO){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * 出库单记录
+     */
+    @ApiPath("/inventory/open/v1/outbound_order/_list_outbound_record")
+    public ResultList<OutboundOrderOperateRecordResponseDTO> outboundOrderListOutboundRecord(OutboundRecordRequestDTO outboundRecordRequestDTO){
         throw new UnsupportedOperationException();
     }
 
@@ -1184,6 +1184,14 @@ public class TemplateController {
     }
 
     /**
+     * 批量关闭计划订单
+     */
+    @ApiPath("/plo/open/v1/plan_order/batch_close")
+    public Result<PlanOrderCloseResponseDTO> planOrderBatchClose(ClosePlanOrderRequestDTO closePlanOrderRequestDTO){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
      * 计划订单详情
      */
     @ApiPath("/plo/open/v1/plan_order/_detail")
@@ -1203,7 +1211,15 @@ public class TemplateController {
      * 计划订单创建
      */
     @ApiPath("/plo/open/v1/plan_order/_doImport")
-    public Result<ExcelImportResult> planOrderDoImport(PlanOrderImportRequestDTO planOrderImportRequestDTO){
+    public Result<Object> planOrderDoImport(PlanOrderImportRequestDTO planOrderImportRequestDTO){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * 计划订单列表
+     */
+    @ApiPath("/plo/open/v1/plan_order/_list")
+    public Result<PageResDTO<PlanOrderListResponseDTO>> planOrderList(PlanOrderQueryRequestDTO planOrderQueryRequestDTO){
         throw new UnsupportedOperationException();
     }
 }

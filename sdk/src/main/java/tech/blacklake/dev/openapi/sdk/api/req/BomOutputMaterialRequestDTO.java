@@ -21,7 +21,7 @@ public class BomOutputMaterialRequestDTO  {
     /**
      * 物料ID
      */
-    private long materialId = 0;
+    private long materialId = 0L;
 
     /**
      * 数量
@@ -31,7 +31,7 @@ public class BomOutputMaterialRequestDTO  {
     /**
      * 单位id
      */
-    private long unitId = 0;
+    private long unitId = 0L;
 
     /**
      * 报工工序ID

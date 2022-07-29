@@ -11,7 +11,7 @@ public class TraceNodeRequestDTO {
     /**
      * 追溯节点id
      */
-    private long traceId = 0;
+    private long traceId = 0L;
 
     /**
      * 追溯节点-批次号
@@ -26,7 +26,7 @@ public class TraceNodeRequestDTO {
     /**
      * 追溯节点-物料id
      */
-    private long materialId = 0;
+    private long materialId = 0L;
 
     public long getTraceId() {
         return traceId;

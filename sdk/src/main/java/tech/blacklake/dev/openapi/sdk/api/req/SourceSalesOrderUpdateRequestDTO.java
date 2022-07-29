@@ -16,7 +16,7 @@ public class SourceSalesOrderUpdateRequestDTO  {
     /**
      * 销售订单id
      */
-    private long salesOrderId = 0;
+    private long salesOrderId = 0L;
 
     /**
      * 销售订单行号

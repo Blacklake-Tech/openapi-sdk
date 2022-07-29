@@ -16,12 +16,12 @@ public class SopTaskRecordRequestDTO {
     /**
      * 步骤结束时间范围-开始，范围仅限一小时
      */
-    private long finishTimeBegin = 0;
+    private long finishTimeBegin = 0L;
 
     /**
      * 步骤结束时间范围-结束，范围仅限一小时
      */
-    private long finishTimeEnd = 0;
+    private long finishTimeEnd = 0L;
 
     /**
      * 控件记录更新时间范围-开始

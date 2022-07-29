@@ -11,7 +11,7 @@ public class WorkOrderBaseResponseDTO extends CustomFieldBaseVO  {
     /**
      * 业务id
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 工单编号
@@ -101,7 +101,7 @@ public class WorkOrderBaseResponseDTO extends CustomFieldBaseVO  {
     /**
      * 创建时间
      */
-    private long createdAt = 0;
+    private long createdAt = 0L;
 
     /**
      * 更新人

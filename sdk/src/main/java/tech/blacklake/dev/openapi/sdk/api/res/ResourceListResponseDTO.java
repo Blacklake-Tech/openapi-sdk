@@ -11,7 +11,7 @@ public class ResourceListResponseDTO  {
     /**
      * 主键
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 编号

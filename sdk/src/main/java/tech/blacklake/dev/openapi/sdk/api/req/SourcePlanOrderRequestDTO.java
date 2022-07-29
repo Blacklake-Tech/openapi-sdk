@@ -16,7 +16,7 @@ public class SourcePlanOrderRequestDTO  {
     /**
      * 来源单据ID
      */
-    private long sourcePlanOrderId = 0;
+    private long sourcePlanOrderId = 0L;
 
     /**
      * 来源单据行号

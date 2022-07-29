@@ -26,7 +26,7 @@ public class UnitConversionRequestDTO {
     /**
      * 转换单位ID
      */
-    private long toUnitId = 0;
+    private long toUnitId = 0L;
 
     /**
      * 转换单位数量(X)，如 1000g 的 1000
@@ -41,7 +41,7 @@ public class UnitConversionRequestDTO {
     /**
      * 顺序
      */
-    private long serialNo = 0;
+    private long serialNo = 0L;
 
     /**
      * 是否启用

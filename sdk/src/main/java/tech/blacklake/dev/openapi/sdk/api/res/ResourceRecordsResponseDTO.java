@@ -11,7 +11,7 @@ public class ResourceRecordsResponseDTO {
     /**
      * 时间戳
      */
-    private long ts = 0;
+    private long ts = 0L;
 
     /**
      * 资源编号

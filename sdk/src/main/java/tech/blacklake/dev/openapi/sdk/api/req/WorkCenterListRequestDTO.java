@@ -7,7 +7,7 @@ import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class WorkCenterListRequestDTO extends WorkCenterBaseCO {
+public class WorkCenterListRequestDTO {
     /**
      * id
      */

@@ -11,7 +11,7 @@ public class MaterialAttrRuleSaveRequestDTO {
     /**
      * ID，必填
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 名称，非必填，支持字母、数字、中文和符号，不可超过255个字符

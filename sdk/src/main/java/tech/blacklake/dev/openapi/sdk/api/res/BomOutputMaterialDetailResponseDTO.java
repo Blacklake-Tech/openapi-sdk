@@ -11,7 +11,7 @@ public class BomOutputMaterialDetailResponseDTO  {
     /**
      * 多产出
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 行号
@@ -21,7 +21,7 @@ public class BomOutputMaterialDetailResponseDTO  {
     /**
      * 物料ID
      */
-    private long materialId = 0;
+    private long materialId = 0L;
 
     /**
      * 物料数据
@@ -31,7 +31,7 @@ public class BomOutputMaterialDetailResponseDTO  {
     /**
      * 单位id
      */
-    private long unitId = 0;
+    private long unitId = 0L;
 
     /**
      * 单位name

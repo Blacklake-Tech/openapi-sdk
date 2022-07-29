@@ -11,7 +11,7 @@ public class SopControlResponseDTO {
     /**
      * sop控件id
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * sop控件类型

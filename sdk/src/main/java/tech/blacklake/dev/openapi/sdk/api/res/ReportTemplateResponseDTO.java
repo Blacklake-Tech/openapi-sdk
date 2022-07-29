@@ -11,7 +11,7 @@ public class ReportTemplateResponseDTO {
     /**
      * 业务id
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 模板分类

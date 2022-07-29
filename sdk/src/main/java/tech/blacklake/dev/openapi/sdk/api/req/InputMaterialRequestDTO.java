@@ -16,7 +16,7 @@ public class InputMaterialRequestDTO  {
     /**
      * 物料ID
      */
-    private long materialId = 0;
+    private long materialId = 0L;
 
     /**
      * 子项类型
@@ -41,7 +41,7 @@ public class InputMaterialRequestDTO  {
     /**
      * 单位
      */
-    private long unitId = 0;
+    private long unitId = 0L;
 
     /**
      * 损耗率

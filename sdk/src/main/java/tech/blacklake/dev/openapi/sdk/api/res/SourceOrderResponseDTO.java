@@ -11,7 +11,7 @@ public class SourceOrderResponseDTO  {
     /**
      * 业务id
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 单据信息

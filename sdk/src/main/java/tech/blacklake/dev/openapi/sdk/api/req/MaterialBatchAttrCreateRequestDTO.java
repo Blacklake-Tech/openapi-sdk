@@ -36,7 +36,7 @@ public class MaterialBatchAttrCreateRequestDTO {
     /**
      * 排序字段 默认0 起始0
      */
-    private long serialNo = 0;
+    private long serialNo = 0L;
 
     public int getIsDefault() {
         return isDefault;

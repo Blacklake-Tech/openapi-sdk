@@ -11,7 +11,7 @@ public class WorkOrderInfoRequestRequestDTO {
     /**
      * 工单id
      */
-    private long workOrderId = 0;
+    private long workOrderId = 0L;
 
     public long getWorkOrderId() {
         return workOrderId;

@@ -16,7 +16,7 @@ public class PickOrderDetailResponseDTO  {
     /**
      * 领料单id
      */
-    private long pickOrderId = 0;
+    private long pickOrderId = 0L;
 
     /**
      * 领料类型 key = PickOrderTypeEnum
@@ -46,7 +46,7 @@ public class PickOrderDetailResponseDTO  {
     /**
      * 创建时间
      */
-    private long createdAt = 0;
+    private long createdAt = 0L;
 
     /**
      * 更新人
@@ -56,7 +56,7 @@ public class PickOrderDetailResponseDTO  {
     /**
      * 更新时间
      */
-    private long updatedAt = 0;
+    private long updatedAt = 0L;
 
     public String getPickOrderCode() {
         return pickOrderCode;

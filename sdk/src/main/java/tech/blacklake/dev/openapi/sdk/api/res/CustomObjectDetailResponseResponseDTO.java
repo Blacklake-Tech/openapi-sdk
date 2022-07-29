@@ -7,7 +7,7 @@ import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class CustomObjectDetailResponseResponseDTO extends CustomObjectDetailCommonResponseVO {
+public class CustomObjectDetailResponseResponseDTO {
     /**
      * 自定义对象实例id
      */

@@ -31,7 +31,7 @@ public class TransferOrderExecuteRequestDTO extends CustomFieldBaseCO {
     /**
      * 调拨记录自定义字段
      */
-    private CustomFieldBaseRequestDTO recordCustomFieldBaseRequestDTO;
+    private CustomFieldBaseCO recordCustomFieldBaseRequestDTO;
 
     public Long getId() {
         return id;
@@ -49,7 +49,7 @@ public class TransferOrderExecuteRequestDTO extends CustomFieldBaseCO {
         return transferOrderItems;
     }
 
-    public CustomFieldBaseRequestDTO getRecordCustomFieldBaseRequestDTO() {
+    public CustomFieldBaseCO getRecordCustomFieldBaseRequestDTO() {
         return recordCustomFieldBaseRequestDTO;
     }
 
@@ -69,7 +69,7 @@ public class TransferOrderExecuteRequestDTO extends CustomFieldBaseCO {
         this.transferOrderItems = transferOrderItems;
     }
 
-    public void setRecordCustomFieldBaseRequestDTO(CustomFieldBaseRequestDTO recordCustomFieldBaseRequestDTO) {
+    public void setRecordCustomFieldBaseRequestDTO(CustomFieldBaseCO recordCustomFieldBaseRequestDTO) {
         this.recordCustomFieldBaseRequestDTO = recordCustomFieldBaseRequestDTO;
     }
 }

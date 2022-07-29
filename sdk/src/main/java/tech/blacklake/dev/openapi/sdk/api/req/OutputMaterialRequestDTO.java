@@ -61,12 +61,12 @@ public class OutputMaterialRequestDTO  {
     /**
      * 物料id
      */
-    private long materialId = 0;
+    private long materialId = 0L;
 
     /**
      * 单位id
      */
-    private long unitId = 0;
+    private long unitId = 0L;
 
     /**
      * 产出工序号

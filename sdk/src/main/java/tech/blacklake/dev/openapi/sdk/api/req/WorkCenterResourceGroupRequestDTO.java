@@ -11,7 +11,7 @@ public class WorkCenterResourceGroupRequestDTO  {
     /**
      * 可用资源组行ID
      */
-    private long lineId = 0;
+    private long lineId = 0L;
 
     /**
      * 行号

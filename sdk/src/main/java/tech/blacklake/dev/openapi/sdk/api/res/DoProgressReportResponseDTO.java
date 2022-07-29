@@ -11,7 +11,7 @@ public class DoProgressReportResponseDTO {
     /**
      * 消息追踪ID
      */
-    private long messageTraceId = 0;
+    private long messageTraceId = 0L;
 
     public long getMessageTraceId() {
         return messageTraceId;

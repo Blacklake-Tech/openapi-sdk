@@ -7,7 +7,7 @@ import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class CustomObjectFieldKeyValueResponseResponseDTO extends CustomObjectFieldKeyValueCommonDTO {
+public class CustomObjectFieldKeyValueResponseResponseDTO {
     /**
      * 字段名称
      */

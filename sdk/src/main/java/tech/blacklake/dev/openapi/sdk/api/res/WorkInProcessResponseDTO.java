@@ -11,17 +11,17 @@ public class WorkInProcessResponseDTO  {
     /**
      * 工序在制品快照ID
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 工艺路线下工序ID
      */
-    private long processRouteNodeId = 0;
+    private long processRouteNodeId = 0L;
 
     /**
      * 物料id
      */
-    private long materialId = 0;
+    private long materialId = 0L;
 
     /**
      * 物料信息
@@ -31,7 +31,7 @@ public class WorkInProcessResponseDTO  {
     /**
      * 单位id
      */
-    private long unitId = 0;
+    private long unitId = 0L;
 
     /**
      * 单位
@@ -61,7 +61,7 @@ public class WorkInProcessResponseDTO  {
     /**
      * 投料单位id
      */
-    private long feedUnitId = 0;
+    private long feedUnitId = 0L;
 
     /**
      * 投料单位

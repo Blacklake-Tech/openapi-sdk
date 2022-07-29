@@ -16,7 +16,7 @@ public class MaterialFeedApplyItemRequestDTO {
     /**
      * 投料申请单位
      */
-    private long opeUnitId = 0;
+    private long opeUnitId = 0L;
 
     /**
      * 物料质量状态
@@ -26,7 +26,7 @@ public class MaterialFeedApplyItemRequestDTO {
     /**
      * 仓储位置
      */
-    private long locationId = 0;
+    private long locationId = 0L;
 
     /**
      * 库存标识码

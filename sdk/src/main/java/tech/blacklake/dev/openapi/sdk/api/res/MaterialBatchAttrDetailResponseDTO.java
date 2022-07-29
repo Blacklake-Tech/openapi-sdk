@@ -16,7 +16,7 @@ public class MaterialBatchAttrDetailResponseDTO {
     /**
      * 物料id
      */
-    private long materialId = 0;
+    private long materialId = 0L;
 
     /**
      * 是否系统默认，1是 0否，默认1
@@ -46,7 +46,7 @@ public class MaterialBatchAttrDetailResponseDTO {
     /**
      * 排序字段 默认0 起始0
      */
-    private long serialNo = 0;
+    private long serialNo = 0L;
 
     public Long getId() {
         return id;

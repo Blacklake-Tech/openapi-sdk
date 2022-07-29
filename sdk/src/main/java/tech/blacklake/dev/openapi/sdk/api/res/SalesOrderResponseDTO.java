@@ -11,7 +11,7 @@ public class SalesOrderResponseDTO extends CustomFieldBaseVO {
     /**
      * 销售订单id
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 销售订单编号

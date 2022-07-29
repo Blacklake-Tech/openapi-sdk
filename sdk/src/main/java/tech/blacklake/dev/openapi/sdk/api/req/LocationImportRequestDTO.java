@@ -7,7 +7,7 @@ import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class LocationImportRequestDTO extends BaseImportDO {
+public class LocationImportRequestDTO {
     /**
      * 上级区域编号，单行文本，不可超过255个字符
      */

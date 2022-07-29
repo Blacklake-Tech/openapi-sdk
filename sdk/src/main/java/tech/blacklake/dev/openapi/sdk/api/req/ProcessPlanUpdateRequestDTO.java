@@ -11,7 +11,7 @@ public class ProcessPlanUpdateRequestDTO  {
     /**
      * 工艺路线快照ID
      */
-    private long processRouteSnapshotId = 0;
+    private long processRouteSnapshotId = 0L;
 
     /**
      * 工序列表

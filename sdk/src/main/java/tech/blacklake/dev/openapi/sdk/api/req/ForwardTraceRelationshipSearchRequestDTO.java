@@ -16,7 +16,7 @@ public class ForwardTraceRelationshipSearchRequestDTO {
     /**
      * 去向物料id
      */
-    private long toMaterialId = 0;
+    private long toMaterialId = 0L;
 
     /**
      * 查询层级

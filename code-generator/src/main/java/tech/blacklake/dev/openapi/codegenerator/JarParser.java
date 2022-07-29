@@ -231,13 +231,16 @@ public class JarParser {
         Class<?> superclass = dtoClass.getSuperclass();
         Class<?>[] interfaces = dtoClass.getInterfaces();
         if (superclass != null && superclass != Object.class && !INVALID_SUPERCLASSES.contains(superclass.getSimpleName())) {
-            superclassAndInterfaces.append(EXTENDS).append(SPACE).append(superclass.getSimpleName()).append(SPACE);
+            //父类在common包内：extends superclassSimpleName，不在：直接丢弃继承关系
+            if (commonDtoSet.contains(superclass.getSimpleName())){
+                superclassAndInterfaces.append(EXTENDS).append(SPACE).append(superclass.getSimpleName()).append(SPACE);
+            }
         }
         if (interfaces.length > 0) {
             boolean hasValidInterface = false;
             for (int i = 0; i < interfaces.length; i++) {
                 String interfaceSimpleName = interfaces[i].getSimpleName();
-                if (INVALID_SUPERCLASSES.contains(interfaceSimpleName)) {
+                if (INVALID_SUPERCLASSES.contains(interfaceSimpleName)||!commonDtoSet.contains(interfaceSimpleName)) {
                     continue;
                 }
                 if (!hasValidInterface) {

@@ -11,7 +11,7 @@ public class BomResponseDTO  {
     /**
      * bom id
      */
-    private long id = 0;
+    private long id = 0L;
 
     public long getId() {
         return id;

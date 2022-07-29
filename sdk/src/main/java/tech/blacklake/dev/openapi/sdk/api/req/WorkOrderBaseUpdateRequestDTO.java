@@ -11,7 +11,7 @@ public class WorkOrderBaseUpdateRequestDTO extends CustomFieldBaseCO  {
     /**
      * id
      */
-    private long id = 0;
+    private long id = 0L;
 
     /**
      * 工单编号

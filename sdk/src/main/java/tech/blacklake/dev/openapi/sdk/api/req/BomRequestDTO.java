@@ -16,7 +16,7 @@ public class BomRequestDTO  {
     /**
      * 父项物料ID
      */
-    private long materialId = 0;
+    private long materialId = 0L;
 
     /**
      * 是否是虚拟件
@@ -26,7 +26,7 @@ public class BomRequestDTO  {
     /**
      * 单位ID
      */
-    private long unitId = 0;
+    private long unitId = 0L;
 
     /**
      * 成品率
