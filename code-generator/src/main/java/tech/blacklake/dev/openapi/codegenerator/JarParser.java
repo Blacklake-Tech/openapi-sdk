@@ -283,35 +283,35 @@ public class JarParser {
             }
 
             // 字段默认值
-            int modifiers = it.getModifiers();
-            boolean isStatic = Modifier.isStatic(modifiers);
-            String defaultValStr = "";
-            it.setAccessible(true);
-            try {
-                Object defaultValObj = isStatic ? it.get(null) : it.get(dtoClass.getConstructor().newInstance());
-                if (defaultValObj != null) {
-                    String defaultValName = null;
-                    if (defaultValObj instanceof Enum) {
-                        defaultValName = defaultValObj.getClass().getSimpleName() + "." + defaultValObj;
-                    } else if (defaultValObj instanceof String) {
-                        defaultValName = "\"" + defaultValObj + "\"";
-                    } else if (defaultValObj instanceof Short || defaultValObj instanceof Integer || defaultValObj instanceof Byte || defaultValObj instanceof Boolean) {
-                        defaultValName = String.valueOf(defaultValObj);
-                    }else if (defaultValObj instanceof Long){
-                        defaultValName = defaultValObj+"L";
-                    }else if (defaultValObj instanceof Float){
-                        defaultValName = defaultValObj+"F";
-                    }else if (defaultValObj instanceof Double){
-                        defaultValName = defaultValObj+"D";
-                    }
-
-                    if (defaultValName != null) {
-                        defaultValStr = SPACE + "=" + SPACE + defaultValName;
-                    }
-                }
-            } catch (Exception ignored) {
-                // 构造实例时，可能由于没有无参构造导致异常，无视即可
-            }
+//            int modifiers = it.getModifiers();
+//            boolean isStatic = Modifier.isStatic(modifiers);
+//            String defaultValStr = "";
+//            it.setAccessible(true);
+//            try {
+//                Object defaultValObj = isStatic ? it.get(null) : it.get(dtoClass.getConstructor().newInstance());
+//                if (defaultValObj != null) {
+//                    String defaultValName = null;
+//                    if (defaultValObj instanceof Enum) {
+//                        defaultValName = defaultValObj.getClass().getSimpleName() + "." + defaultValObj;
+//                    } else if (defaultValObj instanceof String) {
+//                        defaultValName = "\"" + defaultValObj + "\"";
+//                    } else if (defaultValObj instanceof Short || defaultValObj instanceof Integer || defaultValObj instanceof Byte || defaultValObj instanceof Boolean) {
+//                        defaultValName = String.valueOf(defaultValObj);
+//                    }else if (defaultValObj instanceof Long){
+//                        defaultValName = defaultValObj+"L";
+//                    }else if (defaultValObj instanceof Float){
+//                        defaultValName = defaultValObj+"F";
+//                    }else if (defaultValObj instanceof Double){
+//                        defaultValName = defaultValObj+"D";
+//                    }
+//
+//                    if (defaultValName != null) {
+//                        defaultValStr = SPACE + "=" + SPACE + defaultValName;
+//                    }
+//                }
+//            } catch (Exception ignored) {
+//                // 构造实例时，可能由于没有无参构造导致异常，无视即可
+//            }
 
             // 字段类型名
             String fieldTypeName;
@@ -327,7 +327,8 @@ public class JarParser {
 
             descriptions.add(description);
             fieldNames.add(fieldName);
-            defaultValues.add(defaultValStr);
+//            defaultValues.add(defaultValStr);
+            defaultValues.add("");
             fieldTypeNames.add(fieldTypeName);
             fieldNamesInitCap.add(fieldNameIntiCap);
         });
