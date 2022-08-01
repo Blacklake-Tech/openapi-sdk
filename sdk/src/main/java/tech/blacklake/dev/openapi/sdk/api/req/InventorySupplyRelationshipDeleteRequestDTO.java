@@ -11,7 +11,7 @@ public class InventorySupplyRelationshipDeleteRequestDTO {
     /**
      * 来源物料id
      */
-    private long fromMaterialId = 0L;
+    private long fromMaterialId;
 
     /**
      * 来源批次号
@@ -26,7 +26,7 @@ public class InventorySupplyRelationshipDeleteRequestDTO {
     /**
      * 去向物料id
      */
-    private long toMaterialId = 0L;
+    private long toMaterialId;
 
     /**
      * 去向批次号

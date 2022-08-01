@@ -11,12 +11,12 @@ public class MaterialDetailResponseDTO extends CustomFieldBaseVO {
     /**
      * 工厂ID
      */
-    private long orgId = 0L;
+    private long orgId;
 
     /**
      * 物料ID
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 物料名称

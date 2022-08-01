@@ -46,17 +46,17 @@ public class WorkInProgressRequestDTO  {
     /**
      * 是否入库
      */
-    private int warehousing = 0;
+    private int warehousing;
 
     /**
      * 是否必投
      */
-    private int feeding = 0;
+    private int feeding;
 
     /**
      * 投料上下限类型
      */
-    private int limit = 0;
+    private int limit;
 
     /**
      * 投料下限
@@ -86,7 +86,7 @@ public class WorkInProgressRequestDTO  {
     /**
      * 是否报工
      */
-    private int reportFlag = 0;
+    private int reportFlag;
 
     /**
      * 报工方式

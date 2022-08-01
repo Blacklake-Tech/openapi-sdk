@@ -11,7 +11,7 @@ public class PlanOrderSourceRequestDTO {
     /**
      * 生成方式（1-手工录入；2-计划运算；3-拆分；）
      */
-    private int generationMethod = 0;
+    private int generationMethod;
 
     /**
      *  来源单据类型（1-计划订单）

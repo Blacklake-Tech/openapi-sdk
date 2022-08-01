@@ -21,7 +21,7 @@ public class ProcessUpdateRequestDTO  {
     /**
      * 顺序号
      */
-    private long processSeq = 0L;
+    private long processSeq;
 
     /**
      * 工序名称
@@ -51,7 +51,7 @@ public class ProcessUpdateRequestDTO  {
     /**
      * 工作中心 ID
      */
-    private long workCenterId = 0L;
+    private long workCenterId;
 
     /**
      * 工序说明
@@ -91,12 +91,12 @@ public class ProcessUpdateRequestDTO  {
     /**
      * 计划报工数量管控
      */
-    private int planWorkReportQuantityControl = 0;
+    private int planWorkReportQuantityControl;
 
     /**
      * 生产任务状态操作管控
      */
-    private int productionStatusControl = 0;
+    private int productionStatusControl;
 
     /**
      * 报工方式

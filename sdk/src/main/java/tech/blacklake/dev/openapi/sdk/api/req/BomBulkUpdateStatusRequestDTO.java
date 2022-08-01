@@ -16,7 +16,7 @@ public class BomBulkUpdateStatusRequestDTO  {
     /**
      * 物料清单状态
      */
-    private int active = 0;
+    private int active;
 
     public List<Long> getIds() {
         return ids;

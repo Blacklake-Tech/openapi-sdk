@@ -11,7 +11,7 @@ public class InventorySupplyRelationshipListRequestDTO extends BasePage {
     /**
      * 物料id
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 批次号
@@ -26,12 +26,12 @@ public class InventorySupplyRelationshipListRequestDTO extends BasePage {
     /**
      * 查询方向
      */
-    private int direction = 0;
+    private int direction;
 
     /**
      * 查询层级
      */
-    private int level = 0;
+    private int level;
 
     public long getMaterialId() {
         return materialId;

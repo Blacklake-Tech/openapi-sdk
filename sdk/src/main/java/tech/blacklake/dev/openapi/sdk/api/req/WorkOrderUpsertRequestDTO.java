@@ -11,7 +11,7 @@ public class WorkOrderUpsertRequestDTO {
     /**
      * 工单编号,支持字母、数字和符号,不可超过255个字符,前后不支持空格
      */
-    private String code = "";
+    private String code;
 
     /**
      * 工单类型,key = WorkOrderTypeEnum
@@ -26,12 +26,12 @@ public class WorkOrderUpsertRequestDTO {
     /**
      * 计划开始时间,格式为YYYY/mm/DD HH:MM:SS
      */
-    private String planStartTime = "";
+    private String planStartTime;
 
     /**
      * 计划完工时间,格式为YYYY/mm/DD HH:MM:SS
      */
-    private String planFinishTime = "";
+    private String planFinishTime;
 
     /**
      * 生产部门编号,不可超过255个字符

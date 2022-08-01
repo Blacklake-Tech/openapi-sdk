@@ -16,12 +16,12 @@ public class BomOutputMaterialRequestDTO  {
     /**
      * 行号
      */
-    private int lineSeq = 0;
+    private int lineSeq;
 
     /**
      * 物料ID
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 数量
@@ -31,7 +31,7 @@ public class BomOutputMaterialRequestDTO  {
     /**
      * 单位id
      */
-    private long unitId = 0L;
+    private long unitId;
 
     /**
      * 报工工序ID
@@ -56,7 +56,7 @@ public class BomOutputMaterialRequestDTO  {
     /**
      * 是否入库
      */
-    private int warehousing = 0;
+    private int warehousing;
 
     /**
      * 自动入库

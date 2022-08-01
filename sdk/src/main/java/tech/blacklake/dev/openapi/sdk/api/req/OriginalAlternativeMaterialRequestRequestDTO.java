@@ -11,12 +11,12 @@ public class OriginalAlternativeMaterialRequestRequestDTO  {
     /**
      * 替代方案编号，支持字母、数字、符号，不可超过255字符
      */
-    private String alternativePlanCode = "";
+    private String alternativePlanCode;
 
     /**
      * 被替代物料编号，系统中启用且存在的物料编号
      */
-    private String originalAlternativeMaterialCode = "";
+    private String originalAlternativeMaterialCode;
 
     /**
      * 被替代物料名称

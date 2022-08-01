@@ -11,17 +11,17 @@ public class ProcessInfoResponseDTO  {
     /**
      * 工单工序业务 ID
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 工序定义业务 ID
      */
-    private long processId = 0L;
+    private long processId;
 
     /**
      * 工艺路线工序业务 ID
      */
-    private long processSnapshotId = 0L;
+    private long processSnapshotId;
 
     /**
      * 工序号
@@ -31,7 +31,7 @@ public class ProcessInfoResponseDTO  {
     /**
      * 顺序
      */
-    private long processSeq = 0L;
+    private long processSeq;
 
     /**
      * 前序工序号
@@ -56,12 +56,12 @@ public class ProcessInfoResponseDTO  {
     /**
      * 工作中心ID
      */
-    private long workCenterId = 0L;
+    private long workCenterId;
 
     /**
      * 工作中心模板ID
      */
-    private long workCenterSampleId = 0L;
+    private long workCenterSampleId;
 
     /**
      * 工作中心名称

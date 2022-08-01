@@ -21,7 +21,7 @@ public class ImportPurchaseReturnOrderRequestDTO {
     /**
      * 备注
      */
-    private String remark = "";
+    private String remark;
 
     /**
      * 采购退货单物料行。至少有一行

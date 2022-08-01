@@ -11,12 +11,12 @@ public class WorkOrderAlternativePlanResponseDTO  {
     /**
      * id
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 替代策略 key = SubstitutionStrategyEnum
      */
-    private int substitutionStrategy = 0;
+    private int substitutionStrategy;
 
     /**
      * 替代物料组

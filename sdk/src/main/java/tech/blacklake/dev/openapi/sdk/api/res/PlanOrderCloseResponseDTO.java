@@ -11,12 +11,12 @@ public class PlanOrderCloseResponseDTO  {
     /**
      * 完工数
      */
-    private int successAmount = 0;
+    private int successAmount;
 
     /**
      * 失败数
      */
-    private int failAmount = 0;
+    private int failAmount;
 
     /**
      * 结果集

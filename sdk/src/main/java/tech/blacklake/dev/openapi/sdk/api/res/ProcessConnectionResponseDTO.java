@@ -11,12 +11,12 @@ public class ProcessConnectionResponseDTO  {
     /**
      * 业务id
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 前序ID
      */
-    private long prevProcessId = 0L;
+    private long prevProcessId;
 
     /**
      * 前序名称
@@ -31,7 +31,7 @@ public class ProcessConnectionResponseDTO  {
     /**
      * 后序ID
      */
-    private long nextProcessId = 0L;
+    private long nextProcessId;
 
     /**
      * 后序名称

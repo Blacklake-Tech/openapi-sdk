@@ -11,7 +11,7 @@ public class QcDefectInfoRequestDTO {
     /**
      * 序号
      */
-    private Long seq = 0L;
+    private Long seq;
 
     /**
      * 不良等级名称

@@ -11,17 +11,17 @@ public class WorkOrderAlternativeMaterialResponseDTO  {
     /**
      * id
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 工单替代方案ID
      */
-    private long workOrderAlternativePlanId = 0L;
+    private long workOrderAlternativePlanId;
 
     /**
      * 优先级
      */
-    private int priority = 0;
+    private int priority;
 
     /**
      * 使用比例

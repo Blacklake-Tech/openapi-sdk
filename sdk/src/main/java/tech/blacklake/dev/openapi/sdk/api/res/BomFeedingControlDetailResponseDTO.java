@@ -11,17 +11,17 @@ public class BomFeedingControlDetailResponseDTO  {
     /**
      * 业务ID
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * bomInputMaterialLineId
      */
-    private long bomInputMaterialLineId = 0L;
+    private long bomInputMaterialLineId;
 
     /**
      * 子行行号
      */
-    private int lineSeq = 0;
+    private int lineSeq;
 
     /**
      * 分子

@@ -11,12 +11,12 @@ public class OriginalAlternativeMaterialDetailResponseDTO  {
     /**
      * 被替代料Id
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 物料Id
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 被替代料物料数据
@@ -46,7 +46,7 @@ public class OriginalAlternativeMaterialDetailResponseDTO  {
     /**
      * 单位Id
      */
-    private long unitId = 0L;
+    private long unitId;
 
     /**
      * 单位name

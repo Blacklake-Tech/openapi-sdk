@@ -11,7 +11,7 @@ public class MaterialAttributeRelCreateRequestDTO {
     /**
      * 物料属性项ID
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 物料属性项
@@ -21,7 +21,7 @@ public class MaterialAttributeRelCreateRequestDTO {
     /**
      * 物料属性值ID
      */
-    private long itemId = 0L;
+    private long itemId;
 
     /**
      * 物料属性值
@@ -31,7 +31,7 @@ public class MaterialAttributeRelCreateRequestDTO {
     /**
      * 顺序
      */
-    private long index = 0L;
+    private long index;
 
     public long getId() {
         return id;

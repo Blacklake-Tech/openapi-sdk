@@ -11,7 +11,7 @@ public class UnitUpdateRequestDTO {
     /**
      * 单位ID
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 单位编号，支持字母、数字和符号，不可超过255个字符，前后不支持空格
@@ -26,12 +26,12 @@ public class UnitUpdateRequestDTO {
     /**
      * 舍入规则，0四舍五入，1奇进偶舍，2进位，3舍位
      */
-    private int roundingRole = 0;
+    private int roundingRole;
 
     /**
      * 是否启用精度管理，1启用，0停用
      */
-    private int enablePrecision = 0;
+    private int enablePrecision;
 
     /**
      * 单位精度管理位数，取值为[0,10]区间内的整数

@@ -11,7 +11,7 @@ public class MaterialStorageCreateRequestDTO {
     /**
      * 物料ID
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 转换单位，非必填

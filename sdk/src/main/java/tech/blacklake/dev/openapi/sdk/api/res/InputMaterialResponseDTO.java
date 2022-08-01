@@ -11,12 +11,12 @@ public class InputMaterialResponseDTO  {
     /**
      * 业务ID
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 项次
      */
-    private int seq = 0;
+    private int seq;
 
     /**
      * 使用比例
@@ -36,7 +36,7 @@ public class InputMaterialResponseDTO  {
     /**
      * 物料ID
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 物料信息
@@ -51,7 +51,7 @@ public class InputMaterialResponseDTO  {
     /**
      * 单位ID
      */
-    private long unitId = 0L;
+    private long unitId;
 
     /**
      * 单位名称
@@ -76,12 +76,12 @@ public class InputMaterialResponseDTO  {
     /**
      * 是否指定工序投料
      */
-    private int specificProcessInput = 0;
+    private int specificProcessInput;
 
     /**
      * 是否拆分控件投料
      */
-    private int splitSopControlInput = 0;
+    private int splitSopControlInput;
 
     /**
      * 投料工序ID

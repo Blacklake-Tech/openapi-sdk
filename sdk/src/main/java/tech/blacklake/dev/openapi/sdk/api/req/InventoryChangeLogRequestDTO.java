@@ -41,12 +41,12 @@ public class InventoryChangeLogRequestDTO extends BasePage {
     /**
      * 操作开始时间
      */
-    private long dateStart = 1658485441544L;
+    private long dateStart;
 
     /**
      * 操作结束时间
      */
-    private long dateEnd = 1659090241544L;
+    private long dateEnd;
 
     /**
      * 操作类型, in-入库，out-出库,receive-转移入库,issue-转移出库,amount_adjust-数量调整,attr_adjust-属性调整

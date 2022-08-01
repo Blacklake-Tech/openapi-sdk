@@ -76,7 +76,7 @@ public class TransferOrderListRequestDTO extends BasePage {
     /**
      * 是否过滤已完成的物料明细 ，默认false， true 过滤已经完成的物料明细 
      */
-    private boolean appFilterItemBizStatusDone = false;
+    private boolean appFilterItemBizStatusDone;
 
     public List<Long> getIdList() {
         return idList;

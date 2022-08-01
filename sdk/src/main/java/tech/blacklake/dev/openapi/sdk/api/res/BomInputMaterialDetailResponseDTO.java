@@ -11,17 +11,17 @@ public class BomInputMaterialDetailResponseDTO extends CustomFieldBaseVO  {
     /**
      * 业务ID
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 项次
      */
-    private int seq = 0;
+    private int seq;
 
     /**
      * 物料ID
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 物料数据
@@ -41,7 +41,7 @@ public class BomInputMaterialDetailResponseDTO extends CustomFieldBaseVO  {
     /**
      * 单位id
      */
-    private long unitId = 0L;
+    private long unitId;
 
     /**
      * 单位name

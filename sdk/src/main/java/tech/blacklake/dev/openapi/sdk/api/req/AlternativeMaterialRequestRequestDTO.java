@@ -11,17 +11,17 @@ public class AlternativeMaterialRequestRequestDTO  {
     /**
      * 替代方案编号，支持字母、数字、符号，不可超过255字符
      */
-    private String alternativePlanCode = "";
+    private String alternativePlanCode;
 
     /**
      * 优先级，必须大于0小于等于50，一组替代方案，优先级不支持重复
      */
-    private String priority = "";
+    private String priority;
 
     /**
      * 替代物料编号，系统中启用且存在的物料编号
      */
-    private String alternativeMaterialCode = "";
+    private String alternativeMaterialCode;
 
     /**
      * 替代物料名称

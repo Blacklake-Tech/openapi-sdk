@@ -11,7 +11,7 @@ public class ProcessPlanUpdateRequestDTO  {
     /**
      * 工艺路线快照ID
      */
-    private long processRouteSnapshotId = 0L;
+    private long processRouteSnapshotId;
 
     /**
      * 工序列表
@@ -26,7 +26,7 @@ public class ProcessPlanUpdateRequestDTO  {
     /**
      * 是否支持高级 SOP 方案 1:支持 0:不支持
      */
-    private int enableSop = 0;
+    private int enableSop;
 
     public long getProcessRouteSnapshotId() {
         return processRouteSnapshotId;

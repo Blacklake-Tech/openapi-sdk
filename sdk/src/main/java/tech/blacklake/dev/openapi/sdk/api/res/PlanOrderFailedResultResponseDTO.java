@@ -11,7 +11,7 @@ public class PlanOrderFailedResultResponseDTO {
     /**
      * 业务id
      */
-    private long planOrderId = 0L;
+    private long planOrderId;
 
     /**
      * 计划订单编号

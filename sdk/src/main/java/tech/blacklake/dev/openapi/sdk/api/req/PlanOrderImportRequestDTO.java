@@ -11,7 +11,7 @@ public class PlanOrderImportRequestDTO extends CustomFieldBaseCO  {
     /**
      * 计划订单编号,支持字母、数字和符号,不可超过255个字符,前后不支持空格
      */
-    private String planOrderCode = "";
+    private String planOrderCode;
 
     /**
      * 状态,如不填写,默认:计划确认
@@ -76,7 +76,7 @@ public class PlanOrderImportRequestDTO extends CustomFieldBaseCO  {
     /**
      * 物料编号
      */
-    private String materialCode = "";
+    private String materialCode;
 
     /**
      * 物料名称
@@ -86,7 +86,7 @@ public class PlanOrderImportRequestDTO extends CustomFieldBaseCO  {
     /**
      * 计划生产数 必须大于0,小于10,000,000
      */
-    private String plannedAmount = "";
+    private String plannedAmount;
 
     /**
      * 版本号

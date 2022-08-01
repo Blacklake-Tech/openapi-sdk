@@ -11,7 +11,7 @@ public class MaterialUpdateRequestDTO {
     /**
      * 物料ID，必填
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 物料名称，必填，支持字母、数字、中文和符号，不可超过255个字符
@@ -41,7 +41,7 @@ public class MaterialUpdateRequestDTO {
     /**
      * 是否启用批次管理，0不启用，1启用
      */
-    private int batchManagementEnable = 0;
+    private int batchManagementEnable;
 
     /**
      * 批次号规则，非必填

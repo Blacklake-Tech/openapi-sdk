@@ -16,7 +16,7 @@ public class FeedKey {
     /**
      * materialId
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * lineId

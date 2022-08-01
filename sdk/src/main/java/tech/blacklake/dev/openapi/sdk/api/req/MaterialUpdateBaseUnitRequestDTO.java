@@ -16,7 +16,7 @@ public class MaterialUpdateBaseUnitRequestDTO {
     /**
      * 单位ID，必填
      */
-    private long id = 0L;
+    private long id;
 
     public Long getRelationId() {
         return relationId;

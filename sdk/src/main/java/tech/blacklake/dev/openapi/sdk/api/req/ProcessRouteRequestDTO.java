@@ -26,7 +26,7 @@ public class ProcessRouteRequestDTO  {
     /**
      * 状态
      */
-    private int status = 0;
+    private int status;
 
     /**
      * 所属部门
@@ -41,17 +41,17 @@ public class ProcessRouteRequestDTO  {
     /**
      * 物料id
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 物料单位id
      */
-    private long unitId = 0L;
+    private long unitId;
 
     /**
      * 是否启用sop 1启用 0未启用
      */
-    private int enableSop = 0;
+    private int enableSop;
 
     /**
      * 工序列表

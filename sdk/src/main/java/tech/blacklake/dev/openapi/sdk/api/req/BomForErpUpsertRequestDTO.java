@@ -11,12 +11,12 @@ public class BomForErpUpsertRequestDTO {
     /**
      * 父项物料编号
      */
-    private String materialCode = "";
+    private String materialCode;
 
     /**
      * 版本号,同一工厂下,父项物料编号+版本号不能重复,支持数字、数字和字母,不可超过255个字符
      */
-    private String version = "";
+    private String version;
 
     /**
      * 单位名称

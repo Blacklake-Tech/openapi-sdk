@@ -16,12 +16,12 @@ public class FeedApplyListResponseDTO {
     /**
      * 任务ID
      */
-    private long taskId = 0L;
+    private long taskId;
 
     /**
      * 投料申请ID
      */
-    private long applyId = 0L;
+    private long applyId;
 
     /**
      * 投料申请状态(0处理中 1失败 2成功)

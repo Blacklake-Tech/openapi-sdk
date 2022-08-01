@@ -96,7 +96,7 @@ public class MaterialCommonInfoResponseDTO {
     /**
      * 是否启用批次管理，0不启用，1启用
      */
-    private int batchManagementEnable = 0;
+    private int batchManagementEnable;
 
     /**
      * 先进先出，1启用，0不启用

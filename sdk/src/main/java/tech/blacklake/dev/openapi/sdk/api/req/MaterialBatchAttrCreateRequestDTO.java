@@ -11,7 +11,7 @@ public class MaterialBatchAttrCreateRequestDTO {
     /**
      * 是否系统默认，1是 0否，默认1
      */
-    private int isDefault = 0;
+    private int isDefault;
 
     /**
      * 属性名称
@@ -21,22 +21,22 @@ public class MaterialBatchAttrCreateRequestDTO {
     /**
      * 属性类型 0单行文本 1关联关系 2日期时间
      */
-    private int type = 0;
+    private int type;
 
     /**
      * 是否启用 0不启用 1启用 默认0
      */
-    private int displayEnable = 0;
+    private int displayEnable;
 
     /**
      * 是否可空 0不可空 1可空 默认1
      */
-    private int nullEnable = 0;
+    private int nullEnable;
 
     /**
      * 排序字段 默认0 起始0
      */
-    private long serialNo = 0L;
+    private long serialNo;
 
     public int getIsDefault() {
         return isDefault;

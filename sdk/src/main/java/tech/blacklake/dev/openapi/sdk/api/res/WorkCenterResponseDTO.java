@@ -16,7 +16,7 @@ public class WorkCenterResponseDTO  {
     /**
      * 工作中心ID
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 工作中心模板ID

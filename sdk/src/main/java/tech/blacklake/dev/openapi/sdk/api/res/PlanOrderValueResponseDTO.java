@@ -11,7 +11,7 @@ public class PlanOrderValueResponseDTO  {
     /**
      * 业务id
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 编码

@@ -21,7 +21,7 @@ public class WorkOrderOriginalAlternativeMaterialRequestDTO  {
     /**
      * 物料ID
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 主料 0 否 1是
@@ -41,7 +41,7 @@ public class WorkOrderOriginalAlternativeMaterialRequestDTO  {
     /**
      * 单位ID
      */
-    private long unitId = 0L;
+    private long unitId;
 
     public Long getId() {
         return id;

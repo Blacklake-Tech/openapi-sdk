@@ -41,7 +41,7 @@ public class MaterialCreateRequestDTO {
     /**
      * 是否启用批次管理，0不启用，1启用，非必填，不填默认为0不启用
      */
-    private int batchManagementEnable = 0;
+    private int batchManagementEnable;
 
     /**
      * 批次号规则，非必填

@@ -16,17 +16,17 @@ public class InputMaterialUpdateRequestDTO  {
     /**
      * 项次
      */
-    private int seq = 0;
+    private int seq;
 
     /**
      * 物料ID
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 子项类型
      */
-    private int inputType = 0;
+    private int inputType;
 
     /**
      * 使用比例
@@ -46,7 +46,7 @@ public class InputMaterialUpdateRequestDTO  {
     /**
      * 单位
      */
-    private long unitId = 0L;
+    private long unitId;
 
     /**
      * 损耗率
@@ -71,7 +71,7 @@ public class InputMaterialUpdateRequestDTO  {
     /**
      * 是否指定工序投料
      */
-    private int specificProcessInput = 0;
+    private int specificProcessInput;
 
     /**
      * 供应商ID list
@@ -81,7 +81,7 @@ public class InputMaterialUpdateRequestDTO  {
     /**
      * 是否拆分控件投料
      */
-    private int splitSopControlInput = 0;
+    private int splitSopControlInput;
 
     /**
      * 投料工序号

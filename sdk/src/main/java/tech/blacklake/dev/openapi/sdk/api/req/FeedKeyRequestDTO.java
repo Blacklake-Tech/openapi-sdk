@@ -16,7 +16,7 @@ public class FeedKeyRequestDTO {
     /**
      * 物料ID
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 物料ID

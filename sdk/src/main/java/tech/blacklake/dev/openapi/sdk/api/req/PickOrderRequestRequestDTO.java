@@ -11,7 +11,7 @@ public class PickOrderRequestRequestDTO {
     /**
      * 领料单ID
      */
-    private long pickOrderId = 0L;
+    private long pickOrderId;
 
     public long getPickOrderId() {
         return pickOrderId;

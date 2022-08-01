@@ -16,17 +16,17 @@ public class BomRequestDTO  {
     /**
      * 父项物料ID
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 是否是虚拟件
      */
-    private int virtual = 0;
+    private int virtual;
 
     /**
      * 单位ID
      */
-    private long unitId = 0L;
+    private long unitId;
 
     /**
      * 成品率
@@ -41,7 +41,7 @@ public class BomRequestDTO  {
     /**
      * 是否是默认版本
      */
-    private int defaultVersion = 0;
+    private int defaultVersion;
 
     /**
      * 版本说明
@@ -91,7 +91,7 @@ public class BomRequestDTO  {
     /**
      * 是否入库
      */
-    private int warehousing = 0;
+    private int warehousing;
 
     /**
      * 自动入库

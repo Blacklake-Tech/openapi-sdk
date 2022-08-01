@@ -11,17 +11,17 @@ public class MaterialDetailAttributeResponseDTO {
     /**
      * 物料ID
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 物料属性关联ID
      */
-    private long relationId = 0L;
+    private long relationId;
 
     /**
      * 属性项ID
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 属性项名称
@@ -31,7 +31,7 @@ public class MaterialDetailAttributeResponseDTO {
     /**
      * 属性值ID
      */
-    private long itemId = 0L;
+    private long itemId;
 
     /**
      * 属性值名称
@@ -41,7 +41,7 @@ public class MaterialDetailAttributeResponseDTO {
     /**
      * 顺序
      */
-    private int index = 0;
+    private int index;
 
     public long getMaterialId() {
         return materialId;

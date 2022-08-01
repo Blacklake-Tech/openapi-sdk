@@ -11,7 +11,7 @@ public class BatchRuleResponseDTO  {
     /**
      * 业务id
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 批号规则名称

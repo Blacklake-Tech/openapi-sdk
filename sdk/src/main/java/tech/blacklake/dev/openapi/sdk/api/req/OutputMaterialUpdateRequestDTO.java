@@ -16,7 +16,7 @@ public class OutputMaterialUpdateRequestDTO  {
     /**
      * 是否是主产出（0-副产出；1-主产出）
      */
-    private int main = 0;
+    private int main;
 
     /**
      * 计划生产数
@@ -31,7 +31,7 @@ public class OutputMaterialUpdateRequestDTO  {
     /**
      * 批号生成类型（1-编号规则；2-批号；3-不生成）
      */
-    private int batchGenerationType = 0;
+    private int batchGenerationType;
 
     /**
      * 批号规则ID
@@ -51,7 +51,7 @@ public class OutputMaterialUpdateRequestDTO  {
     /**
      * 行号
      */
-    private int lineSeq = 0;
+    private int lineSeq;
 
     /**
      * 物料清单ID
@@ -66,12 +66,12 @@ public class OutputMaterialUpdateRequestDTO  {
     /**
      * 物料id
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 单位id
      */
-    private long unitId = 0L;
+    private long unitId;
 
     /**
      * 产出工序号
@@ -101,7 +101,7 @@ public class OutputMaterialUpdateRequestDTO  {
     /**
      * 是否入库
      */
-    private int warehousing = 0;
+    private int warehousing;
 
     /**
      * 自动入库

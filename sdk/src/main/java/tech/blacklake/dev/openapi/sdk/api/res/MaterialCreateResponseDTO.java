@@ -11,7 +11,7 @@ public class MaterialCreateResponseDTO {
     /**
      * 物料ID
      */
-    private long id = 0L;
+    private long id;
 
     public long getId() {
         return id;

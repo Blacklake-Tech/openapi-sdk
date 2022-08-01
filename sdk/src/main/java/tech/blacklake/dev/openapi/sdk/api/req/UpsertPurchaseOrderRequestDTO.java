@@ -31,7 +31,7 @@ public class UpsertPurchaseOrderRequestDTO {
     /**
      * 备注。长度为小于1000位的utf-8字符
      */
-    private String remark = "";
+    private String remark;
 
     /**
      * 自定义字段，非必填

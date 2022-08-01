@@ -16,7 +16,7 @@ public class MaterialDocumentResponseDTO {
     /**
      * 文件ID
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 文件路径

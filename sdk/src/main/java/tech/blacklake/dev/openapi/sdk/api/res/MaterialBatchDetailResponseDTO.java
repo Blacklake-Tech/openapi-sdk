@@ -11,17 +11,17 @@ public class MaterialBatchDetailResponseDTO extends CustomFieldBaseVO {
     /**
      * 工厂id
      */
-    private long orgId = 0L;
+    private long orgId;
 
     /**
      * 业务id
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 物料id
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 批次号
@@ -36,12 +36,12 @@ public class MaterialBatchDetailResponseDTO extends CustomFieldBaseVO {
     /**
      * 供应商id
      */
-    private long supplierId = 0L;
+    private long supplierId;
 
     /**
      * 客户id
      */
-    private long customerId = 0L;
+    private long customerId;
 
     /**
      * 供应商

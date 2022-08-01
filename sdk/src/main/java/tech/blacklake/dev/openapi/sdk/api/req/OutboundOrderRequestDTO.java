@@ -16,32 +16,32 @@ public class OutboundOrderRequestDTO extends CustomFieldBaseCO {
     /**
      * 编号,支持字母、数字和符号，不可超过255个字符，前后支持空格
      */
-    private String code = "";
+    private String code;
 
     /**
      * 业务类型 支持填写“销售出库，退厂出库，其他出库”,若不填写则默认为“其他出库”
      */
-    private String bizType = "其他出库";
+    private String bizType;
 
     /**
      * 来源类型
      */
-    private String sourceType = "无源出库";
+    private String sourceType;
 
     /**
      * 仓库编号 请填写本次出库的仓库编号
      */
-    private String wareHouseCode = "";
+    private String wareHouseCode;
 
     /**
      * 计划时间 请填写本次出库的计划时间，如2021-11-11 11:11
      */
-    private String planTime = "";
+    private String planTime;
 
     /**
      * 客户编号 请填写本次出库的客户编号 必须是系统内存在且已启用
      */
-    private String customerCode = "";
+    private String customerCode;
 
     /**
      * 备注 不可超过1000字符

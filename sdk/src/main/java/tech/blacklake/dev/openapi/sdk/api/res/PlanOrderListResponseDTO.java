@@ -11,7 +11,7 @@ public class PlanOrderListResponseDTO extends CustomFieldBaseVO  {
     /**
      * 计划订单id
      */
-    private long planOrderId = 0L;
+    private long planOrderId;
 
     /**
      * 计划订单code
@@ -81,7 +81,7 @@ public class PlanOrderListResponseDTO extends CustomFieldBaseVO  {
     /**
      * 单位ID
      */
-    private long unitId = 0L;
+    private long unitId;
 
     /**
      * 单位名称

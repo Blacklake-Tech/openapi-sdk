@@ -11,12 +11,12 @@ public class FeedRelationsRequestDTO {
     /**
      * 任务ID
      */
-    private long taskId = 0L;
+    private long taskId;
 
     /**
      * 物料id
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 控件id

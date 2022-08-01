@@ -11,7 +11,7 @@ public class SalesOrderResponseDTO extends CustomFieldBaseVO {
     /**
      * 销售订单id
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 销售订单编号
@@ -21,7 +21,7 @@ public class SalesOrderResponseDTO extends CustomFieldBaseVO {
     /**
      * 销售订单状态：1 新建 2 结束
      */
-    private int status = 0;
+    private int status;
 
     /**
      * 销售订单明细行

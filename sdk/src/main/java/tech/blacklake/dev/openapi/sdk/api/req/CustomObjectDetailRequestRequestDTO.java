@@ -21,12 +21,12 @@ public class CustomObjectDetailRequestRequestDTO {
     /**
      * 是否返回从对象，默认为true
      */
-    private boolean includeChildren = true;
+    private boolean includeChildren;
 
     /**
      * 是否返回直接关联对象，默认为false
      */
-    private boolean includeDirectlyRelated = false;
+    private boolean includeDirectlyRelated;
 
     public Long getInstanceId() {
         return instanceId;

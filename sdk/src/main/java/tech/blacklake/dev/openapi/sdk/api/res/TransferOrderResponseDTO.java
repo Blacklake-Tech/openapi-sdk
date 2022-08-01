@@ -11,12 +11,12 @@ public class TransferOrderResponseDTO  {
     /**
      * 调拨单id
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 调拨单明细id
      */
-    private long itemId = 0L;
+    private long itemId;
 
     /**
      * 调拨单code

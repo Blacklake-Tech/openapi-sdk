@@ -11,7 +11,7 @@ public class ProcessRouteBasicInfoResponseDTO {
     /**
      * id
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * code

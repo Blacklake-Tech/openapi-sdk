@@ -16,12 +16,12 @@ public class SopTaskRecordRequestDTO {
     /**
      * 步骤结束时间范围-开始，范围仅限一小时
      */
-    private long finishTimeBegin = 0L;
+    private long finishTimeBegin;
 
     /**
      * 步骤结束时间范围-结束，范围仅限一小时
      */
-    private long finishTimeEnd = 0L;
+    private long finishTimeEnd;
 
     /**
      * 控件记录更新时间范围-开始
@@ -36,12 +36,12 @@ public class SopTaskRecordRequestDTO {
     /**
      * 页数
      */
-    private int page = 0;
+    private int page;
 
     /**
      * 条数
      */
-    private int size = 0;
+    private int size;
 
     public Long getSopTaskId() {
         return sopTaskId;

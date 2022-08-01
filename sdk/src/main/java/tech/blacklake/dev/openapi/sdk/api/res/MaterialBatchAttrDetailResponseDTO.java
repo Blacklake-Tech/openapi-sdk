@@ -16,12 +16,12 @@ public class MaterialBatchAttrDetailResponseDTO {
     /**
      * 物料id
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 是否系统默认，1是 0否，默认1
      */
-    private int isDefault = 0;
+    private int isDefault;
 
     /**
      * 属性名称 供应商批次、供应商、客户、生产日期、有效期至
@@ -46,7 +46,7 @@ public class MaterialBatchAttrDetailResponseDTO {
     /**
      * 排序字段 默认0 起始0
      */
-    private long serialNo = 0L;
+    private long serialNo;
 
     public Long getId() {
         return id;

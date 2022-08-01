@@ -11,7 +11,7 @@ public class CustomerSimpleResponseDTO {
     /**
      * 
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 

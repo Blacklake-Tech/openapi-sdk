@@ -41,7 +41,7 @@ public class ShipmentNoteItemRequestDTO extends CustomFieldBaseCO {
     /**
      * 备注
      */
-    private String remark = "";
+    private String remark;
 
     /**
      * 协同交货计划单编号

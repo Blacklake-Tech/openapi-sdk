@@ -11,12 +11,12 @@ public class ResourceParamsResponseDTO  {
     /**
      * 资源ID
      */
-    private long resourceId = 0L;
+    private long resourceId;
 
     /**
      * 参数ID
      */
-    private long paramsId = 0L;
+    private long paramsId;
 
     /**
      * 参数名称

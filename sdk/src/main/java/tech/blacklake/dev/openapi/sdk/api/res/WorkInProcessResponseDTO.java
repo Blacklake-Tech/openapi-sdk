@@ -11,17 +11,17 @@ public class WorkInProcessResponseDTO  {
     /**
      * 工序在制品快照ID
      */
-    private long id = 0L;
+    private long id;
 
     /**
      * 工艺路线下工序ID
      */
-    private long processRouteNodeId = 0L;
+    private long processRouteNodeId;
 
     /**
      * 物料id
      */
-    private long materialId = 0L;
+    private long materialId;
 
     /**
      * 物料信息
@@ -31,7 +31,7 @@ public class WorkInProcessResponseDTO  {
     /**
      * 单位id
      */
-    private long unitId = 0L;
+    private long unitId;
 
     /**
      * 单位
@@ -56,12 +56,12 @@ public class WorkInProcessResponseDTO  {
     /**
      * 是否入库
      */
-    private int warehousing = 0;
+    private int warehousing;
 
     /**
      * 投料单位id
      */
-    private long feedUnitId = 0L;
+    private long feedUnitId;
 
     /**
      * 投料单位
@@ -81,7 +81,7 @@ public class WorkInProcessResponseDTO  {
     /**
      * 是否必投
      */
-    private int feeding = 0;
+    private int feeding;
 
     /**
      * 投料上下限类型 key= input
@@ -166,7 +166,7 @@ public class WorkInProcessResponseDTO  {
     /**
      * 是否报工
      */
-    private int reportFlag = 0;
+    private int reportFlag;
 
     /**
      * 报工方式
