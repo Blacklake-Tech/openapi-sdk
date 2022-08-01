@@ -16,17 +16,17 @@ public class OutboundOrderItemRequestDTO extends CustomFieldBaseCO {
     /**
      * 出库单编号 必须是工厂内或出库单基本信息中存在的出库单编号
      */
-    private String code = "";
+    private String code;
 
     /**
      * 行号 仅支持整数，必须大于等于 0 ，不可超过 10,000,000；同工单内，行号不可重复
      */
-    private String lineNo = "";
+    private String lineNo;
 
     /**
      * 物料编号 必须是系统内存在且已启用的物料编号
      */
-    private String materialCode = "";
+    private String materialCode;
 
     /**
      * 计划数量 若填写必须大于0，小于10,000,000，小数点后位数不可超过10位

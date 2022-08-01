@@ -16,7 +16,7 @@ public class InputMaterialControlUpdateRequestDTO  {
     /**
      * 行号
      */
-    private int lineSeq = 0;
+    private int lineSeq;
 
     /**
      * sop投料控件ID
@@ -36,12 +36,12 @@ public class InputMaterialControlUpdateRequestDTO  {
     /**
      * 投料管控 1:true 0:false
      */
-    private int inputMaterialControl = 0;
+    private int inputMaterialControl;
 
     /**
      * 投料上下限类型
      */
-    private int inputBoundType = 0;
+    private int inputBoundType;
 
     /**
      * 投料上限
@@ -71,7 +71,7 @@ public class InputMaterialControlUpdateRequestDTO  {
     /**
      * 投料类型 key = FeedTypeEnum
      */
-    private int feedType = 0;
+    private int feedType;
 
     public Long getId() {
         return id;

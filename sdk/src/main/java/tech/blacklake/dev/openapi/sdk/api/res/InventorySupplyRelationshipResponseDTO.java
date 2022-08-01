@@ -11,7 +11,7 @@ public class InventorySupplyRelationshipResponseDTO {
     /**
      * 来源物料id
      */
-    private long fromMaterialId = 0;
+    private long fromMaterialId;
 
     /**
      * 来源批次号
@@ -26,7 +26,7 @@ public class InventorySupplyRelationshipResponseDTO {
     /**
      * 去向物料id
      */
-    private long toMaterialId = 0;
+    private long toMaterialId;
 
     /**
      * 去向批次号

@@ -16,7 +16,7 @@ public class MaterialUpdateDocumentRequestDTO {
     /**
      * 文件ID，必填
      */
-    private long id = 0;
+    private long id;
 
     public Long getRelationId() {
         return relationId;

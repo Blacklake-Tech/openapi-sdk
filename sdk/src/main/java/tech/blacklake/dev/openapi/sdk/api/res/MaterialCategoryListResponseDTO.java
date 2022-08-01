@@ -11,7 +11,7 @@ public class MaterialCategoryListResponseDTO {
     /**
      * 物料分类ID
      */
-    private long id = 0;
+    private long id;
 
     /**
      * 物料分类编号
@@ -26,7 +26,7 @@ public class MaterialCategoryListResponseDTO {
     /**
      * 物料分类层级
      */
-    private int level = 0;
+    private int level;
 
     /**
      * 物料分类备注

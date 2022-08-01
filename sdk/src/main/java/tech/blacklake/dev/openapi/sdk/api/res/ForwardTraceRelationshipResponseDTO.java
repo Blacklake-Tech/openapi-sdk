@@ -16,7 +16,7 @@ public class ForwardTraceRelationshipResponseDTO {
     /**
      * 来源物料id
      */
-    private long fromMaterialId = 0;
+    private long fromMaterialId;
 
     /**
      * 来源标识码
@@ -31,7 +31,7 @@ public class ForwardTraceRelationshipResponseDTO {
     /**
      * 去向物料id
      */
-    private long toMaterialId = 0;
+    private long toMaterialId;
 
     /**
      * 去向标识码

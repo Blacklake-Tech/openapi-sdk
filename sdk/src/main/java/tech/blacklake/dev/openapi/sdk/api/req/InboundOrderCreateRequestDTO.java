@@ -16,22 +16,22 @@ public class InboundOrderCreateRequestDTO extends CustomFieldBaseCO {
     /**
      * 编号，支持字母、数字和符号，不可超过255个字符，前后不支持空格
      */
-    private String code = "";
+    private String code;
 
     /**
      * 业务类型，若不填写则默认为“其他入库”，支持填写“采购入库，退货入库，其他入库
      */
-    private String bizType = "其他入库";
+    private String bizType;
 
     /**
      * 来源类型，若不填写则默认为“无源入库”，支持填写“无源入库” 
      */
-    private String sourceType = "无源入库";
+    private String sourceType;
 
     /**
      * 仓库编号，填写本次入库的仓库编号
      */
-    private String warehouseCode = "";
+    private String warehouseCode;
 
     /**
      * 供应商编号 填写本次入库的仓库编号 必须是系统内存在且已启用

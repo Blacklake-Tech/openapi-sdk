@@ -31,7 +31,7 @@ public class InboundOrderExecuteWayRequestDTO {
     /**
      * 记录自定义字段
      */
-    private CustomFieldBaseRequestDTO recordCustomField;
+    private CustomFieldBaseCO recordCustomField;
 
     public int getExecuteWay() {
         return executeWay;
@@ -49,7 +49,7 @@ public class InboundOrderExecuteWayRequestDTO {
         return codeList;
     }
 
-    public CustomFieldBaseRequestDTO getRecordCustomField() {
+    public CustomFieldBaseCO getRecordCustomField() {
         return recordCustomField;
     }
 
@@ -69,7 +69,7 @@ public class InboundOrderExecuteWayRequestDTO {
         this.codeList = codeList;
     }
 
-    public void setRecordCustomField(CustomFieldBaseRequestDTO recordCustomField) {
+    public void setRecordCustomField(CustomFieldBaseCO recordCustomField) {
         this.recordCustomField = recordCustomField;
     }
 }

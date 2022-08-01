@@ -11,7 +11,7 @@ public class MaterialInventoryCreateRequestDTO {
     /**
      * 物料编号，必须填写系统中已存在的物料编号
      */
-    private String materialCode = "";
+    private String materialCode;
 
     /**
      * 仓库编号，租户未启用仓位管理时必填，必须填写系统中已存在的仓库编号
@@ -31,7 +31,7 @@ public class MaterialInventoryCreateRequestDTO {
     /**
      * 数量，请填写整数或小数，支持填写负数
      */
-    private String amount = "";
+    private String amount;
 
     /**
      * 单位名称，必须是该物料上存在且已启用的主单位或转换单位名称，未填写时默认为该物料主单位
@@ -51,7 +51,7 @@ public class MaterialInventoryCreateRequestDTO {
     /**
      * 批次号，必须填写系统中已存在的批次对应的批次号
      */
-    private String batchNo = "";
+    private String batchNo;
 
     /**
      * 标识码，必须为空标识码或与本次导入库存完全一致的标识码

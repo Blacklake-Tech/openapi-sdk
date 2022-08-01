@@ -16,12 +16,12 @@ public class ForwardTraceRelationshipSearchRequestDTO {
     /**
      * 去向物料id
      */
-    private long toMaterialId = 0;
+    private long toMaterialId;
 
     /**
      * 查询层级
      */
-    private int level = 0;
+    private int level;
 
     public String getToBatchNo() {
         return toBatchNo;

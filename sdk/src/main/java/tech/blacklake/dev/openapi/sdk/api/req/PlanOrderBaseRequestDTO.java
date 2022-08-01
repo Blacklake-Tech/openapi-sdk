@@ -21,12 +21,12 @@ public class PlanOrderBaseRequestDTO extends CustomFieldBaseCO  {
     /**
      * 计划订单需求类型（1-独立需求；2-相关需求)
      */
-    private int requirementType = 0;
+    private int requirementType;
 
     /**
      * 计划订单投放类型（1-生产工单；2-采购申请 3-委外订单)
      */
-    private int launchType = 0;
+    private int launchType;
 
     /**
      * 计划订单业务状态（1-计划；2-计划确认；3-已投放；4-已关闭）

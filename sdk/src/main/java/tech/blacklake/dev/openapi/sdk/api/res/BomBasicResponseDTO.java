@@ -11,7 +11,7 @@ public class BomBasicResponseDTO  {
     /**
      * 业务ID
      */
-    private long id = 0;
+    private long id;
 
     /**
      * 启用状态 key = ActiveEnum
@@ -21,7 +21,7 @@ public class BomBasicResponseDTO  {
     /**
      * 父项物料ID
      */
-    private long materialId = 0;
+    private long materialId;
 
     /**
      * 父项物料数据
@@ -36,7 +36,7 @@ public class BomBasicResponseDTO  {
     /**
      * 单位ID
      */
-    private long unitId = 0;
+    private long unitId;
 
     /**
      * 版本号

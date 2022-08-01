@@ -11,7 +11,7 @@ public class MaterialListAttributeDetailResponseDTO {
     /**
      * 物料属性项ID
      */
-    private long attributeId = 0;
+    private long attributeId;
 
     /**
      * 物料属性项名称
@@ -21,7 +21,7 @@ public class MaterialListAttributeDetailResponseDTO {
     /**
      * 物料属性值ID
      */
-    private long attributeItemId = 0;
+    private long attributeItemId;
 
     /**
      * 物料属性值名称

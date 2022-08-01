@@ -36,12 +36,12 @@ public class OutboundOrderAppExecuteRequestRequestDTO {
     /**
      * 出库单自定义字段
      */
-    private CustomFieldBaseRequestDTO outboundOrderCustomField;
+    private CustomFieldBaseCO outboundOrderCustomField;
 
     /**
      * 出库记录自定义字段
      */
-    private CustomFieldBaseRequestDTO outboundOrderRecordCustomField;
+    private CustomFieldBaseCO outboundOrderRecordCustomField;
 
     public OutboundOrderInfoRequestRequestDTO getOutboundOrderInfo() {
         return outboundOrderInfo;
@@ -63,11 +63,11 @@ public class OutboundOrderAppExecuteRequestRequestDTO {
         return docId;
     }
 
-    public CustomFieldBaseRequestDTO getOutboundOrderCustomField() {
+    public CustomFieldBaseCO getOutboundOrderCustomField() {
         return outboundOrderCustomField;
     }
 
-    public CustomFieldBaseRequestDTO getOutboundOrderRecordCustomField() {
+    public CustomFieldBaseCO getOutboundOrderRecordCustomField() {
         return outboundOrderRecordCustomField;
     }
 
@@ -91,11 +91,11 @@ public class OutboundOrderAppExecuteRequestRequestDTO {
         this.docId = docId;
     }
 
-    public void setOutboundOrderCustomField(CustomFieldBaseRequestDTO outboundOrderCustomField) {
+    public void setOutboundOrderCustomField(CustomFieldBaseCO outboundOrderCustomField) {
         this.outboundOrderCustomField = outboundOrderCustomField;
     }
 
-    public void setOutboundOrderRecordCustomField(CustomFieldBaseRequestDTO outboundOrderRecordCustomField) {
+    public void setOutboundOrderRecordCustomField(CustomFieldBaseCO outboundOrderRecordCustomField) {
         this.outboundOrderRecordCustomField = outboundOrderRecordCustomField;
     }
 }

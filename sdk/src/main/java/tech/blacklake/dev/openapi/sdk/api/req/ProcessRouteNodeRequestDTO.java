@@ -16,7 +16,7 @@ public class ProcessRouteNodeRequestDTO  {
     /**
      * 工序顺序号
      */
-    private long processSeq = 0;
+    private long processSeq;
 
     /**
      * 工序号
@@ -26,12 +26,12 @@ public class ProcessRouteNodeRequestDTO  {
     /**
      * 工序ID
      */
-    private long processId = 0;
+    private long processId;
 
     /**
      * 工作中心ID
      */
-    private long workCenterId = 0;
+    private long workCenterId;
 
     /**
      * 工作中心资源信息
@@ -61,12 +61,12 @@ public class ProcessRouteNodeRequestDTO  {
     /**
      * 计划报工数量管控
      */
-    private int planWorkReportQuantityControl = 0;
+    private int planWorkReportQuantityControl;
 
     /**
      * 生产任务状态操作管控
      */
-    private int productionStatusControl = 0;
+    private int productionStatusControl;
 
     public Long getId() {
         return id;

@@ -11,7 +11,7 @@ public class SopTaskDetailRequestDTO {
     /**
      * SOP任务ID
      */
-    private long sopTaskId = 0;
+    private long sopTaskId;
 
     public long getSopTaskId() {
         return sopTaskId;

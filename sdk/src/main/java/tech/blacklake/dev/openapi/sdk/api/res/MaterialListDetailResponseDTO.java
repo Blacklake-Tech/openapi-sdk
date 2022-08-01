@@ -11,12 +11,12 @@ public class MaterialListDetailResponseDTO {
     /**
      * 工厂ID
      */
-    private long orgId = 0;
+    private long orgId;
 
     /**
      * 物料ID
      */
-    private long id = 0;
+    private long id;
 
     /**
      * 物料编号
@@ -41,7 +41,7 @@ public class MaterialListDetailResponseDTO {
     /**
      * 创建时间
      */
-    private long createdAt = 0;
+    private long createdAt;
 
     /**
      * 物料状态，1启用0停用

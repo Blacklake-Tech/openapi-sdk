@@ -11,7 +11,7 @@ public class BulkFeedApplyRequestDTO {
     /**
      * 生产任务Id
      */
-    private long taskId = 0;
+    private long taskId;
 
     /**
      * SOP信息

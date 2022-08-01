@@ -11,12 +11,12 @@ public class WorkOrderSourceRequestDTO  {
     /**
      * 生成方式（1-手工录入；2-拆分；3-合并；4-改制）
      */
-    private int generationMethod = 0;
+    private int generationMethod;
 
     /**
      *  来源单据类型（1-生产工单）
      */
-    private int sourceType = 0;
+    private int sourceType;
 
     /**
      * 来源-销售订单

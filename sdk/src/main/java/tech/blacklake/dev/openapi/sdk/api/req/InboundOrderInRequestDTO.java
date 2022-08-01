@@ -46,12 +46,12 @@ public class InboundOrderInRequestDTO {
     /**
      * 入库单自定义字段
      */
-    private CustomFieldBaseRequestDTO inboundOrderCustomField;
+    private CustomFieldBaseCO inboundOrderCustomField;
 
     /**
      * 入库单明细自定义字段
      */
-    private CustomFieldBaseRequestDTO inboundOrderItemCustomField;
+    private CustomFieldBaseCO inboundOrderItemCustomField;
 
     public InboundOrderExistOrderRequestDTO getInboundOrderType() {
         return inboundOrderType;
@@ -81,11 +81,11 @@ public class InboundOrderInRequestDTO {
         return remark;
     }
 
-    public CustomFieldBaseRequestDTO getInboundOrderCustomField() {
+    public CustomFieldBaseCO getInboundOrderCustomField() {
         return inboundOrderCustomField;
     }
 
-    public CustomFieldBaseRequestDTO getInboundOrderItemCustomField() {
+    public CustomFieldBaseCO getInboundOrderItemCustomField() {
         return inboundOrderItemCustomField;
     }
 
@@ -117,11 +117,11 @@ public class InboundOrderInRequestDTO {
         this.remark = remark;
     }
 
-    public void setInboundOrderCustomField(CustomFieldBaseRequestDTO inboundOrderCustomField) {
+    public void setInboundOrderCustomField(CustomFieldBaseCO inboundOrderCustomField) {
         this.inboundOrderCustomField = inboundOrderCustomField;
     }
 
-    public void setInboundOrderItemCustomField(CustomFieldBaseRequestDTO inboundOrderItemCustomField) {
+    public void setInboundOrderItemCustomField(CustomFieldBaseCO inboundOrderItemCustomField) {
         this.inboundOrderItemCustomField = inboundOrderItemCustomField;
     }
 }

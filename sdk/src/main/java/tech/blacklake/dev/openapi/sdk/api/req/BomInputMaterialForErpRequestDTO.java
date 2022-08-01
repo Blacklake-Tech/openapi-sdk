@@ -11,12 +11,12 @@ public class BomInputMaterialForErpRequestDTO {
     /**
      * 项次,默认以10开始,以10递增,同一物料清单内的多行子项物料(第一层+第二层,非替代件),项次+物料编号不支持重复
      */
-    private String seq = "";
+    private String seq;
 
     /**
      * 物料编号
      */
-    private String materialCode = "";
+    private String materialCode;
 
     /**
      * 用量:分子,默认值为1,必须大于0

@@ -11,7 +11,7 @@ public class FeedRecordDetailRequestDTO {
     /**
      * 投料记录详情id
      */
-    private long feedRecordDetailId = 0;
+    private long feedRecordDetailId;
 
     public long getFeedRecordDetailId() {
         return feedRecordDetailId;

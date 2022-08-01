@@ -11,37 +11,37 @@ public class ProgressReportRequestRequestDTO {
     /**
      * 生产任务ID
      */
-    private long taskId = 0;
+    private long taskId;
 
     /**
      * 工单id
      */
-    private long workOrderId = 0;
+    private long workOrderId;
 
     /**
      * 工序ID
      */
-    private long processId = 0;
+    private long processId;
 
     /**
      * 报工方式 参考ReportingMethodEnum
      */
-    private int reportType = 0;
+    private int reportType;
 
     /**
      * 是否入库
      */
-    private boolean warehousingFlag = false;
+    private boolean warehousingFlag;
 
     /**
      * 是否自动入库
      */
-    private boolean autoWarehousingFlag = false;
+    private boolean autoWarehousingFlag;
 
     /**
      * 是否一码到底
      */
-    private boolean qrCodeReusedFlag = false;
+    private boolean qrCodeReusedFlag;
 
     /**
      * 标示码
@@ -76,7 +76,7 @@ public class ProgressReportRequestRequestDTO {
     /**
      * 质量状态 1-合格 2-让步合格 3-代检 4-不合格
      */
-    private int qcStatus = 0;
+    private int qcStatus;
 
     /**
      * 入库位置（仓位id）- 如果入库必须填入库位置
@@ -131,12 +131,12 @@ public class ProgressReportRequestRequestDTO {
     /**
      * 物料id
      */
-    private long materialId = 0;
+    private long materialId;
 
     /**
      * 物料行id
      */
-    private long lineId = 0;
+    private long lineId;
 
     /**
      * 报工物料信息列表

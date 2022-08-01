@@ -62,12 +62,14 @@ public class Run {
         List<ReflectionResult> allDtoResults = new ArrayList<>();
         // 已解析的/不需要再解析的dto名
         Set<String> parsedDtoSet = new HashSet<>(presetClassNames);
+        Set<String> presetClassNamesSet = new HashSet<>(presetClassNames);
         dependencyCoordinates.forEach(it -> {
             Pair<List<ReflectionResult>, List<ReflectionResult>> jarPair = JarParser.parseJar(
                     it.getGroupId(),
                     it.getArtifactId(),
                     it.getVersion(),
                     parsedDtoSet,
+                presetClassNamesSet,
                     true);
             List<ReflectionResult> controllerResults = jarPair.getLeft();
             List<ReflectionResult> dtoResults = jarPair.getRight();

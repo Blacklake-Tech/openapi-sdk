@@ -11,7 +11,7 @@ public class WorkOrderBaseResponseDTO extends CustomFieldBaseVO  {
     /**
      * 业务id
      */
-    private long id = 0;
+    private long id;
 
     /**
      * 工单编号
@@ -41,12 +41,12 @@ public class WorkOrderBaseResponseDTO extends CustomFieldBaseVO  {
     /**
      * 是否暂停
      */
-    private int pauseFlag = 0;
+    private int pauseFlag;
 
     /**
      * 是否指定用料
      */
-    private int specifiedMaterial = 0;
+    private int specifiedMaterial;
 
     /**
      * 计划开始时间
@@ -101,7 +101,7 @@ public class WorkOrderBaseResponseDTO extends CustomFieldBaseVO  {
     /**
      * 创建时间
      */
-    private long createdAt = 0;
+    private long createdAt;
 
     /**
      * 更新人

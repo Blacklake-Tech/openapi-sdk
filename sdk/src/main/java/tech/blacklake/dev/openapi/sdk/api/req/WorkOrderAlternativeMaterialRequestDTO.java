@@ -16,7 +16,7 @@ public class WorkOrderAlternativeMaterialRequestDTO  {
     /**
      * 优先级
      */
-    private int priority = 0;
+    private int priority;
 
     /**
      * 使用比例
@@ -26,7 +26,7 @@ public class WorkOrderAlternativeMaterialRequestDTO  {
     /**
      * 物料ID
      */
-    private long materialId = 0;
+    private long materialId;
 
     /**
      * 主料 0 否 1是
@@ -46,12 +46,12 @@ public class WorkOrderAlternativeMaterialRequestDTO  {
     /**
      * 单位ID
      */
-    private long unitId = 0;
+    private long unitId;
 
     /**
      * 领料方式
      */
-    private int pickMode = 0;
+    private int pickMode;
 
     /**
      * 投料质量状态

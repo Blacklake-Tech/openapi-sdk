@@ -16,12 +16,12 @@ public class BomInputMaterialRequestDTO extends CustomFieldBaseCO  {
     /**
      * 项次
      */
-    private int seq = 0;
+    private int seq;
 
     /**
      * 物料ID
      */
-    private long materialId = 0;
+    private long materialId;
 
     /**
      * 分子
@@ -36,7 +36,7 @@ public class BomInputMaterialRequestDTO extends CustomFieldBaseCO  {
     /**
      * 单位id
      */
-    private long unitId = 0;
+    private long unitId;
 
     /**
      * 损耗率
@@ -51,17 +51,17 @@ public class BomInputMaterialRequestDTO extends CustomFieldBaseCO  {
     /**
      * 领料方式
      */
-    private int pickMode = 0;
+    private int pickMode;
 
     /**
      * 是否指定工序投料
      */
-    private int specificProcessInput = 0;
+    private int specificProcessInput;
 
     /**
      * 是否拆分工序投料
      */
-    private int splitProcessInput = 0;
+    private int splitProcessInput;
 
     /**
      * 投料工序ID

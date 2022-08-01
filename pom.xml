@@ -34,7 +34,7 @@
         <sop.version>6.7.0-RELEASE</sop.version>
         <workercalendar.version>6.7.1-RELEASE</workercalendar.version>
         <trace.version>6.7.0-RELEASE</trace.version>
-        <plo.version>6.7.0-RELEASE</plo.version>
+        <plo.version>6.7.1.3-RELEASE</plo.version>
     </properties>
 
     <modules>

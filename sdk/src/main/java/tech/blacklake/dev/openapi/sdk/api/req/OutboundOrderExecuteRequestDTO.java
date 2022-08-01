@@ -31,7 +31,7 @@ public class OutboundOrderExecuteRequestDTO {
     /**
      * 出库单明细自定义字段
      */
-    private CustomFieldBaseRequestDTO outboundOrderItemCustomField;
+    private CustomFieldBaseCO outboundOrderItemCustomField;
 
     public ExecuteAmountRequestDTO getAmount() {
         return amount;
@@ -49,7 +49,7 @@ public class OutboundOrderExecuteRequestDTO {
         return inventoryKey;
     }
 
-    public CustomFieldBaseRequestDTO getOutboundOrderItemCustomField() {
+    public CustomFieldBaseCO getOutboundOrderItemCustomField() {
         return outboundOrderItemCustomField;
     }
 
@@ -69,7 +69,7 @@ public class OutboundOrderExecuteRequestDTO {
         this.inventoryKey = inventoryKey;
     }
 
-    public void setOutboundOrderItemCustomField(CustomFieldBaseRequestDTO outboundOrderItemCustomField) {
+    public void setOutboundOrderItemCustomField(CustomFieldBaseCO outboundOrderItemCustomField) {
         this.outboundOrderItemCustomField = outboundOrderItemCustomField;
     }
 }

@@ -46,7 +46,7 @@ public class RoleListResponseDTO {
     /**
      * 当前角色是否被用户使用,仅用于角色列表页
      */
-    private Boolean inUse = false;
+    private Boolean inUse;
 
     /**
      * 当前角色使用人

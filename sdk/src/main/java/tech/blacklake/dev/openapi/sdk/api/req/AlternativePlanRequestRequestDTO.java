@@ -11,17 +11,17 @@ public class AlternativePlanRequestRequestDTO  {
     /**
      * 替代方案编号，支持字母、数字、符号，不可超过255字符
      */
-    private String code = "";
+    private String code;
 
     /**
      * 替代方案名称，不可超过255字符
      */
-    private String name = "";
+    private String name;
 
     /**
      * 替代策略，支持填写整批替代、混用替代
      */
-    private String substitutionStrategy = "";
+    private String substitutionStrategy;
 
     /**
      * 所属部门，支持填写启用中的部门编号
@@ -31,7 +31,7 @@ public class AlternativePlanRequestRequestDTO  {
     /**
      * 指定物料清单，支持填写是、否
      */
-    private String specificBom = "";
+    private String specificBom;
 
     /**
      * 适用物料清单:父项物料编号，支持填写系统中存在且启用的物料编号

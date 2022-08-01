@@ -11,7 +11,7 @@ public class InboundOrderExistOrderRequestDTO {
     /**
      * 是否按单入库 1:按单入库/2:普通入库
      */
-    private int orderType = 2;
+    private int orderType;
 
     /**
      * 入库单执行主键CO
@@ -21,7 +21,7 @@ public class InboundOrderExistOrderRequestDTO {
     /**
      * 编号是否自动生成 1:是/0:否
      */
-    private int autoCode = 1;
+    private int autoCode;
 
     /**
      * 入库单编号
@@ -31,7 +31,7 @@ public class InboundOrderExistOrderRequestDTO {
     /**
      * 业务类型 1:采购收货/2:销售退货/0:其他
      */
-    private int bizType = 0;
+    private int bizType;
 
     /**
      * 入库单备注

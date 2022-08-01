@@ -16,7 +16,7 @@ public class MaterialBatchAttrUpdateRequestDTO {
     /**
      * 是否系统默认，必填，1是 0否，默认1
      */
-    private int isDefault = 0;
+    private int isDefault;
 
     /**
      * 属性名称，必填，支持字母、数字、中文和符号，不可超过255个字符
@@ -26,22 +26,22 @@ public class MaterialBatchAttrUpdateRequestDTO {
     /**
      * 属性类型，必填，0单行文本 1关联关系 2日期时间
      */
-    private int type = 0;
+    private int type;
 
     /**
      * 是否启用，非必填，0不启用 1启用 默认1
      */
-    private int displayEnable = 0;
+    private int displayEnable;
 
     /**
      * 是否可空，非必填，0不可空 1可空 默认1
      */
-    private int nullEnable = 0;
+    private int nullEnable;
 
     /**
      * 排序字段，必填，默认0 起始0
      */
-    private long serialNo = 0;
+    private long serialNo;
 
     public Long getId() {
         return id;

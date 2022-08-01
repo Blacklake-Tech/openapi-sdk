@@ -11,7 +11,7 @@ public class BatchNoKeyRequestDTO {
     /**
      * 是否自动获取批号
      */
-    private int autoNoFlag = 0;
+    private int autoNoFlag;
 
     /**
      * 批次

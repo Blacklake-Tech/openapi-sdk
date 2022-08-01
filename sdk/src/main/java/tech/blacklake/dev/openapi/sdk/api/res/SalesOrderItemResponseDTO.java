@@ -11,12 +11,12 @@ public class SalesOrderItemResponseDTO extends CustomFieldBaseVO {
     /**
      * 销售订单行id
      */
-    private long id = 0;
+    private long id;
 
     /**
      * 销售订单id
      */
-    private long orderId = 0;
+    private long orderId;
 
     /**
      * 行号
@@ -26,7 +26,7 @@ public class SalesOrderItemResponseDTO extends CustomFieldBaseVO {
     /**
      * 物料Id
      */
-    private long material = 0;
+    private long material;
 
     /**
      * 数量
@@ -36,12 +36,12 @@ public class SalesOrderItemResponseDTO extends CustomFieldBaseVO {
     /**
      * 销售单位Id
      */
-    private long unit = 0;
+    private long unit;
 
     /**
      * 交货日期
      */
-    private long deliveryDate = 0;
+    private long deliveryDate;
 
     public long getId() {
         return id;

@@ -11,12 +11,12 @@ public class BomOutputMaterialForErpRequestDTO {
     /**
      * 行号,整数,默认以10开始,以10递增,同一物料清单下,产出物料行号不支持重复
      */
-    private String lineSeq = "";
+    private String lineSeq;
 
     /**
      * 物料编号
      */
-    private String materialCode = "";
+    private String materialCode;
 
     /**
      * 数量,默认值为1;必须大于0

@@ -11,7 +11,7 @@ public class WorkOrderBaseUpdateRequestDTO extends CustomFieldBaseCO  {
     /**
      * id
      */
-    private long id = 0;
+    private long id;
 
     /**
      * 工单编号
@@ -26,7 +26,7 @@ public class WorkOrderBaseUpdateRequestDTO extends CustomFieldBaseCO  {
     /**
      * 工单类型（1-普通；2-返工；3-改制；4-维修
      */
-    private int workOrderType = 0;
+    private int workOrderType;
 
     /**
      * 计划开始时间
@@ -71,7 +71,7 @@ public class WorkOrderBaseUpdateRequestDTO extends CustomFieldBaseCO  {
     /**
      * 指定用料-默认是
      */
-    private int specifiedMaterial = 0;
+    private int specifiedMaterial;
 
     /**
      * 班次

@@ -21,32 +21,32 @@ public class UnitConversionRequestDTO {
     /**
      * 基本单位数量(Y)，如 1KG 的 1
      */
-    private int fromUnitCount = 0;
+    private int fromUnitCount;
 
     /**
      * 转换单位ID
      */
-    private long toUnitId = 0;
+    private long toUnitId;
 
     /**
      * 转换单位数量(X)，如 1000g 的 1000
      */
-    private int toUnitCount = 0;
+    private int toUnitCount;
 
     /**
      * 转换关系类型，取值范围【0主单位、1转换单位、2辅助单位】
      */
-    private int convertType = 0;
+    private int convertType;
 
     /**
      * 顺序
      */
-    private long serialNo = 0;
+    private long serialNo;
 
     /**
      * 是否启用
      */
-    private int enableFlag = 0;
+    private int enableFlag;
 
     public Long getId() {
         return id;

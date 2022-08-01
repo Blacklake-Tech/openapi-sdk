@@ -16,17 +16,17 @@ public class MaterialFeedApplyItemRequestDTO {
     /**
      * 投料申请单位
      */
-    private long opeUnitId = 0;
+    private long opeUnitId;
 
     /**
      * 物料质量状态
      */
-    private int qcStatus = 0;
+    private int qcStatus;
 
     /**
      * 仓储位置
      */
-    private long locationId = 0;
+    private long locationId;
 
     /**
      * 库存标识码

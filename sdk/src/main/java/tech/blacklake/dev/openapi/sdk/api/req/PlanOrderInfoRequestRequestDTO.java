@@ -11,7 +11,7 @@ public class PlanOrderInfoRequestRequestDTO  {
     /**
      * 计划订单 ID
      */
-    private long planOrderId = 0;
+    private long planOrderId;
 
     public long getPlanOrderId() {
         return planOrderId;

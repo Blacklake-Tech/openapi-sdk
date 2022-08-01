@@ -11,7 +11,7 @@ public class ShiftResponseDTO  {
     /**
      * 业务id
      */
-    private long id = 0;
+    private long id;
 
     /**
      * 班次名称

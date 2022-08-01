@@ -21,7 +21,7 @@ public class ProcessPlanRequestDTO  {
     /**
      * 是否支持高级 SOP 方案 1:支持 0:不支持
      */
-    private int enableSop = 0;
+    private int enableSop;
 
     public List<ProcessRequestDTO> getProcesses() {
         return processes;

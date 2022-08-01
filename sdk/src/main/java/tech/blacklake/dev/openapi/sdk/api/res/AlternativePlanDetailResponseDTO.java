@@ -11,7 +11,7 @@ public class AlternativePlanDetailResponseDTO  {
     /**
      * 替代方案Id
      */
-    private long id = 0;
+    private long id;
 
     /**
      * 替代方案code
@@ -71,12 +71,12 @@ public class AlternativePlanDetailResponseDTO  {
     /**
      * 创建时间
      */
-    private long createdAt = 0;
+    private long createdAt;
 
     /**
      * 更新时间
      */
-    private long updatedAt = 0;
+    private long updatedAt;
 
     /**
      * 被替代料列表

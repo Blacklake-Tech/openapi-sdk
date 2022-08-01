@@ -16,12 +16,12 @@ public class UnitDetailResDO  {
     /**
      * orgId
      */
-    private long orgId = 0;
+    private long orgId;
 
     /**
      * id
      */
-    private long id = 0;
+    private long id;
 
     /**
      * code
@@ -51,7 +51,7 @@ public class UnitDetailResDO  {
     /**
      * precisionFigure
      */
-    private int precisionFigure = 0;
+    private int precisionFigure;
 
     /**
      * enableFlag

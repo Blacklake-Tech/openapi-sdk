@@ -41,7 +41,7 @@ public class MaterialCreateRequestDTO {
     /**
      * 是否启用批次管理，0不启用，1启用，非必填，不填默认为0不启用
      */
-    private int batchManagementEnable = 0;
+    private int batchManagementEnable;
 
     /**
      * 批次号规则，非必填
@@ -86,7 +86,7 @@ public class MaterialCreateRequestDTO {
     /**
      * 自定义字段，若存在必填值，则必填，否则非必填
      */
-    private CustomFieldBaseRequestDTO materialCustomField;
+    private CustomFieldBaseCO materialCustomField;
 
     public String getName() {
         return name;
@@ -148,7 +148,7 @@ public class MaterialCreateRequestDTO {
         return specification;
     }
 
-    public CustomFieldBaseRequestDTO getMaterialCustomField() {
+    public CustomFieldBaseCO getMaterialCustomField() {
         return materialCustomField;
     }
 
@@ -212,7 +212,7 @@ public class MaterialCreateRequestDTO {
         this.specification = specification;
     }
 
-    public void setMaterialCustomField(CustomFieldBaseRequestDTO materialCustomField) {
+    public void setMaterialCustomField(CustomFieldBaseCO materialCustomField) {
         this.materialCustomField = materialCustomField;
     }
 }

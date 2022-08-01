@@ -11,7 +11,7 @@ public class WorkOrderUpdateRequestDTO extends CustomFieldBaseCO  {
     /**
      * 是否是草稿状态
      */
-    private boolean draftFlag = false;
+    private boolean draftFlag;
 
     /**
      * 基本信息

@@ -26,7 +26,7 @@ public class SopTaskExecRecordResponseDTO {
     /**
      * 步骤是否循环
      */
-    private boolean loopFlag = false;
+    private boolean loopFlag;
 
     /**
      * 步骤循环信息

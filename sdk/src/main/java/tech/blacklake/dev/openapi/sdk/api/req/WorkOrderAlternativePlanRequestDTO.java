@@ -16,7 +16,7 @@ public class WorkOrderAlternativePlanRequestDTO  {
     /**
      * 替代策略
      */
-    private int substitutionStrategy = 0;
+    private int substitutionStrategy;
 
     /**
      * 替代物料组

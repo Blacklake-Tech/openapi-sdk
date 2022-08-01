@@ -16,7 +16,7 @@ public class ProcessRouteStatusRequestRequestDTO  {
     /**
      * 要变更为的状态
      */
-    private int status = 0;
+    private int status;
 
     public List<Long> getIdList() {
         return idList;
