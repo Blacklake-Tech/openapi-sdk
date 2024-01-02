@@ -2,6 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>tech.blacklake.infra.boot</groupId>
+        <artifactId>blackboot-parent</artifactId>
+        <version>1.8.2.6-RELEASE</version>
+        <relativePath/>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>tech.blacklake.dev.openapi</groupId>
@@ -20,26 +26,29 @@
         <logback-classic.version>1.2.3</logback-classic.version>
         <lombok.version>1.18.12</lombok.version>
         <cglib.version>3.1</cglib.version>
-        <med.version>6.7.1-RELEASE</med.version>
-        <resource.version>6.7.0-RELEASE</resource.version>
-        <mfg.version>6.7.1.1-RELEASE</mfg.version>
-        <order.version>6.7.1.1-RELEASE</order.version>
+
+        <med.version>6.8.1.5-RELEASE</med.version>
+        <resource.version>6.7.1-RELEASE</resource.version>
+        <mfg.version>6.8.1-RELEASE</mfg.version>
+        <order.version>6.8.1-RELEASE</order.version>
         <quality.version>6.7.0-RELEASE</quality.version>
-        <workcenter.version>6.6.0-RELEASE</workcenter.version>
-        <inventory.version>6.7.0.2-RELEASE</inventory.version>
-        <material.version>6.7.0-RELEASE</material.version>
+        <workcenter.version>6.8.0-RELEASE</workcenter.version>
+        <inventory.version>6.8.1-RELEASE</inventory.version>
+        <material.version>6.8.1-RELEASE</material.version>
         <storage.version>6.7.0.2-RELEASE</storage.version>
-        <customObject.version>6.7.0-RELEASE</customObject.version>
-        <user.version>6.7.0-RELEASE</user.version>
-        <sop.version>6.7.0-RELEASE</sop.version>
+        <customObject.version>6.8.2.1-RELEASE</customObject.version>
+        <user.version>6.8.0.1-RELEASE</user.version>
+        <sop.version>6.8.2-RELEASE</sop.version>
         <workercalendar.version>6.7.1-RELEASE</workercalendar.version>
-        <trace.version>6.7.0-RELEASE</trace.version>
-        <plo.version>6.7.1.3-RELEASE</plo.version>
+        <trace.version>6.8.1-RELEASE</trace.version>
+        <plo.version>6.8.1.1-RELEASE</plo.version>
+        <holyfile.version>7.7.0.4-RELEASE</holyfile.version>
     </properties>
 
     <modules>
         <module>sdk</module>
         <module>code-generator</module>
+        <module>oapi-sdk</module>
     </modules>
 
     <dependencyManagement>
@@ -376,6 +385,11 @@
                 <version>${plo.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>tech.blacklake.dev.holyfile</groupId>
+                <artifactId>holyfile-domain-openapi</artifactId>
+                <version>${holyfile.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -383,12 +397,12 @@
         <repository>
             <id>bl-releases</id>
             <name>bl-releases</name>
-            <url>http://nexus.blacklake.tech/repository/maven-releases/</url>
+            <url>https://nexus.blacklake.tech/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>bl-snapshots</id>
             <name>bl-snapshots</name>
-            <url>http://nexus.blacklake.tech/repository/maven-snapshots/</url>
+            <url>https://nexus.blacklake.tech/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -396,7 +410,7 @@
         <repository>
             <id>nexus-blacklake</id>
             <name>Nexus blacklake</name>
-            <url>http://nexus.blacklake.tech/repository/maven-public/</url>
+            <url>https://nexus.blacklake.tech/repository/maven-public/</url>
         </repository>
     </repositories>
 

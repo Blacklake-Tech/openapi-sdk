@@ -50,233 +50,247 @@
         </dependency>
 
         <dependency>
-            <groupId>tech.blacklake.dev.med</groupId>
-            <artifactId>med-domain-produce-define-service</artifactId>
+            <groupId>tech.blacklake.infra.boot</groupId>
+            <artifactId>blackboot-starter-standard-domain-kotlin</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>tech.blacklake.dev.med</groupId>
-            <artifactId>med-domain-produce-define-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.med</groupId>-->
+<!--            <artifactId>med-domain-produce-define-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.med</groupId>
-            <artifactId>med-domain-work-order-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.med</groupId>-->
+<!--            <artifactId>med-domain-produce-define-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.med</groupId>
-            <artifactId>med-domain-work-order-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.med</groupId>-->
+<!--            <artifactId>med-domain-work-order-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.mfg</groupId>
-            <artifactId>mfg-domain-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.med</groupId>-->
+<!--            <artifactId>med-domain-work-order-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.mfg</groupId>
-            <artifactId>mfg-domain-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.mfg</groupId>-->
+<!--            <artifactId>mfg-domain-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.resource</groupId>
-            <artifactId>resource-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.mfg</groupId>-->
+<!--            <artifactId>mfg-domain-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.resource</groupId>
-            <artifactId>resource-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.resource</groupId>-->
+<!--            <artifactId>resource-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.order</groupId>
-            <artifactId>order-domain-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.resource</groupId>-->
+<!--            <artifactId>resource-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.order</groupId>
-            <artifactId>order-domain-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.order</groupId>-->
+<!--            <artifactId>order-domain-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.quality</groupId>
-            <artifactId>quality-domain-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.order</groupId>-->
+<!--            <artifactId>order-domain-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.quality</groupId>
-            <artifactId>quality-domain-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.quality</groupId>-->
+<!--            <artifactId>quality-domain-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.workcenter</groupId>
-            <artifactId>work-center-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.quality</groupId>-->
+<!--            <artifactId>quality-domain-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.workcenter</groupId>
-            <artifactId>work-center-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.workcenter</groupId>-->
+<!--            <artifactId>work-center-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.inventory</groupId>
-            <artifactId>inventory-domain-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.workcenter</groupId>-->
+<!--            <artifactId>work-center-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.inventory</groupId>
-            <artifactId>inventory-domain-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.inventory</groupId>-->
+<!--            <artifactId>inventory-domain-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.inventory</groupId>
-            <artifactId>adjust-order-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.inventory</groupId>-->
+<!--            <artifactId>inventory-domain-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.inventory</groupId>
-            <artifactId>base-inventory-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.inventory</groupId>-->
+<!--            <artifactId>adjust-order-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.inventory</groupId>
-            <artifactId>inbound-order-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.inventory</groupId>-->
+<!--            <artifactId>base-inventory-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.inventory</groupId>
-            <artifactId>inbound-order-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.inventory</groupId>-->
+<!--            <artifactId>inbound-order-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.inventory</groupId>
-            <artifactId>material-inventory-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.inventory</groupId>-->
+<!--            <artifactId>inbound-order-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.inventory</groupId>
-            <artifactId>material-inventory-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.inventory</groupId>-->
+<!--            <artifactId>material-inventory-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.inventory</groupId>
-            <artifactId>outbound-order-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.inventory</groupId>-->
+<!--            <artifactId>material-inventory-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.inventory</groupId>
-            <artifactId>outbound-order-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.inventory</groupId>-->
+<!--            <artifactId>outbound-order-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.inventory</groupId>
-            <artifactId>transfer-order-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.inventory</groupId>-->
+<!--            <artifactId>outbound-order-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.inventory</groupId>
-            <artifactId>transfer-order-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.inventory</groupId>-->
+<!--            <artifactId>transfer-order-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.material</groupId>
-            <artifactId>material-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.inventory</groupId>-->
+<!--            <artifactId>transfer-order-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.material</groupId>
-            <artifactId>material-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.material</groupId>-->
+<!--            <artifactId>material-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.material</groupId>
-            <artifactId>sku-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.material</groupId>-->
+<!--            <artifactId>material-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.material</groupId>
-            <artifactId>sku-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.material</groupId>-->
+<!--            <artifactId>sku-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.material</groupId>
-            <artifactId>unit-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.material</groupId>-->
+<!--            <artifactId>sku-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.material</groupId>
-            <artifactId>unit-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.material</groupId>-->
+<!--            <artifactId>unit-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.storage</groupId>
-            <artifactId>storage-domain-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.material</groupId>-->
+<!--            <artifactId>unit-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.storage</groupId>
-            <artifactId>storage-domain-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.storage</groupId>-->
+<!--            <artifactId>storage-domain-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev</groupId>
-            <artifactId>custom-object-domain-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.storage</groupId>-->
+<!--            <artifactId>storage-domain-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev</groupId>
-            <artifactId>custom-object-domain-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev</groupId>-->
+<!--            <artifactId>custom-object-domain-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.user</groupId>
-            <artifactId>user-domain-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev</groupId>-->
+<!--            <artifactId>custom-object-domain-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.user</groupId>
-            <artifactId>user-domain-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.user</groupId>-->
+<!--            <artifactId>user-domain-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.sop</groupId>
-            <artifactId>sop-domain-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.user</groupId>-->
+<!--            <artifactId>user-domain-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.sop</groupId>
-            <artifactId>sop-domain-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.sop</groupId>-->
+<!--            <artifactId>sop-domain-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.workercalendar</groupId>
-            <artifactId>workercalendar-domain-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.sop</groupId>-->
+<!--            <artifactId>sop-domain-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.workercalendar</groupId>
-            <artifactId>workercalendar-domain-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.workercalendar</groupId>-->
+<!--            <artifactId>workercalendar-domain-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.trace</groupId>
-            <artifactId>trace-domain-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.workercalendar</groupId>-->
+<!--            <artifactId>workercalendar-domain-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.trace</groupId>
-            <artifactId>trace-domain-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.trace</groupId>-->
+<!--            <artifactId>trace-domain-service</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.plo</groupId>
-            <artifactId>plo-domain-service</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.trace</groupId>-->
+<!--            <artifactId>trace-domain-api</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>tech.blacklake.dev.plo</groupId>
-            <artifactId>plo-domain-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.plo</groupId>-->
+<!--            <artifactId>plo-domain-service</artifactId>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>tech.blacklake.dev.plo</groupId>-->
+<!--            <artifactId>plo-domain-api</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
