@@ -24,6 +24,10 @@
             <groupId>tech.blacklake.dev.holyfile</groupId>
             <artifactId>holyfile-domain-openapi</artifactId>
         </dependency>
+        <dependency>
+            <groupId>tech.blacklake.dev.openapi</groupId>
+            <artifactId>openapi-domain-api</artifactId>
+        </dependency>
     </dependencies>
     
 </project>
