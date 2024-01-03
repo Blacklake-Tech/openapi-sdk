@@ -47,7 +47,7 @@ public enum EventTypeEnum {
         this.eventTypeStr = eventTypeStr;
     }
 
-    public EventTypeEnum getByEventTypeStr(String eventTypeStr) {
+    public static EventTypeEnum getByEventTypeStr(String eventTypeStr) {
         for (EventTypeEnum eventTypeEnum : values()) {
             if (eventTypeEnum.getEventTypeStr().equals(eventTypeStr)) {
                 return eventTypeEnum;

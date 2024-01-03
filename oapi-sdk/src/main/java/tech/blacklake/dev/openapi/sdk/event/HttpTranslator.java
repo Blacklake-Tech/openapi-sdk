@@ -1,4 +1,5 @@
 package tech.blacklake.dev.openapi.sdk.event;
+import tech.blacklake.dev.openapi.sdk.constants.Constants;
 import tech.blacklake.dev.openapi.sdk.event.model.EventReq;
 import tech.blacklake.dev.openapi.sdk.event.model.EventResp;
 
@@ -31,7 +32,7 @@ public class HttpTranslator {
                 .collect(Collectors.joining(System.lineSeparator()));
         EventReq req = new EventReq();
         req.setHeaders(toHeaderMap(request));
-        req.setBody(bodyStr.getBytes(StandardCharsets.UTF_8));
+        req.setBody(bodyStr.getBytes(Constants.SYSTEM_CHARSET));
         req.setHttpPath(request.getRequestURI());
         return req;
     }
