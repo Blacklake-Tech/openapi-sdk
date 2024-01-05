@@ -4,7 +4,6 @@ import tech.blacklake.dev.openapi.sdk.event.model.EventReq;
 import tech.blacklake.dev.openapi.sdk.event.model.EventResp;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;

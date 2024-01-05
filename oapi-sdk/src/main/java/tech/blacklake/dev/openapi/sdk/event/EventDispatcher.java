@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tech.blacklake.dev.openapi.domain.service.mq.dto.CallbackDTO;
 import tech.blacklake.dev.openapi.sdk.constants.Constants;
-import tech.blacklake.dev.openapi.sdk.constants.EventTypeEnum;
+import tech.blacklake.dev.openapi.sdk.constants.enums.EventTypeEnum;
 import tech.blacklake.dev.openapi.sdk.event.exception.EventTypeAlreadyHasHandlerException;
 import tech.blacklake.dev.openapi.sdk.event.exception.HandlerNotFoundException;
 import tech.blacklake.dev.openapi.sdk.event.model.EventReq;

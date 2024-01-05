@@ -1,4 +1,4 @@
-package tech.blacklake.dev.openapi.sdk.constants;
+package tech.blacklake.dev.openapi.sdk.constants.enums;
 
 public enum EventTypeEnum {
     MFG_RESULT_NOTIFY_PROGRESS_REPORT("mfg.result_notify.progress_report"),
