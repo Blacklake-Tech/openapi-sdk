@@ -9,6 +9,7 @@ import tech.blacklake.dev.openapi.sdk.constants.Constants;
 import tech.blacklake.dev.openapi.sdk.constants.enums.EventTypeEnum;
 import tech.blacklake.dev.openapi.sdk.event.exception.EventTypeAlreadyHasHandlerException;
 import tech.blacklake.dev.openapi.sdk.event.exception.HandlerNotFoundException;
+import tech.blacklake.dev.openapi.sdk.event.exception.UnknownEventTypeException;
 import tech.blacklake.dev.openapi.sdk.event.model.EventReq;
 import tech.blacklake.dev.openapi.sdk.event.model.EventResp;
 
@@ -86,7 +87,11 @@ public class EventDispatcher {
         eventResp.setContentType(Constants.JSON_CONTENT_TYPE);
         // 获取eventType与对应的handler
         String eventType = eventReq.getCallbackDTO().getHeader().getEventType();
-        IEventHandler handler = eventType2EventHandler.get(EventTypeEnum.getByEventTypeStr(eventType));
+        EventTypeEnum eventTypeEnum = EventTypeEnum.getByEventTypeStr(eventType);
+        if (eventTypeEnum == null) {
+            throw new UnknownEventTypeException(eventType);
+        }
+        IEventHandler handler = eventType2EventHandler.get(eventTypeEnum);
         if (handler == null) {
             throw new HandlerNotFoundException(eventType);
         }
