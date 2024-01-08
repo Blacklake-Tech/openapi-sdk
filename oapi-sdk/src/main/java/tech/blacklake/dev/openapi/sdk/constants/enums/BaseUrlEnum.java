@@ -10,20 +10,21 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package tech.blacklake.dev.openapi.sdk.token;
+package tech.blacklake.dev.openapi.sdk.constants.enums;
 
-import tech.blacklake.dev.openapi.sdk.cache.LocalCache;
+public enum BaseUrlEnum {
+    // TODO: 替换成真实url，且增加其他环境url枚举
+    BLACKLAKE_OPENAPI_ALI_PROD("ali_prod_to_be_filled"),
+    BLACKLAKE_OPENAPI_HW_PROD("hw_prod_to_be_filled"),
+    ;
 
-public class GlobalTokenManager {
+    private String url;
 
-    private static volatile TokenManager globalTokenManager = new TokenManager(LocalCache.getInstance());
-
-    public static TokenManager getTokenManager() {
-        return globalTokenManager;
+    BaseUrlEnum(String url) {
+        this.url = url;
     }
 
-    public static void setTokenManager(TokenManager tokenManager) {
-        globalTokenManager = tokenManager;
+    public String getUrl() {
+        return url;
     }
-
 }
