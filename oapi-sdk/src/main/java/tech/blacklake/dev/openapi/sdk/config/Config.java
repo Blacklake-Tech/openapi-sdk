@@ -1,23 +1,15 @@
 package tech.blacklake.dev.openapi.sdk.config;
 
-import tech.blacklake.dev.openapi.sdk.cache.ICache;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import tech.blacklake.dev.openapi.sdk.constants.enums.AppTypeEnum;
 
+@ConfigurationProperties(prefix = "blacklake.openapi.sdk")
 public class Config {
-    private ICache cache;
     private String baseUrl;
-    private AppTypeEnum appTypeEnum;
+    private AppTypeEnum appTypeEnum = AppTypeEnum.SELF_BUILT;
     private String appKey;
     private String appSecret;
     private boolean logReqAtDebug;
-
-    public ICache getCache() {
-        return cache;
-    }
-
-    public void setCache(ICache cache) {
-        this.cache = cache;
-    }
 
     public String getBaseUrl() {
         return baseUrl;

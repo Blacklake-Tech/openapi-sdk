@@ -1,15 +1,15 @@
 package tech.blacklake.dev.openapi.sdk;
 
-import tech.blacklake.dev.openapi.sdk.cache.ICache;
+import tech.blacklake.dev.holyfile.open.File4CustomObjectOpenApi;
 import tech.blacklake.dev.openapi.sdk.config.Config;
 import tech.blacklake.dev.openapi.sdk.constants.enums.AppTypeEnum;
 import tech.blacklake.dev.openapi.sdk.constants.enums.BaseUrlEnum;
-import tech.blacklake.dev.openapi.sdk.token.GlobalTokenManager;
-import tech.blacklake.dev.openapi.sdk.token.TokenManager;
 
-public class Client {
+public class BlacklakeSdkClient {
+
     private Config config;
-    // TODO: add services
+
+    public File4CustomObjectOpenApi file4CustomObjectOpenApi;
 
     public static Builder newBuilder(String appKey, String appSecret) {
         return new Builder(appKey, appSecret);
@@ -49,22 +49,9 @@ public class Client {
             return this;
         }
 
-        public Builder tokenCache(ICache cache) {
-            config.setCache(cache);
-            return this;
-        }
-
-        private void initCache(Config config) {
-            if (config.getCache() != null) {
-                GlobalTokenManager.setTokenManager(new TokenManager(config.getCache()));
-            }
-        }
-
-        public Client build() {
-            Client client = new Client();
+        public BlacklakeSdkClient build() {
+            BlacklakeSdkClient client = new BlacklakeSdkClient();
             client.setConfig(config);
-            initCache(config);
-            // TODO: add services to client fields
             return client;
         }
     }

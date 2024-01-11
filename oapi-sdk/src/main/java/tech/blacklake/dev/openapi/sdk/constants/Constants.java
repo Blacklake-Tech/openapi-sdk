@@ -24,4 +24,8 @@ public class Constants {
 
     public static final String APP_ACCESS_TOKEN_PREFIX = "app_access_token";
 
+    public static final String ROUTE_URL = "/api/openapi/domain/web/v1/route";
+
+    public static final String HOLYFILE_PREFIX = "/holyfile";
+
 }
