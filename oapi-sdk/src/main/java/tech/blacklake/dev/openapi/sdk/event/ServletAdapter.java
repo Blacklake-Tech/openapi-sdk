@@ -5,6 +5,7 @@ import tech.blacklake.dev.openapi.sdk.event.model.EventResp;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 public class ServletAdapter {
 
@@ -19,7 +20,7 @@ public class ServletAdapter {
      * @throws Throwable
      */
     public void handleEvent(HttpServletRequest req, HttpServletResponse response,
-                            EventDispatcher eventDispatcher) throws Throwable {
+                            EventDispatcher eventDispatcher) throws IOException {
         // 转换请求对象
         EventReq eventReq = HTTP_TRANSLATOR.translate(req);
 
