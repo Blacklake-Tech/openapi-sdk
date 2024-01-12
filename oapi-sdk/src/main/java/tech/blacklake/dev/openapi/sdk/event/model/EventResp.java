@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class EventResp {
 
-    public static final String RESPONSE_FORMAT = "{\"msg\":\"%s\"}";
+    public static final String ERROR_RESPONSE_FORMAT = "{\"errorMsg\":\"%s\"}";
     private byte[] body;
     private Map<String, List<String>> headers = new HashMap();
     private int statusCode;

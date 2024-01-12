@@ -9,7 +9,7 @@ public enum EventTypeEnum {
 
     MFG_RESULT_NOTIFY_FEEDING_RETRACT("mfg.result_notify.feeding_retract"),
 
-    MFG_RESULT_NOTIFY_PRODUCE_TASK_DISPATCH("med.result_notify.produce_task_dispatch"),
+    MED_RESULT_NOTIFY_PRODUCE_TASK_DISPATCH("med.result_notify.produce_task_dispatch"),
 
     SOP_TASK_STATUS_CHANGE("sop.sop_task.status_change"),
 
