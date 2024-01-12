@@ -119,6 +119,10 @@ public class EventDispatcher {
             this.secretKey = secretKey;
         }
 
+        public EventDispatcher build() {
+            return new EventDispatcher(this);
+        }
+
         private Builder onEventType(EventTypeEnum eventTypeEnum, IEventHandler handler) {
             if (eventType2EventHandler.containsKey(eventTypeEnum)) {
                 throw new EventTypeAlreadyHasHandlerException(eventTypeEnum);
