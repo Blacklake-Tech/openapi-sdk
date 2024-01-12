@@ -1,7 +1,11 @@
 package tech.blacklake.dev.openapi.sdk.event;
 
-import tech.blacklake.dev.openapi.sdk.event.model.EventReq;
+import tech.blacklake.dev.openapi.sdk.event.model.BaseCallbackDTO;
 
-public interface IEventHandler {
-    void handle(EventReq eventReq) throws Exception;
+public interface IEventHandler<E extends BaseCallbackDTO> {
+
+    E getEvent();
+
+    Object handle(E event) throws Exception;
 }
+
