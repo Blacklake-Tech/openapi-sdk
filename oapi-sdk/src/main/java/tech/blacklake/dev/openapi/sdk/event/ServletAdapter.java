@@ -17,7 +17,7 @@ public class ServletAdapter {
      * @param req
      * @param response
      * @param eventDispatcher
-     * @throws Throwable
+     * @throws IOException
      */
     public void handleEvent(HttpServletRequest req, HttpServletResponse response,
                             EventDispatcher eventDispatcher) throws IOException {
