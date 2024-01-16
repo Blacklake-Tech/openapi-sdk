@@ -28,8 +28,8 @@ public class Constants {
 
     public static final String HOLYFILE_PREFIX = "/holyfile";
 
-    public static final Long OK_HTTP_TIMEOUT_SECONDS = 30L;
+    public static final long OK_HTTP_TIMEOUT_SECONDS = 30L;
 
-    public static final Integer SUCCESS_RESULT_CODE = 200;
+    public static final int SUCCESS_RESULT_CODE = 200;
 
 }
