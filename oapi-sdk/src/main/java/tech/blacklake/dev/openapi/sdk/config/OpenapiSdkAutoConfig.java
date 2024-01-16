@@ -17,6 +17,7 @@ import tech.blacklake.dev.openapi.sdk.client.OpenapiClient;
 import tech.blacklake.dev.openapi.sdk.client.decoder.ClientResDecoder;
 import tech.blacklake.dev.openapi.sdk.client.interceptor.ClientReqInterceptor;
 import tech.blacklake.dev.openapi.sdk.constants.enums.AppTypeEnum;
+import tech.blacklake.dev.openapi.sdk.event.ServletAdapter;
 import tech.blacklake.dev.openapi.sdk.token.TokenManager;
 
 @Configuration
@@ -73,6 +74,11 @@ public class OpenapiSdkAutoConfig {
     @Bean
     public Retryer retryer(){
         return new Retryer.Default();
+    }
+
+    @Bean
+    public ServletAdapter servletAdapter() {
+        return new ServletAdapter();
     }
 
     private File4CustomObjectOpenApi file4CustomObjectOpenApi(Config config) {
