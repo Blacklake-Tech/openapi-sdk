@@ -1,6 +1,6 @@
 package tech.blacklake.dev.openapi.sdk.event;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static tech.blacklake.infra.boot.common.util.ObjectMapperConfigure.objectMapper;
 import org.apache.logging.log4j.util.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,8 +28,6 @@ public class EventDispatcher {
     private static final Logger logger = LoggerFactory.getLogger(EventDispatcher.class);
 
     private String secretKey;
-
-    private ObjectMapper objectMapper = new ObjectMapper();
 
     private Map<EventTypeEnum, IEventHandler> eventType2EventHandler;
 

@@ -12,6 +12,7 @@ import org.springframework.context.annotation.*;
 import tech.blacklake.dev.holyfile.open.File4CustomObjectOpenApi;
 import tech.blacklake.dev.openapi.sdk.BlacklakeSdkClient;
 import tech.blacklake.dev.openapi.sdk.cache.LocalCache;
+import tech.blacklake.dev.openapi.sdk.client.OkhttpOpenapiClient;
 import tech.blacklake.dev.openapi.sdk.client.OpenapiClient;
 import tech.blacklake.dev.openapi.sdk.client.decoder.ClientResDecoder;
 import tech.blacklake.dev.openapi.sdk.client.interceptor.ClientReqInterceptor;
@@ -52,8 +53,8 @@ public class OpenapiSdkAutoConfig {
     }
 
     @Bean
-    public TokenManager tokenManager(OpenapiClient openapiClient) {
-        return new TokenManager(LocalCache.getInstance(), openapiClient);
+    public TokenManager tokenManager(OkhttpOpenapiClient okhttpOpenapiClient) {
+        return new TokenManager(LocalCache.getInstance(), okhttpOpenapiClient);
     }
 
     @Bean
@@ -62,6 +63,11 @@ public class OpenapiSdkAutoConfig {
         return feignClientBuilder.forType(OpenapiClient.class, "openapiClient")
             .url(config.getBaseUrl())
             .build();
+    }
+
+    @Bean
+    public OkhttpOpenapiClient okhttpOpenapiClient(Config config) {
+        return new OkhttpOpenapiClient(config);
     }
 
     @Bean

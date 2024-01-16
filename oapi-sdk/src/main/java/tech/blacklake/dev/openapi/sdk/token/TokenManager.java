@@ -1,28 +1,35 @@
 package tech.blacklake.dev.openapi.sdk.token;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import tech.blacklake.dev.openapi.sdk.cache.ICache;
-import tech.blacklake.dev.openapi.sdk.client.OpenapiClient;
+import tech.blacklake.dev.openapi.sdk.client.OkhttpOpenapiClient;
 import tech.blacklake.dev.openapi.sdk.client.req.GetAccessTokenCO;
 import tech.blacklake.dev.openapi.sdk.client.res.AppAccessTokenVO;
 import tech.blacklake.dev.openapi.sdk.config.Config;
 import tech.blacklake.dev.openapi.sdk.constants.enums.AppTypeEnum;
+import tech.blacklake.dev.openapi.sdk.exception.GetAppAccessTokenFailException;
 import tech.blacklake.dev.openapi.sdk.exception.UnsupportedAppTypeException;
+import static tech.blacklake.infra.boot.common.util.ObjectMapperConfigure.objectMapper;
 
+
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import tech.blacklake.infra.boot.common.data.Result;
 
-import static tech.blacklake.dev.openapi.sdk.constants.Constants.APP_ACCESS_TOKEN_PREFIX;
-import static tech.blacklake.dev.openapi.sdk.constants.Constants.EXPIRE_DELTA_OF_SECONDS;
+import static tech.blacklake.dev.openapi.sdk.constants.Constants.*;
 
 public class TokenManager {
 
     private ICache cache;
 
-    private OpenapiClient openapiClient;
+    private OkhttpOpenapiClient okhttpOpenapiClient;
 
-    public TokenManager(ICache cache, OpenapiClient openapiClient) {
+    private static final Logger logger = LoggerFactory.getLogger(TokenManager.class);
+
+    public TokenManager(ICache cache, OkhttpOpenapiClient okhttpOpenapiClient) {
         this.cache = cache;
-        this.openapiClient = openapiClient;
+        this.okhttpOpenapiClient = okhttpOpenapiClient;
     }
 
     private String getAppAccessTokenKey(String appID) {
@@ -52,6 +59,16 @@ public class TokenManager {
         GetAccessTokenCO getAccessTokenCO = new GetAccessTokenCO();
         getAccessTokenCO.setAppKey(config.getAppKey());
         getAccessTokenCO.setAppSecret(config.getAppSecret());
-        return openapiClient.getAccessToken(getAccessTokenCO).getData();
+        try {
+            Result<AppAccessTokenVO> result = okhttpOpenapiClient.getAccessToken(getAccessTokenCO);
+            if (result.getCode() == SUCCESS_RESULT_CODE) {
+                return result.getData();
+            }
+            logger.error("get access token fails with result {}", objectMapper.writeValueAsString(result));
+            throw new GetAppAccessTokenFailException(result.getSubCode());
+        } catch (IOException e) {
+            logger.error("get access token fails with exception: ", e);
+            throw new GetAppAccessTokenFailException(e.getMessage());
+        }
     }
 }
