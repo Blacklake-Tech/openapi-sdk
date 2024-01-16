@@ -10,6 +10,7 @@ import org.springframework.cloud.openfeign.FeignClientBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
 import tech.blacklake.dev.holyfile.open.File4CustomObjectOpenApi;
 import tech.blacklake.dev.openapi.sdk.BlacklakeSdkClient;
@@ -59,6 +60,7 @@ public class OpenapiSdkAutoConfig {
     }
 
     @Bean
+    @Lazy
     public OpenapiClient openapiClient(Config config){
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
         return feignClientBuilder.forType(OpenapiClient.class, "openapiClient")
