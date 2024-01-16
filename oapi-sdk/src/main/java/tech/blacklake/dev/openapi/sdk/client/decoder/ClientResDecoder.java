@@ -57,7 +57,7 @@ public class ClientResDecoder implements Decoder {
                     }
                 }
                 return result;
-            } else if("ACCESS_TOKEN_EXPIRED".equals(result.getSubCode())){
+            } else if("OPENAPI-DOMAIN/ACCESS_TOKEN_EXPIRED".equals(result.getSubCode())){
                 //token过期，重新获取token
                 tokenManager.getAppAccessToken(config);
                 throw new RetryableException(
