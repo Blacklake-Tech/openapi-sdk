@@ -10,6 +10,7 @@ import org.springframework.cloud.openfeign.FeignClientBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import tech.blacklake.dev.holyfile.open.File4CustomObjectOpenApi;
 import tech.blacklake.dev.openapi.sdk.BlacklakeSdkClient;
 import tech.blacklake.dev.openapi.sdk.cache.LocalCache;
@@ -34,6 +35,7 @@ public class OpenapiSdkAutoConfig {
         );
     }
 
+    @Primary
     @Bean
     public ClientResDecoder clientResDecoder(Config config, TokenManager tokenManager) {
         return new ClientResDecoder(tokenManager, config);
