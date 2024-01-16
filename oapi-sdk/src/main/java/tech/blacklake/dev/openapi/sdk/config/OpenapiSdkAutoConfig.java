@@ -14,6 +14,7 @@ import tech.blacklake.dev.holyfile.open.File4CustomObjectOpenApi;
 import tech.blacklake.dev.openapi.sdk.BlacklakeSdkClient;
 import tech.blacklake.dev.openapi.sdk.cache.LocalCache;
 import tech.blacklake.dev.openapi.sdk.client.OpenapiClient;
+import tech.blacklake.dev.openapi.sdk.client.decoder.ClientResDecoder;
 import tech.blacklake.dev.openapi.sdk.client.interceptor.ClientReqInterceptor;
 import tech.blacklake.dev.openapi.sdk.constants.enums.AppTypeEnum;
 import tech.blacklake.dev.openapi.sdk.token.TokenManager;
@@ -31,6 +32,11 @@ public class OpenapiSdkAutoConfig {
         return new ClientReqInterceptor(
             tokenManager, config
         );
+    }
+
+    @Bean
+    public ClientResDecoder clientResDecoder(Config config, TokenManager tokenManager) {
+        return new ClientResDecoder(tokenManager, config);
     }
 
     @Bean
