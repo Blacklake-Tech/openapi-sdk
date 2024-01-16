@@ -56,7 +56,6 @@ public class OpenapiSdkAutoConfig {
         return new TokenManager(LocalCache.getInstance(), openapiClient);
     }
 
-    @DependsOn("clientResDecoder")
     @Bean
     public OpenapiClient openapiClient(Config config){
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
