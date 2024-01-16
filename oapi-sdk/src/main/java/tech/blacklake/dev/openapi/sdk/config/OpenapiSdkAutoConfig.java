@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.openfeign.FeignClientBuilder;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.*;
 import tech.blacklake.dev.holyfile.open.File4CustomObjectOpenApi;
 import tech.blacklake.dev.openapi.sdk.BlacklakeSdkClient;
 import tech.blacklake.dev.openapi.sdk.cache.LocalCache;
@@ -59,8 +56,8 @@ public class OpenapiSdkAutoConfig {
         return new TokenManager(LocalCache.getInstance(), openapiClient);
     }
 
+    @DependsOn("clientResDecoder")
     @Bean
-    @Lazy
     public OpenapiClient openapiClient(Config config){
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
         return feignClientBuilder.forType(OpenapiClient.class, "openapiClient")
