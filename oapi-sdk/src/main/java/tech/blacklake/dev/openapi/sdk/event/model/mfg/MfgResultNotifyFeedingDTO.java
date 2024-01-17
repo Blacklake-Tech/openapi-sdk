@@ -2,6 +2,7 @@ package tech.blacklake.dev.openapi.sdk.event.model.mfg;
 
 import tech.blacklake.dev.openapi.sdk.event.model.BaseCallbackDTO;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class MfgResultNotifyFeedingDTO extends BaseCallbackDTO {
@@ -74,7 +75,7 @@ public class MfgResultNotifyFeedingDTO extends BaseCallbackDTO {
 
         private List<Long> locationIds;
 
-        private Integer opeAmount;
+        private BigDecimal opeAmount;
 
         private String opeAmountStr;
 
@@ -146,11 +147,11 @@ public class MfgResultNotifyFeedingDTO extends BaseCallbackDTO {
             this.locationIds = locationIds;
         }
 
-        public Integer getOpeAmount() {
+        public BigDecimal getOpeAmount() {
             return opeAmount;
         }
 
-        public void setOpeAmount(Integer opeAmount) {
+        public void setOpeAmount(BigDecimal opeAmount) {
             this.opeAmount = opeAmount;
         }
 

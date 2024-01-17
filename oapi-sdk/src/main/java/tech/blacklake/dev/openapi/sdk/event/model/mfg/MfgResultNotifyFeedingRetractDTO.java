@@ -2,6 +2,7 @@ package tech.blacklake.dev.openapi.sdk.event.model.mfg;
 
 import tech.blacklake.dev.openapi.sdk.event.model.BaseCallbackDTO;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class MfgResultNotifyFeedingRetractDTO extends BaseCallbackDTO {
@@ -70,13 +71,13 @@ public class MfgResultNotifyFeedingRetractDTO extends BaseCallbackDTO {
 
         private String batchNo;
 
-        private Integer opeAmount;
+        private BigDecimal opeAmount;
 
         private Long opeUnitId;
 
         private Long opeLocationId;
 
-        private Integer auxAmount1;
+        private BigDecimal auxAmount1;
 
         private Long auxUnitId1;
 
@@ -132,11 +133,11 @@ public class MfgResultNotifyFeedingRetractDTO extends BaseCallbackDTO {
             this.batchNo = batchNo;
         }
 
-        public Integer getOpeAmount() {
+        public BigDecimal getOpeAmount() {
             return opeAmount;
         }
 
-        public void setOpeAmount(Integer opeAmount) {
+        public void setOpeAmount(BigDecimal opeAmount) {
             this.opeAmount = opeAmount;
         }
 
@@ -156,11 +157,11 @@ public class MfgResultNotifyFeedingRetractDTO extends BaseCallbackDTO {
             this.opeLocationId = opeLocationId;
         }
 
-        public Integer getAuxAmount1() {
+        public BigDecimal getAuxAmount1() {
             return auxAmount1;
         }
 
-        public void setAuxAmount1(Integer auxAmount1) {
+        public void setAuxAmount1(BigDecimal auxAmount1) {
             this.auxAmount1 = auxAmount1;
         }
 
