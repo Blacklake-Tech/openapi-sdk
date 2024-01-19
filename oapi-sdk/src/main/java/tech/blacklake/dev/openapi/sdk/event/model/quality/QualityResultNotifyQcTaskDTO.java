@@ -16,13 +16,13 @@ public class QualityResultNotifyQcTaskDTO extends BaseCallbackDTO {
     }
 
     public static class DataItem {
-        private List<Long> qcTaskId;
+        private Long qcTaskId;
 
-        public List<Long> getQcTaskId() {
+        public Long getQcTaskId() {
             return qcTaskId;
         }
 
-        public void setQcTaskId(List<Long> qcTaskId) {
+        public void setQcTaskId(Long qcTaskId) {
             this.qcTaskId = qcTaskId;
         }
     }
