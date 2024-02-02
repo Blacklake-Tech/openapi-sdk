@@ -21,7 +21,7 @@ public class ProcessPlanResponseDTO  {
     /**
      * 是否启用sop
      */
-    private int enableSop = 0;
+    private int enableSop;
 
     /**
      * 工序

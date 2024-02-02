@@ -46,7 +46,7 @@ public class ProcessManufacturedGoodsRequestDTO  {
     /**
      * 是否入库 0否 1是
      */
-    private int warehousing = 0;
+    private int warehousing;
 
     /**
      * 投料控件code
@@ -56,12 +56,12 @@ public class ProcessManufacturedGoodsRequestDTO  {
     /**
      * 是否必投 0否 1是
      */
-    private int feeding = 0;
+    private int feeding;
 
     /**
      * 投料上下限类型
      */
-    private int limit = 0;
+    private int limit;
 
     /**
      * 投料下限
@@ -89,14 +89,9 @@ public class ProcessManufacturedGoodsRequestDTO  {
     private List<Integer> feedingQualityStatus;
 
     /**
-     * 投料类型 key = FeedTypeEnum
-     */
-    private Integer feedType;
-
-    /**
      * 是否报工
      */
-    private int reportFlag = 0;
+    private int reportFlag;
 
     /**
      * 报工方式
@@ -107,6 +102,11 @@ public class ProcessManufacturedGoodsRequestDTO  {
      * 自动入库
      */
     private Integer autoWarehousingFlag;
+
+    /**
+     * 投料类型 key = FeedTypeEnum
+     */
+    private Integer feedType;
 
     public Long getId() {
         return id;
@@ -172,10 +172,6 @@ public class ProcessManufacturedGoodsRequestDTO  {
         return feedingQualityStatus;
     }
 
-    public Integer getFeedType() {
-        return feedType;
-    }
-
     public int getReportFlag() {
         return reportFlag;
     }
@@ -186,6 +182,10 @@ public class ProcessManufacturedGoodsRequestDTO  {
 
     public Integer getAutoWarehousingFlag() {
         return autoWarehousingFlag;
+    }
+
+    public Integer getFeedType() {
+        return feedType;
     }
 
     public void setId(Long id) {
@@ -252,10 +252,6 @@ public class ProcessManufacturedGoodsRequestDTO  {
         this.feedingQualityStatus = feedingQualityStatus;
     }
 
-    public void setFeedType(Integer feedType) {
-        this.feedType = feedType;
-    }
-
     public void setReportFlag(int reportFlag) {
         this.reportFlag = reportFlag;
     }
@@ -266,6 +262,10 @@ public class ProcessManufacturedGoodsRequestDTO  {
 
     public void setAutoWarehousingFlag(Integer autoWarehousingFlag) {
         this.autoWarehousingFlag = autoWarehousingFlag;
+    }
+
+    public void setFeedType(Integer feedType) {
+        this.feedType = feedType;
     }
 }
 

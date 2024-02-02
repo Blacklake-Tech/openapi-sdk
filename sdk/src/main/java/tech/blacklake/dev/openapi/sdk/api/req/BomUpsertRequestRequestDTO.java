@@ -11,7 +11,7 @@ public class BomUpsertRequestRequestDTO  {
     /**
      * 父项物料编号,不可超过255个字符
      */
-    private String materialCode = "";
+    private String materialCode;
 
     /**
      * 父项物料名称,不可超过255个字符
@@ -31,7 +31,7 @@ public class BomUpsertRequestRequestDTO  {
     /**
      * 版本号,同一工厂下,父项物料编号+版本号不能重复,支持数字、数字和字母,不可超过255个字符
      */
-    private String version = "";
+    private String version;
 
     /**
      * 版本说明,不可超过1000个字符,支持换行

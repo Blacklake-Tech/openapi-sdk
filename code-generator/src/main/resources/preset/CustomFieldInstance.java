@@ -1,4 +1,4 @@
-package tech.blacklake.dev.openapi.sdk.api.common.custom;
+package tech.blacklake.dev.openapi.sdk.api.common;
 
 import io.swagger.annotations.ApiModelProperty;
 import java.util.List;

@@ -74,40 +74,37 @@ public class BlackLakeHttpClient extends TemplateController {
     public static BlackLakeHttpClient getBlackLakeHttpClient(String appKey, String appSecret, String factoryNumber, String endpoint, BlackLakeHttpClientConfig blackLakeHttpClientConfig) {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(BlackLakeHttpClient.class);
-        enhancer.setCallback(new MethodInterceptor() {
-            @Override
-            public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-                // 如果是TemplateController接口定义的方法, 则发起openapi调用
-                if (method.getDeclaringClass() == TemplateController.class) {
-                    BlackLakeHttpClient blackLakeHttpClient = (BlackLakeHttpClient) o;
-                    // 获取token
-                    if (blackLakeHttpClient.token == null) {
-                        blackLakeHttpClient.refreshToken();
-                    }
-
-                    // 获取请求地址
-                    String url = method.getAnnotation(ApiPath.class).value();
-                    url = blackLakeHttpClient.handleUrl(url);
-
-                    try {
-                        byte[] bytes = blackLakeHttpClient.doSyncInvoke(objects[0], url);
-                        Result<?> result = (Result<?>) OBJECT_MAPPER.readValue(bytes, method.getReturnType());
-                        // 当token过期时，自动刷新token并重新请求
-                        if (blackLakeHttpClient.handleResult(result)) {
-                            blackLakeHttpClient.refreshToken();
-                            bytes = blackLakeHttpClient.doSyncInvoke(objects[0], url);
-                            result = (Result<?>) OBJECT_MAPPER.readValue(bytes, method.getReturnType());
-                            blackLakeHttpClient.handleResult(result);
-                        }
-                        return result;
-
-                    } catch (IOException e) {
-                        throw new BlackLakeException(ErrorCodeEnum.RESPONSE_BODY_DESERIALIZE_FAILED,
-                                e.getMessage());
-                    }
-                } else {
-                    return methodProxy.invokeSuper(o, objects);
+        enhancer.setCallback((MethodInterceptor) (o, method, objects, methodProxy) -> {
+            // 如果是TemplateController接口定义的方法, 则发起openapi调用
+            if (method.getDeclaringClass() == TemplateController.class) {
+                BlackLakeHttpClient blackLakeHttpClient = (BlackLakeHttpClient) o;
+                // 获取token
+                if (blackLakeHttpClient.token == null) {
+                    blackLakeHttpClient.refreshToken();
                 }
+
+                // 获取请求地址
+                String url = method.getAnnotation(ApiPath.class).value();
+                url = blackLakeHttpClient.handleUrl(url);
+
+                try {
+                    byte[] bytes = blackLakeHttpClient.doSyncInvoke(objects[0], url);
+                    Result<?> result = (Result<?>) OBJECT_MAPPER.readValue(bytes, method.getReturnType());
+                    // 当token过期时，自动刷新token并重新请求
+                    if (blackLakeHttpClient.handleResult(result)) {
+                        blackLakeHttpClient.refreshToken();
+                        bytes = blackLakeHttpClient.doSyncInvoke(objects[0], url);
+                        result = (Result<?>) OBJECT_MAPPER.readValue(bytes, method.getReturnType());
+                        blackLakeHttpClient.handleResult(result);
+                    }
+                    return result;
+
+                } catch (IOException e) {
+                    throw new BlackLakeException(ErrorCodeEnum.RESPONSE_BODY_DESERIALIZE_FAILED,
+                            e.getMessage());
+                }
+            } else {
+                return methodProxy.invokeSuper(o, objects);
             }
         });
 

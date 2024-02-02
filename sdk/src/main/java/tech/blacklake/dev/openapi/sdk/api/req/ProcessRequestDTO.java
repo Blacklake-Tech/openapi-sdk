@@ -31,7 +31,7 @@ public class ProcessRequestDTO  {
     /**
      * 工作中心
      */
-    private long workCenterId = 0;
+    private long workCenterId;
 
     /**
      * 工序说明

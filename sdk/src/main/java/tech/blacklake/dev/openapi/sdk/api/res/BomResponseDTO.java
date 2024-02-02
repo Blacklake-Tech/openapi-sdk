@@ -9,9 +9,9 @@ import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
 public class BomResponseDTO  {
     /**
-     * id
+     * bom id
      */
-    private long id = 0;
+    private long id;
 
     public long getId() {
         return id;

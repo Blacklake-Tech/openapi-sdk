@@ -11,7 +11,7 @@ public class WorkOrderListResponseDTO extends CustomFieldBaseVO  {
     /**
      * 工单id
      */
-    private long workOrderId = 0;
+    private long workOrderId;
 
     /**
      * 工单code
@@ -36,12 +36,12 @@ public class WorkOrderListResponseDTO extends CustomFieldBaseVO  {
     /**
      * 工单暂停状态
      */
-    private int pauseFlag = 0;
+    private int pauseFlag;
 
     /**
      * 是否指定用料 1:是 0:否
      */
-    private int specifiedMaterial = 0;
+    private int specifiedMaterial;
 
     /**
      * 计划开始时间
@@ -137,6 +137,11 @@ public class WorkOrderListResponseDTO extends CustomFieldBaseVO  {
      * 班次
      */
     private ShiftResponseDTO shift;
+
+    /**
+     * 设备
+     */
+    private ResourceResponseDTO resource;
 
     /**
      * 创建人
@@ -262,6 +267,10 @@ public class WorkOrderListResponseDTO extends CustomFieldBaseVO  {
         return shift;
     }
 
+    public ResourceResponseDTO getResource() {
+        return resource;
+    }
+
     public UserResponseDTO getCreator() {
         return creator;
     }
@@ -380,6 +389,10 @@ public class WorkOrderListResponseDTO extends CustomFieldBaseVO  {
 
     public void setShift(ShiftResponseDTO shift) {
         this.shift = shift;
+    }
+
+    public void setResource(ResourceResponseDTO resource) {
+        this.resource = resource;
     }
 
     public void setCreator(UserResponseDTO creator) {

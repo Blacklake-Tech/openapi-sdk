@@ -7,14 +7,14 @@ import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class MaterialDocumentRelResponseDTO  {
+public class MaterialDocumentRelResponseDTO {
     /**
-     * 文档id
+     * 文件ID
      */
     private Long documentId;
 
     /**
-     * 文档路径
+     * 文件路径
      */
     private String documentPath;
 

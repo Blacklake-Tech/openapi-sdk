@@ -39,7 +39,7 @@ public class ProduceTaskDetailResponseDTO {
     private String relatedWorkOrderCode;
 
     /**
-     * 工单指定物料
+     * 工单是否指定物料
      */
     private boolean specifiedMaterial;
 
@@ -54,12 +54,12 @@ public class ProduceTaskDetailResponseDTO {
     private long relatedProcessId;
 
     /**
-     * 工序号
+     * 工序序号
      */
     private String relatedProcessNum;
 
     /**
-     * 工序名
+     * 工序名称
      */
     private String relatedProcessName;
 
@@ -99,7 +99,7 @@ public class ProduceTaskDetailResponseDTO {
     private Long planStartTime;
 
     /**
-     * 开工时间
+     * 实际开工时间
      */
     private Long actualStartTime;
 
@@ -119,12 +119,12 @@ public class ProduceTaskDetailResponseDTO {
     private String remark;
 
     /**
-     * 销售订单编号列表
+     * 销售订单信息列表
      */
     private List<SalesOrderResponseDTO> salesOrderList;
 
     /**
-     * 报告模版ids
+     * 报告模版ID列表
      */
     private List<Long> reportTemplateIds;
 

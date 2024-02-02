@@ -21,12 +21,12 @@ public class ProcessConnectionRequestDTO  {
     /**
      * 接续关系类型
      */
-    private int connectionType = 0;
+    private int connectionType;
 
     /**
      * 时间间隔值
      */
-    private int intervalTime = 0;
+    private int intervalTime;
 
     /**
      * 时间间隔单位 ID

@@ -16,12 +16,12 @@ public class ResourceGroupRequestDTO {
     /**
      * 资源组id
      */
-    private long resourceGroupId = 0;
+    private long resourceGroupId;
 
     /**
      * 资源组类型
      */
-    private int groupType = 0;
+    private int groupType;
 
     /**
      * 资源ids

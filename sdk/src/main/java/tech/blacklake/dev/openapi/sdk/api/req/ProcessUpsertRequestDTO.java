@@ -11,12 +11,12 @@ public class ProcessUpsertRequestDTO {
     /**
      * 工序编号,工厂内不能重复,支持字母、数字和符号,不可超过255个字符
      */
-    private String code = "";
+    private String code;
 
     /**
      * 工序名称,不可超过255个字符,前后不支持空格
      */
-    private String name = "";
+    private String name;
 
     /**
      * 所属部门,不可超过255个字符
@@ -26,7 +26,7 @@ public class ProcessUpsertRequestDTO {
     /**
      * 工作中心编号,不可超过255个字符
      */
-    private String workCenterCode = "";
+    private String workCenterCode;
 
     /**
      * 工序说明,不可超过1000个字符,支持换行

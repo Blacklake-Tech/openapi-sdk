@@ -16,12 +16,17 @@ public class PickOrderDetailResponseDTO  {
     /**
      * 领料单id
      */
-    private long pickOrderId = 0;
+    private long pickOrderId;
+
+    /**
+     * 领料类型 key = PickOrderTypeEnum
+     */
+    private BizConstantDisplay pickOrderType;
 
     /**
      * 状态
      */
-    private int pickOrderStatus = 0;
+    private int pickOrderStatus;
 
     /**
      * 物料信息
@@ -41,7 +46,7 @@ public class PickOrderDetailResponseDTO  {
     /**
      * 创建时间
      */
-    private long createdAt = 0;
+    private long createdAt;
 
     /**
      * 更新人
@@ -51,7 +56,7 @@ public class PickOrderDetailResponseDTO  {
     /**
      * 更新时间
      */
-    private long updatedAt = 0;
+    private long updatedAt;
 
     public String getPickOrderCode() {
         return pickOrderCode;
@@ -59,6 +64,10 @@ public class PickOrderDetailResponseDTO  {
 
     public long getPickOrderId() {
         return pickOrderId;
+    }
+
+    public BizConstantDisplay getPickOrderType() {
+        return pickOrderType;
     }
 
     public int getPickOrderStatus() {
@@ -95,6 +104,10 @@ public class PickOrderDetailResponseDTO  {
 
     public void setPickOrderId(long pickOrderId) {
         this.pickOrderId = pickOrderId;
+    }
+
+    public void setPickOrderType(BizConstantDisplay pickOrderType) {
+        this.pickOrderType = pickOrderType;
     }
 
     public void setPickOrderStatus(int pickOrderStatus) {

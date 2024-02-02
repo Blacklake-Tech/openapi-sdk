@@ -24,17 +24,17 @@ public class ProcessRouteNodeRelationRequestDTO  {
     private String nextProcessNum;
 
     /**
-     * connectionType
+     * 接续方式
      */
     private Integer connectionType;
 
     /**
-     * intervalTime
+     * 工序间隔时间
      */
     private Integer intervalTime;
 
     /**
-     * timeUnit
+     * 工序间隔时间单位
      */
     private Integer timeUnit;
 

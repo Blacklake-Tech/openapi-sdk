@@ -11,12 +11,12 @@ public class OutputMaterialResponseDTO  {
     /**
      * 业务ID
      */
-    private long id = 0;
+    private long id;
 
     /**
      * 是否是主产出
      */
-    private int main = 0;
+    private int main;
 
     /**
      * 计划生产数
@@ -56,7 +56,7 @@ public class OutputMaterialResponseDTO  {
     /**
      * 行号
      */
-    private int lineSeq = 0;
+    private int lineSeq;
 
     /**
      * 版本号
@@ -81,7 +81,7 @@ public class OutputMaterialResponseDTO  {
     /**
      * 物料ID
      */
-    private long materialId = 0;
+    private long materialId;
 
     /**
      * 物料信息
@@ -91,7 +91,7 @@ public class OutputMaterialResponseDTO  {
     /**
      * 单位ID
      */
-    private long unitId = 0;
+    private long unitId;
 
     /**
      * 单位名称
@@ -166,7 +166,7 @@ public class OutputMaterialResponseDTO  {
     /**
      * 是否入库
      */
-    private int warehousing = 0;
+    private int warehousing;
 
     /**
      * 自动入库

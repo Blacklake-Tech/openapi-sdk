@@ -11,17 +11,17 @@ public class WorkCenterResourceGroupRequestDTO  {
     /**
      * 可用资源组行ID
      */
-    private long lineId = 0;
+    private long lineId;
 
     /**
      * 行号
      */
-    private int lineNo = 0;
+    private int lineNo;
 
     /**
      * 资源组分类，0-用户，1-部门，2-资源分类
      */
-    private int groupType = 0;
+    private int groupType;
 
     /**
      * 资源组名称

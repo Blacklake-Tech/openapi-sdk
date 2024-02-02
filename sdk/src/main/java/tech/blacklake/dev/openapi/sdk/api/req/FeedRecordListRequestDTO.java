@@ -11,19 +11,19 @@ public class FeedRecordListRequestDTO extends BasePage {
     /**
      * 工单id
      */
-    private long workOrderId;
+    private Long workOrderId;
 
     /**
-     * 投料时间范围-开始
+     * 投料时间范围-开始-查询范围仅限一小时
      */
     private long feedTimeStart;
 
     /**
-     * 投料时间范围-结束
+     * 投料时间范围-结束-查询范围仅限一小时
      */
     private long feedTimeEnd;
 
-    public long getWorkOrderId() {
+    public Long getWorkOrderId() {
         return workOrderId;
     }
 
@@ -35,7 +35,7 @@ public class FeedRecordListRequestDTO extends BasePage {
         return feedTimeEnd;
     }
 
-    public void setWorkOrderId(long workOrderId) {
+    public void setWorkOrderId(Long workOrderId) {
         this.workOrderId = workOrderId;
     }
 

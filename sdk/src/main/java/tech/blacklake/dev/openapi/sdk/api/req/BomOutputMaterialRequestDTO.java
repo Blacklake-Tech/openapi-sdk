@@ -9,133 +9,146 @@ import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
 public class BomOutputMaterialRequestDTO  {
     /**
-     * 父项物料编号,不可超过255个字符
+     * 业务ID
      */
-    private String bomMaterialCode = "";
+    private Long id;
 
     /**
-     * 版本号,父项物料版本号
+     * 行号
      */
-    private String bomVersion = "";
+    private int lineSeq;
 
     /**
-     * 行号,整数,默认以10开始,以10递增,同一物料清单下,产出物料行号不支持重复
+     * 物料ID
      */
-    private String lineSeq = "";
+    private long materialId;
 
     /**
-     * 物料编号,不可超过255个字符
-     */
-    private String materialCode = "";
-
-    /**
-     * 物料名称,不可超过255个字符
-     */
-    private String materialName;
-
-    /**
-     * 数量,默认值为1;必须大于0
+     * 数量
      */
     private String amount;
 
     /**
-     * 单位名称,不可超过255个字符
+     * 单位id
      */
-    private String unit;
+    private long unitId;
 
     /**
-     * 报工工序号,当父项物料不为虚拟件时,可选择所选工艺路线上的任何一道工序;默认值为null
+     * 报工工序ID
      */
-    private String workReportProcessNum;
+    private Long outputProcessId;
 
     /**
-     * 报工控件编号,主产出所选工艺路线投料工序中已有的控件编号
+     * 报工控件Code
      */
-    private String workReportSopControlCode;
+    private String outputSopControlCode;
 
     /**
-     * 单次报工数量,默认null,必须大于0
+     * 单次报工数量
      */
     private String singleWorkReportAmount;
 
-    public String getBomMaterialCode() {
-        return bomMaterialCode;
+    /**
+     * 报工方式
+     */
+    private List<Integer> reportingMethods;
+
+    /**
+     * 是否入库
+     */
+    private int warehousing;
+
+    /**
+     * 自动入库
+     */
+    private Integer autoWarehousingFlag;
+
+    public Long getId() {
+        return id;
     }
 
-    public String getBomVersion() {
-        return bomVersion;
-    }
-
-    public String getLineSeq() {
+    public int getLineSeq() {
         return lineSeq;
     }
 
-    public String getMaterialCode() {
-        return materialCode;
-    }
-
-    public String getMaterialName() {
-        return materialName;
+    public long getMaterialId() {
+        return materialId;
     }
 
     public String getAmount() {
         return amount;
     }
 
-    public String getUnit() {
-        return unit;
+    public long getUnitId() {
+        return unitId;
     }
 
-    public String getWorkReportProcessNum() {
-        return workReportProcessNum;
+    public Long getOutputProcessId() {
+        return outputProcessId;
     }
 
-    public String getWorkReportSopControlCode() {
-        return workReportSopControlCode;
+    public String getOutputSopControlCode() {
+        return outputSopControlCode;
     }
 
     public String getSingleWorkReportAmount() {
         return singleWorkReportAmount;
     }
 
-    public void setBomMaterialCode(String bomMaterialCode) {
-        this.bomMaterialCode = bomMaterialCode;
+    public List<Integer> getReportingMethods() {
+        return reportingMethods;
     }
 
-    public void setBomVersion(String bomVersion) {
-        this.bomVersion = bomVersion;
+    public int getWarehousing() {
+        return warehousing;
     }
 
-    public void setLineSeq(String lineSeq) {
+    public Integer getAutoWarehousingFlag() {
+        return autoWarehousingFlag;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setLineSeq(int lineSeq) {
         this.lineSeq = lineSeq;
     }
 
-    public void setMaterialCode(String materialCode) {
-        this.materialCode = materialCode;
-    }
-
-    public void setMaterialName(String materialName) {
-        this.materialName = materialName;
+    public void setMaterialId(long materialId) {
+        this.materialId = materialId;
     }
 
     public void setAmount(String amount) {
         this.amount = amount;
     }
 
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setUnitId(long unitId) {
+        this.unitId = unitId;
     }
 
-    public void setWorkReportProcessNum(String workReportProcessNum) {
-        this.workReportProcessNum = workReportProcessNum;
+    public void setOutputProcessId(Long outputProcessId) {
+        this.outputProcessId = outputProcessId;
     }
 
-    public void setWorkReportSopControlCode(String workReportSopControlCode) {
-        this.workReportSopControlCode = workReportSopControlCode;
+    public void setOutputSopControlCode(String outputSopControlCode) {
+        this.outputSopControlCode = outputSopControlCode;
     }
 
     public void setSingleWorkReportAmount(String singleWorkReportAmount) {
         this.singleWorkReportAmount = singleWorkReportAmount;
+    }
+
+    public void setReportingMethods(List<Integer> reportingMethods) {
+        this.reportingMethods = reportingMethods;
+    }
+
+    public void setWarehousing(int warehousing) {
+        this.warehousing = warehousing;
+    }
+
+    public void setAutoWarehousingFlag(Integer autoWarehousingFlag) {
+        this.autoWarehousingFlag = autoWarehousingFlag;
     }
 }
 

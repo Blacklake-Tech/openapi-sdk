@@ -11,12 +11,12 @@ public class ProcessRouteUpsertRequestDTO  {
     /**
      * 工艺路线编号,不能重复,支持字母、数字和符号,不可超过255个字符,前后不支持空格
      */
-    private String processRouteCode = "";
+    private String processRouteCode;
 
     /**
      * 工艺路线名称,不可超过255个字符,前后不支持空格
      */
-    private String processRouteName = "";
+    private String processRouteName;
 
     /**
      * 所属部门编号,不可超过255个字符
@@ -26,7 +26,7 @@ public class ProcessRouteUpsertRequestDTO  {
     /**
      * 物料编号,不可超过255个字符
      */
-    private String materialCode = "";
+    private String materialCode;
 
     /**
      * 物料名称,不可超过255个字符

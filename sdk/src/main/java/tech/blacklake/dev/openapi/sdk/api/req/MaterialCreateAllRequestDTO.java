@@ -1,0 +1,89 @@
+package tech.blacklake.dev.openapi.sdk.api.req;
+
+import java.time.*;
+import java.util.*;
+import java.math.*;
+import java.io.*;
+import tech.blacklake.dev.openapi.sdk.api.common.*;
+import tech.blacklake.dev.openapi.sdk.api.dto.*;
+
+public class MaterialCreateAllRequestDTO {
+    /**
+     * 物料基本信息
+     */
+    private MaterialCreateRequestDTO baseInfo;
+
+    /**
+     * 物料单位信息
+     */
+    private MaterialCreateUnitRequestDTO unitList;
+
+    /**
+     * 物料仓储信息
+     */
+    private MaterialStorageCreateRequestDTO inventoryInfo;
+
+    /**
+     * 物料自制信息
+     */
+    private MaterialProductionSaveRequestDTO productionInfo;
+
+    /**
+     * 物料采购信息
+     */
+    private MaterialPurchaseSaveRequestDTO purchaseInfo;
+
+    /**
+     * 投料信息
+     */
+    private MaterialFeedCreateSaveRequestDTO feedInfo;
+
+    public MaterialCreateRequestDTO getBaseInfo() {
+        return baseInfo;
+    }
+
+    public MaterialCreateUnitRequestDTO getUnitList() {
+        return unitList;
+    }
+
+    public MaterialStorageCreateRequestDTO getInventoryInfo() {
+        return inventoryInfo;
+    }
+
+    public MaterialProductionSaveRequestDTO getProductionInfo() {
+        return productionInfo;
+    }
+
+    public MaterialPurchaseSaveRequestDTO getPurchaseInfo() {
+        return purchaseInfo;
+    }
+
+    public MaterialFeedCreateSaveRequestDTO getFeedInfo() {
+        return feedInfo;
+    }
+
+    public void setBaseInfo(MaterialCreateRequestDTO baseInfo) {
+        this.baseInfo = baseInfo;
+    }
+
+    public void setUnitList(MaterialCreateUnitRequestDTO unitList) {
+        this.unitList = unitList;
+    }
+
+    public void setInventoryInfo(MaterialStorageCreateRequestDTO inventoryInfo) {
+        this.inventoryInfo = inventoryInfo;
+    }
+
+    public void setProductionInfo(MaterialProductionSaveRequestDTO productionInfo) {
+        this.productionInfo = productionInfo;
+    }
+
+    public void setPurchaseInfo(MaterialPurchaseSaveRequestDTO purchaseInfo) {
+        this.purchaseInfo = purchaseInfo;
+    }
+
+    public void setFeedInfo(MaterialFeedCreateSaveRequestDTO feedInfo) {
+        this.feedInfo = feedInfo;
+    }
+}
+

@@ -11,7 +11,7 @@ public class BomListResponseDTO  {
     /**
      * 业务ID
      */
-    private long id = 0;
+    private long id;
 
     /**
      * 启用状态 key = ActiveEnum
@@ -21,7 +21,7 @@ public class BomListResponseDTO  {
     /**
      * 父项物料ID
      */
-    private long materialId = 0;
+    private long materialId;
 
     /**
      * 父项物料数据
@@ -36,7 +36,7 @@ public class BomListResponseDTO  {
     /**
      * 单位ID
      */
-    private long unitId = 0;
+    private long unitId;
 
     /**
      * 单位name
@@ -136,12 +136,12 @@ public class BomListResponseDTO  {
     /**
      * 创建时间
      */
-    private long createdAt = 0;
+    private long createdAt;
 
     /**
      * 更新时间
      */
-    private long updatedAt = 0;
+    private long updatedAt;
 
     public long getId() {
         return id;

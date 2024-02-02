@@ -7,21 +7,21 @@ import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class UnitDetailResponseDTO  {
+public class UnitDetailResponseDTO {
     /**
-     * 单位类型
+     * 单位类型，0主单位，1转换单位，2辅助单位
      */
-    private Integer unitType;
+    private int unitType;
 
     /**
-     * 工厂id
+     * 工厂ID
      */
-    private long orgId = 0;
+    private long orgId;
 
     /**
-     * id
+     * 业务ID
      */
-    private long id = 0;
+    private long id;
 
     /**
      * 单位编号
@@ -34,31 +34,31 @@ public class UnitDetailResponseDTO  {
     private String name;
 
     /**
-     * 备注
+     * 单位描述
      */
     private String remark;
 
     /**
-     * 是否开启精度
+     * 精度管理，1启用0停用
      */
-    private BizConstantDisplay enablePrecision;
+    private int enablePrecision;
 
     /**
-     * 舍入规则
+     * 舍入规则，0四舍五入1奇进偶舍2进位3舍位
      */
-    private BizConstantDisplay roundingRole;
+    private Integer roundingRole;
 
     /**
      * 精度
      */
-    private int precisionFigure = 0;
+    private Integer precisionFigure;
 
     /**
-     * 是否启用
+     * 使用状态，1启用0停用
      */
-    private BizConstantDisplay enableFlag;
+    private int enableFlag;
 
-    public Integer getUnitType() {
+    public int getUnitType() {
         return unitType;
     }
 
@@ -82,23 +82,23 @@ public class UnitDetailResponseDTO  {
         return remark;
     }
 
-    public BizConstantDisplay getEnablePrecision() {
+    public int getEnablePrecision() {
         return enablePrecision;
     }
 
-    public BizConstantDisplay getRoundingRole() {
+    public Integer getRoundingRole() {
         return roundingRole;
     }
 
-    public int getPrecisionFigure() {
+    public Integer getPrecisionFigure() {
         return precisionFigure;
     }
 
-    public BizConstantDisplay getEnableFlag() {
+    public int getEnableFlag() {
         return enableFlag;
     }
 
-    public void setUnitType(Integer unitType) {
+    public void setUnitType(int unitType) {
         this.unitType = unitType;
     }
 
@@ -122,19 +122,19 @@ public class UnitDetailResponseDTO  {
         this.remark = remark;
     }
 
-    public void setEnablePrecision(BizConstantDisplay enablePrecision) {
+    public void setEnablePrecision(int enablePrecision) {
         this.enablePrecision = enablePrecision;
     }
 
-    public void setRoundingRole(BizConstantDisplay roundingRole) {
+    public void setRoundingRole(Integer roundingRole) {
         this.roundingRole = roundingRole;
     }
 
-    public void setPrecisionFigure(int precisionFigure) {
+    public void setPrecisionFigure(Integer precisionFigure) {
         this.precisionFigure = precisionFigure;
     }
 
-    public void setEnableFlag(BizConstantDisplay enableFlag) {
+    public void setEnableFlag(int enableFlag) {
         this.enableFlag = enableFlag;
     }
 }

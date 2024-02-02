@@ -11,7 +11,7 @@ public class ConfigurationItemsRequestDTO  {
     /**
      * 用料追溯关系
      */
-    private int traceRelationship = 0;
+    private int traceRelationship;
 
     public int getTraceRelationship() {
         return traceRelationship;

@@ -11,7 +11,7 @@ public class SourceSalesOrderResponseDTO  {
     /**
      * 业务id
      */
-    private long id = 0;
+    private long id;
 
     /**
      * 销售订单信息

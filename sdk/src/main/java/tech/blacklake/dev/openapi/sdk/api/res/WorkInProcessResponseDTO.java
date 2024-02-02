@@ -11,17 +11,17 @@ public class WorkInProcessResponseDTO  {
     /**
      * 工序在制品快照ID
      */
-    private long id = 0;
+    private long id;
 
     /**
      * 工艺路线下工序ID
      */
-    private long processRouteNodeId = 0;
+    private long processRouteNodeId;
 
     /**
      * 物料id
      */
-    private long materialId = 0;
+    private long materialId;
 
     /**
      * 物料信息
@@ -31,7 +31,7 @@ public class WorkInProcessResponseDTO  {
     /**
      * 单位id
      */
-    private long unitId = 0;
+    private long unitId;
 
     /**
      * 单位
@@ -56,17 +56,17 @@ public class WorkInProcessResponseDTO  {
     /**
      * 是否入库
      */
-    private int warehousing = 0;
+    private int warehousing;
 
     /**
      * 投料单位id
      */
-    private long feedUnitId = 0;
+    private long feedUnitId;
 
     /**
      * 投料单位
      */
-    private UnitDetailResponseDTO feedUnit;
+    private UnitDetailResDO feedUnit;
 
     /**
      * sop投料控件ID
@@ -81,7 +81,7 @@ public class WorkInProcessResponseDTO  {
     /**
      * 是否必投
      */
-    private int feeding = 0;
+    private int feeding;
 
     /**
      * 投料上下限类型 key= input
@@ -166,7 +166,7 @@ public class WorkInProcessResponseDTO  {
     /**
      * 是否报工
      */
-    private int reportFlag = 0;
+    private int reportFlag;
 
     /**
      * 报工方式
@@ -227,7 +227,7 @@ public class WorkInProcessResponseDTO  {
         return feedUnitId;
     }
 
-    public UnitDetailResponseDTO getFeedUnit() {
+    public UnitDetailResDO getFeedUnit() {
         return feedUnit;
     }
 
@@ -367,7 +367,7 @@ public class WorkInProcessResponseDTO  {
         this.feedUnitId = feedUnitId;
     }
 
-    public void setFeedUnit(UnitDetailResponseDTO feedUnit) {
+    public void setFeedUnit(UnitDetailResDO feedUnit) {
         this.feedUnit = feedUnit;
     }
 

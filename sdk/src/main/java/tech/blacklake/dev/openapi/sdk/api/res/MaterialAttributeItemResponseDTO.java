@@ -7,18 +7,18 @@ import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class MaterialAttributeItemResponseDTO  {
+public class MaterialAttributeItemResponseDTO {
     /**
-     * 业务id
+     * 物料属性值ID
      */
-    private long id = 0;
+    private Long id;
 
     /**
-     * 内容
+     * 物料属性值内容
      */
     private String content;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -26,7 +26,7 @@ public class MaterialAttributeItemResponseDTO  {
         return content;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
