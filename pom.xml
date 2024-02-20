@@ -31,7 +31,7 @@
         <resource.version>6.7.1-RELEASE</resource.version>
         <mfg.version>6.8.1-RELEASE</mfg.version>
         <order.version>6.8.1-RELEASE</order.version>
-        <quality.version>6.7.0-RELEASE</quality.version>
+        <quality.version>8.3.0-SNAPSHOT</quality.version>
         <workcenter.version>6.8.0-RELEASE</workcenter.version>
         <inventory.version>6.8.1-RELEASE</inventory.version>
         <material.version>6.8.1-RELEASE</material.version>
@@ -179,6 +179,12 @@
             <dependency>
                 <groupId>tech.blacklake.dev.quality</groupId>
                 <artifactId>quality-domain-api</artifactId>
+                <version>${quality.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.quality</groupId>
+                <artifactId>quality-domain-openapi</artifactId>
                 <version>${quality.version}</version>
             </dependency>
 
