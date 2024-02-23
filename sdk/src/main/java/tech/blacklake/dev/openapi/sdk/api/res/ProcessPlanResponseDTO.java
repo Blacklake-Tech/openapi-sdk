@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class ProcessPlanResponseDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class ProcessPlanResponseDTO {
     /**
      * 引用工艺路线信息
      */
@@ -73,4 +74,3 @@ public class ProcessPlanResponseDTO  {
         this.processConnections = processConnections;
     }
 }
-

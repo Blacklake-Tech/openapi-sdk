@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class OutputMaterialRequestDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class OutputMaterialRequestDTO {
     /**
      * 是否是主产出（0-副产出；1-主产出）
      */
@@ -255,4 +256,3 @@ public class OutputMaterialRequestDTO  {
         this.autoWarehousingFlag = autoWarehousingFlag;
     }
 }
-

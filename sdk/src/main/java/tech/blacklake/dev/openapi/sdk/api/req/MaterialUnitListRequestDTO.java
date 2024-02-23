@@ -1,11 +1,12 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
+
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
 
 public class MaterialUnitListRequestDTO {
     /**
@@ -19,7 +20,7 @@ public class MaterialUnitListRequestDTO {
     private String unitName;
 
     /**
-     * 单位类型，必填，可填写{转换单位、辅助单位} 
+     * 单位类型，必填，可填写{转换单位、辅助单位}
      */
     private String unitType;
 
@@ -86,4 +87,3 @@ public class MaterialUnitListRequestDTO {
         this.enableFlag = enableFlag;
     }
 }
-

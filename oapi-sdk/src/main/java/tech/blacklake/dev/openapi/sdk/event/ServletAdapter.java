@@ -19,8 +19,8 @@ public class ServletAdapter {
      * @param eventDispatcher
      * @throws IOException
      */
-    public void handleEvent(HttpServletRequest req, HttpServletResponse response,
-                            EventDispatcher eventDispatcher) throws IOException {
+    public void handleEvent(HttpServletRequest req, HttpServletResponse response, EventDispatcher eventDispatcher)
+            throws IOException {
         // 转换请求对象
         EventReq eventReq = HTTP_TRANSLATOR.translate(req);
 

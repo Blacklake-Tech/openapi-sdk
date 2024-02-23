@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class SourceSalesOrderUpdateRequestDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class SourceSalesOrderUpdateRequestDTO {
     /**
      * 业务ID
      */
@@ -60,4 +61,3 @@ public class SourceSalesOrderUpdateRequestDTO  {
         this.deliveryTime = deliveryTime;
     }
 }
-

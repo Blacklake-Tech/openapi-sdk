@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class PlanOrderCloseResponseDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class PlanOrderCloseResponseDTO {
     /**
      * 完工数
      */
@@ -47,4 +48,3 @@ public class PlanOrderCloseResponseDTO  {
         this.failResults = failResults;
     }
 }
-

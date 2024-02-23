@@ -2,8 +2,6 @@ package tech.blacklake.dev.openapi.sdk.event.model.quality;
 
 import tech.blacklake.dev.openapi.sdk.event.model.BaseCallbackDTO;
 
-import java.util.List;
-
 public class QualityResultNotifyQcTaskDTO extends BaseCallbackDTO {
     private DataItem data;
 

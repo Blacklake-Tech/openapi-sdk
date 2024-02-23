@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class BomBulkUpdateStatusDetailResponseDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class BomBulkUpdateStatusDetailResponseDTO {
     /**
      * 失败详情
      */
@@ -73,4 +74,3 @@ public class BomBulkUpdateStatusDetailResponseDTO  {
         this.version = version;
     }
 }
-

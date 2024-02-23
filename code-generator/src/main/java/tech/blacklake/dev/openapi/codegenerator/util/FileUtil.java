@@ -83,7 +83,7 @@ public class FileUtil {
         }
 
         try (FileChannel inputChannel = new FileInputStream(source).getChannel();
-             FileChannel outputChannel = new FileOutputStream(dest).getChannel()) {
+                FileChannel outputChannel = new FileOutputStream(dest).getChannel()) {
             outputChannel.transferFrom(inputChannel, 0, inputChannel.size());
         } catch (IOException e) {
             log.error("文件{}复制到{}失败", source.getName(), dest.getName());

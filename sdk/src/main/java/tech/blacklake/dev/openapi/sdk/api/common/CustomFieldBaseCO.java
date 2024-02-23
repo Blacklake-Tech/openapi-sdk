@@ -7,8 +7,7 @@ public class CustomFieldBaseCO {
     List<CustomFieldInstanceCreate> customFields;
     List<SonObjectCreate> sonObjects;
 
-    public CustomFieldBaseCO() {
-    }
+    public CustomFieldBaseCO() {}
 
     public List<CustomFieldInstanceCreate> getCustomFields() {
         return this.customFields;

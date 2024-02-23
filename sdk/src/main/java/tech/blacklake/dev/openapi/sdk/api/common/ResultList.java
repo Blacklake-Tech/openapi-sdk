@@ -1,7 +1,7 @@
 package tech.blacklake.dev.openapi.sdk.api.common;
 
 public class ResultList<T> extends Result<PageResDTO<T>> {
-    
+
     public ResultList() {}
 
     public ResultList(PageResDTO<T> data) {
@@ -12,4 +12,3 @@ public class ResultList<T> extends Result<PageResDTO<T>> {
         super.data = data;
     }
 }
-

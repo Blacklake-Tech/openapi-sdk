@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class WorkOrderSourceUpdateRequestDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class WorkOrderSourceUpdateRequestDTO {
     /**
      * 生成方式（1-手工录入；2-拆分；3-合并；4-改制）
      */
@@ -60,4 +61,3 @@ public class WorkOrderSourceUpdateRequestDTO  {
         this.sourceWorkOrderList = sourceWorkOrderList;
     }
 }
-

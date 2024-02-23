@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class InputMaterialResponseDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class InputMaterialResponseDTO {
     /**
      * 业务ID
      */
@@ -44,7 +45,7 @@ public class InputMaterialResponseDTO  {
     private MaterialResponseDTO material;
 
     /**
-     * 子项类型 key =inputType 
+     * 子项类型 key =inputType
      */
     private BizConstantDisplay inputType;
 
@@ -372,4 +373,3 @@ public class InputMaterialResponseDTO  {
         this.workOrderAlternativePlan = workOrderAlternativePlan;
     }
 }
-

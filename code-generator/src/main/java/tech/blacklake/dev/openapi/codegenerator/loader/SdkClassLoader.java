@@ -34,7 +34,8 @@ public class SdkClassLoader extends ClassLoader {
      * @param jarEntry    jar内文件的描述信息
      * @param jarEntryMap 用于处理class的依赖问题
      */
-    public Class<?> loadClass(String className, JarFile jarFile, JarEntry jarEntry, Map<String, JarEntry> jarEntryMap) throws FileNotFoundException {
+    public Class<?> loadClass(String className, JarFile jarFile, JarEntry jarEntry, Map<String, JarEntry> jarEntryMap)
+            throws FileNotFoundException {
         /* 先尝试使用appClassLoader加载类 */
         if (className != null) {
             try {

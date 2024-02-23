@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class BomOutputMaterialDetailResponseDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class BomOutputMaterialDetailResponseDTO {
     /**
      * 多产出
      */
@@ -175,7 +176,8 @@ public class BomOutputMaterialDetailResponseDTO  {
         this.outputProcessId = outputProcessId;
     }
 
-    public void setOutputProcessProcessRouteNodeSimpleResponseDTO(ProcessRouteNodeSimpleResponseDTO outputProcessProcessRouteNodeSimpleResponseDTO) {
+    public void setOutputProcessProcessRouteNodeSimpleResponseDTO(
+            ProcessRouteNodeSimpleResponseDTO outputProcessProcessRouteNodeSimpleResponseDTO) {
         this.outputProcessProcessRouteNodeSimpleResponseDTO = outputProcessProcessRouteNodeSimpleResponseDTO;
     }
 
@@ -203,4 +205,3 @@ public class BomOutputMaterialDetailResponseDTO  {
         this.autoWarehousingFlag = autoWarehousingFlag;
     }
 }
-

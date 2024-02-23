@@ -1,30 +1,31 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
 public class InboundOrderListOperateRecordRequestDTO extends BasePage {
     /**
-     * 
+     *
      */
     private String quickSearch;
 
     /**
-     * 
+     *
      */
     private Integer bizType;
 
     /**
-     * 
+     *
      */
     private Integer executeType;
 
     /**
-     * 
+     *
      */
     private Integer recordEntityType;
 
@@ -34,32 +35,32 @@ public class InboundOrderListOperateRecordRequestDTO extends BasePage {
     private Integer sourceType;
 
     /**
-     * 
+     *
      */
     private Long inboundOrderId;
 
     /**
-     * 
+     *
      */
     private Long inboundOrderItemId;
 
     /**
-     * 
+     *
      */
     private List<Long> materialId;
 
     /**
-     * 
+     *
      */
     private List<Long> locationId;
 
     /**
-     * 
+     *
      */
     private List<Integer> qcStatus;
 
     /**
-     * 
+     *
      */
     private String batchNo;
 
@@ -69,22 +70,22 @@ public class InboundOrderListOperateRecordRequestDTO extends BasePage {
     private List<Long> supplierIds;
 
     /**
-     * 
+     *
      */
     private String qrCode;
 
     /**
-     * 
+     *
      */
     private Long creator;
 
     /**
-     * 
+     *
      */
     private Long createdAtFrom;
 
     /**
-     * 
+     *
      */
     private Long createdAtTill;
 
@@ -216,4 +217,3 @@ public class InboundOrderListOperateRecordRequestDTO extends BasePage {
         this.createdAtTill = createdAtTill;
     }
 }
-

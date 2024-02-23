@@ -179,5 +179,4 @@ public class MfgResultNotifyFeedingDTO extends BaseCallbackDTO {
             this.batchIdentifiers = batchIdentifiers;
         }
     }
-
 }

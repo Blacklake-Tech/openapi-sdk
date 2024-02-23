@@ -26,7 +26,6 @@ public class CodeGenerator {
 
     private static final String EL_CLASS_NAME = "class_name";
 
-
     /**
      * el表达式pattern
      */
@@ -45,7 +44,12 @@ public class CodeGenerator {
      * @param normalParameters    普通参数map
      * @param multiLoopParameters 循环参数map
      */
-    public static void writer(String templateFileName, String outputDir, String className, Map<String, String> normalParameters, Map<String, Map<String, List<String>>> multiLoopParameters) {
+    public static void writer(
+            String templateFileName,
+            String outputDir,
+            String className,
+            Map<String, String> normalParameters,
+            Map<String, Map<String, List<String>>> multiLoopParameters) {
         String templateFilePath = StringUtil.concatPath(Constant.RESOURCE_PATH, TEMPLATE_DIR, templateFileName);
         String outputFilePath = StringUtil.concatPath(Constant.RESOURCE_PATH, outputDir, className + JAVA_FILE_SUFFIX);
         if (normalParameters != null) {
@@ -146,7 +150,8 @@ public class CodeGenerator {
         if (elExps.size() > 0) {
             for (int i = 0; i < elExps.size(); i++) {
                 try {
-                    formatLoopLines = formatLoopLines.replace(elExps.get(i), loopParameters.get(elKeys.get(i)).get(index));
+                    formatLoopLines = formatLoopLines.replace(
+                            elExps.get(i), loopParameters.get(elKeys.get(i)).get(index));
                 } catch (NullPointerException e) {
                     log.error("参数{}为空!", elKeys.get(i));
                     throw new RuntimeException(e);
@@ -199,4 +204,3 @@ public class CodeGenerator {
         return END_PATTERN.matcher(line).matches();
     }
 }
-

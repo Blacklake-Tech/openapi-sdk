@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class ProcessRouteUpsertRequestDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class ProcessRouteUpsertRequestDTO {
     /**
      * 工艺路线编号,不能重复,支持字母、数字和符号,不可超过255个字符,前后不支持空格
      */
@@ -138,4 +139,3 @@ public class ProcessRouteUpsertRequestDTO  {
         this.processes = processes;
     }
 }
-

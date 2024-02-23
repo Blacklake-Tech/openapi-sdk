@@ -1,80 +1,81 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
 public class AttrDetailResponseDTO {
     /**
-     * 
+     *
      */
     private StorageLocationDetailInfoResponseDTO location;
 
     /**
-     * 
+     *
      */
     private BizConstantDisplay qcStatus;
 
     /**
-     * 
+     *
      */
     private String supplierBatch;
 
     /**
-     * 
+     *
      */
     private SupplierSimpleResponseDTO supplier;
 
     /**
-     * 
+     *
      */
     private CustomerSimpleResponseDTO customer;
 
     /**
-     * 
+     *
      */
     private String batchNo;
 
     /**
-     * 
+     *
      */
     private Long inboundTime;
 
     /**
-     * 
+     *
      */
     private Long productTime;
 
     /**
-     * 
+     *
      */
     private Long validityPeriod;
 
     /**
-     * 
+     *
      */
     private String qrCode;
 
     /**
-     * 
+     *
      */
     private BaseAmountDisplay changAmount;
 
     /**
-     * 
+     *
      */
     private BaseAmountDisplay changeAmountMasterUnit;
 
     /**
-     * 
+     *
      */
     private BaseAmountDisplay afterAmount;
 
     /**
-     * 
+     *
      */
     private BaseAmountDisplay beforeAmount;
 
@@ -190,4 +191,3 @@ public class AttrDetailResponseDTO {
         this.beforeAmount = beforeAmount;
     }
 }
-

@@ -11,8 +11,7 @@ public class BizConstantDisplay {
      */
     private String message;
 
-    public BizConstantDisplay() {
-    }
+    public BizConstantDisplay() {}
 
     public BizConstantDisplay(Integer code, String message) {
         this.code = code;

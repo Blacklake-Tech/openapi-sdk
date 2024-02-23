@@ -27,7 +27,6 @@ public class PageQO<T> {
      */
     private T query;
 
-
     public PageQO(BasePage basePage, T query) {
         this.sorter = basePage.getSorter();
         this.page = basePage.getPage();

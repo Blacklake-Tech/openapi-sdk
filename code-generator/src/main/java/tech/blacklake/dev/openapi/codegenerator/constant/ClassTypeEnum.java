@@ -2,8 +2,6 @@ package tech.blacklake.dev.openapi.codegenerator.constant;
 
 import tech.blacklake.dev.openapi.codegenerator.util.StringUtil;
 
-import java.io.File;
-
 /**
  * @author cuiyichen
  * @date 2022/5/20 16:51:54

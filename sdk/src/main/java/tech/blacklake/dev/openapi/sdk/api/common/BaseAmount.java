@@ -42,4 +42,3 @@ public class BaseAmount {
         this.unit = unit;
     }
 }
-

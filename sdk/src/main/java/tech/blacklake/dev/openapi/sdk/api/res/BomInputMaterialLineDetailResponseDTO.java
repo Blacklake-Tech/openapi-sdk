@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class BomInputMaterialLineDetailResponseDTO extends CustomFieldBaseVO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class BomInputMaterialLineDetailResponseDTO extends CustomFieldBaseVO {
     /**
      * 子行Id
      */
@@ -261,7 +262,8 @@ public class BomInputMaterialLineDetailResponseDTO extends CustomFieldBaseVO  {
         this.inputProcessId = inputProcessId;
     }
 
-    public void setInputProcessRouteNodeSimpleResponseDTO(ProcessRouteNodeSimpleResponseDTO inputProcessRouteNodeSimpleResponseDTO) {
+    public void setInputProcessRouteNodeSimpleResponseDTO(
+            ProcessRouteNodeSimpleResponseDTO inputProcessRouteNodeSimpleResponseDTO) {
         this.inputProcessRouteNodeSimpleResponseDTO = inputProcessRouteNodeSimpleResponseDTO;
     }
 
@@ -281,4 +283,3 @@ public class BomInputMaterialLineDetailResponseDTO extends CustomFieldBaseVO  {
         this.alternativePlanDetailResponseDTO = alternativePlanDetailResponseDTO;
     }
 }
-

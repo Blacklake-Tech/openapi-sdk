@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class WorkInProcessResponseDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class WorkInProcessResponseDTO {
     /**
      * 工序在制品快照ID
      */
@@ -463,4 +464,3 @@ public class WorkInProcessResponseDTO  {
         this.feedType = feedType;
     }
 }
-

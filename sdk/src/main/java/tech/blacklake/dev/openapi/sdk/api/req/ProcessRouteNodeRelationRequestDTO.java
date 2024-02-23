@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class ProcessRouteNodeRelationRequestDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class ProcessRouteNodeRelationRequestDTO {
     /**
      * 业务id 详情返回有值就重新传回 没值不用传
      */
@@ -99,4 +100,3 @@ public class ProcessRouteNodeRelationRequestDTO  {
         this.processManufacturedGoods = processManufacturedGoods;
     }
 }
-

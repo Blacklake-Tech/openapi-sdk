@@ -1,11 +1,12 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
+
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
 
 public class MaterialImportRequestDTO {
     /**
@@ -34,7 +35,7 @@ public class MaterialImportRequestDTO {
     private String bizRange;
 
     /**
-     * 物料分类，非必填，必须是系统中物料分类的最低层级 
+     * 物料分类，非必填，必须是系统中物料分类的最低层级
      */
     private String materialCategory;
 
@@ -437,4 +438,3 @@ public class MaterialImportRequestDTO {
         this.items = items;
     }
 }
-

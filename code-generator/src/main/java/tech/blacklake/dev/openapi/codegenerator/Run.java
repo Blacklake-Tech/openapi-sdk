@@ -41,7 +41,11 @@ public class Run {
         List<String> presetClassNames;
         if (presetClassFiles != null) {
             // 复制预置类到common包
-            Arrays.stream(presetClassFiles).forEach(it -> FileUtil.copyFile(it, new File(StringUtil.concatPath(Constant.RESOURCE_PATH, "out", ClassTypeEnum.COMMON_DATA.getDir(), it.getName()))));
+            Arrays.stream(presetClassFiles)
+                    .forEach(it -> FileUtil.copyFile(
+                            it,
+                            new File(StringUtil.concatPath(
+                                    Constant.RESOURCE_PATH, "out", ClassTypeEnum.COMMON_DATA.getDir(), it.getName()))));
             // 获取预置类名
             presetClassNames = Arrays.stream(presetClassFiles)
                     .map(File::getName)
@@ -65,12 +69,7 @@ public class Run {
         Set<String> presetClassNamesSet = new HashSet<>(presetClassNames);
         dependencyCoordinates.forEach(it -> {
             Pair<List<ReflectionResult>, List<ReflectionResult>> jarPair = JarParser.parseJar(
-                    it.getGroupId(),
-                    it.getArtifactId(),
-                    it.getVersion(),
-                    parsedDtoSet,
-                presetClassNamesSet,
-                    true);
+                    it.getGroupId(), it.getArtifactId(), it.getVersion(), parsedDtoSet, presetClassNamesSet, true);
             List<ReflectionResult> controllerResults = jarPair.getLeft();
             List<ReflectionResult> dtoResults = jarPair.getRight();
 
@@ -102,16 +101,16 @@ public class Run {
      */
     private static List<DependencyCoordinate> getDependencyCoordinates() {
 
-//        List<DependencyCoordinate> dependencyCoordinates = new ArrayList<>();
+        //        List<DependencyCoordinate> dependencyCoordinates = new ArrayList<>();
 
-//        dependencyCoordinates.add(new DependencyCoordinate(
-//            "tech.blacklake.dev.plo",
-//            "plo-domain-api", "6.7.0-RELEASE"
-//        ));
+        //        dependencyCoordinates.add(new DependencyCoordinate(
+        //            "tech.blacklake.dev.plo",
+        //            "plo-domain-api", "6.7.0-RELEASE"
+        //        ));
 
-//        return dependencyCoordinates;
+        //        return dependencyCoordinates;
 
-        //todo 如果用pom文件中的数据自动注入
+        // todo 如果用pom文件中的数据自动注入
         return DependencyParser.getDependencyCoordinate();
     }
 

@@ -34,11 +34,8 @@ public class OpenapiSdkAutoConfig {
     private ApplicationContext applicationContext;
 
     @Bean
-    public ClientReqInterceptor clientInterceptor(Config config,
-        TokenManager tokenManager) {
-        return new ClientReqInterceptor(
-            tokenManager, config
-        );
+    public ClientReqInterceptor clientInterceptor(Config config, TokenManager tokenManager) {
+        return new ClientReqInterceptor(tokenManager, config);
     }
 
     @Primary
@@ -49,12 +46,11 @@ public class OpenapiSdkAutoConfig {
 
     @Bean
     public BlacklakeSdkClient blacklakeSdkClient(Config config) {
-        BlacklakeSdkClient blacklakeSdkClient = BlacklakeSdkClient.newBuilder(config.getAppKey(),
-                config.getAppSecret())
-            .appType(AppTypeEnum.SELF_BUILT)
-            .openBaseUrl(config.getBaseUrl())
-            .logReqAtDebug(true)
-            .build();
+        BlacklakeSdkClient blacklakeSdkClient = BlacklakeSdkClient.newBuilder(config.getAppKey(), config.getAppSecret())
+                .appType(AppTypeEnum.SELF_BUILT)
+                .openBaseUrl(config.getBaseUrl())
+                .logReqAtDebug(true)
+                .build();
         blacklakeSdkClient.file4CustomObjectOpenApi = file4CustomObjectOpenApi(config);
         /****quality begin********************/
         blacklakeSdkClient.qcCheckItemCategoryOpenApi = qcCheckItemCategoryOpenApi(config);
@@ -65,21 +61,21 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.qcMaterialOpenApi = qcMaterialOpenApi(config);
         blacklakeSdkClient.qcTaskOpenApi = qcTaskOpenApi(config);
         /****quality end********************/
-
         return blacklakeSdkClient;
     }
 
     @Bean
-    public TokenManager tokenManager(OkhttpOpenapiClient okhttpOpenapiClient) {
-        return new TokenManager(LocalCache.getInstance(), okhttpOpenapiClient);
+    public TokenManager tokenManager(OkhttpOpenapiClient okhttpOpenapiClient, Config config) {
+        return new TokenManager(LocalCache.getInstance(), okhttpOpenapiClient, config);
     }
 
     @Bean
-    public OpenapiClient openapiClient(Config config){
+    public OpenapiClient openapiClient(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(OpenapiClient.class, "openapiClient")
-            .url(config.getBaseUrl())
-            .build();
+        return feignClientBuilder
+                .forType(OpenapiClient.class, "openapiClient")
+                .url(config.getBaseUrl())
+                .build();
     }
 
     @Bean
@@ -88,7 +84,7 @@ public class OpenapiSdkAutoConfig {
     }
 
     @Bean
-    public Retryer retryer(){
+    public Retryer retryer() {
         return new Retryer.Default();
     }
 
@@ -99,56 +95,65 @@ public class OpenapiSdkAutoConfig {
 
     private File4CustomObjectOpenApi file4CustomObjectOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(File4CustomObjectOpenApi.class, "file4CustomObjectOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + HOLYFILE_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(File4CustomObjectOpenApi.class, "file4CustomObjectOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + HOLYFILE_PREFIX)
+                .build();
     }
 
     private QcCheckItemCategoryOpenApi qcCheckItemCategoryOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(QcCheckItemCategoryOpenApi.class, "qcCheckItemCategoryOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + QUALITY_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(QcCheckItemCategoryOpenApi.class, "qcCheckItemCategoryOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + QUALITY_PREFIX)
+                .build();
     }
+
     private QcCheckItemOpenApi qcCheckItemOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(QcCheckItemOpenApi.class, "qcCheckItemOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + QUALITY_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(QcCheckItemOpenApi.class, "qcCheckItemOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + QUALITY_PREFIX)
+                .build();
     }
 
     private QcConfigOpenApi qcConfigOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(QcConfigOpenApi.class, "qcConfigOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + QUALITY_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(QcConfigOpenApi.class, "qcConfigOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + QUALITY_PREFIX)
+                .build();
     }
 
     private QcDefectRankOpenApi qcDefectRankOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(QcDefectRankOpenApi.class, "qcDefectRankOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + QUALITY_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(QcDefectRankOpenApi.class, "qcDefectRankOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + QUALITY_PREFIX)
+                .build();
     }
 
     private QcDefectReasonOpenApi qcDefectReasonOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(QcDefectReasonOpenApi.class, "qcDefectReasonOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + QUALITY_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(QcDefectReasonOpenApi.class, "qcDefectReasonOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + QUALITY_PREFIX)
+                .build();
     }
 
     private QcMaterialOpenApi qcMaterialOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(QcMaterialOpenApi.class, "qcMaterialOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + QUALITY_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(QcMaterialOpenApi.class, "qcMaterialOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + QUALITY_PREFIX)
+                .build();
     }
 
     private QcTaskOpenApi qcTaskOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(QcTaskOpenApi.class, "qcTaskOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + QUALITY_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(QcTaskOpenApi.class, "qcTaskOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + QUALITY_PREFIX)
+                .build();
     }
 }

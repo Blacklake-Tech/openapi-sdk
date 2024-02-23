@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class ProcessInfoResponseDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class ProcessInfoResponseDTO {
     /**
      * 工单工序业务 ID
      */
@@ -114,7 +115,7 @@ public class ProcessInfoResponseDTO  {
     private BizConstantDisplay planWorkReportQuantityControl;
 
     /**
-     * 生产任务状态操作管控枚举值 key = productionStatusControl 
+     * 生产任务状态操作管控枚举值 key = productionStatusControl
      */
     private BizConstantDisplay productionStatusControl;
 
@@ -307,4 +308,3 @@ public class ProcessInfoResponseDTO  {
         this.workCenterGroupCOList = workCenterGroupCOList;
     }
 }
-

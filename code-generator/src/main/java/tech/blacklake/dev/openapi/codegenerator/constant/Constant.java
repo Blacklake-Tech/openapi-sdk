@@ -17,6 +17,6 @@ public class Constant {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         RESOURCE_PATH = Objects.requireNonNull(classLoader.getResource("")).getPath();
 
-        PROJECT_ROOT_PATH = RESOURCE_PATH.substring(0,RESOURCE_PATH.lastIndexOf(CODE_GENERATOR_PROJECT_NAME));
+        PROJECT_ROOT_PATH = RESOURCE_PATH.substring(0, RESOURCE_PATH.lastIndexOf(CODE_GENERATOR_PROJECT_NAME));
     }
 }

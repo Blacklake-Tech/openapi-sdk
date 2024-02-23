@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class BomListResponseDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class BomListResponseDTO {
     /**
      * 业务ID
      */
@@ -307,7 +308,8 @@ public class BomListResponseDTO  {
         this.workReportProcessId = workReportProcessId;
     }
 
-    public void setWorkReportProcessRouteNodeSimpleResponseDTO(ProcessRouteNodeSimpleResponseDTO workReportProcessRouteNodeSimpleResponseDTO) {
+    public void setWorkReportProcessRouteNodeSimpleResponseDTO(
+            ProcessRouteNodeSimpleResponseDTO workReportProcessRouteNodeSimpleResponseDTO) {
         this.workReportProcessRouteNodeSimpleResponseDTO = workReportProcessRouteNodeSimpleResponseDTO;
     }
 
@@ -359,4 +361,3 @@ public class BomListResponseDTO  {
         this.updatedAt = updatedAt;
     }
 }
-

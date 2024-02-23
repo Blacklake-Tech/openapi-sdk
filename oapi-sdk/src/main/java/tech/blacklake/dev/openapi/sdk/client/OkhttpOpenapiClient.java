@@ -1,7 +1,5 @@
 package tech.blacklake.dev.openapi.sdk.client;
 
-import static tech.blacklake.infra.boot.common.util.ObjectMapperConfigure.objectMapper;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import okhttp3.*;
 import tech.blacklake.dev.openapi.sdk.client.req.GetAccessTokenCO;
@@ -13,6 +11,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import static tech.blacklake.dev.openapi.sdk.constants.Constants.OK_HTTP_TIMEOUT_SECONDS;
+import static tech.blacklake.infra.boot.common.util.ObjectMapperConfigure.objectMapper;
 
 public class OkhttpOpenapiClient {
     private String baseUrl;

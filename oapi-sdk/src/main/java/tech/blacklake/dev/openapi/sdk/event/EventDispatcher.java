@@ -1,6 +1,5 @@
 package tech.blacklake.dev.openapi.sdk.event;
 
-import static tech.blacklake.infra.boot.common.util.ObjectMapperConfigure.objectMapper;
 import org.apache.logging.log4j.util.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static tech.blacklake.dev.openapi.sdk.constants.enums.EventTypeEnum.*;
+import static tech.blacklake.infra.boot.common.util.ObjectMapperConfigure.objectMapper;
 
 public class EventDispatcher {
     private static final Logger logger = LoggerFactory.getLogger(EventDispatcher.class);
@@ -59,7 +59,8 @@ public class EventDispatcher {
         if (Strings.isBlank(secretKey)) {
             return callbackBodyStr;
         }
-        String decryptedBodyStr = decryptEvent((String) (objectMapper.readValue(callbackBodyStr, Map.class)).get("encrypt"));
+        String decryptedBodyStr =
+                decryptEvent((String) (objectMapper.readValue(callbackBodyStr, Map.class)).get("encrypt"));
         logger.info("event callback has body str: {} after decryption", decryptedBodyStr);
         return decryptedBodyStr;
     }
@@ -80,8 +81,8 @@ public class EventDispatcher {
         } catch (Throwable e) {
             logger.error("handle event failed, httpPath:{}, requestId:{}, err:", eventReq.getHttpPath(), requestId, e);
             eventResp.setStatusCode(Constants.INTERNAL_ERROR_HTTP_CODE);
-            eventResp.setBody(String.format(EventResp.ERROR_RESPONSE_FORMAT,
-                    e.getMessage()).getBytes(Constants.SYSTEM_CHARSET));
+            eventResp.setBody(String.format(EventResp.ERROR_RESPONSE_FORMAT, e.getMessage())
+                    .getBytes(Constants.SYSTEM_CHARSET));
         }
         return eventResp;
     }
@@ -101,7 +102,8 @@ public class EventDispatcher {
             throw new HandlerNotFoundException(eventType);
         }
         // 按照事件类型解析具体回调请求体，并由handler处理
-        BaseCallbackDTO detailedCallbackDTO = objectMapper.readValue(plainEventJsonStr, handler.getEvent().getClass());
+        BaseCallbackDTO detailedCallbackDTO =
+                objectMapper.readValue(plainEventJsonStr, handler.getEvent().getClass());
         Object responseData = handler.handle(detailedCallbackDTO);
         // 请求成功，设置返回体为handler的返回
         eventResp.setBody(objectMapper.writeValueAsBytes(responseData));
@@ -137,7 +139,8 @@ public class EventDispatcher {
             return onEventType(MFG_RESULT_NOTIFY_PROGRESS_REPORT, handler);
         }
 
-        public Builder onMfgResultNotifyProgressReportAdjust(EventHandlers.MfgResultNotifyProgressReportAdjustHandler handler) {
+        public Builder onMfgResultNotifyProgressReportAdjust(
+                EventHandlers.MfgResultNotifyProgressReportAdjustHandler handler) {
             return onEventType(MFG_RESULT_NOTIFY_PROGRESS_REPORT_ADJUST, handler);
         }
 
@@ -149,11 +152,13 @@ public class EventDispatcher {
             return onEventType(MFG_RESULT_NOTIFY_FEEDING_RETRACT, handler);
         }
 
-        public Builder onMedResultNotifyProduceTaskDispatch(EventHandlers.MedResultNotifyProduceTaskDispatchHandler handler) {
+        public Builder onMedResultNotifyProduceTaskDispatch(
+                EventHandlers.MedResultNotifyProduceTaskDispatchHandler handler) {
             return onEventType(MED_RESULT_NOTIFY_PRODUCE_TASK_DISPATCH, handler);
         }
 
-        public Builder onPloResultNotifyProductionWorkOrderLaunch(EventHandlers.PloResultNotifyProductionWorkOrderLaunchHandler handler) {
+        public Builder onPloResultNotifyProductionWorkOrderLaunch(
+                EventHandlers.PloResultNotifyProductionWorkOrderLaunchHandler handler) {
             return onEventType(PLO_RESULT_NOTIFY_PRODUCTION_WORK_ORDER_LAUNCH, handler);
         }
 
@@ -177,11 +182,13 @@ public class EventDispatcher {
             return onEventType(INVENTORY_RESULT_NOTIFY_TRANSFER, handler);
         }
 
-        public Builder onInventoryResultNotifyTransferIssue(EventHandlers.InventoryResultNotifyTransferIssueHandler handler) {
+        public Builder onInventoryResultNotifyTransferIssue(
+                EventHandlers.InventoryResultNotifyTransferIssueHandler handler) {
             return onEventType(INVENTORY_RESULT_NOTIFY_TRANSFER_ISSUE, handler);
         }
 
-        public Builder onInventoryResultNotifyTransferReceive(EventHandlers.InventoryResultNotifyTransferReceiveHandler handler) {
+        public Builder onInventoryResultNotifyTransferReceive(
+                EventHandlers.InventoryResultNotifyTransferReceiveHandler handler) {
             return onEventType(INVENTORY_RESULT_NOTIFY_TRANSFER_RECEIVE, handler);
         }
 
@@ -197,7 +204,8 @@ public class EventDispatcher {
             return onEventType(QUALITY_RESULT_NOTIFY_QC_TASK, handler);
         }
 
-        public Builder onQualityResultNotifyChangeQcStatus(EventHandlers.QualityResultNotifyChangeQcStatusHandler handler) {
+        public Builder onQualityResultNotifyChangeQcStatus(
+                EventHandlers.QualityResultNotifyChangeQcStatusHandler handler) {
             return onEventType(QUALITY_RESULT_NOTIFY_CHANGE_QC_STATUS, handler);
         }
     }

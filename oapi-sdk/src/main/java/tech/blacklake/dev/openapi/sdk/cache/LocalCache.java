@@ -16,8 +16,7 @@ public class LocalCache implements ICache {
     private static final Logger log = LoggerFactory.getLogger(LocalCache.class);
     private static final ConcurrentMap<String, Value> CACHE = new ConcurrentHashMap<>(LOCAL_CACHE_INITIAL_CAPACITY);
 
-    private LocalCache() {
-    }
+    private LocalCache() {}
 
     public static LocalCache getInstance() {
         return Inner.LOCAL_CACHE;

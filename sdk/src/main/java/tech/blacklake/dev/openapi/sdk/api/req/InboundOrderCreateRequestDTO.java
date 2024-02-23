@@ -1,11 +1,12 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
+
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
 
 public class InboundOrderCreateRequestDTO extends CustomFieldBaseCO {
     /**
@@ -24,7 +25,7 @@ public class InboundOrderCreateRequestDTO extends CustomFieldBaseCO {
     private String bizType;
 
     /**
-     * 来源类型，若不填写则默认为“无源入库”，支持填写“无源入库” 
+     * 来源类型，若不填写则默认为“无源入库”，支持填写“无源入库”
      */
     private String sourceType;
 
@@ -112,4 +113,3 @@ public class InboundOrderCreateRequestDTO extends CustomFieldBaseCO {
         this.items = items;
     }
 }
-

@@ -31,7 +31,8 @@ public class JarParser {
     /**
      * 获取maven本地仓库的shell命令
      */
-    private static final String GET_MAVEN_LOCAL_REPOSITORY_COMMAND = "mvn help:evaluate -Dexpression=settings.localRepository | grep -v '[INFO]'";
+    private static final String GET_MAVEN_LOCAL_REPOSITORY_COMMAND =
+            "mvn help:evaluate -Dexpression=settings.localRepository | grep -v '[INFO]'";
 
     /**
      * maven本地仓库路径
@@ -62,8 +63,8 @@ public class JarParser {
     private static final String DTO_RES = "ResDTO";
     private static final String DTO_REQ = "ReqDTO";
 
-    private static final String[] reqEndings = {"CO","ReqDTO","ReqDO"};
-    private static final String[] resEndings = {"VO","ResDTO","ResDO"};
+    private static final String[] reqEndings = {"CO", "ReqDTO", "ReqDO"};
+    private static final String[] resEndings = {"VO", "ResDTO", "ResDO"};
 
     private static final String TYPE_REQ = "req";
     private static final String TYPE_RES = "res";
@@ -76,16 +77,23 @@ public class JarParser {
     private static final String EMPTY_STR = "";
     private static final String JAVA_BASE_MODULE = "java.base";
 
-    private static final Set<String> INVALID_SUPERCLASSES = Set.of("BaseDO", "BasePO", "BaseVO", "BaseDTO", "BaseCO", "BaseCheckCO", "Serializable", "Comparable");
+    private static final Set<String> INVALID_SUPERCLASSES =
+            Set.of("BaseDO", "BasePO", "BaseVO", "BaseDTO", "BaseCO", "BaseCheckCO", "Serializable", "Comparable");
 
-    private static  Set<String> commonDtoSet;
+    private static Set<String> commonDtoSet;
 
     /**
      * 解析jar文件
      *
      * @return pair.left为所有controller的解析结果, pair.right为所有dto的解析结果
      */
-    public static Pair<List<ReflectionResult>, List<ReflectionResult>> parseJar(String groupId, String artifactId, String version, Set<String> parsedDtoSet,Set<String> presetClassNamesSet, boolean needParse) {
+    public static Pair<List<ReflectionResult>, List<ReflectionResult>> parseJar(
+            String groupId,
+            String artifactId,
+            String version,
+            Set<String> parsedDtoSet,
+            Set<String> presetClassNamesSet,
+            boolean needParse) {
         commonDtoSet = presetClassNamesSet;
         // 获取classloader
         SdkClassLoader sdkClassLoader = SdkClassLoader.getSdkClassLoader();
@@ -104,7 +112,8 @@ public class JarParser {
         }
 
         // 获取jar中所有OpenapiController
-        List<Class<?>> openapiControllers = loadedClasses.stream().filter(JarParser::isOpenapiController).collect(Collectors.toList());
+        List<Class<?>> openapiControllers =
+                loadedClasses.stream().filter(JarParser::isOpenapiController).collect(Collectors.toList());
 
         // controller解析结果
         List<ReflectionResult> controllerReflectionResultList = new ArrayList<>();
@@ -120,9 +129,11 @@ public class JarParser {
         // 解析dto
         List<ReflectionResult> dtoReflectionResultList = new ArrayList<>();
         while ((waitParseDtoNames = waitParseDtoNames.stream()
-                .distinct()
-                .filter(it -> !parsedDtoSet.contains(it.substring(it.lastIndexOf(".") + 1)))
-                .collect(Collectors.toList())).size() > 0) {
+                                .distinct()
+                                .filter(it -> !parsedDtoSet.contains(it.substring(it.lastIndexOf(".") + 1)))
+                                .collect(Collectors.toList()))
+                        .size()
+                > 0) {
 
             List<String> newWaitParseDtoNames = new ArrayList<>();
             try {
@@ -139,7 +150,9 @@ public class JarParser {
             }
 
             // 解析过的dto放入set，避免重复解析dto
-            parsedDtoSet.addAll(waitParseDtoNames.stream().map(it -> it.substring(it.lastIndexOf(".") + 1)).collect(Collectors.toList()));
+            parsedDtoSet.addAll(waitParseDtoNames.stream()
+                    .map(it -> it.substring(it.lastIndexOf(".") + 1))
+                    .collect(Collectors.toList()));
             waitParseDtoNames = newWaitParseDtoNames;
         }
 
@@ -230,17 +243,23 @@ public class JarParser {
         StringBuilder superclassAndInterfaces = new StringBuilder();
         Class<?> superclass = dtoClass.getSuperclass();
         Class<?>[] interfaces = dtoClass.getInterfaces();
-        if (superclass != null && superclass != Object.class && !INVALID_SUPERCLASSES.contains(superclass.getSimpleName())) {
-            //父类在common包内：extends superclassSimpleName，不在：直接丢弃继承关系
-            if (commonDtoSet.contains(superclass.getSimpleName())){
-                superclassAndInterfaces.append(EXTENDS).append(SPACE).append(superclass.getSimpleName()).append(SPACE);
+        if (superclass != null
+                && superclass != Object.class
+                && !INVALID_SUPERCLASSES.contains(superclass.getSimpleName())) {
+            // 父类在common包内：extends superclassSimpleName，不在：直接丢弃继承关系
+            if (commonDtoSet.contains(superclass.getSimpleName())) {
+                superclassAndInterfaces
+                        .append(EXTENDS)
+                        .append(SPACE)
+                        .append(superclass.getSimpleName())
+                        .append(SPACE);
             }
         }
         if (interfaces.length > 0) {
             boolean hasValidInterface = false;
             for (int i = 0; i < interfaces.length; i++) {
                 String interfaceSimpleName = interfaces[i].getSimpleName();
-                if (INVALID_SUPERCLASSES.contains(interfaceSimpleName)||!commonDtoSet.contains(interfaceSimpleName)) {
+                if (INVALID_SUPERCLASSES.contains(interfaceSimpleName) || !commonDtoSet.contains(interfaceSimpleName)) {
                     continue;
                 }
                 if (!hasValidInterface) {
@@ -283,35 +302,37 @@ public class JarParser {
             }
 
             // 字段默认值
-//            int modifiers = it.getModifiers();
-//            boolean isStatic = Modifier.isStatic(modifiers);
-//            String defaultValStr = "";
-//            it.setAccessible(true);
-//            try {
-//                Object defaultValObj = isStatic ? it.get(null) : it.get(dtoClass.getConstructor().newInstance());
-//                if (defaultValObj != null) {
-//                    String defaultValName = null;
-//                    if (defaultValObj instanceof Enum) {
-//                        defaultValName = defaultValObj.getClass().getSimpleName() + "." + defaultValObj;
-//                    } else if (defaultValObj instanceof String) {
-//                        defaultValName = "\"" + defaultValObj + "\"";
-//                    } else if (defaultValObj instanceof Short || defaultValObj instanceof Integer || defaultValObj instanceof Byte || defaultValObj instanceof Boolean) {
-//                        defaultValName = String.valueOf(defaultValObj);
-//                    }else if (defaultValObj instanceof Long){
-//                        defaultValName = defaultValObj+"L";
-//                    }else if (defaultValObj instanceof Float){
-//                        defaultValName = defaultValObj+"F";
-//                    }else if (defaultValObj instanceof Double){
-//                        defaultValName = defaultValObj+"D";
-//                    }
-//
-//                    if (defaultValName != null) {
-//                        defaultValStr = SPACE + "=" + SPACE + defaultValName;
-//                    }
-//                }
-//            } catch (Exception ignored) {
-//                // 构造实例时，可能由于没有无参构造导致异常，无视即可
-//            }
+            //            int modifiers = it.getModifiers();
+            //            boolean isStatic = Modifier.isStatic(modifiers);
+            //            String defaultValStr = "";
+            //            it.setAccessible(true);
+            //            try {
+            //                Object defaultValObj = isStatic ? it.get(null) :
+            // it.get(dtoClass.getConstructor().newInstance());
+            //                if (defaultValObj != null) {
+            //                    String defaultValName = null;
+            //                    if (defaultValObj instanceof Enum) {
+            //                        defaultValName = defaultValObj.getClass().getSimpleName() + "." + defaultValObj;
+            //                    } else if (defaultValObj instanceof String) {
+            //                        defaultValName = "\"" + defaultValObj + "\"";
+            //                    } else if (defaultValObj instanceof Short || defaultValObj instanceof Integer ||
+            // defaultValObj instanceof Byte || defaultValObj instanceof Boolean) {
+            //                        defaultValName = String.valueOf(defaultValObj);
+            //                    }else if (defaultValObj instanceof Long){
+            //                        defaultValName = defaultValObj+"L";
+            //                    }else if (defaultValObj instanceof Float){
+            //                        defaultValName = defaultValObj+"F";
+            //                    }else if (defaultValObj instanceof Double){
+            //                        defaultValName = defaultValObj+"D";
+            //                    }
+            //
+            //                    if (defaultValName != null) {
+            //                        defaultValStr = SPACE + "=" + SPACE + defaultValName;
+            //                    }
+            //                }
+            //            } catch (Exception ignored) {
+            //                // 构造实例时，可能由于没有无参构造导致异常，无视即可
+            //            }
 
             // 字段类型名
             String fieldTypeName;
@@ -327,7 +348,7 @@ public class JarParser {
 
             descriptions.add(description);
             fieldNames.add(fieldName);
-//            defaultValues.add(defaultValStr);
+            //            defaultValues.add(defaultValStr);
             defaultValues.add("");
             fieldTypeNames.add(fieldTypeName);
             fieldNamesInitCap.add(fieldNameIntiCap);
@@ -348,7 +369,8 @@ public class JarParser {
     /**
      * 解析controller.class
      */
-    private static Pair<ReflectionResult, List<String>> parseController(Class<?> controllerClass, String applicationName) {
+    private static Pair<ReflectionResult, List<String>> parseController(
+            Class<?> controllerClass, String applicationName) {
         ReflectionResult controllerResult = new ReflectionResult();
         controllerResult.setState(ClassTypeEnum.CONTROLLER);
 
@@ -378,7 +400,8 @@ public class JarParser {
                     String returnTypeName;
                     Type genericReturnType = it.getGenericReturnType();
                     if (genericReturnType instanceof ParameterizedType) {
-                        returnTypeName = handleParameterizedType((ParameterizedType) genericReturnType, needParseDtoNames);
+                        returnTypeName =
+                                handleParameterizedType((ParameterizedType) genericReturnType, needParseDtoNames);
                     } else {
                         Class<?> returnType = it.getReturnType();
                         needToParse(returnType, needParseDtoNames);
@@ -389,7 +412,8 @@ public class JarParser {
                     String parameterTypeName;
                     Type genericParameterType = it.getGenericParameterTypes()[0];
                     if (genericParameterType instanceof ParameterizedType) {
-                        parameterTypeName = handleParameterizedType((ParameterizedType) genericParameterType, needParseDtoNames);
+                        parameterTypeName =
+                                handleParameterizedType((ParameterizedType) genericParameterType, needParseDtoNames);
                     } else {
                         Class<?> parameterType = it.getParameterTypes()[0];
                         needToParse(parameterType, needParseDtoNames);
@@ -420,7 +444,8 @@ public class JarParser {
     }
 
     private static boolean isOpenapiController(Class<?> clazz) {
-        return clazz.getPackageName().contains("controller.open") && clazz.getName().endsWith("Controller");
+        return clazz.getPackageName().contains("controller.open")
+                && clazz.getName().endsWith("Controller");
     }
 
     private static String getMethodNameByPath(String path) {
@@ -439,7 +464,7 @@ public class JarParser {
 
     private static String switchDtoName(String dtoName) {
         if (commonDtoSet.contains(dtoName)) {
-            return dtoName;//如果为common包下的类型，无需改名
+            return dtoName; // 如果为common包下的类型，无需改名
         }
 
         if (dtoName.endsWith(DTO_CO)) {
@@ -476,7 +501,9 @@ public class JarParser {
     private static String handleParameterizedType(ParameterizedType type, List<String> needParseDtoNames) {
         Type[] actualTypeArguments = type.getActualTypeArguments();
         StringBuilder actualSimpleName = new StringBuilder();
-        actualSimpleName.append(getSimpleClassName(type.getRawType().getTypeName())).append("<");
+        actualSimpleName
+                .append(getSimpleClassName(type.getRawType().getTypeName()))
+                .append("<");
 
         for (int i = 0; i < actualTypeArguments.length; i++) {
             Type actualTypeArgument = actualTypeArguments[i];
@@ -505,7 +532,6 @@ public class JarParser {
     private static String getSimpleClassName(String className) {
         return className.contains(".") ? className.substring(className.lastIndexOf(".") + 1) : className;
     }
-
 
     private static String getApplicationName(String str) {
         return str.substring(str.lastIndexOf(".") + 1);

@@ -1,11 +1,12 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
+
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
 
 public class CreateSalesOrderBaseInfoItemRequestDTO {
     /**
@@ -44,7 +45,7 @@ public class CreateSalesOrderBaseInfoItemRequestDTO {
     private String deliveryDate;
 
     /**
-     * 备注：非必填，不可超过1000字符； 
+     * 备注：非必填，不可超过1000字符；
      */
     private String remark;
 
@@ -125,4 +126,3 @@ public class CreateSalesOrderBaseInfoItemRequestDTO {
         this.customFields = customFields;
     }
 }
-

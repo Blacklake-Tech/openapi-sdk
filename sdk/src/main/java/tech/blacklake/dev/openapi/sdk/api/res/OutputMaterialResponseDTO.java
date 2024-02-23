@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class OutputMaterialResponseDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class OutputMaterialResponseDTO {
     /**
      * 业务ID
      */
@@ -34,7 +35,7 @@ public class OutputMaterialResponseDTO  {
     private BaseAmountDisplay expectedAmount;
 
     /**
-     * 批号生成类型 key =batchGenerationType 
+     * 批号生成类型 key =batchGenerationType
      */
     private BizConstantDisplay batchGenerationType;
 
@@ -437,4 +438,3 @@ public class OutputMaterialResponseDTO  {
         this.autoWarehousingFlag = autoWarehousingFlag;
     }
 }
-

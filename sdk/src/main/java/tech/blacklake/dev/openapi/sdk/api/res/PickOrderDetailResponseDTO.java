@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class PickOrderDetailResponseDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class PickOrderDetailResponseDTO {
     /**
      * 领料单编号
      */
@@ -138,4 +139,3 @@ public class PickOrderDetailResponseDTO  {
         this.updatedAt = updatedAt;
     }
 }
-

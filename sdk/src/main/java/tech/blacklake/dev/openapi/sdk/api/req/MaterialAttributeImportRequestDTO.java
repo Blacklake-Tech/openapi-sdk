@@ -1,15 +1,16 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
 public class MaterialAttributeImportRequestDTO {
     /**
-     * 属性项，必填，不可超过 255个字符，不能重复 
+     * 属性项，必填，不可超过 255个字符，不能重复
      */
     private String attribute;
 
@@ -34,4 +35,3 @@ public class MaterialAttributeImportRequestDTO {
         this.attributeItem = attributeItem;
     }
 }
-

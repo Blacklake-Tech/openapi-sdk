@@ -9,7 +9,6 @@ public class PageResDTO<T> {
      */
     private List<T> list;
 
-
     /**
      * 当前第几页
      */
@@ -20,8 +19,7 @@ public class PageResDTO<T> {
      */
     private Long total = 0L;
 
-    public PageResDTO() {
-    }
+    public PageResDTO() {}
 
     public PageResDTO(List<T> list) {
         this.list = list;

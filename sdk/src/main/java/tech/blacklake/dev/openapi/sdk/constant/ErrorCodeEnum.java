@@ -17,7 +17,6 @@ public enum ErrorCodeEnum implements BaseEnum<ErrorCodeEnum> {
     CLIENT_ENDPOINT_NULL("客户端endpoint不能为空"),
     ;
 
-
     ErrorCodeEnum(String message) {
         this.message = message;
     }

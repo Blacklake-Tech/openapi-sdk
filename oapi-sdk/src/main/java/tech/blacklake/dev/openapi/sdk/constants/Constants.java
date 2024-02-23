@@ -33,5 +33,4 @@ public class Constants {
     public static final long OK_HTTP_TIMEOUT_SECONDS = 30L;
 
     public static final int SUCCESS_RESULT_CODE = 200;
-
 }

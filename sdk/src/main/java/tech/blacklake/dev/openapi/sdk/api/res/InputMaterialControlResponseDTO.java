@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class InputMaterialControlResponseDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class InputMaterialControlResponseDTO {
     /**
      * 业务ID
      */
@@ -203,4 +204,3 @@ public class InputMaterialControlResponseDTO  {
         this.feedType = feedType;
     }
 }
-

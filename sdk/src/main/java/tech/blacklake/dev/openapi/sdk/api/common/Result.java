@@ -1,7 +1,5 @@
 package tech.blacklake.dev.openapi.sdk.api.common;
 
-import java.io.Serializable;
-
 public class Result<T> {
     /**
      * 状态码
@@ -27,7 +25,6 @@ public class Result<T> {
      */
     private String message = "成功";
 
-
     /**
      * 强弱管控标识
      */
@@ -38,8 +35,7 @@ public class Result<T> {
      */
     private FieldPermission fieldPermission;
 
-    public Result() {
-    }
+    public Result() {}
 
     public Result(T data) {
         this.data = data;
@@ -94,13 +90,12 @@ public class Result<T> {
 
     @Override
     public String toString() {
-        return "Result{" +
-            "code=" + code +
-            ", data=" + data +
-            ", subCode='" + subCode + '\'' +
-            ", message='" + message + '\'' +
-            ", needCheck=" + needCheck +
-            ", fieldPermission=" + fieldPermission +
-            '}';
+        return "Result{" + "code="
+                + code + ", data="
+                + data + ", subCode='"
+                + subCode + '\'' + ", message='"
+                + message + '\'' + ", needCheck="
+                + needCheck + ", fieldPermission="
+                + fieldPermission + '}';
     }
 }

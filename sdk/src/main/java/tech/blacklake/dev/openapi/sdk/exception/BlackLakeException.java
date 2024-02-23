@@ -26,11 +26,10 @@ public class BlackLakeException extends RuntimeException {
         if (args == null) {
             return errorMessage;
         }
-        return new MessageFormat(errorMessage).format(
-                Arrays.stream(args)
+        return new MessageFormat(errorMessage)
+                .format(Arrays.stream(args)
                         .filter(Objects::nonNull)
                         .map(Objects::toString)
-                        .toArray()
-        );
+                        .toArray());
     }
 }

@@ -8,4 +8,3 @@ public interface IEventHandler<E extends BaseCallbackDTO> {
 
     Object handle(E event) throws Exception;
 }
-

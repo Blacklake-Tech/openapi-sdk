@@ -1,11 +1,12 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
+
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
 
 public class TransferOrderListRequestDTO extends BasePage {
     /**
@@ -74,7 +75,7 @@ public class TransferOrderListRequestDTO extends BasePage {
     private String quickSearch;
 
     /**
-     * 是否过滤已完成的物料明细 ，默认false， true 过滤已经完成的物料明细 
+     * 是否过滤已完成的物料明细 ，默认false， true 过滤已经完成的物料明细
      */
     private boolean appFilterItemBizStatusDone;
 
@@ -190,4 +191,3 @@ public class TransferOrderListRequestDTO extends BasePage {
         this.appFilterItemBizStatusDone = appFilterItemBizStatusDone;
     }
 }
-

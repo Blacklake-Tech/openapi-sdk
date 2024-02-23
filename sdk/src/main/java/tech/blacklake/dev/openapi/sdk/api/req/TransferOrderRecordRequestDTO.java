@@ -1,11 +1,12 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
+
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
 
 public class TransferOrderRecordRequestDTO extends BasePage {
     /**
@@ -74,12 +75,12 @@ public class TransferOrderRecordRequestDTO extends BasePage {
     private List<Long> creatorIds;
 
     /**
-     * 创建起始时间（时间戳）如果创建起始时间，创建结束时间都不为空 创建起始时间>创建结束时间 
+     * 创建起始时间（时间戳）如果创建起始时间，创建结束时间都不为空 创建起始时间>创建结束时间
      */
     private Long createdAtFrom;
 
     /**
-     * 创建结束时间（时间戳）如果创建起始时间，创建结束时间都不为空 创建起始时间>创建结束时间 
+     * 创建结束时间（时间戳）如果创建起始时间，创建结束时间都不为空 创建起始时间>创建结束时间
      */
     private Long createdAtTill;
 
@@ -203,4 +204,3 @@ public class TransferOrderRecordRequestDTO extends BasePage {
         this.createdAtTill = createdAtTill;
     }
 }
-

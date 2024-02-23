@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class BomRequestDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class BomRequestDTO {
     /**
      * 物料清单Id
      */
@@ -268,4 +269,3 @@ public class BomRequestDTO  {
         this.bomOutputMaterials = bomOutputMaterials;
     }
 }
-

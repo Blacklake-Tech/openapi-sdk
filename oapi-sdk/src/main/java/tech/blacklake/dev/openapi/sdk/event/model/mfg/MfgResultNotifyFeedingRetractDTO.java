@@ -189,5 +189,4 @@ public class MfgResultNotifyFeedingRetractDTO extends BaseCallbackDTO {
             this.remark = remark;
         }
     }
-
 }

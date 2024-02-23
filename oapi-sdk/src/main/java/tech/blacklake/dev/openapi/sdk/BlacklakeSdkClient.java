@@ -35,6 +35,7 @@ public class BlacklakeSdkClient {
 
     public static final class Builder {
         private Config config = new Config();
+
         public Builder(String appKey, String appSecret) {
             config.setAppKey(appKey);
             config.setAppSecret(appSecret);

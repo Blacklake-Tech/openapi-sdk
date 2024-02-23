@@ -1,8 +1,11 @@
 package tech.blacklake.dev.openapi.sdk.event;
+
 import tech.blacklake.dev.openapi.sdk.constants.Constants;
 import tech.blacklake.dev.openapi.sdk.event.model.EventReq;
 import tech.blacklake.dev.openapi.sdk.event.model.EventResp;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -10,8 +13,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class HttpTranslator {
 
@@ -27,8 +28,7 @@ public class HttpTranslator {
     }
 
     public EventReq translate(HttpServletRequest request) throws IOException {
-        String bodyStr = request.getReader().lines()
-                .collect(Collectors.joining(System.lineSeparator()));
+        String bodyStr = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
         EventReq req = new EventReq();
         req.setHeaders(toHeaderMap(request));
         req.setBody(bodyStr.getBytes(Constants.SYSTEM_CHARSET));

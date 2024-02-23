@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class BomFeedingControlRequestDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class BomFeedingControlRequestDTO {
     /**
      * 投料管控Id
      */
@@ -177,4 +178,3 @@ public class BomFeedingControlRequestDTO  {
         this.feedType = feedType;
     }
 }
-

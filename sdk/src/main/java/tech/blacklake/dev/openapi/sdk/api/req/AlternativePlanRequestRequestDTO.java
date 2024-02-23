@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class AlternativePlanRequestRequestDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class AlternativePlanRequestRequestDTO {
     /**
      * 替代方案编号，支持字母、数字、符号，不可超过255字符
      */
@@ -130,7 +131,8 @@ public class AlternativePlanRequestRequestDTO  {
         this.remark = remark;
     }
 
-    public void setOriginalAlternativeMaterials(List<OriginalAlternativeMaterialRequestRequestDTO> originalAlternativeMaterials) {
+    public void setOriginalAlternativeMaterials(
+            List<OriginalAlternativeMaterialRequestRequestDTO> originalAlternativeMaterials) {
         this.originalAlternativeMaterials = originalAlternativeMaterials;
     }
 
@@ -138,4 +140,3 @@ public class AlternativePlanRequestRequestDTO  {
         this.alternativeMaterials = alternativeMaterials;
     }
 }
-

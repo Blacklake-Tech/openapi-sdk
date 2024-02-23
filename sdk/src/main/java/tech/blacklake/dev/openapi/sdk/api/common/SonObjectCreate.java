@@ -7,8 +7,7 @@ public class SonObjectCreate {
 
     private List<CustomFieldInstanceCreate> customFieldInstances;
 
-    public SonObjectCreate() {
-    }
+    public SonObjectCreate() {}
 
     public String getObjectCode() {
         return this.objectCode;

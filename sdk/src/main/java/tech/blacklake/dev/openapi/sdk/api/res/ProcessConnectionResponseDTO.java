@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class ProcessConnectionResponseDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class ProcessConnectionResponseDTO {
     /**
      * 业务id
      */
@@ -54,7 +55,7 @@ public class ProcessConnectionResponseDTO  {
     private Integer intervalTime;
 
     /**
-     * 工序间隔时间单位枚举值 key = timeUnit 
+     * 工序间隔时间单位枚举值 key = timeUnit
      */
     private BizConstantDisplay timeUnit;
 
@@ -151,4 +152,3 @@ public class ProcessConnectionResponseDTO  {
         this.processManufacturedGoods = processManufacturedGoods;
     }
 }
-

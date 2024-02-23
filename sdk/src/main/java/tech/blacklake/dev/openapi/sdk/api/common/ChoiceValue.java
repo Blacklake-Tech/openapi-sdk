@@ -5,17 +5,20 @@ import io.swagger.annotations.ApiModelProperty;
 public class ChoiceValue {
     @ApiModelProperty("id")
     private Long id;
+
     @ApiModelProperty("选项code")
     private String choiceCode;
+
     @ApiModelProperty("选项值")
     private String choiceValue;
+
     @ApiModelProperty("是否默认选项")
     private Integer isDefault;
+
     @ApiModelProperty("选项序号")
     private Integer sequence;
 
-    public ChoiceValue() {
-    }
+    public ChoiceValue() {}
 
     public Long getId() {
         return this.id;

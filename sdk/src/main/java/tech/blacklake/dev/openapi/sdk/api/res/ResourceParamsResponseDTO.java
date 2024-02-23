@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.res;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class ResourceParamsResponseDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class ResourceParamsResponseDTO {
     /**
      * 资源ID
      */
@@ -177,4 +178,3 @@ public class ResourceParamsResponseDTO  {
         this.paramsFloorLimit = paramsFloorLimit;
     }
 }
-

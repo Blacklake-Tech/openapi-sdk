@@ -7,13 +7,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-
-import java.io.IOException;
-import java.lang.reflect.Method;
-
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
-import net.sf.cglib.proxy.MethodProxy;
 import okhttp3.HttpUrl;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -29,6 +24,8 @@ import tech.blacklake.dev.openapi.sdk.constant.ErrorCodeEnum;
 import tech.blacklake.dev.openapi.sdk.constant.UrlEnum;
 import tech.blacklake.dev.openapi.sdk.exception.BlackLakeException;
 import tech.blacklake.dev.openapi.sdk.util.Preconditions;
+
+import java.io.IOException;
 
 /**
  * @author cuiyichen
@@ -48,30 +45,36 @@ public class BlackLakeHttpClient extends TemplateController {
 
     private static final MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json; charset=utf-8");
 
-    private final static ObjectMapper OBJECT_MAPPER = new ObjectMapper()
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper()
             .enable(SerializationFeature.INDENT_OUTPUT)
             .configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, true)
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
             .setSerializationInclusion(JsonInclude.Include.NON_EMPTY)
             .setSerializationInclusion(JsonInclude.Include.NON_NULL);
 
-    private final static int BLACK_LAKE_CODE_OK = 200;
+    private static final int BLACK_LAKE_CODE_OK = 200;
 
-    private final static String TOKEN_EXPIRED_SUBCODE = "SSO_TOKEN_FAIL";
+    private static final String TOKEN_EXPIRED_SUBCODE = "SSO_TOKEN_FAIL";
 
-    private final static String EMPTY_JSON = "{}";
+    private static final String EMPTY_JSON = "{}";
 
     /**
      * 获取BlackLakeHttpClient代理对象
      */
-    public static BlackLakeHttpClient getBlackLakeHttpClient(String appKey, String appSecret, String factoryNumber, String endpoint) {
+    public static BlackLakeHttpClient getBlackLakeHttpClient(
+            String appKey, String appSecret, String factoryNumber, String endpoint) {
         return getBlackLakeHttpClient(appKey, appSecret, factoryNumber, endpoint, null);
     }
 
     /**
      * 获取BlackLakeHttpClient代理对象
      */
-    public static BlackLakeHttpClient getBlackLakeHttpClient(String appKey, String appSecret, String factoryNumber, String endpoint, BlackLakeHttpClientConfig blackLakeHttpClientConfig) {
+    public static BlackLakeHttpClient getBlackLakeHttpClient(
+            String appKey,
+            String appSecret,
+            String factoryNumber,
+            String endpoint,
+            BlackLakeHttpClientConfig blackLakeHttpClientConfig) {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(BlackLakeHttpClient.class);
         enhancer.setCallback((MethodInterceptor) (o, method, objects, methodProxy) -> {
@@ -100,20 +103,26 @@ public class BlackLakeHttpClient extends TemplateController {
                     return result;
 
                 } catch (IOException e) {
-                    throw new BlackLakeException(ErrorCodeEnum.RESPONSE_BODY_DESERIALIZE_FAILED,
-                            e.getMessage());
+                    throw new BlackLakeException(ErrorCodeEnum.RESPONSE_BODY_DESERIALIZE_FAILED, e.getMessage());
                 }
             } else {
                 return methodProxy.invokeSuper(o, objects);
             }
         });
 
-        Class<?>[] argumentTypes = {String.class, String.class, String.class, String.class, BlackLakeHttpClientConfig.class};
+        Class<?>[] argumentTypes = {
+            String.class, String.class, String.class, String.class, BlackLakeHttpClientConfig.class
+        };
         Object[] arguments = {appKey, appSecret, factoryNumber, endpoint, blackLakeHttpClientConfig};
         return (BlackLakeHttpClient) enhancer.create(argumentTypes, arguments);
     }
 
-    public BlackLakeHttpClient(String appKey, String appSecret, String factoryNumber, String endpoint, BlackLakeHttpClientConfig blackLakeHttpClientConfig) {
+    public BlackLakeHttpClient(
+            String appKey,
+            String appSecret,
+            String factoryNumber,
+            String endpoint,
+            BlackLakeHttpClientConfig blackLakeHttpClientConfig) {
         Preconditions.checkNotNull(appKey, ErrorCodeEnum.APP_KEY_IS_NOT_NULLABLE);
         Preconditions.checkNotNull(appSecret, ErrorCodeEnum.APP_SECRET_IS_NOT_NULLABLE);
         Preconditions.checkNotNull(factoryNumber, ErrorCodeEnum.FACTORY_NUMBER_IS_NOT_NULLABLE);
@@ -142,7 +151,9 @@ public class BlackLakeHttpClient extends TemplateController {
         try {
             Request request = new Request.Builder()
                     .url(httpUrl)
-                    .post(RequestBody.create(MEDIA_TYPE_JSON, requestBody == null ? EMPTY_JSON : OBJECT_MAPPER.writeValueAsString(requestBody)))
+                    .post(RequestBody.create(
+                            MEDIA_TYPE_JSON,
+                            requestBody == null ? EMPTY_JSON : OBJECT_MAPPER.writeValueAsString(requestBody)))
                     .build();
 
             Response response = okHttpClient.newCall(request).execute();
@@ -179,7 +190,8 @@ public class BlackLakeHttpClient extends TemplateController {
             if (TOKEN_EXPIRED_SUBCODE.equals(result.getSubCode())) {
                 return true;
             } else {
-                throw new BlackLakeException(ErrorCodeEnum.BLACK_LAKE_ERROR_MESSAGE, result.getSubCode(), result.getMessage());
+                throw new BlackLakeException(
+                        ErrorCodeEnum.BLACK_LAKE_ERROR_MESSAGE, result.getSubCode(), result.getMessage());
             }
         }
         return false;
@@ -189,14 +201,13 @@ public class BlackLakeHttpClient extends TemplateController {
      * 刷新token
      */
     private void refreshToken() {
-        byte[] bytes = this.doSyncInvoke(refreshTokenRequestDTO, this.endpoint + UrlEnum.REFRESH_ACCESS_TOKEN.getMessage());
+        byte[] bytes =
+                this.doSyncInvoke(refreshTokenRequestDTO, this.endpoint + UrlEnum.REFRESH_ACCESS_TOKEN.getMessage());
         Result<RefreshTokenResponseDTO> result;
         try {
-            result = OBJECT_MAPPER.readValue(bytes, new TypeReference<Result<RefreshTokenResponseDTO>>() {
-            });
+            result = OBJECT_MAPPER.readValue(bytes, new TypeReference<Result<RefreshTokenResponseDTO>>() {});
         } catch (IOException e) {
-            throw new BlackLakeException(ErrorCodeEnum.RESPONSE_BODY_DESERIALIZE_FAILED,
-                    e.getMessage());
+            throw new BlackLakeException(ErrorCodeEnum.RESPONSE_BODY_DESERIALIZE_FAILED, e.getMessage());
         }
         this.handleResult(result);
         this.token = result.getData().token;
@@ -205,8 +216,10 @@ public class BlackLakeHttpClient extends TemplateController {
     private static class RefreshTokenRequestDTO {
         @JsonProperty("appKey")
         String appKey;
+
         @JsonProperty("appSecret")
         String appSecret;
+
         @JsonProperty("factoryNumber")
         String factoryNumber;
 

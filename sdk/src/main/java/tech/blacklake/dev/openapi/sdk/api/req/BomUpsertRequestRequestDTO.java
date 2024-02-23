@@ -1,13 +1,14 @@
 package tech.blacklake.dev.openapi.sdk.api.req;
 
-import java.time.*;
-import java.util.*;
-import java.math.*;
-import java.io.*;
 import tech.blacklake.dev.openapi.sdk.api.common.*;
 import tech.blacklake.dev.openapi.sdk.api.dto.*;
 
-public class BomUpsertRequestRequestDTO  {
+import java.io.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class BomUpsertRequestRequestDTO {
     /**
      * 父项物料编号,不可超过255个字符
      */
@@ -255,4 +256,3 @@ public class BomUpsertRequestRequestDTO  {
         this.autoWarehousingFlag = autoWarehousingFlag;
     }
 }
-

@@ -1,29 +1,40 @@
 package tech.blacklake.dev.openapi.sdk.api.common;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.util.List;
 
 public class CustomFieldInstance {
     @ApiModelProperty("id（废弃）")
     private Long id;
+
     @ApiModelProperty("字段类型")
     private Integer fieldType;
+
     @ApiModelProperty("字段id")
     private Long fieldId;
+
     @ApiModelProperty("字段code")
     private String fieldCode;
+
     @ApiModelProperty("对象code")
     private String objectCode;
+
     @ApiModelProperty("字段名称")
     private String fieldName;
+
     @ApiModelProperty("字段提示")
     private String fieldRemind;
+
     @ApiModelProperty("是否必填")
     private Integer isRequired;
+
     @ApiModelProperty("默认值")
     private String defaultValue;
+
     @ApiModelProperty("字段值")
     private Object fieldValue;
+
     private Integer maxLength;
     private Integer maxValue;
     private Integer decimalNumber;
@@ -34,8 +45,7 @@ public class CustomFieldInstance {
     private List<ChoiceValue> choiceValues;
     private Integer isUsed;
 
-    public CustomFieldInstance() {
-    }
+    public CustomFieldInstance() {}
 
     public Integer getIsUsed() {
         return this.isUsed;

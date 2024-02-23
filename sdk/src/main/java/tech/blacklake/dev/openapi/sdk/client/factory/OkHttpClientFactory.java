@@ -19,8 +19,7 @@ public class OkHttpClientFactory {
         ConnectionPool connectionPool = new ConnectionPool(
                 blackLakeHttpClientConfig.getMaxIdleConnections(),
                 blackLakeHttpClientConfig.getKeepAliveDurationSecs(),
-                TimeUnit.SECONDS
-        );
+                TimeUnit.SECONDS);
 
         OkHttpClient.Builder builder = new OkHttpClient.Builder()
                 .connectTimeout(blackLakeHttpClientConfig.getConnectTimeoutMillis(), TimeUnit.MILLISECONDS)

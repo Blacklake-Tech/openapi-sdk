@@ -14,9 +14,7 @@ public class EventResp {
     private Map<String, List<String>> headers = new HashMap();
     private int statusCode;
 
-    public EventResp() {
-
-    }
+    public EventResp() {}
 
     public byte[] getBody() {
         return body;
