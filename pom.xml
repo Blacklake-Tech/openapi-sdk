@@ -33,7 +33,7 @@
         <order.version>6.8.1-RELEASE</order.version>
         <quality.version>6.7.0-RELEASE</quality.version>
         <workcenter.version>6.8.0-RELEASE</workcenter.version>
-        <inventory.version>6.8.1-RELEASE</inventory.version>
+        <inventory.version>8.4.0-SNAPSHOT</inventory.version>
         <material.version>6.8.1-RELEASE</material.version>
         <storage.version>6.7.0.2-RELEASE</storage.version>
         <customObject.version>6.8.2.1-RELEASE</customObject.version>
@@ -390,6 +390,12 @@
                 <groupId>tech.blacklake.dev.holyfile</groupId>
                 <artifactId>holyfile-domain-openapi</artifactId>
                 <version>${holyfile.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.inventory</groupId>
+                <artifactId>inventory-domain-openapi</artifactId>
+                <version>${inventory.version}</version>
             </dependency>
 
             <dependency>
