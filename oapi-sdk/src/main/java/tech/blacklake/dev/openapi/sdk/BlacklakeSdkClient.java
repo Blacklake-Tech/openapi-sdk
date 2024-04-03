@@ -1,6 +1,7 @@
 package tech.blacklake.dev.openapi.sdk;
 
 import tech.blacklake.dev.holyfile.open.File4CustomObjectOpenApi;
+import tech.blacklake.dev.inventory.open.*;
 import tech.blacklake.dev.openapi.sdk.config.Config;
 import tech.blacklake.dev.openapi.sdk.constants.enums.AppTypeEnum;
 import tech.blacklake.dev.openapi.sdk.constants.enums.BaseUrlEnum;
@@ -24,6 +25,21 @@ public class BlacklakeSdkClient {
     public QcDefectReasonOpenApi qcDefectReasonOpenApi;
     public QcMaterialOpenApi qcMaterialOpenApi;
     public QcTaskOpenApi qcTaskOpenApi;
+    public AmountAdjustOpenApi amountAdjustOpenApi;
+    public AttributeAdjustOpenApi attributeAdjustOpenApi;
+    public InboundOrderOpenApi inboundOrderOpenApi;
+    public InboundOrderOpenV2Api inboundOrderOpenV2Api;
+    public InventoryConversionOpenApi inventoryConversionOpenApi;
+    public InventoryCountingOpenApi inventoryCountingOpenApi;
+    public LabelOpenApi labelOpenApi;
+    public OpenInventoryMapApi openInventoryMapApi;
+    public OpenMaterialContainApi openMaterialContainApi;
+    public OpenMaterialInventoryApi openMaterialInventoryApi;
+    public OutboundOrderExecuteOpenApi outboundOrderExecuteOpenApi;
+    public OutboundOrderOpenApi outboundOrderOpenApi;
+    public OutboundOrderOpenV2Api outboundOrderOpenV2Api;
+    public TransferOrderOpenApi transferOrderOpenApi;
+    public TransferOrderOpenV2Api transferOrderOpenV2Api;
 
     public static Builder newBuilder(String appKey, String appSecret) {
         return new Builder(appKey, appSecret);
