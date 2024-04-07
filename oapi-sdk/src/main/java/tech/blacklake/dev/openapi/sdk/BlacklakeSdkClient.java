@@ -1,6 +1,15 @@
 package tech.blacklake.dev.openapi.sdk;
 
 import tech.blacklake.dev.holyfile.open.File4CustomObjectOpenApi;
+import tech.blacklake.dev.material.domain.openapi.batch.MaterialBatchNoOpenApi;
+import tech.blacklake.dev.material.domain.openapi.material.MaterialAttributeOpenApi;
+import tech.blacklake.dev.material.domain.openapi.material.MaterialCategoryOpenApi;
+import tech.blacklake.dev.material.domain.openapi.material.MaterialOpenApi;
+import tech.blacklake.dev.material.domain.openapi.material.MaterialOpenV2Api;
+import tech.blacklake.dev.material.domain.openapi.storage.StorageAreaOpenApi;
+import tech.blacklake.dev.material.domain.openapi.storage.StorageLocationOpenApi;
+import tech.blacklake.dev.material.domain.openapi.storage.StorageWarehouseOpenApi;
+import tech.blacklake.dev.material.domain.openapi.unit.UnitOpenApi;
 import tech.blacklake.dev.openapi.sdk.config.Config;
 import tech.blacklake.dev.openapi.sdk.constants.enums.AppTypeEnum;
 import tech.blacklake.dev.openapi.sdk.constants.enums.BaseUrlEnum;
@@ -11,6 +20,15 @@ public class BlacklakeSdkClient {
 
     public File4CustomObjectOpenApi file4CustomObjectOpenApi;
 
+    public MaterialBatchNoOpenApi materialBatchNoOpenApi;
+    public MaterialOpenV2Api materialOpenV2Api;
+    public MaterialOpenApi materialOpenApi;
+    public MaterialCategoryOpenApi materialCategoryOpenApi;
+    public MaterialAttributeOpenApi materialAttributeOpenApi;
+    public UnitOpenApi unitOpenApi;
+    public StorageWarehouseOpenApi storageWarehouseOpenApi;
+    public StorageLocationOpenApi storageLocationOpenApi;
+    public StorageAreaOpenApi storageAreaOpenApi;
     public static Builder newBuilder(String appKey, String appSecret) {
         return new Builder(appKey, appSecret);
     }
