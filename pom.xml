@@ -34,7 +34,7 @@
         <quality.version>8.3.0-SNAPSHOT</quality.version>
         <workcenter.version>6.8.0-RELEASE</workcenter.version>
         <inventory.version>8.4.0-SNAPSHOT</inventory.version>
-        <material.version>6.8.1-RELEASE</material.version>
+        <material.version>8.4.0-SNAPSHOT</material.version>
         <storage.version>6.7.0.2-RELEASE</storage.version>
         <customObject.version>6.8.2.1-RELEASE</customObject.version>
         <user.version>6.8.0.1-RELEASE</user.version>
@@ -274,50 +274,14 @@
 
             <dependency>
                 <groupId>tech.blacklake.dev.material</groupId>
-                <artifactId>material-service</artifactId>
+                <artifactId>material-openapi</artifactId>
                 <version>${material.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>tech.blacklake.dev.material</groupId>
-                <artifactId>material-api</artifactId>
+                <artifactId>storage-openapi</artifactId>
                 <version>${material.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>tech.blacklake.dev.material</groupId>
-                <artifactId>sku-service</artifactId>
-                <version>${material.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>tech.blacklake.dev.material</groupId>
-                <artifactId>sku-api</artifactId>
-                <version>${material.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>tech.blacklake.dev.material</groupId>
-                <artifactId>unit-service</artifactId>
-                <version>${material.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>tech.blacklake.dev.material</groupId>
-                <artifactId>unit-api</artifactId>
-                <version>${material.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>tech.blacklake.dev.storage</groupId>
-                <artifactId>storage-domain-service</artifactId>
-                <version>${storage.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>tech.blacklake.dev.storage</groupId>
-                <artifactId>storage-domain-api</artifactId>
-                <version>${storage.version}</version>
             </dependency>
 
             <dependency>
