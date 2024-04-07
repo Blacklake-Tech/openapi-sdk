@@ -35,6 +35,14 @@
             <groupId>tech.blacklake.dev.quality</groupId>
             <artifactId>quality-domain-openapi</artifactId>
         </dependency>
+        <dependency>
+            <groupId>tech.blacklake.dev.material</groupId>
+            <artifactId>material-openapi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tech.blacklake.dev.material</groupId>
+            <artifactId>storage-openapi</artifactId>
+        </dependency>
     </dependencies>
     
 </project>
