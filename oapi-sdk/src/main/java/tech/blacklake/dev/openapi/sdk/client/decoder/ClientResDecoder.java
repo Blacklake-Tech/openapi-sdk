@@ -48,7 +48,6 @@ public class ClientResDecoder implements Decoder {
             Result result = objectMapper.readValue(response.body().asInputStream(), new TypeReference<Result>() {});
 
             if (result.getCode() == 200) {
-
                 if (type instanceof ParameterizedType) {
                     ParameterizedType pt = (ParameterizedType) type;
                     if (pt.getRawType().equals(Result.class) || pt.getRawType().equals(ResultList.class)) {
@@ -67,7 +66,8 @@ public class ClientResDecoder implements Decoder {
                         new Date(),
                         response.request());
             } else {
-                throw FeignBizException.build(result);
+                return result;
+//                throw FeignBizException.build(result);
             }
         } else {
             FeignBizException internal_error =
