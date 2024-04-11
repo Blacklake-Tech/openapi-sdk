@@ -36,10 +36,6 @@ import tech.blacklake.dev.quality.api.open.domain.QcTaskOpenApi;
 
 import static tech.blacklake.dev.openapi.sdk.constants.Constants.*;
 
-import static tech.blacklake.dev.openapi.sdk.constants.Constants.*;
-
-import static tech.blacklake.dev.openapi.sdk.constants.Constants.*;
-
 @Configuration
 @EnableConfigurationProperties(Config.class)
 public class OpenapiSdkAutoConfig {
@@ -199,163 +195,193 @@ public class OpenapiSdkAutoConfig {
 
     private AmountAdjustOpenApi amountAdjustOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(AmountAdjustOpenApi.class, "file4CustomObjectOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(AmountAdjustOpenApi.class, "file4CustomObjectOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
+                .build();
     }
 
     private AttributeAdjustOpenApi attributeAdjustOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(AttributeAdjustOpenApi.class, "attributeAdjustOpenApi")
+        return feignClientBuilder
+                .forType(AttributeAdjustOpenApi.class, "attributeAdjustOpenApi")
                 .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
                 .build();
     }
 
     private InboundOrderOpenApi inboundOrderOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(InboundOrderOpenApi.class, "inboundOrderOpenApi")
+        return feignClientBuilder
+                .forType(InboundOrderOpenApi.class, "inboundOrderOpenApi")
                 .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
                 .build();
     }
 
     private InboundOrderOpenV2Api inboundOrderOpenV2Api(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(InboundOrderOpenV2Api.class, "inboundOrderOpenV2Api")
+        return feignClientBuilder
+                .forType(InboundOrderOpenV2Api.class, "inboundOrderOpenV2Api")
                 .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
                 .build();
     }
 
     private InventoryConversionOpenApi inventoryConversionOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(InventoryConversionOpenApi.class, "inventoryConversionOpenApi")
+        return feignClientBuilder
+                .forType(InventoryConversionOpenApi.class, "inventoryConversionOpenApi")
                 .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
                 .build();
     }
 
     private InventoryCountingOpenApi inventoryCountingOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(InventoryCountingOpenApi.class, "inventoryCountingOpenApi")
+        return feignClientBuilder
+                .forType(InventoryCountingOpenApi.class, "inventoryCountingOpenApi")
                 .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
                 .build();
     }
 
     private LabelOpenApi labelOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(LabelOpenApi.class, "labelOpenApi")
+        return feignClientBuilder
+                .forType(LabelOpenApi.class, "labelOpenApi")
                 .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
                 .build();
     }
 
     private OpenInventoryMapApi openInventoryMapApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(OpenInventoryMapApi.class, "openInventoryMapApi")
+        return feignClientBuilder
+                .forType(OpenInventoryMapApi.class, "openInventoryMapApi")
                 .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
                 .build();
     }
 
     private OpenMaterialContainApi openMaterialContainApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(OpenMaterialContainApi.class, "openMaterialContainApi")
+        return feignClientBuilder
+                .forType(OpenMaterialContainApi.class, "openMaterialContainApi")
                 .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
                 .build();
     }
 
     private OpenMaterialInventoryApi openMaterialInventoryApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(OpenMaterialInventoryApi.class, "openMaterialInventoryApi")
+        return feignClientBuilder
+                .forType(OpenMaterialInventoryApi.class, "openMaterialInventoryApi")
                 .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
                 .build();
     }
 
     private OutboundOrderExecuteOpenApi outboundOrderExecuteOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(OutboundOrderExecuteOpenApi.class, "outboundOrderExecuteOpenApi")
+        return feignClientBuilder
+                .forType(OutboundOrderExecuteOpenApi.class, "outboundOrderExecuteOpenApi")
                 .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
                 .build();
     }
 
     private OutboundOrderOpenApi outboundOrderOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(OutboundOrderOpenApi.class, "outboundOrderOpenApi")
+        return feignClientBuilder
+                .forType(OutboundOrderOpenApi.class, "outboundOrderOpenApi")
                 .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
                 .build();
     }
 
     private OutboundOrderOpenV2Api outboundOrderOpenV2Api(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(OutboundOrderOpenV2Api.class, "outboundOrderOpenV2Api")
+        return feignClientBuilder
+                .forType(OutboundOrderOpenV2Api.class, "outboundOrderOpenV2Api")
                 .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
                 .build();
     }
 
     private TransferOrderOpenApi transferOrderOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(TransferOrderOpenApi.class, "transferOrderOpenApi")
+        return feignClientBuilder
+                .forType(TransferOrderOpenApi.class, "transferOrderOpenApi")
                 .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
                 .build();
     }
 
     private TransferOrderOpenV2Api transferOrderOpenV2Api(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(TransferOrderOpenV2Api.class, "transferOrderOpenV2Api")
+        return feignClientBuilder
+                .forType(TransferOrderOpenV2Api.class, "transferOrderOpenV2Api")
                 .url(config.getBaseUrl() + ROUTE_URL + INVENTORY_PREFIX)
                 .build();
     }
 
     private MaterialBatchNoOpenApi materialBatchNoOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(MaterialBatchNoOpenApi.class, "materialBatchNoOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(MaterialBatchNoOpenApi.class, "materialBatchNoOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
+                .build();
     }
 
     private MaterialOpenV2Api materialOpenV2Api(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(MaterialOpenV2Api.class, "materialOpenV2Api")
-            .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(MaterialOpenV2Api.class, "materialOpenV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
+                .build();
     }
+
     private MaterialOpenApi materialOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(MaterialOpenApi.class, "materialOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(MaterialOpenApi.class, "materialOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
+                .build();
     }
+
     private MaterialCategoryOpenApi materialCategoryOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(MaterialCategoryOpenApi.class, "materialCategoryOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(MaterialCategoryOpenApi.class, "materialCategoryOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
+                .build();
     }
+
     private MaterialAttributeOpenApi materialAttributeOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(MaterialAttributeOpenApi.class, "materialAttributeOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(MaterialAttributeOpenApi.class, "materialAttributeOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
+                .build();
     }
+
     private UnitOpenApi unitOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(UnitOpenApi.class, "unitOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(UnitOpenApi.class, "unitOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
+                .build();
     }
 
     private StorageWarehouseOpenApi storageWarehouseOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(StorageWarehouseOpenApi.class, "storageWarehouseOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(StorageWarehouseOpenApi.class, "storageWarehouseOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
+                .build();
     }
+
     private StorageLocationOpenApi storageLocationOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(StorageLocationOpenApi.class, "storageLocationOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(StorageLocationOpenApi.class, "storageLocationOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
+                .build();
     }
+
     private StorageAreaOpenApi storageAreaOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder.forType(StorageAreaOpenApi.class, "storageAreaOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
-            .build();
+        return feignClientBuilder
+                .forType(StorageAreaOpenApi.class, "storageAreaOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
+                .build();
     }
 }

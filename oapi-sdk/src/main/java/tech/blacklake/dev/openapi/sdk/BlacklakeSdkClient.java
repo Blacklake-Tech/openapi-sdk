@@ -59,6 +59,7 @@ public class BlacklakeSdkClient {
     public StorageWarehouseOpenApi storageWarehouseOpenApi;
     public StorageLocationOpenApi storageLocationOpenApi;
     public StorageAreaOpenApi storageAreaOpenApi;
+
     public static Builder newBuilder(String appKey, String appSecret) {
         return new Builder(appKey, appSecret);
     }

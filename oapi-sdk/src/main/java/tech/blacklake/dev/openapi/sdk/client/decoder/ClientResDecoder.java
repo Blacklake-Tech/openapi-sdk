@@ -67,7 +67,7 @@ public class ClientResDecoder implements Decoder {
                         response.request());
             } else {
                 return result;
-//                throw FeignBizException.build(result);
+                //                throw FeignBizException.build(result);
             }
         } else {
             FeignBizException internal_error =
