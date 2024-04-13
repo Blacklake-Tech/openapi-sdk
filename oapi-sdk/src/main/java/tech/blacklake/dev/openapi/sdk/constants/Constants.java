@@ -33,6 +33,11 @@ public class Constants {
     public static final String QUALITY_PREFIX = "/quality";
 
     public static final String MATERIAL_PREFIX = "/material";
+
+    public static final String MED_PREFIX = "/med";
+
+    public static final String MFG_PREFIX = "/mfg";
+
     public static final long OK_HTTP_TIMEOUT_SECONDS = 30L;
 
     public static final int SUCCESS_RESULT_CODE = 200;

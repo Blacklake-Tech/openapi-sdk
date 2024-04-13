@@ -43,6 +43,19 @@
             <groupId>tech.blacklake.dev.material</groupId>
             <artifactId>storage-openapi</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>tech.blacklake.dev.med</groupId>
+            <artifactId>med-domain-produce-define-openapi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tech.blacklake.dev.med</groupId>
+            <artifactId>med-domain-work-order-openapi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tech.blacklake.dev.mfg</groupId>
+            <artifactId>mfg-domain-core-openapi</artifactId>
+        </dependency>
     </dependencies>
     
 </project>
