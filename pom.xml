@@ -29,6 +29,7 @@
 
         <med.version>8.4.1.5-SNAPSHOT</med.version>
         <mfg.version>8.4.0-RELEASE</mfg.version>
+        <weighing.version>8.4.0-RELEASE</weighing.version>
         <resource.version>6.7.1-RELEASE</resource.version>
         <order.version>6.8.1-RELEASE</order.version>
         <quality.version>8.3.0-SNAPSHOT</quality.version>
@@ -124,6 +125,11 @@
                 <groupId>tech.blacklake.dev.mfg</groupId>
                 <artifactId>mfg-domain-core-openapi</artifactId>
                 <version>${mfg.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>tech.blacklake.dev.weighing</groupId>
+                <artifactId>weighing-domain-openapi</artifactId>
+                <version>${weighing.version}</version>
             </dependency>
 
             <dependency>
