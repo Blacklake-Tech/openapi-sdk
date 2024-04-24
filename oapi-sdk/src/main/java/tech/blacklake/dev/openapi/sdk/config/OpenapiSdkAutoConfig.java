@@ -50,6 +50,7 @@ import tech.blacklake.dev.openapi.sdk.client.interceptor.ClientReqInterceptor;
 import tech.blacklake.dev.openapi.sdk.constants.enums.AppTypeEnum;
 import tech.blacklake.dev.openapi.sdk.event.ServletAdapter;
 import tech.blacklake.dev.openapi.sdk.token.TokenManager;
+import tech.blacklake.dev.plo.openapi.PlanOrderOpenApi;
 import tech.blacklake.dev.quality.api.open.def.checkitem.QcCheckItemCategoryOpenApi;
 import tech.blacklake.dev.quality.api.open.def.checkitem.QcCheckItemOpenApi;
 import tech.blacklake.dev.quality.api.open.def.qcconfig.QcConfigOpenApi;
@@ -57,6 +58,15 @@ import tech.blacklake.dev.quality.api.open.def.qcconfig.QcDefectRankOpenApi;
 import tech.blacklake.dev.quality.api.open.def.qcconfig.QcDefectReasonOpenApi;
 import tech.blacklake.dev.quality.api.open.domain.QcMaterialOpenApi;
 import tech.blacklake.dev.quality.api.open.domain.QcTaskOpenApi;
+import tech.blacklake.dev.resource.openapi.MaintenanceTaskOpenApi;
+import tech.blacklake.dev.resource.openapi.RepairTaskOpenApi;
+import tech.blacklake.dev.resource.openapi.ResourceLocationOpenApi;
+import tech.blacklake.dev.resource.openapi.ResourceOpenApi;
+import tech.blacklake.dev.resource.openapi.ResourceOpenV2Api;
+import tech.blacklake.dev.resource.openapi.ResourceRecordOpenApi;
+import tech.blacklake.dev.sop.domain.openapi.SopOpenV2OpenApi;
+import tech.blacklake.dev.sop.domain.openapi.SopTaskOpenV2OpenApi;
+import tech.blacklake.dev.worker.calendar.openapi.OpenImExportOpenApi;
 
 import static tech.blacklake.dev.openapi.sdk.constants.Constants.*;
 
@@ -123,6 +133,7 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.storageAreaOpenApi = storageAreaOpenApi(config);
 
         /**** 生产 begin********************/
+        // med
         blacklakeSdkClient.alternativePlanOpenApi = alternativePlanOpenApi(config);
         blacklakeSdkClient.bomOpenApi = bomOpenApi(config);
         blacklakeSdkClient.processOpenApi = processOpenApi(config);
@@ -133,7 +144,7 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.processV2OpenApi = processV2OpenApi(config);
         blacklakeSdkClient.processPlanV2OpenApi = processPlanV2OpenApi(config);
         blacklakeSdkClient.workOrderV2OpenApi = workOrderV2OpenApi(config);
-
+        // mfg
         blacklakeSdkClient.feedOpenApi = feedOpenApi(config);
         blacklakeSdkClient.feedRecordOpenApi = feedRecordOpenApi(config);
         blacklakeSdkClient.feedRecordOpenApiV2 = feedRecordOpenApiV2(config);
@@ -148,6 +159,21 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.scrapOpenApi = scrapOpenApi(config);
         blacklakeSdkClient.scrapRecordOpenApi = scrapRecordOpenApi(config);
         blacklakeSdkClient.produceTraceOpenApi = produceTraceOpenApi(config);
+        // sop
+        blacklakeSdkClient.sopOpenV2OpenApi = sopOpenV2OpenApi(config);
+        blacklakeSdkClient.sopTaskOpenV2OpenApi = sopTaskOpenV2OpenApi(config);
+        // plo
+        blacklakeSdkClient.planOrderOpenApi = planOrderOpenApi(config);
+        // workercalendar
+        blacklakeSdkClient.openImExportOpenApi = openImExportOpenApi(config);
+        // resource
+        blacklakeSdkClient.maintenanceTaskOpenApi = maintenanceTaskOpenApi(config);
+        blacklakeSdkClient.repairTaskOpenApi = repairTaskOpenApi(config);
+        blacklakeSdkClient.resourceLocationOpenApi = resourceLocationOpenApi(config);
+        blacklakeSdkClient.resourceOpenApi = resourceOpenApi(config);
+        blacklakeSdkClient.resourceOpenV2Api = resourceOpenV2Api(config);
+        blacklakeSdkClient.resourceRecordOpenApi = resourceRecordOpenApi(config);
+
         /**** 生产 end********************/
         return blacklakeSdkClient;
     }
@@ -179,6 +205,86 @@ public class OpenapiSdkAutoConfig {
     @Bean
     public ServletAdapter servletAdapter() {
         return new ServletAdapter();
+    }
+
+    private ResourceRecordOpenApi resourceRecordOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(ResourceRecordOpenApi.class, "resourceRecordOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + RESOURCE_PREFIX)
+                .build();
+    }
+
+    private ResourceOpenV2Api resourceOpenV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(ResourceOpenV2Api.class, "resourceOpenV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + RESOURCE_PREFIX)
+                .build();
+    }
+
+    private ResourceOpenApi resourceOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(ResourceOpenApi.class, "resourceOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + RESOURCE_PREFIX)
+                .build();
+    }
+
+    private ResourceLocationOpenApi resourceLocationOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(ResourceLocationOpenApi.class, "resourceLocationOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + RESOURCE_PREFIX)
+                .build();
+    }
+
+    private RepairTaskOpenApi repairTaskOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(RepairTaskOpenApi.class, "repairTaskOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + RESOURCE_PREFIX)
+                .build();
+    }
+
+    private MaintenanceTaskOpenApi maintenanceTaskOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(MaintenanceTaskOpenApi.class, "maintenanceTaskOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + RESOURCE_PREFIX)
+                .build();
+    }
+
+    private OpenImExportOpenApi openImExportOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(OpenImExportOpenApi.class, "openImExportOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + WORKER_CALENDAR_PREFIX)
+                .build();
+    }
+
+    private PlanOrderOpenApi planOrderOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(PlanOrderOpenApi.class, "planOrderOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + PLO_PREFIX)
+                .build();
+    }
+
+    private SopOpenV2OpenApi sopOpenV2OpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(SopOpenV2OpenApi.class, "sopOpenV2OpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + SOP_PREFIX)
+                .build();
+    }
+
+    private SopTaskOpenV2OpenApi sopTaskOpenV2OpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(SopTaskOpenV2OpenApi.class, "sopTaskOpenV2OpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + SOP_PREFIX)
+                .build();
     }
 
     private FeedOpenApi feedOpenApi(Config config) {

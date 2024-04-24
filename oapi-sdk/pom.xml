@@ -45,6 +45,26 @@
         </dependency>
 
         <dependency>
+            <groupId>tech.blacklake.dev.sop</groupId>
+            <artifactId>sop-domain-openapi</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>tech.blacklake.dev.plo</groupId>
+            <artifactId>plo-domain-openapi</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>tech.blacklake.dev.workercalendar</groupId>
+            <artifactId>workercalendar-domain-openapi</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>tech.blacklake.dev.resource</groupId>
+            <artifactId>resource-openapi</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>tech.blacklake.dev.med</groupId>
             <artifactId>med-domain-produce-define-openapi</artifactId>
         </dependency>

@@ -27,10 +27,10 @@
         <lombok.version>1.18.12</lombok.version>
         <cglib.version>3.1</cglib.version>
 
-        <med.version>8.4.1.5-SNAPSHOT</med.version>
+        <med.version>8.4.1.1-RELEASE</med.version>
         <mfg.version>8.4.0-RELEASE</mfg.version>
         <weighing.version>8.4.0-RELEASE</weighing.version>
-        <resource.version>6.7.1-RELEASE</resource.version>
+        <resource.version>8.4.1-RELEASE</resource.version>
         <order.version>6.8.1-RELEASE</order.version>
         <quality.version>8.3.0-SNAPSHOT</quality.version>
         <workcenter.version>6.8.0-RELEASE</workcenter.version>
@@ -39,10 +39,10 @@
         <storage.version>6.7.0.2-RELEASE</storage.version>
         <customObject.version>6.8.2.1-RELEASE</customObject.version>
         <user.version>6.8.0.1-RELEASE</user.version>
-        <sop.version>6.8.2-RELEASE</sop.version>
-        <workercalendar.version>6.7.1-RELEASE</workercalendar.version>
+        <sop.version>8.4.1-RELEASE</sop.version>
+        <workercalendar.version>8.4.1.3-RELEASE</workercalendar.version>
         <trace.version>6.8.1-RELEASE</trace.version>
-        <plo.version>6.8.1.1-RELEASE</plo.version>
+        <plo.version>8.4.1-RELEASE</plo.version>
         <holyfile.version>7.7.0.4-RELEASE</holyfile.version>
         <openapi.version>7.7.0-RELEASE</openapi.version>
     </properties>
@@ -171,6 +171,12 @@
             <dependency>
                 <groupId>tech.blacklake.dev.resource</groupId>
                 <artifactId>resource-service</artifactId>
+                <version>${resource.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.resource</groupId>
+                <artifactId>resource-openapi</artifactId>
                 <version>${resource.version}</version>
             </dependency>
 
@@ -332,6 +338,12 @@
 
             <dependency>
                 <groupId>tech.blacklake.dev.sop</groupId>
+                <artifactId>sop-domain-openapi</artifactId>
+                <version>${sop.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.sop</groupId>
                 <artifactId>sop-domain-service</artifactId>
                 <version>${sop.version}</version>
             </dependency>
@@ -351,6 +363,12 @@
             <dependency>
                 <groupId>tech.blacklake.dev.workercalendar</groupId>
                 <artifactId>workercalendar-domain-api</artifactId>
+                <version>${workercalendar.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.workercalendar</groupId>
+                <artifactId>workercalendar-domain-openapi</artifactId>
                 <version>${workercalendar.version}</version>
             </dependency>
 
@@ -375,6 +393,12 @@
             <dependency>
                 <groupId>tech.blacklake.dev.plo</groupId>
                 <artifactId>plo-domain-api</artifactId>
+                <version>${plo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.plo</groupId>
+                <artifactId>plo-domain-openapi</artifactId>
                 <version>${plo.version}</version>
             </dependency>
 

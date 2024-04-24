@@ -38,6 +38,7 @@ import tech.blacklake.dev.mfg.domain.core.openapi.trace.ProduceTraceOpenApi;
 import tech.blacklake.dev.openapi.sdk.config.Config;
 import tech.blacklake.dev.openapi.sdk.constants.enums.AppTypeEnum;
 import tech.blacklake.dev.openapi.sdk.constants.enums.BaseUrlEnum;
+import tech.blacklake.dev.plo.openapi.PlanOrderOpenApi;
 import tech.blacklake.dev.quality.api.open.def.checkitem.QcCheckItemCategoryOpenApi;
 import tech.blacklake.dev.quality.api.open.def.checkitem.QcCheckItemOpenApi;
 import tech.blacklake.dev.quality.api.open.def.qcconfig.QcConfigOpenApi;
@@ -45,6 +46,15 @@ import tech.blacklake.dev.quality.api.open.def.qcconfig.QcDefectRankOpenApi;
 import tech.blacklake.dev.quality.api.open.def.qcconfig.QcDefectReasonOpenApi;
 import tech.blacklake.dev.quality.api.open.domain.QcMaterialOpenApi;
 import tech.blacklake.dev.quality.api.open.domain.QcTaskOpenApi;
+import tech.blacklake.dev.resource.openapi.MaintenanceTaskOpenApi;
+import tech.blacklake.dev.resource.openapi.RepairTaskOpenApi;
+import tech.blacklake.dev.resource.openapi.ResourceLocationOpenApi;
+import tech.blacklake.dev.resource.openapi.ResourceOpenApi;
+import tech.blacklake.dev.resource.openapi.ResourceOpenV2Api;
+import tech.blacklake.dev.resource.openapi.ResourceRecordOpenApi;
+import tech.blacklake.dev.sop.domain.openapi.SopOpenV2OpenApi;
+import tech.blacklake.dev.sop.domain.openapi.SopTaskOpenV2OpenApi;
+import tech.blacklake.dev.worker.calendar.openapi.OpenImExportOpenApi;
 
 public class BlacklakeSdkClient {
 
@@ -84,6 +94,7 @@ public class BlacklakeSdkClient {
     public StorageLocationOpenApi storageLocationOpenApi;
     public StorageAreaOpenApi storageAreaOpenApi;
 
+    // med
     public AlternativePlanOpenApi alternativePlanOpenApi;
     public BomOpenApi bomOpenApi;
     public ProcessOpenApi processOpenApi;
@@ -95,6 +106,7 @@ public class BlacklakeSdkClient {
     public ProcessPlanV2OpenApi processPlanV2OpenApi;
     public WorkOrderV2OpenApi workOrderV2OpenApi;
 
+    // mfg
     public FeedOpenApi feedOpenApi;
     public FeedRecordOpenApi feedRecordOpenApi;
     public FeedRecordOpenApiV2 feedRecordOpenApiV2;
@@ -110,6 +122,24 @@ public class BlacklakeSdkClient {
     public ScrapRecordOpenApi scrapRecordOpenApi;
     public ProduceTraceOpenApi produceTraceOpenApi;
 
+    // sop
+    public SopOpenV2OpenApi sopOpenV2OpenApi;
+    public SopTaskOpenV2OpenApi sopTaskOpenV2OpenApi;
+
+    // plo
+    public PlanOrderOpenApi planOrderOpenApi;
+
+    // workercalendar
+    public OpenImExportOpenApi openImExportOpenApi;
+
+    // resource
+    public MaintenanceTaskOpenApi maintenanceTaskOpenApi;
+    public RepairTaskOpenApi repairTaskOpenApi;
+    public ResourceLocationOpenApi resourceLocationOpenApi;
+    public ResourceOpenApi resourceOpenApi;
+    public ResourceOpenV2Api resourceOpenV2Api;
+    public ResourceRecordOpenApi resourceRecordOpenApi;
+
     public static Builder newBuilder(String appKey, String appSecret) {
         return new Builder(appKey, appSecret);
     }
@@ -119,6 +149,7 @@ public class BlacklakeSdkClient {
     }
 
     public static final class Builder {
+
         private Config config = new Config();
 
         public Builder(String appKey, String appSecret) {

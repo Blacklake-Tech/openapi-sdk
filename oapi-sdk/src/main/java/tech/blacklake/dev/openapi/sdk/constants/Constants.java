@@ -38,6 +38,14 @@ public class Constants {
 
     public static final String MFG_PREFIX = "/mfg";
 
+    public static final String SOP_PREFIX = "/sop";
+
+    public static final String PLO_PREFIX = "/plo";
+
+    public static final String WORKER_CALENDAR_PREFIX = "/workercalendar";
+
+    public static final String RESOURCE_PREFIX = "/resource";
+
     public static final long OK_HTTP_TIMEOUT_SECONDS = 30L;
 
     public static final int SUCCESS_RESULT_CODE = 200;
