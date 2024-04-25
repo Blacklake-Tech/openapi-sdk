@@ -66,7 +66,6 @@ import tech.blacklake.dev.resource.openapi.ResourceOpenV2Api;
 import tech.blacklake.dev.resource.openapi.ResourceRecordOpenApi;
 import tech.blacklake.dev.sop.domain.openapi.SopOpenV2OpenApi;
 import tech.blacklake.dev.sop.domain.openapi.SopTaskOpenV2OpenApi;
-import tech.blacklake.dev.worker.calendar.openapi.OpenImExportOpenApi;
 
 import static tech.blacklake.dev.openapi.sdk.constants.Constants.*;
 
