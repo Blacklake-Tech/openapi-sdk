@@ -42,8 +42,6 @@ public class Constants {
 
     public static final String PLO_PREFIX = "/plo";
 
-    public static final String WORKER_CALENDAR_PREFIX = "/workercalendar";
-
     public static final String RESOURCE_PREFIX = "/resource";
 
     public static final long OK_HTTP_TIMEOUT_SECONDS = 30L;

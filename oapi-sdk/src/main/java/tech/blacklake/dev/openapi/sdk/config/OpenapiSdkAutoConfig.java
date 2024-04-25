@@ -164,8 +164,6 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.sopTaskOpenV2OpenApi = sopTaskOpenV2OpenApi(config);
         // plo
         blacklakeSdkClient.planOrderOpenApi = planOrderOpenApi(config);
-        // workercalendar
-        blacklakeSdkClient.openImExportOpenApi = openImExportOpenApi(config);
         // resource
         blacklakeSdkClient.maintenanceTaskOpenApi = maintenanceTaskOpenApi(config);
         blacklakeSdkClient.repairTaskOpenApi = repairTaskOpenApi(config);
@@ -252,14 +250,6 @@ public class OpenapiSdkAutoConfig {
         return feignClientBuilder
                 .forType(MaintenanceTaskOpenApi.class, "maintenanceTaskOpenApi")
                 .url(config.getBaseUrl() + ROUTE_URL + RESOURCE_PREFIX)
-                .build();
-    }
-
-    private OpenImExportOpenApi openImExportOpenApi(Config config) {
-        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
-        return feignClientBuilder
-                .forType(OpenImExportOpenApi.class, "openImExportOpenApi")
-                .url(config.getBaseUrl() + ROUTE_URL + WORKER_CALENDAR_PREFIX)
                 .build();
     }
 

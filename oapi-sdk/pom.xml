@@ -55,11 +55,6 @@
         </dependency>
 
         <dependency>
-            <groupId>tech.blacklake.dev.workercalendar</groupId>
-            <artifactId>workercalendar-domain-openapi</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>tech.blacklake.dev.resource</groupId>
             <artifactId>resource-openapi</artifactId>
         </dependency>

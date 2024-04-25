@@ -54,7 +54,6 @@ import tech.blacklake.dev.resource.openapi.ResourceOpenV2Api;
 import tech.blacklake.dev.resource.openapi.ResourceRecordOpenApi;
 import tech.blacklake.dev.sop.domain.openapi.SopOpenV2OpenApi;
 import tech.blacklake.dev.sop.domain.openapi.SopTaskOpenV2OpenApi;
-import tech.blacklake.dev.worker.calendar.openapi.OpenImExportOpenApi;
 
 public class BlacklakeSdkClient {
 
@@ -128,9 +127,6 @@ public class BlacklakeSdkClient {
 
     // plo
     public PlanOrderOpenApi planOrderOpenApi;
-
-    // workercalendar
-    public OpenImExportOpenApi openImExportOpenApi;
 
     // resource
     public MaintenanceTaskOpenApi maintenanceTaskOpenApi;
