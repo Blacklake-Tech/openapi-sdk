@@ -4,12 +4,14 @@ import tech.blacklake.dev.holyfile.open.File4CustomObjectOpenApi;
 import tech.blacklake.dev.openapi.sdk.config.Config;
 import tech.blacklake.dev.openapi.sdk.constants.enums.AppTypeEnum;
 import tech.blacklake.dev.openapi.sdk.constants.enums.BaseUrlEnum;
+import tech.blacklake.dev.order.open.OpenCustomerApi;
 
 public class BlacklakeSdkClient {
 
     private Config config;
 
     public File4CustomObjectOpenApi file4CustomObjectOpenApi;
+    public OpenCustomerApi openCustomerApi;
 
     public static Builder newBuilder(String appKey, String appSecret) {
         return new Builder(appKey, appSecret);

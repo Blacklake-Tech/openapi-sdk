@@ -19,6 +19,7 @@ import tech.blacklake.dev.openapi.sdk.client.interceptor.ClientReqInterceptor;
 import tech.blacklake.dev.openapi.sdk.constants.enums.AppTypeEnum;
 import tech.blacklake.dev.openapi.sdk.event.ServletAdapter;
 import tech.blacklake.dev.openapi.sdk.token.TokenManager;
+import tech.blacklake.dev.order.open.OpenCustomerApi;
 
 @Configuration
 @EnableConfigurationProperties(Config.class)
@@ -50,6 +51,7 @@ public class OpenapiSdkAutoConfig {
             .logReqAtDebug(true)
             .build();
         blacklakeSdkClient.file4CustomObjectOpenApi = file4CustomObjectOpenApi(config);
+        blacklakeSdkClient.openCustomerApi = customerOpenApi(config);
         return blacklakeSdkClient;
     }
 
@@ -86,5 +88,12 @@ public class OpenapiSdkAutoConfig {
         return feignClientBuilder.forType(File4CustomObjectOpenApi.class, "file4CustomObjectOpenApi")
             .url(config.getBaseUrl() + ROUTE_URL + HOLYFILE_PREFIX)
             .build();
+    }
+
+    private OpenCustomerApi customerOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenCustomerApi.class, "openCustomerApi")
+                .url(config.getBaseUrl() + ROUTE_URL + HOLYFILE_PREFIX)
+                .build();
     }
 }
