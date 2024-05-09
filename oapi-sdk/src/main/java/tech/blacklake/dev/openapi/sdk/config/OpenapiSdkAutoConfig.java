@@ -1,8 +1,5 @@
 package tech.blacklake.dev.openapi.sdk.config;
 
-import static tech.blacklake.dev.openapi.sdk.constants.Constants.HOLYFILE_PREFIX;
-import static tech.blacklake.dev.openapi.sdk.constants.Constants.ROUTE_URL;
-
 import feign.Retryer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -20,6 +17,8 @@ import tech.blacklake.dev.openapi.sdk.constants.enums.AppTypeEnum;
 import tech.blacklake.dev.openapi.sdk.event.ServletAdapter;
 import tech.blacklake.dev.openapi.sdk.token.TokenManager;
 import tech.blacklake.dev.order.open.*;
+
+import static tech.blacklake.dev.openapi.sdk.constants.Constants.*;
 
 @Configuration
 @EnableConfigurationProperties(Config.class)
@@ -91,149 +90,6 @@ public class OpenapiSdkAutoConfig {
         return blacklakeSdkClient;
     }
 
-    private OpenWaitingReceivingListV2Api openWaitingReceivingListV2Api(Config config) {
-        return null;
-    }
-
-    private OpenWaitingReceivingListApi openWaitingReceivingListApi(Config config) {
-        return null;
-    }
-
-    private OpenSupplierV2Api openSupplierV2Api(Config config) {
-        return null;
-    }
-
-    private OpenSupplierApi openSupplierApi(Config config) {
-        return null;
-    }
-
-    private OpenSourceListV2Api openSourceListV2Api(Config config) {
-        return null;
-    }
-
-    private OpenSourceListApi openSourceListApi(Config config) {
-        return null;
-    }
-
-    private OpenShipmentRecordV2Api openShipmentRecordV2Api(Config config) {
-        return null;
-    }
-
-    private OpenShipmentRecordApi openShipmentRecordApi(Config config) {
-        return null;
-    }
-
-    private OpenShipmentNoteV2Api openShipmentNoteV2Api(Config config) {
-        return null;
-    }
-
-    private OpenShipmentNoteApi openShipmentNoteApi(Config config) {
-        return null;
-    }
-
-    private OpenSalesOrderV2Api openSalesOrderV2Api(Config config) {
-        return null;
-    }
-
-    private OpenSalesOrderReturnV2Api openSalesOrderReturnV2Api(Config config) {
-        return null;
-    }
-
-    private OpenSalesOrderReturnApi openSalesOrderReturnApi(Config config) {
-        return null;
-    }
-
-    private OpenSalesOrderApi openSalesOrderApi(Config config) {
-        return null;
-    }
-
-    private OpenReceivingRecordApi openReceivingRecordApi(Config config) {
-        return null;
-    }
-
-    private OpenReceiveNoteV2Api openReceiveNoteV2Api(Config config) {
-        return null;
-    }
-
-    private OpenReceiveNoteApi openReceiveNoteApi(Config config) {
-        return null;
-    }
-
-    private OpenPurchaseReturnOrderV2Api openPurchaseReturnOrderV2Api(Config config) {
-        return null;
-    }
-
-    private OpenPurchaseReturnOrderApi openPurchaseReturnOrderApi(Config config) {
-        return null;
-    }
-
-    private OpenPurchaseRequisitionsV2Api openPurchaseRequisitionsV2Api(Config config) {
-        return null;
-    }
-
-    private OpenPurchaseRequisitionsApi openPurchaseRequisitionsApi(Config config) {
-        return null;
-    }
-
-    private OpenPurchasePlanApi openPurchasePlanApi(Config config) {
-        return null;
-    }
-
-    private OpenPurchaseOrderV2Api openPurchaseOrderV2Api(Config config) {
-        return null;
-    }
-
-    private OpenPurchaseOrderApi openPurchaseOrderApi(Config config) {
-        return null;
-    }
-
-    private OpenPlanFeedbackApi openPlanFeedbackApi(Config config) {
-        return null;
-    }
-
-    private OpenOutsourceSendMaterialV2APi openOutsourceSendMaterialV2APi(Config config) {
-        return null;
-    }
-
-    private OpenOutsourceSendMaterialApi openOutsourceSendMaterialApi(Config config) {
-        return null;
-    }
-
-    private OpenOrderChangeNoteV2Api openOrderChangeNoteV2Api(Config config) {
-        return null;
-    }
-
-    private OpenOrderChangeNoteApi openOrderChangeNoteApi(Config config) {
-        return null;
-    }
-
-    private OpenDeliveryScheduleV2Api openDeliveryScheduleV2Api(Config config) {
-        return null;
-    }
-
-    private OpenDeliveryScheduleNoteV2Api openDeliveryScheduleNoteV2Api(Config config) {
-        return null;
-    }
-
-    private OpenDeliveryScheduleNoteApi openDeliveryScheduleNoteApi(Config config) {
-        return null;
-    }
-
-    private OpenDeliveryScheduleApi openDeliveryScheduleApi(Config config) {
-        return null;
-    }
-
-    private OpenDeliveryAppointmentV2Api openDeliveryAppointmentV2Api(Config config) {
-        return null;
-    }
-
-    private OpenDeliveryAppointmentApi openDeliveryAppointmentApi(Config config) {
-        return null;
-    }
-
-    private OpenCustomerV2Api openCustomerV2Api(Config config) {
-        return null;
-    }
 
     @Bean
     public TokenManager tokenManager(OkhttpOpenapiClient okhttpOpenapiClient) {
@@ -273,7 +129,259 @@ public class OpenapiSdkAutoConfig {
     private OpenCustomerApi customerOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
         return feignClientBuilder.forType(OpenCustomerApi.class, "openCustomerApi")
-                .url(config.getBaseUrl() + ROUTE_URL + HOLYFILE_PREFIX)
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenWaitingReceivingListV2Api openWaitingReceivingListV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenWaitingReceivingListV2Api.class, "openWaitingReceivingListV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenWaitingReceivingListApi openWaitingReceivingListApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenWaitingReceivingListApi.class, "openWaitingReceivingListApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenSupplierV2Api openSupplierV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenSupplierV2Api.class, "openSupplierV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenSupplierApi openSupplierApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenSupplierApi.class, "openSupplierApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenSourceListV2Api openSourceListV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenSourceListV2Api.class, "openSourceListV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenSourceListApi openSourceListApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenSourceListApi.class, "openSourceListApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenShipmentRecordV2Api openShipmentRecordV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenShipmentRecordV2Api.class, "openShipmentRecordV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenShipmentRecordApi openShipmentRecordApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenShipmentRecordApi.class, "openShipmentRecordApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenShipmentNoteV2Api openShipmentNoteV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenShipmentNoteV2Api.class, "openShipmentNoteV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenShipmentNoteApi openShipmentNoteApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenShipmentNoteApi.class, "openShipmentNoteApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenSalesOrderV2Api openSalesOrderV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenSalesOrderV2Api.class, "openSalesOrderV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenSalesOrderReturnV2Api openSalesOrderReturnV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenSalesOrderReturnV2Api.class, "openSalesOrderReturnV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenSalesOrderReturnApi openSalesOrderReturnApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenSalesOrderReturnApi.class, "openSalesOrderReturnApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenSalesOrderApi openSalesOrderApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenSalesOrderApi.class, "openSalesOrderApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenReceivingRecordApi openReceivingRecordApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenReceivingRecordApi.class, "openReceivingRecordApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenReceiveNoteV2Api openReceiveNoteV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenReceiveNoteV2Api.class, "openReceiveNoteV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenReceiveNoteApi openReceiveNoteApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenReceiveNoteApi.class, "openReceiveNoteApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenPurchaseReturnOrderV2Api openPurchaseReturnOrderV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenPurchaseReturnOrderV2Api.class, "openPurchaseReturnOrderV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenPurchaseReturnOrderApi openPurchaseReturnOrderApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenPurchaseReturnOrderApi.class, "openPurchaseReturnOrderApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenPurchaseRequisitionsV2Api openPurchaseRequisitionsV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenPurchaseRequisitionsV2Api.class, "openPurchaseRequisitionsV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenPurchaseRequisitionsApi openPurchaseRequisitionsApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenPurchaseRequisitionsApi.class, "openPurchaseRequisitionsApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenPurchasePlanApi openPurchasePlanApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenPurchasePlanApi.class, "openPurchasePlanApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenPurchaseOrderV2Api openPurchaseOrderV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenPurchaseOrderV2Api.class, "openPurchaseOrderV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenPurchaseOrderApi openPurchaseOrderApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenPurchaseOrderApi.class, "openPurchaseOrderApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenPlanFeedbackApi openPlanFeedbackApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenPlanFeedbackApi.class, "openPlanFeedbackApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenOutsourceSendMaterialV2APi openOutsourceSendMaterialV2APi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenOutsourceSendMaterialV2APi.class, "openOutsourceSendMaterialV2APi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenOutsourceSendMaterialApi openOutsourceSendMaterialApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenOutsourceSendMaterialApi.class, "openOutsourceSendMaterialApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenOrderChangeNoteV2Api openOrderChangeNoteV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenOrderChangeNoteV2Api.class, "openOrderChangeNoteV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenOrderChangeNoteApi openOrderChangeNoteApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenOrderChangeNoteApi.class, "openOrderChangeNoteApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenDeliveryScheduleV2Api openDeliveryScheduleV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenDeliveryScheduleV2Api.class, "openDeliveryScheduleV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenDeliveryScheduleNoteV2Api openDeliveryScheduleNoteV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenDeliveryScheduleNoteV2Api.class, "openDeliveryScheduleNoteV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenDeliveryScheduleNoteApi openDeliveryScheduleNoteApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenDeliveryScheduleNoteApi.class, "openDeliveryScheduleNoteApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenDeliveryScheduleApi openDeliveryScheduleApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenDeliveryScheduleApi.class, "openDeliveryScheduleApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenDeliveryAppointmentV2Api openDeliveryAppointmentV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenDeliveryAppointmentV2Api.class, "openDeliveryAppointmentV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenDeliveryAppointmentApi openDeliveryAppointmentApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenDeliveryAppointmentApi.class, "openDeliveryAppointmentApi")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+    private OpenCustomerV2Api openCustomerV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenCustomerV2Api.class, "openCustomerV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
                 .build();
     }
 }
