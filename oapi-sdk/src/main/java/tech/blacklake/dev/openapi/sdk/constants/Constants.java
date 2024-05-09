@@ -27,6 +27,8 @@ public class Constants {
     public static final String ROUTE_URL = "/api/openapi/domain/web/v1/route";
 
     public static final String HOLYFILE_PREFIX = "/holyfile";
+    public static final String ORDER_PREFIX = "/order";
+    public static final String SUPPLY_CHAIN_PREFIX = "/supplychain";
 
     public static final String INVENTORY_PREFIX = "/inventory";
 

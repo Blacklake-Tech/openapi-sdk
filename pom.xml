@@ -45,6 +45,8 @@
         <plo.version>8.4.1-RELEASE</plo.version>
         <holyfile.version>7.7.0.4-RELEASE</holyfile.version>
         <openapi.version>7.7.0-RELEASE</openapi.version>
+        <order.version>1.0.0-SNAPSHOT</order.version>
+        <supplychain.version>1.0.0-SNAPSHOT</supplychain.version>
     </properties>
 
     <modules>
@@ -418,6 +420,17 @@
                 <groupId>tech.blacklake.dev.openapi</groupId>
                 <artifactId>openapi-domain-api</artifactId>
                 <version>${openapi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.order</groupId>
+                <artifactId>order-domain-openapi</artifactId>
+                <version>${order.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>tech.blacklake.dev.supplychain</groupId>
+                <artifactId>supply-chain-domain-openapi</artifactId>
+                <version>${supplychain.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
