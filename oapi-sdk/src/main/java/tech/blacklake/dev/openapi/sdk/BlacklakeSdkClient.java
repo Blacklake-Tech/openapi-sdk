@@ -7,6 +7,8 @@ import tech.blacklake.dev.openapi.sdk.constants.enums.BaseUrlEnum;
 import tech.blacklake.dev.order.open.OpenCustomerApi;
 import tech.blacklake.dev.order.open.OpenCustomerV2Api;
 import tech.blacklake.dev.order.open.*;
+import tech.blacklake.dev.supplychain.open.v2.*;
+import tech.blacklake.dev.supplychain.open.v1.*;
 
 public class BlacklakeSdkClient {
 
@@ -50,6 +52,15 @@ public class BlacklakeSdkClient {
     public OpenSupplierV2Api openSupplierV2Api;
     public OpenWaitingReceivingListApi openWaitingReceivingListApi;
     public OpenWaitingReceivingListV2Api openWaitingReceivingListV2Api;
+    public OpenCusOutsourceSendMaterialApi openCusOutsourceSendMaterialApi;
+    public OpenCustomerDeliveryScheduleNoteApi openCustomerDeliveryScheduleNoteApi;
+    public OpenOutsourceReturnMaterialApi openOutsourceReturnMaterialApi;
+    public OpenPurchaseAuditApi openPurchaseAuditApi;
+    public OpenReturnAuditApi openReturnAuditApi;
+    public OrderChangeApplicationOpenApi orderChangeApplicationOpenApi;
+    public OpenCusOutsourceSendMaterialV2Api openCusOutsourceSendMaterialV2Api;
+    public OpenPurchaseAuditV2Api openPurchaseAuditV2Api;
+    public OpenReturnAuditV2Api openReturnAuditV2Api;
 
     public static Builder newBuilder(String appKey, String appSecret) {
         return new Builder(appKey, appSecret);

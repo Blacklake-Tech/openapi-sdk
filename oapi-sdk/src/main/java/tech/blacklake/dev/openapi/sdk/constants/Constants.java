@@ -28,6 +28,7 @@ public class Constants {
 
     public static final String HOLYFILE_PREFIX = "/holyfile";
     public static final String ORDER_PREFIX = "/order";
+    public static final String SUPPLY_CHAIN_PREFIX = "/supplychain";
 
     public static final long OK_HTTP_TIMEOUT_SECONDS = 30L;
 

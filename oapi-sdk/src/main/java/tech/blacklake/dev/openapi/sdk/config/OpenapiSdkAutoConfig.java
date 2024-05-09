@@ -17,6 +17,10 @@ import tech.blacklake.dev.openapi.sdk.constants.enums.AppTypeEnum;
 import tech.blacklake.dev.openapi.sdk.event.ServletAdapter;
 import tech.blacklake.dev.openapi.sdk.token.TokenManager;
 import tech.blacklake.dev.order.open.*;
+import tech.blacklake.dev.supplychain.open.v1.*;
+import tech.blacklake.dev.supplychain.open.v2.OpenCusOutsourceSendMaterialV2Api;
+import tech.blacklake.dev.supplychain.open.v2.OpenPurchaseAuditV2Api;
+import tech.blacklake.dev.supplychain.open.v2.OpenReturnAuditV2Api;
 
 import static tech.blacklake.dev.openapi.sdk.constants.Constants.*;
 
@@ -87,9 +91,17 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.openSupplierV2Api = openSupplierV2Api(config);
         blacklakeSdkClient.openWaitingReceivingListApi = openWaitingReceivingListApi(config);
         blacklakeSdkClient.openWaitingReceivingListV2Api = openWaitingReceivingListV2Api(config);
+        blacklakeSdkClient.openCusOutsourceSendMaterialApi = openCusOutsourceSendMaterialApi(config);
+        blacklakeSdkClient.openCustomerDeliveryScheduleNoteApi = openCustomerDeliveryScheduleNoteApi(config);
+        blacklakeSdkClient.openOutsourceReturnMaterialApi = openOutsourceReturnMaterialApi(config);
+        blacklakeSdkClient.openPurchaseAuditApi = openPurchaseAuditApi(config);
+        blacklakeSdkClient.openReturnAuditApi = openReturnAuditApi(config);
+        blacklakeSdkClient.orderChangeApplicationOpenApi = orderChangeApplicationOpenApi(config);
+        blacklakeSdkClient.openCusOutsourceSendMaterialV2Api = openCusOutsourceSendMaterialV2Api(config);
+        blacklakeSdkClient.openPurchaseAuditV2Api = openPurchaseAuditV2Api(config);
+        blacklakeSdkClient.openReturnAuditV2Api = openReturnAuditV2Api(config);
         return blacklakeSdkClient;
     }
-
 
     @Bean
     public TokenManager tokenManager(OkhttpOpenapiClient okhttpOpenapiClient) {
@@ -382,6 +394,70 @@ public class OpenapiSdkAutoConfig {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
         return feignClientBuilder.forType(OpenCustomerV2Api.class, "openCustomerV2Api")
                 .url(config.getBaseUrl() + ROUTE_URL + ORDER_PREFIX)
+                .build();
+    }
+
+
+    private OpenReturnAuditV2Api openReturnAuditV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenReturnAuditV2Api.class, "openReturnAuditV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + SUPPLY_CHAIN_PREFIX)
+                .build();
+    }
+
+    private OpenCusOutsourceSendMaterialV2Api openCusOutsourceSendMaterialV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenCusOutsourceSendMaterialV2Api.class, "openCusOutsourceSendMaterialV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + SUPPLY_CHAIN_PREFIX)
+                .build();
+    }
+
+    private OpenPurchaseAuditV2Api openPurchaseAuditV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenPurchaseAuditV2Api.class, "openPurchaseAuditV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + SUPPLY_CHAIN_PREFIX)
+                .build();
+    }
+
+    private OrderChangeApplicationOpenApi orderChangeApplicationOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OrderChangeApplicationOpenApi.class, "orderChangeApplicationOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + SUPPLY_CHAIN_PREFIX)
+                .build();
+    }
+
+    private OpenReturnAuditApi openReturnAuditApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenReturnAuditApi.class, "openReturnAuditApi")
+                .url(config.getBaseUrl() + ROUTE_URL + SUPPLY_CHAIN_PREFIX)
+                .build();
+    }
+
+    private OpenPurchaseAuditApi openPurchaseAuditApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenPurchaseAuditApi.class, "openPurchaseAuditApi")
+                .url(config.getBaseUrl() + ROUTE_URL + SUPPLY_CHAIN_PREFIX)
+                .build();
+    }
+
+    private OpenOutsourceReturnMaterialApi openOutsourceReturnMaterialApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenOutsourceReturnMaterialApi.class, "openOutsourceReturnMaterialApi")
+                .url(config.getBaseUrl() + ROUTE_URL + SUPPLY_CHAIN_PREFIX)
+                .build();
+    }
+
+    private OpenCustomerDeliveryScheduleNoteApi openCustomerDeliveryScheduleNoteApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenCustomerDeliveryScheduleNoteApi.class, "openCustomerDeliveryScheduleNoteApi")
+                .url(config.getBaseUrl() + ROUTE_URL + SUPPLY_CHAIN_PREFIX)
+                .build();
+    }
+
+    private OpenCusOutsourceSendMaterialApi openCusOutsourceSendMaterialApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder.forType(OpenCusOutsourceSendMaterialApi.class, "openCusOutsourceSendMaterialApi")
+                .url(config.getBaseUrl() + ROUTE_URL + SUPPLY_CHAIN_PREFIX)
                 .build();
     }
 }
