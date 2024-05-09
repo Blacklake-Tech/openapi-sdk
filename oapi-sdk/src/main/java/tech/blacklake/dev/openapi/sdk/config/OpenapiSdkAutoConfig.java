@@ -6,8 +6,11 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.cloud.openfeign.FeignClientBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.*;
+import tech.blacklake.dev.e.report.open.api.DataSetInfoOpenApi;
+import tech.blacklake.dev.e.report.open.api.EReportOpenApi;
 import tech.blacklake.dev.holyfile.open.File4CustomObjectOpenApi;
 import tech.blacklake.dev.inventory.open.*;
+import tech.blacklake.dev.log.open.api.LogOpenApi;
 import tech.blacklake.dev.material.domain.openapi.batch.MaterialBatchNoOpenApi;
 import tech.blacklake.dev.material.domain.openapi.material.MaterialAttributeOpenApi;
 import tech.blacklake.dev.material.domain.openapi.material.MaterialCategoryOpenApi;
@@ -27,6 +30,7 @@ import tech.blacklake.dev.med.producedefine.openapi.v2.ProcessRouteV2OpenApi;
 import tech.blacklake.dev.med.producedefine.openapi.v2.ProcessV2OpenApi;
 import tech.blacklake.dev.med.workorder.openapi.v2.ProcessPlanV2OpenApi;
 import tech.blacklake.dev.med.workorder.openapi.v2.WorkOrderV2OpenApi;
+import tech.blacklake.dev.metadata.openapi.api.CustomFieldOpenApi;
 import tech.blacklake.dev.mfg.domain.core.openapi.feed.FeedOpenApi;
 import tech.blacklake.dev.mfg.domain.core.openapi.feed.FeedRecordOpenApi;
 import tech.blacklake.dev.mfg.domain.core.openapi.feed.FeedRecordOpenApiV2;
@@ -65,6 +69,9 @@ import tech.blacklake.dev.quality.api.open.def.qcconfig.QcDefectRankOpenApi;
 import tech.blacklake.dev.quality.api.open.def.qcconfig.QcDefectReasonOpenApi;
 import tech.blacklake.dev.quality.api.open.domain.QcMaterialOpenApi;
 import tech.blacklake.dev.quality.api.open.domain.QcTaskOpenApi;
+import tech.blacklake.dev.report.domain.openapi.api.ReportOpenApi;
+import tech.blacklake.dev.report.domain.openapi.api.ReportOpenV2Api;
+import tech.blacklake.dev.report.domain.openapi.api.ReportOpenV3Api;
 import tech.blacklake.dev.resource.openapi.MaintenanceTaskOpenApi;
 import tech.blacklake.dev.resource.openapi.RepairTaskOpenApi;
 import tech.blacklake.dev.resource.openapi.ResourceLocationOpenApi;
@@ -177,6 +184,17 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.resourceOpenApi = resourceOpenApi(config);
         blacklakeSdkClient.resourceOpenV2Api = resourceOpenV2Api(config);
         blacklakeSdkClient.resourceRecordOpenApi = resourceRecordOpenApi(config);
+        // log
+        blacklakeSdkClient.logOpenApi = logOpenApi(config);
+        // metadata
+        blacklakeSdkClient.customFieldOpenApi = customFieldOpenApi(config);
+        // e-report
+        blacklakeSdkClient.dataSetInfoOpenApi = dataSetInfoOpenApi(config);
+        blacklakeSdkClient.eReportOpenApi = eReportOpenApi(config);
+        //report
+        blacklakeSdkClient.reportOpenApi = reportOpenApi(config);
+        blacklakeSdkClient.reportOpenV2Api = reportOpenV2Api(config);
+        blacklakeSdkClient.reportOpenV3Api = reportOpenV3Api(config);
 
         /**** 生产 end********************/
         blacklakeSdkClient.openCustomerApi = customerOpenApi(config);
@@ -228,6 +246,54 @@ public class OpenapiSdkAutoConfig {
         return blacklakeSdkClient;
     }
 
+    private ReportOpenV3Api reportOpenV3Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(ReportOpenV3Api.class, "reportOpenV3Api")
+                .url(config.getBaseUrl() + ROUTE_URL + REPORT_PREFIX)
+                .build();
+    }
+
+    private ReportOpenV2Api reportOpenV2Api(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(ReportOpenV2Api.class, "reportOpenV2Api")
+                .url(config.getBaseUrl() + ROUTE_URL + REPORT_PREFIX)
+                .build();
+    }
+
+    private ReportOpenApi reportOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(ReportOpenApi.class, "reportOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + REPORT_PREFIX)
+                .build();
+    }
+
+    private DataSetInfoOpenApi dataSetInfoOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(DataSetInfoOpenApi.class, "dataSetInfoOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + EREPORT_PREFIX)
+                .build();
+    }
+
+    private EReportOpenApi eReportOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(EReportOpenApi.class, "eReportOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + EREPORT_PREFIX)
+                .build();
+    }
+
+    private CustomFieldOpenApi customFieldOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(CustomFieldOpenApi.class, "customFieldOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + METADATA_PREFIX)
+                .build();
+    }
+
     @Bean
     public TokenManager tokenManager(OkhttpOpenapiClient okhttpOpenapiClient, Config config) {
         return new TokenManager(LocalCache.getInstance(), okhttpOpenapiClient, config);
@@ -255,6 +321,14 @@ public class OpenapiSdkAutoConfig {
     @Bean
     public ServletAdapter servletAdapter() {
         return new ServletAdapter();
+    }
+
+    private LogOpenApi logOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(LogOpenApi.class, "logOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + LOG_PREFIX)
+                .build();
     }
 
     private ResourceRecordOpenApi resourceRecordOpenApi(Config config) {

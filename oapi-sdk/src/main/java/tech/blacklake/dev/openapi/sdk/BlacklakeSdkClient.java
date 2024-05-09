@@ -1,7 +1,10 @@
 package tech.blacklake.dev.openapi.sdk;
 
+import tech.blacklake.dev.e.report.open.api.DataSetInfoOpenApi;
+import tech.blacklake.dev.e.report.open.api.EReportOpenApi;
 import tech.blacklake.dev.holyfile.open.File4CustomObjectOpenApi;
 import tech.blacklake.dev.inventory.open.*;
+import tech.blacklake.dev.log.open.api.LogOpenApi;
 import tech.blacklake.dev.material.domain.openapi.batch.MaterialBatchNoOpenApi;
 import tech.blacklake.dev.material.domain.openapi.material.MaterialAttributeOpenApi;
 import tech.blacklake.dev.material.domain.openapi.material.MaterialCategoryOpenApi;
@@ -21,6 +24,7 @@ import tech.blacklake.dev.med.producedefine.openapi.v2.ProcessRouteV2OpenApi;
 import tech.blacklake.dev.med.producedefine.openapi.v2.ProcessV2OpenApi;
 import tech.blacklake.dev.med.workorder.openapi.v2.ProcessPlanV2OpenApi;
 import tech.blacklake.dev.med.workorder.openapi.v2.WorkOrderV2OpenApi;
+import tech.blacklake.dev.metadata.openapi.api.CustomFieldOpenApi;
 import tech.blacklake.dev.mfg.domain.core.openapi.feed.FeedOpenApi;
 import tech.blacklake.dev.mfg.domain.core.openapi.feed.FeedRecordOpenApi;
 import tech.blacklake.dev.mfg.domain.core.openapi.feed.FeedRecordOpenApiV2;
@@ -51,6 +55,9 @@ import tech.blacklake.dev.quality.api.open.def.qcconfig.QcDefectRankOpenApi;
 import tech.blacklake.dev.quality.api.open.def.qcconfig.QcDefectReasonOpenApi;
 import tech.blacklake.dev.quality.api.open.domain.QcMaterialOpenApi;
 import tech.blacklake.dev.quality.api.open.domain.QcTaskOpenApi;
+import tech.blacklake.dev.report.domain.openapi.api.ReportOpenApi;
+import tech.blacklake.dev.report.domain.openapi.api.ReportOpenV2Api;
+import tech.blacklake.dev.report.domain.openapi.api.ReportOpenV3Api;
 import tech.blacklake.dev.resource.openapi.MaintenanceTaskOpenApi;
 import tech.blacklake.dev.resource.openapi.RepairTaskOpenApi;
 import tech.blacklake.dev.resource.openapi.ResourceLocationOpenApi;
@@ -186,6 +193,18 @@ public class BlacklakeSdkClient {
     public ResourceOpenApi resourceOpenApi;
     public ResourceOpenV2Api resourceOpenV2Api;
     public ResourceRecordOpenApi resourceRecordOpenApi;
+
+    // log
+    public LogOpenApi logOpenApi;
+    // metadata
+    public CustomFieldOpenApi customFieldOpenApi;
+    // e-report
+    public DataSetInfoOpenApi dataSetInfoOpenApi;
+    public EReportOpenApi eReportOpenApi;
+    // report
+    public ReportOpenApi reportOpenApi;
+    public ReportOpenV2Api reportOpenV2Api;
+    public ReportOpenV3Api reportOpenV3Api;
 
     public static Builder newBuilder(String appKey, String appSecret) {
         return new Builder(appKey, appSecret);

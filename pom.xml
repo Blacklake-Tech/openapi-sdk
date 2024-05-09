@@ -47,6 +47,11 @@
         <openapi.version>7.7.0-RELEASE</openapi.version>
         <order.version>1.0.0-SNAPSHOT</order.version>
         <supplychain.version>1.0.0-SNAPSHOT</supplychain.version>
+        <report.version>8.4.1-RELEASE</report.version>
+        <e-report.version>8.4.1.1-RELEASE</e-report.version>
+        <log.version>8.4.1.1-RELEASE</log.version>
+        <metadata.version>8.4.1.1-RELEASE</metadata.version>
+
     </properties>
 
     <modules>
@@ -57,6 +62,30 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>tech.blacklake.dev</groupId>
+                <artifactId>metadata-domain-openapi</artifactId>
+                <version>${metadata.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.log</groupId>
+                <artifactId>log-domain-openapi</artifactId>
+                <version>${log.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev</groupId>
+                <artifactId>e-report-openapi</artifactId>
+                <version>${e-report.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tech.blacklake.dev.report</groupId>
+                <artifactId>report-domain-openapi</artifactId>
+                <version>${report.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
