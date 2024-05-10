@@ -57,6 +57,11 @@ import tech.blacklake.dev.quality.api.open.def.qcconfig.QcDefectRankOpenApi;
 import tech.blacklake.dev.quality.api.open.def.qcconfig.QcDefectReasonOpenApi;
 import tech.blacklake.dev.quality.api.open.domain.QcMaterialOpenApi;
 import tech.blacklake.dev.quality.api.open.domain.QcTaskOpenApi;
+import tech.blacklake.dev.user.open.ExceptionEventOpenApi;
+import tech.blacklake.dev.user.open.ExceptionEventOpenApiV2;
+import tech.blacklake.dev.user.open.LoginOpenApi;
+import tech.blacklake.dev.user.open.RoleOpenApi;
+import tech.blacklake.dev.user.open.UserOpenApi;
 
 import static tech.blacklake.dev.openapi.sdk.constants.Constants.*;
 
@@ -149,6 +154,14 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.scrapRecordOpenApi = scrapRecordOpenApi(config);
         blacklakeSdkClient.produceTraceOpenApi = produceTraceOpenApi(config);
         /**** 生产 end********************/
+        /**** user-domain********************/
+        blacklakeSdkClient.userOpenApi = userOpenApi(config);
+        blacklakeSdkClient.exceptionEventOpenApi = exceptionEventOpenApi(config);
+        blacklakeSdkClient.exceptionEventOpenApiV2 = exceptionEventOpenApiV2(config);
+        blacklakeSdkClient.loginOpenApi = loginOpenApi(config);
+        blacklakeSdkClient.roleOpenApi = roleOpenApi(config);
+        /**** user-domain end********************/
+
         return blacklakeSdkClient;
     }
 
@@ -627,5 +640,45 @@ public class OpenapiSdkAutoConfig {
                 .forType(StorageAreaOpenApi.class, "storageAreaOpenApi")
                 .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
                 .build();
+    }
+
+    private UserOpenApi userOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+            .forType(UserOpenApi.class, "userOpenApi")
+            .url(config.getBaseUrl() + ROUTE_URL + USER_PREFIX)
+            .build();
+    }
+
+    private ExceptionEventOpenApi exceptionEventOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+            .forType(ExceptionEventOpenApi.class, "exceptionEventOpenApi")
+            .url(config.getBaseUrl() + ROUTE_URL + USER_PREFIX)
+            .build();
+    }
+
+    private ExceptionEventOpenApiV2 exceptionEventOpenApiV2(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+            .forType(ExceptionEventOpenApiV2.class, "exceptionEventOpenApiV2")
+            .url(config.getBaseUrl() + ROUTE_URL + USER_PREFIX)
+            .build();
+    }
+
+    private LoginOpenApi loginOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+            .forType(LoginOpenApi.class, "loginOpenApi")
+            .url(config.getBaseUrl() + ROUTE_URL + USER_PREFIX)
+            .build();
+    }
+
+    private RoleOpenApi roleOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+            .forType(RoleOpenApi.class, "roleOpenApi")
+            .url(config.getBaseUrl() + ROUTE_URL + USER_PREFIX)
+            .build();
     }
 }

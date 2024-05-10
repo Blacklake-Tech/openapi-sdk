@@ -45,6 +45,11 @@ import tech.blacklake.dev.quality.api.open.def.qcconfig.QcDefectRankOpenApi;
 import tech.blacklake.dev.quality.api.open.def.qcconfig.QcDefectReasonOpenApi;
 import tech.blacklake.dev.quality.api.open.domain.QcMaterialOpenApi;
 import tech.blacklake.dev.quality.api.open.domain.QcTaskOpenApi;
+import tech.blacklake.dev.user.open.ExceptionEventOpenApi;
+import tech.blacklake.dev.user.open.ExceptionEventOpenApiV2;
+import tech.blacklake.dev.user.open.LoginOpenApi;
+import tech.blacklake.dev.user.open.RoleOpenApi;
+import tech.blacklake.dev.user.open.UserOpenApi;
 
 public class BlacklakeSdkClient {
 
@@ -109,6 +114,12 @@ public class BlacklakeSdkClient {
     public ScrapOpenApi scrapOpenApi;
     public ScrapRecordOpenApi scrapRecordOpenApi;
     public ProduceTraceOpenApi produceTraceOpenApi;
+
+    public UserOpenApi userOpenApi;
+    public ExceptionEventOpenApi exceptionEventOpenApi;
+    public ExceptionEventOpenApiV2 exceptionEventOpenApiV2;
+    public LoginOpenApi loginOpenApi;
+    public RoleOpenApi roleOpenApi;
 
     public static Builder newBuilder(String appKey, String appSecret) {
         return new Builder(appKey, appSecret);

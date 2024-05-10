@@ -60,6 +60,10 @@
             <groupId>tech.blacklake.dev.weighing</groupId>
             <artifactId>weighing-domain-openapi</artifactId>
         </dependency>
+        <dependency>
+            <groupId>tech.blacklake.dev.user</groupId>
+            <artifactId>user-domain-openapi</artifactId>
+        </dependency>
     </dependencies>
     
 </project>
