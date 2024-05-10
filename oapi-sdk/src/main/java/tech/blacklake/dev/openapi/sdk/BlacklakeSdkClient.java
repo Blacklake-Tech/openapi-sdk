@@ -66,6 +66,11 @@ import tech.blacklake.dev.sop.domain.openapi.SopOpenV2OpenApi;
 import tech.blacklake.dev.sop.domain.openapi.SopTaskOpenV2OpenApi;
 import tech.blacklake.dev.supplychain.open.v1.*;
 import tech.blacklake.dev.supplychain.open.v2.*;
+import tech.blacklake.dev.user.open.ExceptionEventOpenApi;
+import tech.blacklake.dev.user.open.ExceptionEventOpenApiV2;
+import tech.blacklake.dev.user.open.LoginOpenApi;
+import tech.blacklake.dev.user.open.RoleOpenApi;
+import tech.blacklake.dev.user.open.UserOpenApi;
 
 public class BlacklakeSdkClient {
 
@@ -205,6 +210,12 @@ public class BlacklakeSdkClient {
     public ReportOpenApi reportOpenApi;
     public ReportOpenV2Api reportOpenV2Api;
     public ReportOpenV3Api reportOpenV3Api;
+
+    public UserOpenApi userOpenApi;
+    public ExceptionEventOpenApi exceptionEventOpenApi;
+    public ExceptionEventOpenApiV2 exceptionEventOpenApiV2;
+    public LoginOpenApi loginOpenApi;
+    public RoleOpenApi roleOpenApi;
 
     public static Builder newBuilder(String appKey, String appSecret) {
         return new Builder(appKey, appSecret);
