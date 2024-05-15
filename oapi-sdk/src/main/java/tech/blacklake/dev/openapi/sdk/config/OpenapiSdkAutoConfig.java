@@ -253,7 +253,6 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.loginOpenApi = loginOpenApi(config);
         blacklakeSdkClient.roleOpenApi = roleOpenApi(config);
         /**** user-domain end********************/
-
         return blacklakeSdkClient;
     }
 
@@ -1233,40 +1232,40 @@ public class OpenapiSdkAutoConfig {
     private UserOpenApi userOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
         return feignClientBuilder
-            .forType(UserOpenApi.class, "userOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + USER_PREFIX)
-            .build();
+                .forType(UserOpenApi.class, "userOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + USER_PREFIX)
+                .build();
     }
 
     private ExceptionEventOpenApi exceptionEventOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
         return feignClientBuilder
-            .forType(ExceptionEventOpenApi.class, "exceptionEventOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + USER_PREFIX)
-            .build();
+                .forType(ExceptionEventOpenApi.class, "exceptionEventOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + USER_PREFIX)
+                .build();
     }
 
     private ExceptionEventOpenApiV2 exceptionEventOpenApiV2(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
         return feignClientBuilder
-            .forType(ExceptionEventOpenApiV2.class, "exceptionEventOpenApiV2")
-            .url(config.getBaseUrl() + ROUTE_URL + USER_PREFIX)
-            .build();
+                .forType(ExceptionEventOpenApiV2.class, "exceptionEventOpenApiV2")
+                .url(config.getBaseUrl() + ROUTE_URL + USER_PREFIX)
+                .build();
     }
 
     private LoginOpenApi loginOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
         return feignClientBuilder
-            .forType(LoginOpenApi.class, "loginOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + USER_PREFIX)
-            .build();
+                .forType(LoginOpenApi.class, "loginOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + USER_PREFIX)
+                .build();
     }
 
     private RoleOpenApi roleOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
         return feignClientBuilder
-            .forType(RoleOpenApi.class, "roleOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + USER_PREFIX)
-            .build();
+                .forType(RoleOpenApi.class, "roleOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + USER_PREFIX)
+                .build();
     }
 }
