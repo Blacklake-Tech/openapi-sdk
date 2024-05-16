@@ -1,5 +1,8 @@
 package tech.blacklake.dev.openapi.sdk;
 
+import tech.blacklake.dev.customobject.open.CustomObjectOpenApi;
+import tech.blacklake.dev.customobject.open.ObjectServiceOpenApi;
+import tech.blacklake.dev.customobject.open.v2.CustomObjectinstanceOpenApi;
 import tech.blacklake.dev.e.report.open.api.DataSetInfoOpenApi;
 import tech.blacklake.dev.e.report.open.api.EReportOpenApi;
 import tech.blacklake.dev.holyfile.open.File4CustomObjectOpenApi;
@@ -210,6 +213,11 @@ public class BlacklakeSdkClient {
     public ReportOpenApi reportOpenApi;
     public ReportOpenV2Api reportOpenV2Api;
     public ReportOpenV3Api reportOpenV3Api;
+
+    // custom-object-domain
+    public CustomObjectOpenApi customObjectOpenApi;
+    public ObjectServiceOpenApi objectServiceOpenApi;
+    public CustomObjectinstanceOpenApi customObjectinstanceOpenApi;
 
     public UserOpenApi userOpenApi;
     public ExceptionEventOpenApi exceptionEventOpenApi;

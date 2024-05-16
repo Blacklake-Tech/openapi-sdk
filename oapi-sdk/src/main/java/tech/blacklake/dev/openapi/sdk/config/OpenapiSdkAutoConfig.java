@@ -6,6 +6,9 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.cloud.openfeign.FeignClientBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.*;
+import tech.blacklake.dev.customobject.open.CustomObjectOpenApi;
+import tech.blacklake.dev.customobject.open.ObjectServiceOpenApi;
+import tech.blacklake.dev.customobject.open.v2.CustomObjectinstanceOpenApi;
 import tech.blacklake.dev.e.report.open.api.DataSetInfoOpenApi;
 import tech.blacklake.dev.e.report.open.api.EReportOpenApi;
 import tech.blacklake.dev.holyfile.open.File4CustomObjectOpenApi;
@@ -187,6 +190,7 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.resourceOpenApi = resourceOpenApi(config);
         blacklakeSdkClient.resourceOpenV2Api = resourceOpenV2Api(config);
         blacklakeSdkClient.resourceRecordOpenApi = resourceRecordOpenApi(config);
+        /**** 生产 end********************/
         // log
         blacklakeSdkClient.logOpenApi = logOpenApi(config);
         // metadata
@@ -198,8 +202,11 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.reportOpenApi = reportOpenApi(config);
         blacklakeSdkClient.reportOpenV2Api = reportOpenV2Api(config);
         blacklakeSdkClient.reportOpenV3Api = reportOpenV3Api(config);
+        // custom-object-domain
+        blacklakeSdkClient.customObjectOpenApi = customObjectOpenApi(config);
+        blacklakeSdkClient.objectServiceOpenApi = objectServiceOpenApi(config);
+        blacklakeSdkClient.customObjectinstanceOpenApi = customObjectinstanceOpenApi(config);
 
-        /**** 生产 end********************/
         blacklakeSdkClient.openCustomerApi = customerOpenApi(config);
         blacklakeSdkClient.openCustomerV2Api = openCustomerV2Api(config);
         blacklakeSdkClient.openDeliveryAppointmentApi = openDeliveryAppointmentApi(config);
@@ -254,6 +261,30 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.roleOpenApi = roleOpenApi(config);
         /**** user-domain end********************/
         return blacklakeSdkClient;
+    }
+
+    private CustomObjectinstanceOpenApi customObjectinstanceOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(CustomObjectinstanceOpenApi.class, "customObjectinstanceOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + CUSTOM_OBJECT__PREFIX)
+                .build();
+    }
+
+    private ObjectServiceOpenApi objectServiceOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(ObjectServiceOpenApi.class, "objectServiceOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + CUSTOM_OBJECT__PREFIX)
+                .build();
+    }
+
+    private CustomObjectOpenApi customObjectOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(CustomObjectOpenApi.class, "customObjectOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + CUSTOM_OBJECT__PREFIX)
+                .build();
     }
 
     private ReportOpenV3Api reportOpenV3Api(Config config) {
