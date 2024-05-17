@@ -38,7 +38,7 @@
         <material.version>8.4.0-SNAPSHOT</material.version>
         <storage.version>6.7.0.2-RELEASE</storage.version>
         <customObject.version>8.4.1.1-RELEASE</customObject.version>
-        <user.version>8.4.1.1-RELEASE</user.version>
+        <user.version>8.4.1.2-RELEASE</user.version>
         <sop.version>8.4.1-RELEASE</sop.version>
         <workercalendar.version>6.7.1-RELEASE</workercalendar.version>
         <trace.version>6.8.1-RELEASE</trace.version>
