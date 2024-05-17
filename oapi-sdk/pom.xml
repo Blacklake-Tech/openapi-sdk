@@ -21,6 +21,11 @@
     <dependencies>
 
         <dependency>
+            <groupId>tech.blacklake.dev</groupId>
+            <artifactId>custom-object-domain-openapi</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>tech.blacklake.dev.report</groupId>
             <artifactId>report-domain-openapi</artifactId>
         </dependency>

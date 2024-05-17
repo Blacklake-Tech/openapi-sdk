@@ -56,6 +56,8 @@ public class Constants {
 
     public static final String USER_PREFIX = "/user";
 
+    public static final String CUSTOM_OBJECT__PREFIX = "/custom-object";
+
     public static final long OK_HTTP_TIMEOUT_SECONDS = 30L;
 
     public static final int SUCCESS_RESULT_CODE = 200;
