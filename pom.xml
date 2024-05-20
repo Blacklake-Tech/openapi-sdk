@@ -28,7 +28,7 @@
         <cglib.version>3.1</cglib.version>
 
         <med.version>8.5.0.1-SNAPSHOT</med.version>
-        <mfg.version>8.4.0-RELEASE</mfg.version>
+        <mfg.version>8.4.1.3-RELEASE</mfg.version>
         <weighing.version>8.4.0-RELEASE</weighing.version>
         <resource.version>8.4.1-RELEASE</resource.version>
         <order.version>6.8.1-RELEASE</order.version>
@@ -161,6 +161,11 @@
             <dependency>
                 <groupId>tech.blacklake.dev.mfg</groupId>
                 <artifactId>mfg-domain-core-openapi</artifactId>
+                <version>${mfg.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>tech.blacklake.dev.mfg</groupId>
+                <artifactId>mfg-domain-plugin-openapi</artifactId>
                 <version>${mfg.version}</version>
             </dependency>
             <dependency>

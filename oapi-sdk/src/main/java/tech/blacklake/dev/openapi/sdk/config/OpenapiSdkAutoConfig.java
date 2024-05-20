@@ -48,6 +48,7 @@ import tech.blacklake.dev.mfg.domain.core.openapi.rework.ReworkRecordOpenApi;
 import tech.blacklake.dev.mfg.domain.core.openapi.scrap.ScrapOpenApi;
 import tech.blacklake.dev.mfg.domain.core.openapi.scrap.ScrapRecordOpenApi;
 import tech.blacklake.dev.mfg.domain.core.openapi.trace.ProduceTraceOpenApi;
+import tech.blacklake.dev.mfg.domain.plugin.openapi.FlowCardOpenApi;
 import tech.blacklake.dev.openapi.sdk.BlacklakeSdkClient;
 import tech.blacklake.dev.openapi.sdk.cache.LocalCache;
 import tech.blacklake.dev.openapi.sdk.client.OkhttpOpenapiClient;
@@ -178,6 +179,7 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.scrapOpenApi = scrapOpenApi(config);
         blacklakeSdkClient.scrapRecordOpenApi = scrapRecordOpenApi(config);
         blacklakeSdkClient.produceTraceOpenApi = produceTraceOpenApi(config);
+        blacklakeSdkClient.flowCardOpenApi = flowCardOpenApi(config);
         // sop
         blacklakeSdkClient.sopOpenV2OpenApi = sopOpenV2OpenApi(config);
         blacklakeSdkClient.sopTaskOpenV2OpenApi = sopTaskOpenV2OpenApi(config);
@@ -554,6 +556,14 @@ public class OpenapiSdkAutoConfig {
                 .forType(ProduceTraceOpenApi.class, "produceTraceOpenApi")
                 .url(config.getBaseUrl() + ROUTE_URL + MFG_PREFIX)
                 .build();
+    }
+
+    private FlowCardOpenApi flowCardOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+            .forType(FlowCardOpenApi.class, "flowCardOpenApi")
+            .url(config.getBaseUrl() + ROUTE_URL + MFG_PREFIX)
+            .build();
     }
 
     private AlternativePlanOpenApi alternativePlanOpenApi(Config config) {
