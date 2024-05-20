@@ -42,6 +42,7 @@ import tech.blacklake.dev.mfg.domain.core.openapi.rework.ReworkRecordOpenApi;
 import tech.blacklake.dev.mfg.domain.core.openapi.scrap.ScrapOpenApi;
 import tech.blacklake.dev.mfg.domain.core.openapi.scrap.ScrapRecordOpenApi;
 import tech.blacklake.dev.mfg.domain.core.openapi.trace.ProduceTraceOpenApi;
+import tech.blacklake.dev.mfg.domain.plugin.openapi.FlowCardOpenApi;
 import tech.blacklake.dev.openapi.sdk.config.Config;
 import tech.blacklake.dev.openapi.sdk.constants.enums.AppTypeEnum;
 import tech.blacklake.dev.openapi.sdk.constants.enums.BaseUrlEnum;
@@ -186,6 +187,7 @@ public class BlacklakeSdkClient {
     public ScrapOpenApi scrapOpenApi;
     public ScrapRecordOpenApi scrapRecordOpenApi;
     public ProduceTraceOpenApi produceTraceOpenApi;
+    public FlowCardOpenApi flowCardOpenApi;
 
     // sop
     public SopOpenV2OpenApi sopOpenV2OpenApi;

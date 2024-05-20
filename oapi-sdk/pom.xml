@@ -98,6 +98,10 @@
             <artifactId>mfg-domain-core-openapi</artifactId>
         </dependency>
         <dependency>
+            <groupId>tech.blacklake.dev.mfg</groupId>
+            <artifactId>mfg-domain-plugin-openapi</artifactId>
+        </dependency>
+        <dependency>
             <groupId>tech.blacklake.dev.weighing</groupId>
             <artifactId>weighing-domain-openapi</artifactId>
         </dependency>
