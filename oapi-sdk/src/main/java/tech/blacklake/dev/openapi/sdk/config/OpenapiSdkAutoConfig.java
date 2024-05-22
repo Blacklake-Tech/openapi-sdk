@@ -31,6 +31,9 @@ import tech.blacklake.dev.med.producedefine.openapi.v2.AlternativePlanV2OpenApi;
 import tech.blacklake.dev.med.producedefine.openapi.v2.BomV2OpenApi;
 import tech.blacklake.dev.med.producedefine.openapi.v2.ProcessRouteV2OpenApi;
 import tech.blacklake.dev.med.producedefine.openapi.v2.ProcessV2OpenApi;
+import tech.blacklake.dev.med.workorder.openapi.v1.PickOrderOpenApi;
+import tech.blacklake.dev.med.workorder.openapi.v1.ReplenishOrderOpenApi;
+import tech.blacklake.dev.med.workorder.openapi.v1.RetractOrderOpenApi;
 import tech.blacklake.dev.med.workorder.openapi.v2.ProcessPlanV2OpenApi;
 import tech.blacklake.dev.med.workorder.openapi.v2.WorkOrderV2OpenApi;
 import tech.blacklake.dev.metadata.openapi.api.CustomFieldOpenApi;
@@ -164,6 +167,9 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.processV2OpenApi = processV2OpenApi(config);
         blacklakeSdkClient.processPlanV2OpenApi = processPlanV2OpenApi(config);
         blacklakeSdkClient.workOrderV2OpenApi = workOrderV2OpenApi(config);
+        blacklakeSdkClient.pickOrderOpenApi = pickOrderOpenApi(config);
+        blacklakeSdkClient.replenishOrderOpenApi = replenishOrderOpenApi(config);
+        blacklakeSdkClient.retractOrderOpenApi = retractOrderOpenApi(config);
         // mfg
         blacklakeSdkClient.feedOpenApi = feedOpenApi(config);
         blacklakeSdkClient.feedRecordOpenApi = feedRecordOpenApi(config);
@@ -561,9 +567,9 @@ public class OpenapiSdkAutoConfig {
     private FlowCardOpenApi flowCardOpenApi(Config config) {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
         return feignClientBuilder
-            .forType(FlowCardOpenApi.class, "flowCardOpenApi")
-            .url(config.getBaseUrl() + ROUTE_URL + MFG_PREFIX)
-            .build();
+                .forType(FlowCardOpenApi.class, "flowCardOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + MFG_PREFIX)
+                .build();
     }
 
     private AlternativePlanOpenApi alternativePlanOpenApi(Config config) {
@@ -642,6 +648,30 @@ public class OpenapiSdkAutoConfig {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
         return feignClientBuilder
                 .forType(WorkOrderV2OpenApi.class, "workOrderV2OpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + MED_PREFIX)
+                .build();
+    }
+
+    private PickOrderOpenApi pickOrderOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(PickOrderOpenApi.class, "pickOrderOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + MED_PREFIX)
+                .build();
+    }
+
+    private RetractOrderOpenApi retractOrderOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(RetractOrderOpenApi.class, "retractOrderOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + MED_PREFIX)
+                .build();
+    }
+
+    private ReplenishOrderOpenApi replenishOrderOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(ReplenishOrderOpenApi.class, "replenishOrderOpenApi")
                 .url(config.getBaseUrl() + ROUTE_URL + MED_PREFIX)
                 .build();
     }
