@@ -25,6 +25,9 @@ import tech.blacklake.dev.med.producedefine.openapi.v2.AlternativePlanV2OpenApi;
 import tech.blacklake.dev.med.producedefine.openapi.v2.BomV2OpenApi;
 import tech.blacklake.dev.med.producedefine.openapi.v2.ProcessRouteV2OpenApi;
 import tech.blacklake.dev.med.producedefine.openapi.v2.ProcessV2OpenApi;
+import tech.blacklake.dev.med.workorder.openapi.v1.PickOrderOpenApi;
+import tech.blacklake.dev.med.workorder.openapi.v1.ReplenishOrderOpenApi;
+import tech.blacklake.dev.med.workorder.openapi.v1.RetractOrderOpenApi;
 import tech.blacklake.dev.med.workorder.openapi.v2.ProcessPlanV2OpenApi;
 import tech.blacklake.dev.med.workorder.openapi.v2.WorkOrderV2OpenApi;
 import tech.blacklake.dev.metadata.openapi.api.CustomFieldOpenApi;
@@ -171,6 +174,9 @@ public class BlacklakeSdkClient {
     public ProcessV2OpenApi processV2OpenApi;
     public ProcessPlanV2OpenApi processPlanV2OpenApi;
     public WorkOrderV2OpenApi workOrderV2OpenApi;
+    public PickOrderOpenApi pickOrderOpenApi;
+    public ReplenishOrderOpenApi replenishOrderOpenApi;
+    public RetractOrderOpenApi retractOrderOpenApi;
 
     // mfg
     public FeedOpenApi feedOpenApi;
