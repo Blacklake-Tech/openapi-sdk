@@ -48,7 +48,7 @@
         <order.version>1.0.0-SNAPSHOT</order.version>
         <supplychain.version>1.0.0-SNAPSHOT</supplychain.version>
         <report.version>8.4.1-RELEASE</report.version>
-        <e-report.version>8.4.1.1-RELEASE</e-report.version>
+        <e-report.version>8.4.1.2-RELEASE</e-report.version>
         <log.version>8.4.1.1-RELEASE</log.version>
         <metadata.version>8.4.1.1-RELEASE</metadata.version>
 
