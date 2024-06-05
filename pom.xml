@@ -29,7 +29,7 @@
 
         <med.version>8.4.1.2-RELEASE</med.version>
         <mfg.version>8.4.1.4-RELEASE</mfg.version>
-        <weighing.version>8.4.0-RELEASE</weighing.version>
+        <weighing.version>8.5.0.3-RELEASE</weighing.version>
         <resource.version>8.4.1-RELEASE</resource.version>
         <order.version>6.8.1-RELEASE</order.version>
         <quality.version>8.3.0-SNAPSHOT</quality.version>
