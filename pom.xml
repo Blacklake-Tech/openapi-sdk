@@ -54,8 +54,8 @@
     </properties>
 
     <modules>
-        <module>sdk</module>
-        <module>code-generator</module>
+<!--        <module>sdk</module>-->
+<!--        <module>code-generator</module>-->
         <module>oapi-sdk</module>
     </modules>
 
