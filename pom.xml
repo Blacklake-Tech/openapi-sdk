@@ -31,11 +31,11 @@
         <mfg.version>8.5.0.5-RELEASE</mfg.version>
         <weighing.version>8.5.0.3-RELEASE</weighing.version>
         <resource.version>8.5.0.1-RELEASE</resource.version>
-        <order.version>8.5.0.1-RELEASE</order.version>
+        <order.version>8.5.0.3-RELEASE</order.version>
         <quality.version>8.3.0-SNAPSHOT</quality.version>
         <workcenter.version>6.8.0-RELEASE</workcenter.version>
         <inventory.version>8.4.1.5-RELEASE</inventory.version>
-        <material.version>8.4.0-SNAPSHOT</material.version>
+        <material.version>8.4.0-RELEASE</material.version>
         <storage.version>6.7.0.2-RELEASE</storage.version>
         <customObject.version>8.5.0.1-RELEASE</customObject.version>
         <user.version>8.4.1.2-RELEASE</user.version>
