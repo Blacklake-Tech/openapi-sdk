@@ -27,17 +27,17 @@
         <lombok.version>1.18.12</lombok.version>
         <cglib.version>3.1</cglib.version>
 
-        <med.version>8.4.1.2-RELEASE</med.version>
-        <mfg.version>8.4.1.4-RELEASE</mfg.version>
-        <weighing.version>8.4.0-RELEASE</weighing.version>
-        <resource.version>8.4.1-RELEASE</resource.version>
-        <order.version>6.8.1-RELEASE</order.version>
+        <med.version>8.5.0.5-RELEASE</med.version>
+        <mfg.version>8.5.0.5-RELEASE</mfg.version>
+        <weighing.version>8.5.0.3-RELEASE</weighing.version>
+        <resource.version>8.5.0.1-RELEASE</resource.version>
+        <order.version>8.5.0.1-RELEASE</order.version>
         <quality.version>8.3.0-SNAPSHOT</quality.version>
         <workcenter.version>6.8.0-RELEASE</workcenter.version>
         <inventory.version>8.4.1.5-RELEASE</inventory.version>
         <material.version>8.4.0-SNAPSHOT</material.version>
         <storage.version>6.7.0.2-RELEASE</storage.version>
-        <customObject.version>8.4.1.1-RELEASE</customObject.version>
+        <customObject.version>8.5.0.1-RELEASE</customObject.version>
         <user.version>8.4.1.2-RELEASE</user.version>
         <sop.version>8.4.1-RELEASE</sop.version>
         <workercalendar.version>6.7.1-RELEASE</workercalendar.version>
@@ -45,12 +45,11 @@
         <plo.version>8.4.1-RELEASE</plo.version>
         <holyfile.version>7.7.0.4-RELEASE</holyfile.version>
         <openapi.version>7.7.0-RELEASE</openapi.version>
-        <order.version>1.0.0-SNAPSHOT</order.version>
         <supplychain.version>1.0.0-SNAPSHOT</supplychain.version>
-        <report.version>8.4.1-RELEASE</report.version>
-        <e-report.version>8.4.1.2-RELEASE</e-report.version>
-        <log.version>8.4.1.1-RELEASE</log.version>
-        <metadata.version>8.4.1.1-RELEASE</metadata.version>
+        <report.version>8.5.0.2-RELEASE</report.version>
+        <e-report.version>8.5.0.1-RELEASE</e-report.version>
+        <log.version>8.5.0.1-RELEASE</log.version>
+        <metadata.version>8.5.0.2-RELEASE</metadata.version>
 
     </properties>
 
