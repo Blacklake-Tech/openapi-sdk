@@ -37,7 +37,7 @@
         <inventory.version>8.4.1.5-RELEASE</inventory.version>
         <material.version>8.4.0-RELEASE</material.version>
         <storage.version>6.7.0.2-RELEASE</storage.version>
-        <customObject.version>8.5.0.1-RELEASE</customObject.version>
+        <customObject.version>8.5.0.2-RELEASE</customObject.version>
         <user.version>8.5.0.2-RELEASE</user.version>
         <sop.version>8.5.0.3-RELEASE</sop.version>
         <workercalendar.version>6.7.1-RELEASE</workercalendar.version>
