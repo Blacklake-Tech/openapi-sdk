@@ -36,6 +36,7 @@ public class Constants {
 
     public static final String MATERIAL_PREFIX = "/material";
 
+    public static final String STORAGE_PREFIX = "/storage";
     public static final String MED_PREFIX = "/med";
 
     public static final String MFG_PREFIX = "/mfg";
