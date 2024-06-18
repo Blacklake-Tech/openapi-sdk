@@ -912,7 +912,7 @@ public class OpenapiSdkAutoConfig {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
         return feignClientBuilder
                 .forType(StorageWarehouseOpenApi.class, "storageWarehouseOpenApi")
-                .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
+                .url(config.getBaseUrl() + ROUTE_URL + STORAGE_PREFIX)
                 .build();
     }
 
@@ -920,7 +920,7 @@ public class OpenapiSdkAutoConfig {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
         return feignClientBuilder
                 .forType(StorageLocationOpenApi.class, "storageLocationOpenApi")
-                .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
+                .url(config.getBaseUrl() + ROUTE_URL + STORAGE_PREFIX)
                 .build();
     }
 
@@ -928,7 +928,7 @@ public class OpenapiSdkAutoConfig {
         FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
         return feignClientBuilder
                 .forType(StorageAreaOpenApi.class, "storageAreaOpenApi")
-                .url(config.getBaseUrl() + ROUTE_URL + MATERIAL_PREFIX)
+                .url(config.getBaseUrl() + ROUTE_URL + STORAGE_PREFIX)
                 .build();
     }
 
