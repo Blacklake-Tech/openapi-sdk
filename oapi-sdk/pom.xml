@@ -6,7 +6,7 @@
     <parent>
         <artifactId>openapi-sdk-parent</artifactId>
         <groupId>tech.blacklake.dev.openapi</groupId>
-        <version>20240618.06-RELEASE</version>
+        <version>20240618.07-RELEASE</version>
     </parent>
 
     <artifactId>oapi-sdk</artifactId>
