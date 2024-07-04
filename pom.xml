@@ -12,7 +12,7 @@
 
     <groupId>tech.blacklake.dev.openapi</groupId>
     <artifactId>openapi-sdk-parent</artifactId>
-    <version>20240704.02-RELEASE</version>
+    <version>20240704.03-RELEASE</version>
     <packaging>pom</packaging>
     <name>${project.groupId}:${project.artifactId} (${project.version})</name>
 
@@ -45,7 +45,7 @@
         <plo.version>8.5.0-RELEASE</plo.version>
         <holyfile.version>7.7.0.4-RELEASE</holyfile.version>
         <openapi.version>7.7.0-RELEASE</openapi.version>
-        <supplychain.version>8.7.0.5-RELEASE</supplychain.version>
+        <supplychain.version>8.5.0.5-RELEASE</supplychain.version>
         <report.version>8.5.0.2-RELEASE</report.version>
         <e-report.version>8.5.0.1-RELEASE</e-report.version>
         <log.version>8.5.0.1-RELEASE</log.version>
