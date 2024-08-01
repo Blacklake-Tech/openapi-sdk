@@ -73,6 +73,7 @@ import tech.blacklake.dev.quality.api.open.domain.QcTaskOpenApi;
 import tech.blacklake.dev.report.domain.openapi.api.ReportOpenApi;
 import tech.blacklake.dev.report.domain.openapi.api.ReportOpenV2Api;
 import tech.blacklake.dev.report.domain.openapi.api.ReportOpenV3Api;
+import tech.blacklake.dev.report.domain.openapi.api.ReportTemplateOpenApi;
 import tech.blacklake.dev.resource.openapi.MaintenanceTaskOpenApi;
 import tech.blacklake.dev.resource.openapi.RepairTaskOpenApi;
 import tech.blacklake.dev.resource.openapi.ResourceLocationOpenApi;
@@ -210,6 +211,7 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.reportOpenApi = reportOpenApi(config);
         blacklakeSdkClient.reportOpenV2Api = reportOpenV2Api(config);
         blacklakeSdkClient.reportOpenV3Api = reportOpenV3Api(config);
+        blacklakeSdkClient.reportTemplateOpenApi = reportTemplateOpenApi(config);
         // custom-object-domain
         blacklakeSdkClient.customObjectOpenApi = customObjectOpenApi(config);
         blacklakeSdkClient.objectServiceOpenApi = objectServiceOpenApi(config);
@@ -269,6 +271,14 @@ public class OpenapiSdkAutoConfig {
         blacklakeSdkClient.roleOpenApi = roleOpenApi(config);
         /**** user-domain end********************/
         return blacklakeSdkClient;
+    }
+
+    private ReportTemplateOpenApi reportTemplateOpenApi(Config config) {
+        FeignClientBuilder feignClientBuilder = new FeignClientBuilder(this.applicationContext);
+        return feignClientBuilder
+                .forType(ReportTemplateOpenApi.class, "reportTemplateOpenApi")
+                .url(config.getBaseUrl() + ROUTE_URL + CUSTOM_OBJECT__PREFIX)
+                .build();
     }
 
     private CustomObjectinstanceOpenApi customObjectinstanceOpenApi(Config config) {

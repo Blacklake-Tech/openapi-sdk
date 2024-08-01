@@ -63,6 +63,7 @@ import tech.blacklake.dev.quality.api.open.domain.QcTaskOpenApi;
 import tech.blacklake.dev.report.domain.openapi.api.ReportOpenApi;
 import tech.blacklake.dev.report.domain.openapi.api.ReportOpenV2Api;
 import tech.blacklake.dev.report.domain.openapi.api.ReportOpenV3Api;
+import tech.blacklake.dev.report.domain.openapi.api.ReportTemplateOpenApi;
 import tech.blacklake.dev.resource.openapi.MaintenanceTaskOpenApi;
 import tech.blacklake.dev.resource.openapi.RepairTaskOpenApi;
 import tech.blacklake.dev.resource.openapi.ResourceLocationOpenApi;
@@ -221,6 +222,7 @@ public class BlacklakeSdkClient {
     public ReportOpenApi reportOpenApi;
     public ReportOpenV2Api reportOpenV2Api;
     public ReportOpenV3Api reportOpenV3Api;
+    public ReportTemplateOpenApi reportTemplateOpenApi;
 
     // custom-object-domain
     public CustomObjectOpenApi customObjectOpenApi;

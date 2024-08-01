@@ -37,7 +37,7 @@
         <inventory.version>8.7.0.7-RELEASE</inventory.version>
         <material.version>8.5.0.7-RELEASE</material.version>
         <storage.version>6.7.0.2-RELEASE</storage.version>
-        <customObject.version>8.7.0.5-RELEASE</customObject.version>
+        <customObject.version>8.7.0.6-RELEASE</customObject.version>
         <user.version>8.5.0.2-RELEASE</user.version>
         <sop.version>8.5.0.3-RELEASE</sop.version>
         <workercalendar.version>6.7.1-RELEASE</workercalendar.version>
@@ -46,7 +46,7 @@
         <holyfile.version>7.7.0.4-RELEASE</holyfile.version>
         <openapi.version>7.7.0-RELEASE</openapi.version>
         <supplychain.version>8.5.0.5-RELEASE</supplychain.version>
-        <report.version>8.5.0.2-RELEASE</report.version>
+        <report.version>8.7.0.6-RELEASE</report.version>
         <e-report.version>8.5.0.1-RELEASE</e-report.version>
         <log.version>8.5.0.1-RELEASE</log.version>
         <metadata.version>8.5.0.2-RELEASE</metadata.version>
