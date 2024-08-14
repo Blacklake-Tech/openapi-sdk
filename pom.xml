@@ -28,7 +28,7 @@
         <cglib.version>3.1</cglib.version>
 
         <med.version>8.7.0.9-RELEASE</med.version>
-        <mfg.version>8.7.0.7-RELEASE</mfg.version>
+        <mfg.version>8.8.0.5-RELEASE</mfg.version>
         <weighing.version>8.5.0.3-RELEASE</weighing.version>
         <resource.version>8.5.0.5-RELEASE</resource.version>
         <order.version>8.7.0.11-RELEASE</order.version>
