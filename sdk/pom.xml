@@ -5,7 +5,7 @@
     <parent>
         <artifactId>openapi-sdk-parent</artifactId>
         <groupId>tech.blacklake.dev.openapi</groupId>
-        <version>20240718.05-RELEASE</version>
+        <version>20240815.01-RELEASE</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
