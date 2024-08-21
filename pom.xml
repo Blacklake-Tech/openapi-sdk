@@ -23,7 +23,7 @@
         <jackson-databind.version>2.11.1</jackson-databind.version>
         <okhttp.version>3.14.9</okhttp.version>
         <swagger-annotation.version>1.5.13</swagger-annotation.version>
-        <logback-classic.version>1.2.3</logback-classic.version>
+        <logback-classic.version>1.2.13</logback-classic.version>
         <lombok.version>1.18.12</lombok.version>
         <cglib.version>3.1</cglib.version>
 
